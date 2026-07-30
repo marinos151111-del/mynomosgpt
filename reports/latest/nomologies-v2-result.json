@@ -1,13 +1,13 @@
 {
   "mode": "sections",
-  "runId": "1bbd5388-0a44-4c36-8aba-13dd1cc7dc4e",
+  "runId": "9b1979ce-5547-4abe-a275-07875281d9f2",
   "source": {
     "sourceId": "src_638bfe210152f2d6ea79f5d6",
     "sourceHash": "638bfe210152f2d6ea79f5d6c4cce5d1b090ca4eee24a32ccf60d050660edade",
     "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
     "sourceTitle": "Alexander Keith Edward v. Γεώργιου Αλεξάνδρου, από την Πάφο, ως διαχειριστή της περιουσίας της Αναστασίας Κώστα Αλεξάνδρου κ.α., ΠΟΛΙΤΙΚΗ ΕΦΕΣΗ ΑΡ. 30/2016, 12/1/2026",
     "sourceDatabase": "supreme_court",
-    "retrievedAt": "2026-07-30T20:04:42.993Z",
+    "retrievedAt": "2026-07-30T20:09:55.090Z",
     "charset": "windows-1253",
     "languageHint": "el",
     "originalHtml": "[omitted from artifact: 41291 characters]",
@@ -41,7 +41,7 @@
         "text": "ΠΑΓΚΥΠΡΙΟΣ ΔΙΚΗΓΟΡΙΚΟΣ ΣΥΛΛΟΓΟΣ",
         "startOffset": 175,
         "endOffset": 206,
-        "relativePosition": 0.009709,
+        "relativePosition": 0.011364,
         "parentBlockId": "B00002",
         "sourceLineStart": 4,
         "sourceLineEnd": 4,
@@ -62,7 +62,7 @@
         "text": "CyLaw |\n\t\t\t\t\t\t\tΑναφορικά μ'εμάς |\n\t\t\t\t\t\t\t\" target=\"_top\">Επικοινωνία |\n\t\t\t\t\t\t\tΌροι χρήσης",
         "startOffset": 216,
         "endOffset": 305,
-        "relativePosition": 0.019417,
+        "relativePosition": 0.022727,
         "parentBlockId": "B00003",
         "sourceLineStart": 7,
         "sourceLineEnd": 10,
@@ -83,7 +83,7 @@
         "text": "Έρευνα - Κατάλογος Αποφάσεων Νέου Ανωτάτου Δικαστηρίου - Εμφάνιση Αναφορών (Noteup on) - Αφαίρεση Υπογραμμίσεων",
         "startOffset": 312,
         "endOffset": 423,
-        "relativePosition": 0.029126,
+        "relativePosition": 0.034091,
         "parentBlockId": "B00004",
         "sourceLineStart": 13,
         "sourceLineEnd": 13,
@@ -104,7 +104,7 @@
         "text": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
         "startOffset": 426,
         "endOffset": 451,
-        "relativePosition": 0.038835,
+        "relativePosition": 0.045455,
         "parentBlockId": "B00005",
         "sourceLineStart": 16,
         "sourceLineEnd": 16,
@@ -125,7 +125,7 @@
         "text": "ΔΕΥΤΕΡΟΒΑΘΜΙΑ  ΔΙΚΑΙΟΔΟΣΙΑ",
         "startOffset": 454,
         "endOffset": 480,
-        "relativePosition": 0.048544,
+        "relativePosition": 0.056818,
         "parentBlockId": "B00006",
         "sourceLineStart": 19,
         "sourceLineEnd": 19,
@@ -146,7 +146,7 @@
         "text": "ΠΟΛΙΤΙΚΗ ΕΦΕΣΗ  ΑΡ. 30/2016",
         "startOffset": 483,
         "endOffset": 510,
-        "relativePosition": 0.058252,
+        "relativePosition": 0.068182,
         "parentBlockId": "B00007",
         "sourceLineStart": 22,
         "sourceLineEnd": 22,
@@ -167,7 +167,7 @@
         "text": "12 Ιανουαρίου 2026",
         "startOffset": 514,
         "endOffset": 532,
-        "relativePosition": 0.067961,
+        "relativePosition": 0.079545,
         "parentBlockId": "B00008",
         "sourceLineStart": 25,
         "sourceLineEnd": 25,
@@ -188,7 +188,7 @@
         "text": "[Χ. ΜΑΛΑΧΤΟΣ, Ι.  ΙΩΑΝΝΙΔΗΣ, E. ΕΦΡΑΙΜ, ΔΔ]",
         "startOffset": 535,
         "endOffset": 578,
-        "relativePosition": 0.07767,
+        "relativePosition": 0.090909,
         "parentBlockId": "B00009",
         "sourceLineStart": 28,
         "sourceLineEnd": 28,
@@ -209,7 +209,7 @@
         "text": "Alexander Keith Edward,",
         "startOffset": 581,
         "endOffset": 604,
-        "relativePosition": 0.087379,
+        "relativePosition": 0.102273,
         "parentBlockId": "B00010",
         "sourceLineStart": 31,
         "sourceLineEnd": 31,
@@ -230,7 +230,7 @@
         "text": "Εφεσείων,",
         "startOffset": 607,
         "endOffset": 616,
-        "relativePosition": 0.097087,
+        "relativePosition": 0.113636,
         "parentBlockId": "B00011",
         "sourceLineStart": 34,
         "sourceLineEnd": 34,
@@ -251,7 +251,7 @@
         "text": "ν.",
         "startOffset": 619,
         "endOffset": 621,
-        "relativePosition": 0.106796,
+        "relativePosition": 0.125,
         "parentBlockId": "B00012",
         "sourceLineStart": 37,
         "sourceLineEnd": 37,
@@ -272,7 +272,7 @@
         "text": "1.  Αναστασίας Κώστα Αλεξάνδρου,",
         "startOffset": 624,
         "endOffset": 656,
-        "relativePosition": 0.116505,
+        "relativePosition": 0.136364,
         "parentBlockId": "B00013",
         "sourceLineStart": 40,
         "sourceLineEnd": 40,
@@ -293,7 +293,7 @@
         "text": "2. Χαριτίνης Λαζάρου Σάββα,",
         "startOffset": 659,
         "endOffset": 686,
-        "relativePosition": 0.126214,
+        "relativePosition": 0.147727,
         "parentBlockId": "B00014",
         "sourceLineStart": 43,
         "sourceLineEnd": 43,
@@ -314,7 +314,7 @@
         "text": "Εφεσίβλητων.",
         "startOffset": 689,
         "endOffset": 701,
-        "relativePosition": 0.135922,
+        "relativePosition": 0.159091,
         "parentBlockId": "B00015",
         "sourceLineStart": 46,
         "sourceLineEnd": 46,
@@ -335,7 +335,7 @@
         "text": "Και όπως τροποποιήθηκε με Διάταγμα ημερ.15.1.2025",
         "startOffset": 704,
         "endOffset": 753,
-        "relativePosition": 0.145631,
+        "relativePosition": 0.170455,
         "parentBlockId": "B00016",
         "sourceLineStart": 49,
         "sourceLineEnd": 49,
@@ -356,7 +356,7 @@
         "text": "Alexander Keith Edward,",
         "startOffset": 756,
         "endOffset": 779,
-        "relativePosition": 0.15534,
+        "relativePosition": 0.181818,
         "parentBlockId": "B00017",
         "sourceLineStart": 52,
         "sourceLineEnd": 52,
@@ -377,7 +377,7 @@
         "text": "Εφεσείων,",
         "startOffset": 782,
         "endOffset": 791,
-        "relativePosition": 0.165049,
+        "relativePosition": 0.193182,
         "parentBlockId": "B00018",
         "sourceLineStart": 55,
         "sourceLineEnd": 55,
@@ -398,7 +398,7 @@
         "text": "ν.",
         "startOffset": 794,
         "endOffset": 796,
-        "relativePosition": 0.174757,
+        "relativePosition": 0.204545,
         "parentBlockId": "B00019",
         "sourceLineStart": 58,
         "sourceLineEnd": 58,
@@ -419,7 +419,7 @@
         "text": "1.  Γεώργιου Αλεξάνδρου, από την Πάφο, ως  διαχειριστή της περιουσίας της Αναστασίας Κώστα Αλεξάνδρου,",
         "startOffset": 799,
         "endOffset": 901,
-        "relativePosition": 0.184466,
+        "relativePosition": 0.215909,
         "parentBlockId": "B00020",
         "sourceLineStart": 61,
         "sourceLineEnd": 61,
@@ -440,7 +440,7 @@
         "text": "2. Χρίστου Σιμιλλίδη από την Πάφο, ως  διαχειριστή της περιουσίας της Χαριτίνης Λαζάρου Σάββα,",
         "startOffset": 904,
         "endOffset": 998,
-        "relativePosition": 0.194175,
+        "relativePosition": 0.227273,
         "parentBlockId": "B00021",
         "sourceLineStart": 64,
         "sourceLineEnd": 64,
@@ -461,7 +461,7 @@
         "text": "3. Νατάσας Εστέλλας Αλεξάνδρου, από την Πάφο,  και τώρα στην Αυστραλία.",
         "startOffset": 1001,
         "endOffset": 1072,
-        "relativePosition": 0.203883,
+        "relativePosition": 0.238636,
         "parentBlockId": "B00022",
         "sourceLineStart": 67,
         "sourceLineEnd": 67,
@@ -482,7 +482,7 @@
         "text": "Εφεσίβλητων.",
         "startOffset": 1075,
         "endOffset": 1087,
-        "relativePosition": 0.213592,
+        "relativePosition": 0.25,
         "parentBlockId": "B00023",
         "sourceLineStart": 70,
         "sourceLineEnd": 70,
@@ -503,7 +503,7 @@
         "text": "____________________",
         "startOffset": 1090,
         "endOffset": 1110,
-        "relativePosition": 0.223301,
+        "relativePosition": 0.261364,
         "parentBlockId": "B00024",
         "sourceLineStart": 73,
         "sourceLineEnd": 73,
@@ -524,7 +524,7 @@
         "text": "Π.  Ευθυμίου για Παύλος Γ. Ευθυμίου Δ.Ε.Π.Ε., για  τον Εφεσείοντα.",
         "startOffset": 1113,
         "endOffset": 1179,
-        "relativePosition": 0.23301,
+        "relativePosition": 0.272727,
         "parentBlockId": "B00025",
         "sourceLineStart": 76,
         "sourceLineEnd": 76,
@@ -545,7 +545,7 @@
         "text": "Ε.  Κορακίδης με Λ. Κορακίδη για Επαμεινώνδας Κορακίδης Δ.Ε.Π.Ε.,  για τους Εφεσίβλητους 1 και 3.",
         "startOffset": 1182,
         "endOffset": 1279,
-        "relativePosition": 0.242718,
+        "relativePosition": 0.284091,
         "parentBlockId": "B00026",
         "sourceLineStart": 79,
         "sourceLineEnd": 79,
@@ -566,7 +566,7 @@
         "text": "Καμιά  εμφάνιση, για τον Εφεσίβλητο 2.",
         "startOffset": 1282,
         "endOffset": 1320,
-        "relativePosition": 0.252427,
+        "relativePosition": 0.295455,
         "parentBlockId": "B00027",
         "sourceLineStart": 82,
         "sourceLineEnd": 82,
@@ -587,7 +587,7 @@
         "text": "____________________",
         "startOffset": 1323,
         "endOffset": 1343,
-        "relativePosition": 0.262136,
+        "relativePosition": 0.306818,
         "parentBlockId": "B00028",
         "sourceLineStart": 85,
         "sourceLineEnd": 85,
@@ -608,7 +608,7 @@
         "text": "Η απόφαση του Δικαστηρίου είναι ομόφωνη και θα  δοθεί από τον Μαλαχτό, Δ.",
         "startOffset": 1346,
         "endOffset": 1419,
-        "relativePosition": 0.271845,
+        "relativePosition": 0.318182,
         "parentBlockId": "B00029",
         "sourceLineStart": 88,
         "sourceLineEnd": 88,
@@ -629,7 +629,7 @@
         "text": "____________________",
         "startOffset": 1422,
         "endOffset": 1442,
-        "relativePosition": 0.281553,
+        "relativePosition": 0.329545,
         "parentBlockId": "B00030",
         "sourceLineStart": 91,
         "sourceLineEnd": 91,
@@ -650,7 +650,7 @@
         "text": "Α Π Ο Φ Α Σ Η",
         "startOffset": 1445,
         "endOffset": 1458,
-        "relativePosition": 0.291262,
+        "relativePosition": 0.340909,
         "parentBlockId": "B00031",
         "sourceLineStart": 94,
         "sourceLineEnd": 94,
@@ -668,12 +668,12 @@
       {
         "id": "P000032",
         "ordinal": 32,
-        "text": "ΜΑΛΑΧΤΟΣ, Δ.:  Αντικείμενο  της έφεσης αποτελεί η κυριότητα μέρους ενός τεμαχίου στην Κοίλη της επαρχίας  Πάφου.  Το διαφιλονικούμενο μέρος βρίσκεται στην ανατολική πλευρά του τεμαχίου  και έχει μεγάλη υψομετρική διαφορά από το υπόλοιπο μέρος του.",
-        "startOffset": 1461,
-        "endOffset": 1708,
-        "relativePosition": 0.300971,
+        "text": "ΜΑΛΑΧΤΟΣ, Δ.:  Αντικείμενο  της έφεσης αποτελεί η κυριότητα μέρους ενός τεμαχίου στην Κοίλη της επαρχίας  Πάφου. Το διαφιλονικούμενο μέρος βρίσκεται στην ανατολική πλευρά του τεμαχίου  και έχει μεγάλη υψομετρική διαφορά από το υπόλοιπο μέρος του.",
+        "startOffset": 1458,
+        "endOffset": 1704,
+        "relativePosition": 0.352273,
         "parentBlockId": "B00032",
-        "sourceLineStart": 97,
+        "sourceLineStart": 94,
         "sourceLineEnd": 97,
         "formatting": {
           "bold": false,
@@ -692,7 +692,7 @@
         "text": "Το επίδικο τεμάχιο ήταν το 1923  καταχωρημένο για φορολογικούς σκοπούς σε τρία πρόσωπα, τους Σταυρινό Νεοφύτου,  Γιάννη Νεοφύτου και Παναγιώτα Αργυρού.",
         "startOffset": 1711,
         "endOffset": 1862,
-        "relativePosition": 0.31068,
+        "relativePosition": 0.363636,
         "parentBlockId": "B00033",
         "sourceLineStart": 100,
         "sourceLineEnd": 100,
@@ -710,10 +710,10 @@
       {
         "id": "P000034",
         "ordinal": 34,
-        "text": "Η Παναγιώτα απεβίωσε το 1943 και, το  1963, ο υιός της, Γεώργιος Χαραλάμπους, δυνάμει χρησικτησίας, πέτυχε εγγραφή  στο όνομα του του 1/3 μεριδίου του τεμαχίου.",
-        "startOffset": 1864,
-        "endOffset": 2024,
-        "relativePosition": 0.320388,
+        "text": "Η Παναγιώτα απεβίωσε το 1943 και, το  1963, ο υιός της, Γεώργιος Χαραλάμπους, δυνάμει χρησικτησίας, πέτυχε εγγραφή  στο όνομα του του 1/3 μεριδίου του τεμαχίου. Αργότερα μεταβίβασε το μερίδιο αυτό  δυνάμει δωρεάς στην Χαριτίνη Λαζάρου Σάββα.",
+        "startOffset": 1862,
+        "endOffset": 2103,
+        "relativePosition": 0.375,
         "parentBlockId": "B00033",
         "sourceLineStart": 100,
         "sourceLineEnd": 100,
@@ -721,7 +721,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.034,
+          "uppercaseRatio": 0.043,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -731,31 +731,10 @@
       {
         "id": "P000035",
         "ordinal": 35,
-        "text": "Αργότερα μεταβίβασε το μερίδιο αυτό  δυνάμει δωρεάς στην Χαριτίνη Λαζάρου Σάββα.",
-        "startOffset": 2026,
-        "endOffset": 2106,
-        "relativePosition": 0.330097,
-        "parentBlockId": "B00033",
-        "sourceLineStart": 100,
-        "sourceLineEnd": 100,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.059,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000036",
-        "ordinal": 36,
         "text": "Το 1972 η Νεοφύτα Ιωάννου Ρούσου, μητέρα  της Χαριτίνης, δυνάμει χρησικτησίας,  πέτυχε και αυτή εγγραφή στο όνομα της 1/3  μεριδίου του τεμαχίου, το οποίο  στη συνέχεια μεταβίβασε δυνάμει δωρεάς στην  Χαριτίνη.",
         "startOffset": 2108,
         "endOffset": 2318,
-        "relativePosition": 0.339806,
+        "relativePosition": 0.386364,
         "parentBlockId": "B00033",
         "sourceLineStart": 100,
         "sourceLineEnd": 100,
@@ -771,54 +750,33 @@
         }
       },
       {
+        "id": "P000036",
+        "ordinal": 36,
+        "text": "Η Χαριτίνη είχε πλέον τα 2/3 μερίδια του τεμαχίου, όταν στις 5.11.2001  δυνάμει χρησικτησίας, πέτυχε εγγραφή στο όνομα της και του υπόλοιπου 1/3  μεριδίου του τεμαχίου και κατέστη η εγγεγραμμένη ιδιοκτήτρια του όλου. Σύντομα  μετά, πώλησε ολόκληρο το τεμάχιο στον Εφεσείοντα.",
+        "startOffset": 2318,
+        "endOffset": 2593,
+        "relativePosition": 0.397727,
+        "parentBlockId": "B00033",
+        "sourceLineStart": 100,
+        "sourceLineEnd": 100,
+        "formatting": {
+          "bold": false,
+          "italic": false,
+          "centered": false,
+          "uppercaseRatio": 0.019,
+          "headingCandidate": false,
+          "listCandidate": false,
+          "paragraphNumber": "",
+          "htmlPath": ""
+        }
+      },
+      {
         "id": "P000037",
         "ordinal": 37,
-        "text": "Η Χαριτίνη είχε πλέον τα 2/3 μερίδια του τεμαχίου, όταν στις 5.11.2001  δυνάμει χρησικτησίας, πέτυχε εγγραφή στο όνομα της και του υπόλοιπου 1/3  μεριδίου του τεμαχίου και κατέστη η εγγεγραμμένη ιδιοκτήτρια του όλου.",
-        "startOffset": 2320,
-        "endOffset": 2536,
-        "relativePosition": 0.349515,
-        "parentBlockId": "B00033",
-        "sourceLineStart": 100,
-        "sourceLineEnd": 100,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.012,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000038",
-        "ordinal": 38,
-        "text": "Σύντομα  μετά, πώλησε ολόκληρο το τεμάχιο στον Εφεσείοντα.",
-        "startOffset": 2538,
-        "endOffset": 2596,
-        "relativePosition": 0.359223,
-        "parentBlockId": "B00033",
-        "sourceLineStart": 100,
-        "sourceLineEnd": 100,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.042,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000039",
-        "ordinal": 39,
         "text": "Η μεταβίβαση στο όνομα του  τελευταίου έγινε στις 24.11.2002.",
         "startOffset": 2598,
         "endOffset": 2659,
-        "relativePosition": 0.368932,
+        "relativePosition": 0.409091,
         "parentBlockId": "B00033",
         "sourceLineStart": 100,
         "sourceLineEnd": 100,
@@ -834,12 +792,12 @@
         }
       },
       {
-        "id": "P000040",
-        "ordinal": 40,
-        "text": "Με την αγωγή που καταχώρισε το 2003  εναντίον της Χαριτίνης και του Εφεσείοντα, η Αναστασία Κώστα Αλεξάνδρου  διεκδίκησε το διαφιλονικούμενο μέρος, επικαλούμενη ότι το κατείχε αδιαλείπτως  από το 1953 και ότι η εγγραφή του μέρους αυτού στο όνομα της Χαριτίνης το 2001  ήταν εσφαλμένη.  Η αγωγή της στέφθηκε με επιτυχία.",
+        "id": "P000038",
+        "ordinal": 38,
+        "text": "Με την αγωγή που καταχώρισε το 2003  εναντίον της Χαριτίνης και του Εφεσείοντα, η Αναστασία Κώστα Αλεξάνδρου  διεκδίκησε το διαφιλονικούμενο μέρος, επικαλούμενη ότι το κατείχε αδιαλείπτως  από το 1953 και ότι η εγγραφή του μέρους αυτού στο όνομα της Χαριτίνης το 2001  ήταν εσφαλμένη.",
         "startOffset": 2662,
-        "endOffset": 2981,
-        "relativePosition": 0.378641,
+        "endOffset": 2946,
+        "relativePosition": 0.420455,
         "parentBlockId": "B00034",
         "sourceLineStart": 103,
         "sourceLineEnd": 103,
@@ -855,12 +813,33 @@
         }
       },
       {
-        "id": "P000041",
-        "ordinal": 41,
-        "text": "Η Χαριτίνη, έχει αποβιώσει και ο  Εφεσίβλητος 2 είναι ο διαχειριστής της περιουσίας της. Η Αναστασία, επίσης έχει  αποβιώσει και ο Εφεσίβλητος 1 είναι ο διαχειριστής της περιουσίας της.  Η  Εφεσίβλητη 3 είναι εγγονή της Αναστασίας προς την οποία μετά την πρωτόδικη  απόφαση και προτού αποβιώσει, η Αναστασία μεταβίβασε τον καρπό της επιτυχίας  της.",
+        "id": "P000039",
+        "ordinal": 39,
+        "text": "Η αγωγή της στέφθηκε με επιτυχία.",
+        "startOffset": 2948,
+        "endOffset": 2981,
+        "relativePosition": 0.431818,
+        "parentBlockId": "B00034",
+        "sourceLineStart": 103,
+        "sourceLineEnd": 103,
+        "formatting": {
+          "bold": false,
+          "italic": false,
+          "centered": false,
+          "uppercaseRatio": 0.037,
+          "headingCandidate": false,
+          "listCandidate": false,
+          "paragraphNumber": "",
+          "htmlPath": ""
+        }
+      },
+      {
+        "id": "P000040",
+        "ordinal": 40,
+        "text": "Η Χαριτίνη, έχει αποβιώσει και ο  Εφεσίβλητος 2 είναι ο διαχειριστής της περιουσίας της.",
         "startOffset": 2984,
-        "endOffset": 3332,
-        "relativePosition": 0.38835,
+        "endOffset": 3072,
+        "relativePosition": 0.443182,
         "parentBlockId": "B00035",
         "sourceLineStart": 106,
         "sourceLineEnd": 106,
@@ -868,7 +847,28 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.036,
+          "uppercaseRatio": 0.042,
+          "headingCandidate": false,
+          "listCandidate": false,
+          "paragraphNumber": "",
+          "htmlPath": ""
+        }
+      },
+      {
+        "id": "P000041",
+        "ordinal": 41,
+        "text": "Η Αναστασία, επίσης έχει  αποβιώσει και ο Εφεσίβλητος 1 είναι ο διαχειριστής της περιουσίας της.",
+        "startOffset": 3073,
+        "endOffset": 3169,
+        "relativePosition": 0.454545,
+        "parentBlockId": "B00035",
+        "sourceLineStart": 106,
+        "sourceLineEnd": 106,
+        "formatting": {
+          "bold": false,
+          "italic": false,
+          "centered": false,
+          "uppercaseRatio": 0.038,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -878,10 +878,31 @@
       {
         "id": "P000042",
         "ordinal": 42,
+        "text": "Η  Εφεσίβλητη 3 είναι εγγονή της Αναστασίας προς την οποία μετά την πρωτόδικη  απόφαση και προτού αποβιώσει, η Αναστασία μεταβίβασε τον καρπό της επιτυχίας  της.",
+        "startOffset": 3171,
+        "endOffset": 3332,
+        "relativePosition": 0.465909,
+        "parentBlockId": "B00035",
+        "sourceLineStart": 106,
+        "sourceLineEnd": 106,
+        "formatting": {
+          "bold": false,
+          "italic": false,
+          "centered": false,
+          "uppercaseRatio": 0.031,
+          "headingCandidate": false,
+          "listCandidate": false,
+          "paragraphNumber": "",
+          "htmlPath": ""
+        }
+      },
+      {
+        "id": "P000043",
+        "ordinal": 43,
         "text": "Η απόδειξη εχθρικής κατοχής μέρους τεμαχίου  σημαίνει ότι ο κατέχων δικαιούται να εγγραφεί ως ιδιοκτήτης του μέρους.",
         "startOffset": 3335,
         "endOffset": 3451,
-        "relativePosition": 0.398058,
+        "relativePosition": 0.477273,
         "parentBlockId": "B00036",
         "sourceLineStart": 109,
         "sourceLineEnd": 109,
@@ -897,33 +918,12 @@
         }
       },
       {
-        "id": "P000043",
-        "ordinal": 43,
+        "id": "P000044",
+        "ordinal": 44,
         "text": "Η  εγγραφή μεριδίου, έστω σε ποσοστό μεριδίου που ισοδυναμεί στο ποσοστό του  τεμαχίου που κατέχει επί του εδάφους σημαίνει κάτι διαφορετικό, δηλαδή ιδιοκτησία  εξ αδιαιρέτου μεριδίου του όλου.",
         "startOffset": 3453,
         "endOffset": 3646,
-        "relativePosition": 0.407767,
-        "parentBlockId": "B00036",
-        "sourceLineStart": 109,
-        "sourceLineEnd": 109,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.006,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000044",
-        "ordinal": 44,
-        "text": "Εν προκειμένω, η έκταση του διαφιλονικούμενου  μέρους επί του εδάφους, όπως καθοριζόταν από το φυσικό διαχωρισμό, δηλαδή την  υψομετρική διαφορά, ήταν 904 τ.μ., ενώ το 1/3 της έκτασης του όλου, που ήταν  2007 τ.μ., ήταν μόλις 669 τ.μ..",
-        "startOffset": 3648,
-        "endOffset": 3883,
-        "relativePosition": 0.417476,
+        "relativePosition": 0.488636,
         "parentBlockId": "B00036",
         "sourceLineStart": 109,
         "sourceLineEnd": 109,
@@ -941,10 +941,10 @@
       {
         "id": "P000045",
         "ordinal": 45,
-        "text": "Η αγωγή αφορούσε 904 τ.μ., αλλά αναφερόταν σε  εσφαλμένη εγγραφή στο όνομα της Χαριτίνης το 2001.",
-        "startOffset": 3885,
-        "endOffset": 3982,
-        "relativePosition": 0.427184,
+        "text": "Εν προκειμένω, η έκταση του διαφιλονικούμενου  μέρους επί του εδάφους, όπως καθοριζόταν από το φυσικό διαχωρισμό, δηλαδή την  υψομετρική διαφορά, ήταν 904 τ.μ., ενώ το 1/3 της έκτασης του όλου, που ήταν  2007 τ.μ., ήταν μόλις 669 τ.μ..",
+        "startOffset": 3648,
+        "endOffset": 3883,
+        "relativePosition": 0.5,
         "parentBlockId": "B00036",
         "sourceLineStart": 109,
         "sourceLineEnd": 109,
@@ -952,7 +952,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.029,
+          "uppercaseRatio": 0.006,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -962,10 +962,10 @@
       {
         "id": "P000046",
         "ordinal": 46,
-        "text": "Δεν αμφισβητούνταν οι δύο  προηγούμενες εγγραφές, που κατέληξαν στη μεταβίβαση των 2/3 μεριδίων του  τεμαχίου στην Χαριτίνη.",
-        "startOffset": 3984,
-        "endOffset": 4108,
-        "relativePosition": 0.436893,
+        "text": "Η αγωγή αφορούσε 904 τ.μ., αλλά αναφερόταν σε  εσφαλμένη εγγραφή στο όνομα της Χαριτίνης το 2001. Δεν αμφισβητούνταν οι δύο  προηγούμενες εγγραφές, που κατέληξαν στη μεταβίβαση των 2/3 μεριδίων του  τεμαχίου στην Χαριτίνη.",
+        "startOffset": 3883,
+        "endOffset": 4105,
+        "relativePosition": 0.511364,
         "parentBlockId": "B00036",
         "sourceLineStart": 109,
         "sourceLineEnd": 109,
@@ -973,7 +973,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.02,
+          "uppercaseRatio": 0.023,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -983,10 +983,10 @@
       {
         "id": "P000047",
         "ordinal": 47,
-        "text": "Με την πρωτόδικη απόφαση διατάχτηκε η  ακύρωση της εγγραφής του 2001 και η μεταβίβαση του αντίστοιχου 1/3 μεριδίου του  τεμαχίου στον Εφεσείοντα.  Διατάχτηκε η εγγραφή στο όνομα της Αναστασίας του μέρους  αυτού του τεμαχίου, όπως η έκταση αυτή ήταν καθορισμένη σε σχέδιο που είχε  καταχωριστεί στη δίκη και ήταν εμβαδού 669τ.μ..",
+        "text": "Με την πρωτόδικη απόφαση διατάχτηκε η  ακύρωση της εγγραφής του 2001 και η μεταβίβαση του αντίστοιχου 1/3 μεριδίου του  τεμαχίου στον Εφεσείοντα.",
         "startOffset": 4111,
-        "endOffset": 4439,
-        "relativePosition": 0.446602,
+        "endOffset": 4256,
+        "relativePosition": 0.522727,
         "parentBlockId": "B00037",
         "sourceLineStart": 112,
         "sourceLineEnd": 112,
@@ -994,7 +994,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.016,
+          "uppercaseRatio": 0.018,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1004,18 +1004,18 @@
       {
         "id": "P000048",
         "ordinal": 48,
-        "text": "Την εγγραφή το 2001, η Χαριτίνη είχε  πετύχει στη βάση Πιστοποιητικού της Κοινοτικής Αρχής Κοίλης, ημερ.7.5.2001, στο  οποίο αναφερόταν ότι η Χαριτίνη «κατέχει νόμιμα και αδιαφιλονίκητα προίκα  από τη Μητέρα της για περίοδο πέραν των 30 ετών το τεμάχιο».",
-        "startOffset": 4442,
-        "endOffset": 4696,
-        "relativePosition": 0.456311,
-        "parentBlockId": "B00038",
-        "sourceLineStart": 115,
-        "sourceLineEnd": 115,
+        "text": "Διατάχτηκε η εγγραφή στο όνομα της Αναστασίας του μέρους  αυτού του τεμαχίου, όπως η έκταση αυτή ήταν καθορισμένη σε σχέδιο που είχε  καταχωριστεί στη δίκη και ήταν εμβαδού 669τ.μ..",
+        "startOffset": 4258,
+        "endOffset": 4439,
+        "relativePosition": 0.534091,
+        "parentBlockId": "B00037",
+        "sourceLineStart": 112,
+        "sourceLineEnd": 112,
         "formatting": {
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.042,
+          "uppercaseRatio": 0.014,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1025,18 +1025,18 @@
       {
         "id": "P000049",
         "ordinal": 49,
-        "text": "Το  Πιστοποιητικό υπογράφετο από τον Κοινοτάρχη και δύο μέλη του Κοινοτικού Συμβουλίου  Κοίλης.",
-        "startOffset": 4698,
-        "endOffset": 4793,
-        "relativePosition": 0.466019,
+        "text": "Την εγγραφή το 2001, η Χαριτίνη είχε  πετύχει στη βάση Πιστοποιητικού της Κοινοτικής Αρχής Κοίλης, ημερ.7.5.2001, στο  οποίο αναφερόταν ότι η Χαριτίνη «κατέχει νόμιμα και αδιαφιλονίκητα προίκα  από τη Μητέρα της για περίοδο πέραν των 30 ετών το τεμάχιο». Το  Πιστοποιητικό υπογράφετο από τον Κοινοτάρχη και δύο μέλη του Κοινοτικού Συμβουλίου  Κοίλης. Από αυτούς, μαρτυρία κατά τη δίκη έδωσε μόνο ο Κοινοτάρχης.",
+        "startOffset": 4439,
+        "endOffset": 4849,
+        "relativePosition": 0.545455,
         "parentBlockId": "B00038",
-        "sourceLineStart": 115,
+        "sourceLineStart": 112,
         "sourceLineEnd": 115,
         "formatting": {
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.075,
+          "uppercaseRatio": 0.05,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1046,31 +1046,10 @@
       {
         "id": "P000050",
         "ordinal": 50,
-        "text": "Από αυτούς, μαρτυρία κατά τη δίκη έδωσε μόνο ο Κοινοτάρχης.",
-        "startOffset": 4795,
-        "endOffset": 4854,
-        "relativePosition": 0.475728,
-        "parentBlockId": "B00038",
-        "sourceLineStart": 115,
-        "sourceLineEnd": 115,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.042,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000051",
-        "ordinal": 51,
         "text": "Το πρωτόδικο Δικαστήριο απέρριψε τη  μαρτυρία του Κοινοτάρχη.",
         "startOffset": 4857,
         "endOffset": 4918,
-        "relativePosition": 0.485437,
+        "relativePosition": 0.556818,
         "parentBlockId": "B00039",
         "sourceLineStart": 118,
         "sourceLineEnd": 118,
@@ -1086,12 +1065,12 @@
         }
       },
       {
-        "id": "P000052",
-        "ordinal": 52,
+        "id": "P000051",
+        "ordinal": 51,
         "text": "Έκρινε ότι αυτός δεν ήταν σε θέση να επιβεβαιώσει όσα  αναφέρονταν στο Πιστοποιητικό ημερ.7.5.2001, επί του οποίου βασίστηκε η εγγραφή  του τελευταίου 1/3 μεριδίου του τεμαχίου στο όνομα της Χαριτίνης.",
         "startOffset": 4920,
         "endOffset": 5121,
-        "relativePosition": 0.495146,
+        "relativePosition": 0.568182,
         "parentBlockId": "B00039",
         "sourceLineStart": 118,
         "sourceLineEnd": 118,
@@ -1107,12 +1086,12 @@
         }
       },
       {
-        "id": "P000053",
-        "ordinal": 53,
+        "id": "P000052",
+        "ordinal": 52,
         "text": "Η απόρριψη  της μαρτυρίας του Κοινοτάρχη, μέρους ως μη αποδεχτής και μέρους ως  αναξιόπιστης, προσβάλλεται ως εσφαλμένη με το λόγο έφεσης 1.",
         "startOffset": 5122,
         "endOffset": 5262,
-        "relativePosition": 0.504854,
+        "relativePosition": 0.579545,
         "parentBlockId": "B00039",
         "sourceLineStart": 118,
         "sourceLineEnd": 118,
@@ -1128,12 +1107,12 @@
         }
       },
       {
-        "id": "P000054",
-        "ordinal": 54,
+        "id": "P000053",
+        "ordinal": 53,
         "text": "Με το λόγο έφεσης  2 προσβάλλεται ως εσφαλμένη η αποδοχή της μαρτυρίας της Εφεσίβλητης 1, ότι  κατείχε το επίδικο μέρος από το 1953 και ότι η εγγραφή στο όνομα της Χαριτίνης,  δεν είχε επιτευχθεί στη βάση αληθινών και πραγματικών γεγονότων.",
         "startOffset": 5264,
         "endOffset": 5504,
-        "relativePosition": 0.514563,
+        "relativePosition": 0.590909,
         "parentBlockId": "B00039",
         "sourceLineStart": 118,
         "sourceLineEnd": 118,
@@ -1149,12 +1128,12 @@
         }
       },
       {
-        "id": "P000055",
-        "ordinal": 55,
+        "id": "P000054",
+        "ordinal": 54,
         "text": "Προέχει, όμως, η εξέταση του λόγου έφεσης  3, ότι το πρωτόδικο Δικαστήριο εσφαλμένα δεν προέβη σε σχετικό εύρημα, ως προς  τη θέση του Εφεσείοντα ότι η Εφεσίβλητη 1 εμποδιζόταν από τη συμπεριφορά της να  διεκδικεί το επίδικο μέρος, εφόσον δεν είχε υποβάλει ένσταση στη διαδικασία που  ακολουθήθηκε στο Κτηματολόγιο για την εγγραφή του στο όνομα της Χαριτίνης.",
         "startOffset": 5507,
         "endOffset": 5866,
-        "relativePosition": 0.524272,
+        "relativePosition": 0.602273,
         "parentBlockId": "B00040",
         "sourceLineStart": 121,
         "sourceLineEnd": 121,
@@ -1170,12 +1149,12 @@
         }
       },
       {
-        "id": "P000056",
-        "ordinal": 56,
+        "id": "P000055",
+        "ordinal": 55,
         "text": "Ο  Εφεσείων δεν υποστήριξε τη θέση του αυτή με παραπομπή στο νόμο ή τη νομολογία.",
         "startOffset": 5868,
         "endOffset": 5949,
-        "relativePosition": 0.533981,
+        "relativePosition": 0.613636,
         "parentBlockId": "B00040",
         "sourceLineStart": 121,
         "sourceLineEnd": 121,
@@ -1191,12 +1170,12 @@
         }
       },
       {
-        "id": "P000057",
-        "ordinal": 57,
+        "id": "P000056",
+        "ordinal": 56,
         "text": "Πρόκειται για θέση αβάσιμη.",
         "startOffset": 5952,
         "endOffset": 5979,
-        "relativePosition": 0.543689,
+        "relativePosition": 0.625,
         "parentBlockId": "B00041",
         "sourceLineStart": 124,
         "sourceLineEnd": 124,
@@ -1212,12 +1191,12 @@
         }
       },
       {
-        "id": "P000058",
-        "ordinal": 58,
+        "id": "P000057",
+        "ordinal": 57,
         "text": "Τέτοιο κώλυμα  δεν υφίσταται.",
         "startOffset": 5981,
         "endOffset": 6010,
-        "relativePosition": 0.553398,
+        "relativePosition": 0.636364,
         "parentBlockId": "B00041",
         "sourceLineStart": 124,
         "sourceLineEnd": 124,
@@ -1233,96 +1212,33 @@
         }
       },
       {
+        "id": "P000058",
+        "ordinal": 58,
+        "text": "Είναι ακριβώς επειδή το τεμάχιο έχει εγγραφεί σε όνομα τρίτου,  που αυτός που το διεκδικεί δυνάμει εχθρικής κατοχής καταχωρεί αγωγή, ζητώντας  και την ακύρωση της εγγραφής, απαραίτητη προϋπόθεση για να εγγραφεί το ακίνητο  στο δικό του όνομα. (βλ. Μαραγκός ν. Πιέρου κ.ά. (2005) 1(Α) Α.Α.Δ. 676,  679).",
+        "startOffset": 6012,
+        "endOffset": 6314,
+        "relativePosition": 0.647727,
+        "parentBlockId": "B00041",
+        "sourceLineStart": 124,
+        "sourceLineEnd": 124,
+        "formatting": {
+          "bold": false,
+          "italic": false,
+          "centered": false,
+          "uppercaseRatio": 0.032,
+          "headingCandidate": false,
+          "listCandidate": false,
+          "paragraphNumber": "",
+          "htmlPath": ""
+        }
+      },
+      {
         "id": "P000059",
         "ordinal": 59,
-        "text": "Είναι ακριβώς επειδή το τεμάχιο έχει εγγραφεί σε όνομα τρίτου,  που αυτός που το διεκδικεί δυνάμει εχθρικής κατοχής καταχωρεί αγωγή, ζητώντας  και την ακύρωση της εγγραφής, απαραίτητη προϋπόθεση για να εγγραφεί το ακίνητο  στο δικό του όνομα. (βλ.",
-        "startOffset": 6012,
-        "endOffset": 6259,
-        "relativePosition": 0.563107,
-        "parentBlockId": "B00041",
-        "sourceLineStart": 124,
-        "sourceLineEnd": 124,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.005,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000060",
-        "ordinal": 60,
-        "text": "Μαραγκός ν.",
-        "startOffset": 6260,
-        "endOffset": 6271,
-        "relativePosition": 0.572816,
-        "parentBlockId": "B00041",
-        "sourceLineStart": 124,
-        "sourceLineEnd": 124,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.111,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000061",
-        "ordinal": 61,
-        "text": "Πιέρου κ.ά.",
-        "startOffset": 6272,
-        "endOffset": 6283,
-        "relativePosition": 0.582524,
-        "parentBlockId": "B00041",
-        "sourceLineStart": 124,
-        "sourceLineEnd": 124,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.125,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000062",
-        "ordinal": 62,
-        "text": "(2005) 1(Α) Α.Α.Δ. 676,  679).",
-        "startOffset": 6284,
-        "endOffset": 6314,
-        "relativePosition": 0.592233,
-        "parentBlockId": "B00041",
-        "sourceLineStart": 124,
-        "sourceLineEnd": 124,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 1,
-          "headingCandidate": true,
-          "listCandidate": false,
-          "paragraphNumber": "2005",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000063",
-        "ordinal": 63,
         "text": "Η σημασία της εγγραφής στο όνομα της Χαριτίνης το 2001, ήταν ότι αυτή  διέκοπτε την περίοδο εχθρικής κατοχής που θα μπορούσε να επικαλεστεί η  Εφεσίβλητη 1 (Kyriacou  v. Petri  and Others  (1985) 1 C.L.R.  275, 284) αυτό όμως δεν ήταν καθοριστικό αφού, εν  προκειμένω, η περίοδος των 30 ετών συμπληρωνόταν πολύ πριν το 2001.",
         "startOffset": 6316,
         "endOffset": 6640,
-        "relativePosition": 0.601942,
+        "relativePosition": 0.659091,
         "parentBlockId": "B00041",
         "sourceLineStart": 124,
         "sourceLineEnd": 124,
@@ -1338,12 +1254,12 @@
         }
       },
       {
-        "id": "P000064",
-        "ordinal": 64,
+        "id": "P000060",
+        "ordinal": 60,
         "text": "Στο περίγραμμα αγόρευσης του Εφεσείοντα,  στο πλαίσιο του λόγου έφεσης 2, χωρίς να καλύπτεται από τον ίδιο το λόγο,  εγείρεται συναφές ζήτημα, ότι η αξίωση της Εφεσίβλητης 1 δεν θα μπορούσε να  είχε προωθηθεί γιατί ήταν διττή, αφού περιελάμβανε τη διόρθωση λάθους, που  γίνεται με αίτηση δυνάμει του άρθρου 61 του περί Ακινήτου  Ιδιοκτησίας (Διακατοχή, Εγγραφή και Εκτίμηση) Νόμου, Κεφ.224, όπως έχει  τροποποιηθεί.",
         "startOffset": 6643,
         "endOffset": 7058,
-        "relativePosition": 0.61165,
+        "relativePosition": 0.670455,
         "parentBlockId": "B00042",
         "sourceLineStart": 127,
         "sourceLineEnd": 127,
@@ -1359,12 +1275,12 @@
         }
       },
       {
-        "id": "P000065",
-        "ordinal": 65,
+        "id": "P000061",
+        "ordinal": 61,
         "text": "Υπήρχε, υποστηρίζει ο Εφεσείων, το στοιχείο αντινομίας, εφόσον η  Εφεσίβλητη 1 διεκδικούσε ταυτόχρονα ιδιοκτησία λόγω λάθους στα κτηματολογικά  βιβλία και στη βάση εχθρικής κατοχής.",
         "startOffset": 7060,
         "endOffset": 7241,
-        "relativePosition": 0.621359,
+        "relativePosition": 0.681818,
         "parentBlockId": "B00042",
         "sourceLineStart": 127,
         "sourceLineEnd": 127,
@@ -1380,12 +1296,12 @@
         }
       },
       {
-        "id": "P000066",
-        "ordinal": 66,
+        "id": "P000062",
+        "ordinal": 62,
         "text": "Ο Εφεσείων δεν έχει κατανοήσει τη διάσταση  του ζητήματος στην έκταση που αφορά στην εγγραφή της οποίας η Εφεσίβλητη 1  ζητούσε την ακύρωση.",
         "startOffset": 7244,
         "endOffset": 7384,
-        "relativePosition": 0.631068,
+        "relativePosition": 0.693182,
         "parentBlockId": "B00043",
         "sourceLineStart": 130,
         "sourceLineEnd": 130,
@@ -1401,12 +1317,12 @@
         }
       },
       {
-        "id": "P000067",
-        "ordinal": 67,
-        "text": "Η Χριστοδούλου ν.",
-        "startOffset": 7386,
-        "endOffset": 7403,
-        "relativePosition": 0.640777,
+        "id": "P000063",
+        "ordinal": 63,
+        "text": "Η Χριστοδούλου ν. Χ''Λοϊζή και άλλου (1992) 1(Α)  Α.Α.Δ. 658, στην οποία ο ίδιος παρέπεμψε, εξηγεί (σελ.660) ότι ο  παραμερισμός λάθους στα κτηματολογικά βιβλία σκοπεί στην αποκατάσταση της  δεδομένης ιδιοκτησίας που δικαιολογούν τα ίδια τα κτηματολογικά μητρώα, ενώ η  διεκδίκηση διατάγματος ιδιοκτησίας λόγω εχθρικής κατοχής έχει ως λόγο τη  μεταβολή των κτηματολογικών στοιχείων. Η περίπτωση της εγγραφής στο όνομα της  Χαριτίνης το 2001 δεν αφορούσε λάθος στα κτηματολογικά βιβλία, αλλά εγγραφή στη  βάση στοιχείων που, κατ' ισχυρισμό της Εφεσίβλητης 1, δεν ανταποκρίνονταν στην  πραγματικότητα, αφού, κατά τη δική της εκδοχή, κάτοχος του επίδικου μέρους δεν  ήταν η Χαριτίνη ή η μητέρα της, αλλά η ίδια η Εφεσίβλητη 1, και μόνο το  Δικαστήριο μπορούσε να αποφασίσει το ζήτημα της πραγματικής κατοχής του επίδικου  μέρους.",
+        "startOffset": 7384,
+        "endOffset": 8210,
+        "relativePosition": 0.704545,
         "parentBlockId": "B00043",
         "sourceLineStart": 130,
         "sourceLineEnd": 130,
@@ -1414,7 +1330,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.143,
+          "uppercaseRatio": 0.022,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1422,54 +1338,12 @@
         }
       },
       {
-        "id": "P000068",
-        "ordinal": 68,
-        "text": "Χ''Λοϊζή και άλλου (1992) 1(Α)  Α.Α.Δ. 658, στην οποία ο ίδιος παρέπεμψε, εξηγεί (σελ.660) ότι ο  παραμερισμός λάθους στα κτηματολογικά βιβλία σκοπεί στην αποκατάσταση της  δεδομένης ιδιοκτησίας που δικαιολογούν τα ίδια τα κτηματολογικά μητρώα, ενώ η  διεκδίκηση διατάγματος ιδιοκτησίας λόγω εχθρικής κατοχής έχει ως λόγο τη  μεταβολή των κτηματολογικών στοιχείων.",
-        "startOffset": 7404,
-        "endOffset": 7768,
-        "relativePosition": 0.650485,
-        "parentBlockId": "B00043",
-        "sourceLineStart": 130,
-        "sourceLineEnd": 130,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.021,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000069",
-        "ordinal": 69,
-        "text": "Η περίπτωση της εγγραφής στο όνομα της  Χαριτίνης το 2001 δεν αφορούσε λάθος στα κτηματολογικά βιβλία, αλλά εγγραφή στη  βάση στοιχείων που, κατ' ισχυρισμό της Εφεσίβλητης 1, δεν ανταποκρίνονταν στην  πραγματικότητα, αφού, κατά τη δική της εκδοχή, κάτοχος του επίδικου μέρους δεν  ήταν η Χαριτίνη ή η μητέρα της, αλλά η ίδια η Εφεσίβλητη 1, και μόνο το  Δικαστήριο μπορούσε να αποφασίσει το ζήτημα της πραγματικής κατοχής του επίδικου  μέρους.",
-        "startOffset": 7770,
-        "endOffset": 8213,
-        "relativePosition": 0.660194,
-        "parentBlockId": "B00043",
-        "sourceLineStart": 130,
-        "sourceLineEnd": 130,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.017,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000070",
-        "ordinal": 70,
+        "id": "P000064",
+        "ordinal": 64,
         "text": "Ο λόγος έφεσης 3 απορρίπτεται.",
         "startOffset": 8215,
         "endOffset": 8245,
-        "relativePosition": 0.669903,
+        "relativePosition": 0.715909,
         "parentBlockId": "B00043",
         "sourceLineStart": 130,
         "sourceLineEnd": 130,
@@ -1485,12 +1359,12 @@
         }
       },
       {
-        "id": "P000071",
-        "ordinal": 71,
+        "id": "P000065",
+        "ordinal": 65,
         "text": "Σε σχέση με τη μαρτυρία του Κοινοτάρχη, ο  Εφεσείων διατείνεται ότι το πρωτόδικο Δικαστήριο προσέγγισε με τρόπο εσφαλμένο  και αντινομικό δύο ζητήματα.",
         "startOffset": 8248,
         "endOffset": 8399,
-        "relativePosition": 0.679612,
+        "relativePosition": 0.727273,
         "parentBlockId": "B00044",
         "sourceLineStart": 133,
         "sourceLineEnd": 133,
@@ -1506,12 +1380,12 @@
         }
       },
       {
-        "id": "P000072",
-        "ordinal": 72,
-        "text": "Το πρώτο αφορούσε τη μεγάλη υψομετρική διαφορά  που υφίστατο και διαχώριζε το επίδικο τεμάχιο σε δύο μέρη, το μεγαλύτερο πιο  ψηλά και το μικρότερο, που ήταν και το διαφιλονικούμενο πιο χαμηλά.",
-        "startOffset": 8401,
-        "endOffset": 8594,
-        "relativePosition": 0.68932,
+        "id": "P000066",
+        "ordinal": 66,
+        "text": "Το πρώτο αφορούσε τη μεγάλη υψομετρική διαφορά  που υφίστατο και διαχώριζε το επίδικο τεμάχιο σε δύο μέρη, το μεγαλύτερο πιο  ψηλά και το μικρότερο, που ήταν και το διαφιλονικούμενο πιο χαμηλά. Το δεύτερο  αφορούσε στο γεγονός ότι για μεγάλο μέρος της χρονικής περιόδου που ενδιαφέρει  το διαφιλονικούμενο μέρος ήταν αμπέλι.",
+        "startOffset": 8399,
+        "endOffset": 8723,
+        "relativePosition": 0.738636,
         "parentBlockId": "B00044",
         "sourceLineStart": 133,
         "sourceLineEnd": 133,
@@ -1519,7 +1393,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.006,
+          "uppercaseRatio": 0.007,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1527,33 +1401,12 @@
         }
       },
       {
-        "id": "P000073",
-        "ordinal": 73,
-        "text": "Το δεύτερο  αφορούσε στο γεγονός ότι για μεγάλο μέρος της χρονικής περιόδου που ενδιαφέρει  το διαφιλονικούμενο μέρος ήταν αμπέλι.",
-        "startOffset": 8596,
-        "endOffset": 8726,
-        "relativePosition": 0.699029,
-        "parentBlockId": "B00044",
-        "sourceLineStart": 133,
-        "sourceLineEnd": 133,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.009,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000074",
-        "ordinal": 74,
+        "id": "P000067",
+        "ordinal": 67,
         "text": "Βρίσκουμε απόλυτα δικαιολογημένη την  προσέγγιση του πρωτόδικου Δικαστηρίου ότι ο Κοινοτάρχης, ο οποίος απαντούσε με  γενικότητες στις ερωτήσεις αναφορικά με τα δύο πιο πάνω χαρακτηριστικά του τεμαχίου,   δεν είχε γνώση της επίδικης περιουσίας και δεν γνώριζε προσωπικά το επίδικο  τεμάχιο.",
         "startOffset": 8728,
         "endOffset": 9018,
-        "relativePosition": 0.708738,
+        "relativePosition": 0.75,
         "parentBlockId": "B00044",
         "sourceLineStart": 133,
         "sourceLineEnd": 133,
@@ -1569,12 +1422,12 @@
         }
       },
       {
-        "id": "P000075",
-        "ordinal": 75,
+        "id": "P000068",
+        "ordinal": 68,
         "text": "Κατ' ακολουθία και στη βάση της όλης μαρτυρίας του, δικαιολογημένα το  πρωτόδικο Δικαστήριο διαπίστωσε περαιτέρω ότι δεν ήταν σε θέση να επιβεβαιώσει  τα όσα πιστοποιούνταν στο Πιστοποιητικό ημερ.7.5.2001, επί του οποίου βασίστηκε  η εγγραφή του τελευταίου 1/3 μεριδίου του τεμαχίου στο όνομα της Χαριτίνης.",
         "startOffset": 9020,
         "endOffset": 9327,
-        "relativePosition": 0.718447,
+        "relativePosition": 0.761364,
         "parentBlockId": "B00044",
         "sourceLineStart": 133,
         "sourceLineEnd": 133,
@@ -1590,20 +1443,20 @@
         }
       },
       {
-        "id": "P000076",
-        "ordinal": 76,
-        "text": "Στο Πιστοποιητικό αναφέρονταν τα εξής: «Εμείς  οι κάτωθεν υπογεγραμμένοι πρόεδρος και μέλη του Κοινοτικού Συμβουλίου Κοίλης.",
-        "startOffset": 9330,
-        "endOffset": 9454,
-        "relativePosition": 0.728155,
+        "id": "P000069",
+        "ordinal": 69,
+        "text": "Στο Πιστοποιητικό αναφέρονταν τα εξής: «Εμείς  οι κάτωθεν υπογεγραμμένοι πρόεδρος και μέλη του Κοινοτικού Συμβουλίου Κοίλης. Δια του παρόντος πιστοποιούμε ότι η Χαριτίνη Λαζάρου Σάββα κατέχει νόμιμα και  αδιαφιλονίκητα προίκα από τη Μητέρα της για περίοδο πέραν των 30 ετών το  τεμάχιο 223 Φ/Σ 45/28 του χωριού Κοίλη».",
+        "startOffset": 9327,
+        "endOffset": 9645,
+        "relativePosition": 0.772727,
         "parentBlockId": "B00045",
-        "sourceLineStart": 136,
+        "sourceLineStart": 133,
         "sourceLineEnd": 136,
         "formatting": {
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.057,
+          "uppercaseRatio": 0.056,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1611,33 +1464,12 @@
         }
       },
       {
-        "id": "P000077",
-        "ordinal": 77,
-        "text": "Δια του παρόντος πιστοποιούμε ότι η Χαριτίνη Λαζάρου Σάββα κατέχει νόμιμα και  αδιαφιλονίκητα προίκα από τη Μητέρα της για περίοδο πέραν των 30 ετών το  τεμάχιο 223 Φ/Σ 45/28 του χωριού Κοίλη».",
-        "startOffset": 9457,
-        "endOffset": 9650,
-        "relativePosition": 0.737864,
-        "parentBlockId": "B00045",
-        "sourceLineStart": 136,
-        "sourceLineEnd": 136,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.054,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000078",
-        "ordinal": 78,
+        "id": "P000070",
+        "ordinal": 70,
         "text": "Δεν διατυπωνόταν στο  Πιστοποιητικό ότι τα αναφερόμενα σε αυτό βασίζονταν σε πληροφορίες και δηλώσεις  τρίτων, όπως επιβάλλεται όταν αυτό συμβαίνει, δυνάμει των προνοιών του άρθρου   82(3) του Κεφ.224.[",
         "startOffset": 9652,
         "endOffset": 9854,
-        "relativePosition": 0.747573,
+        "relativePosition": 0.784091,
         "parentBlockId": "B00045",
         "sourceLineStart": 136,
         "sourceLineEnd": 136,
@@ -1653,12 +1485,12 @@
         }
       },
       {
-        "id": "P000079",
-        "ordinal": 79,
+        "id": "P000071",
+        "ordinal": 71,
         "text": "1]   Ούτε και ο Εφεσείων υποστηρίζει ότι ο Κοινοτάρχης είχε προσωπική γνώση ότι η  Χαριτίνη κατείχε το ακίνητο.",
         "startOffset": 9854,
         "endOffset": 9965,
-        "relativePosition": 0.757282,
+        "relativePosition": 0.795455,
         "parentBlockId": "B00045",
         "sourceLineStart": 136,
         "sourceLineEnd": 136,
@@ -1674,12 +1506,12 @@
         }
       },
       {
-        "id": "P000080",
-        "ordinal": 80,
-        "text": "Ως αποτέλεσμα, από οποιαδήποτε οπτική γωνία και  αν αντικριζόταν το ζήτημα, το Πιστοποιητικό είχε μηδενική αποδεικτική αξία (Hassidoff  v. Santi  and Others  (1970) 1 C.L.R. 220, 239, Σωκράτους ν.",
+        "id": "P000072",
+        "ordinal": 72,
+        "text": "Ως αποτέλεσμα, από οποιαδήποτε οπτική γωνία και  αν αντικριζόταν το ζήτημα, το Πιστοποιητικό είχε μηδενική αποδεικτική αξία (Hassidoff  v. Santi  and Others  (1970) 1 C.L.R. 220, 239, Σωκράτους ν. Μέζου (1975) 1 Α.Α.Δ.  62 και Γιάλλουρου κ.ά. ν. Μιχαηλίδη (1998) 1(Α) Α.Α.Δ. 31),  επιμέρους διαπίστωση και του πρωτόδικου Δικαστηρίου, που δεν αμφισβητείται με  την έφεση.",
         "startOffset": 9965,
-        "endOffset": 10161,
-        "relativePosition": 0.76699,
+        "endOffset": 10335,
+        "relativePosition": 0.806818,
         "parentBlockId": "B00045",
         "sourceLineStart": 136,
         "sourceLineEnd": 136,
@@ -1687,7 +1519,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.064,
+          "uppercaseRatio": 0.079,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1695,54 +1527,12 @@
         }
       },
       {
-        "id": "P000081",
-        "ordinal": 81,
-        "text": "Μέζου (1975) 1 Α.Α.Δ.  62 και Γιάλλουρου κ.ά. ν.",
-        "startOffset": 10165,
-        "endOffset": 10213,
-        "relativePosition": 0.776699,
-        "parentBlockId": "B00045",
-        "sourceLineStart": 136,
-        "sourceLineEnd": 136,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.208,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000082",
-        "ordinal": 82,
-        "text": "Μιχαηλίδη (1998) 1(Α) Α.Α.Δ. 31),  επιμέρους διαπίστωση και του πρωτόδικου Δικαστηρίου, που δεν αμφισβητείται με  την έφεση.",
-        "startOffset": 10214,
-        "endOffset": 10338,
-        "relativePosition": 0.786408,
-        "parentBlockId": "B00045",
-        "sourceLineStart": 136,
-        "sourceLineEnd": 136,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.068,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000083",
-        "ordinal": 83,
+        "id": "P000073",
+        "ordinal": 73,
         "text": "Ο λόγος έφεσης 1 επίσης απορρίπτεται.",
         "startOffset": 10340,
         "endOffset": 10377,
-        "relativePosition": 0.796117,
+        "relativePosition": 0.818182,
         "parentBlockId": "B00045",
         "sourceLineStart": 136,
         "sourceLineEnd": 136,
@@ -1758,14 +1548,14 @@
         }
       },
       {
-        "id": "P000084",
-        "ordinal": 84,
-        "text": "Το πρωτόδικο Δικαστήριο αποδέχτηκε τη  βασική θέση της Εφεσίβλητης 1 ότι το επίδικο μέρος θεωρείτο ως ενιαίο με το  εφαπτόμενο στην ανατολική του πλευρά τεμάχιο, το οποίο της ανήκει.  Ωστόσο,  έχοντας εντοπίσει σημεία σύγχυσης και μη συνοχής στη μαρτυρία της Εφεσίβλητης 1,  κατά τον Εφεσείοντα, δεν δικαιολογείτο να αποδεχτεί τη μαρτυρία της.",
-        "startOffset": 10380,
-        "endOffset": 10723,
-        "relativePosition": 0.805825,
+        "id": "P000074",
+        "ordinal": 74,
+        "text": "Το πρωτόδικο Δικαστήριο αποδέχτηκε τη  βασική θέση της Εφεσίβλητης 1 ότι το επίδικο μέρος θεωρείτο ως ενιαίο με το  εφαπτόμενο στην ανατολική του πλευρά τεμάχιο, το οποίο της ανήκει. Ωστόσο,  έχοντας εντοπίσει σημεία σύγχυσης και μη συνοχής στη μαρτυρία της Εφεσίβλητης 1,  κατά τον Εφεσείοντα, δεν δικαιολογείτο να αποδεχτεί τη μαρτυρία της.",
+        "startOffset": 10377,
+        "endOffset": 10719,
+        "relativePosition": 0.829545,
         "parentBlockId": "B00046",
-        "sourceLineStart": 139,
+        "sourceLineStart": 136,
         "sourceLineEnd": 139,
         "formatting": {
           "bold": false,
@@ -1779,20 +1569,20 @@
         }
       },
       {
-        "id": "P000085",
-        "ordinal": 85,
-        "text": "Υπενθυμίζουμε στο σημείο αυτό τις διαχρονικά  αναλλοίωτες αρχές που διέπουν το ζήτημα της παρέμβασης του εφετείου στην κρίση  αναφορικά με την αξιοπιστία των μαρτύρων.",
-        "startOffset": 10726,
-        "endOffset": 10893,
-        "relativePosition": 0.815534,
+        "id": "P000075",
+        "ordinal": 75,
+        "text": "Υπενθυμίζουμε στο σημείο αυτό τις διαχρονικά  αναλλοίωτες αρχές που διέπουν το ζήτημα της παρέμβασης του εφετείου στην κρίση  αναφορικά με την αξιοπιστία των μαρτύρων. Το εφετείο σπάνια επεµβαίνει, όταν  τα ευρήματα καταφαίνονται εξ αντικειµένου ανυπόστατα ή όταν είναι παράλογα ή  αυθαίρετα (Σολωμού ν. Vineyard View Tourist Enterprises Ltd (1998) 1(Α)  Α.Α.Δ. 300, 320-1 και Baloise Insur. Co Ltd v. Κατωμονιάτη κ.ά. (2008) 1(Β) Α.Α.Δ. 1275, 1290-1).",
+        "startOffset": 10719,
+        "endOffset": 11171,
+        "relativePosition": 0.840909,
         "parentBlockId": "B00047",
-        "sourceLineStart": 142,
+        "sourceLineStart": 139,
         "sourceLineEnd": 142,
         "formatting": {
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.007,
+          "uppercaseRatio": 0.064,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -1800,96 +1590,12 @@
         }
       },
       {
-        "id": "P000086",
-        "ordinal": 86,
-        "text": "Το εφετείο σπάνια επεµβαίνει, όταν  τα ευρήματα καταφαίνονται εξ αντικειµένου ανυπόστατα ή όταν είναι παράλογα ή  αυθαίρετα (Σολωμού ν.",
-        "startOffset": 10895,
-        "endOffset": 11030,
-        "relativePosition": 0.825243,
-        "parentBlockId": "B00047",
-        "sourceLineStart": 142,
-        "sourceLineEnd": 142,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.018,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000087",
-        "ordinal": 87,
-        "text": "Vineyard View Tourist Enterprises Ltd (1998) 1(Α)  Α.Α.Δ. 300, 320-1 και Baloise Insur.",
-        "startOffset": 11031,
-        "endOffset": 11118,
-        "relativePosition": 0.834951,
-        "parentBlockId": "B00047",
-        "sourceLineStart": 142,
-        "sourceLineEnd": 142,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.212,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000088",
-        "ordinal": 88,
-        "text": "Co Ltd v. Κατωμονιάτη κ.ά.",
-        "startOffset": 11119,
-        "endOffset": 11145,
-        "relativePosition": 0.84466,
-        "parentBlockId": "B00047",
-        "sourceLineStart": 142,
-        "sourceLineEnd": 142,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.158,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000089",
-        "ordinal": 89,
-        "text": "(2008) 1(Β) Α.Α.Δ. 1275, 1290-1).",
-        "startOffset": 11147,
-        "endOffset": 11180,
-        "relativePosition": 0.854369,
-        "parentBlockId": "B00047",
-        "sourceLineStart": 142,
-        "sourceLineEnd": 142,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 1,
-          "headingCandidate": true,
-          "listCandidate": false,
-          "paragraphNumber": "2008",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000090",
-        "ordinal": 90,
+        "id": "P000076",
+        "ordinal": 76,
         "text": "Τα σημεία σύγχυσης και μη συνοχής δεν διέλαθαν  την προσοχή του πρωτόδικου Δικαστηρίου, ούτε τα αγνόησε.",
         "startOffset": 11183,
         "endOffset": 11287,
-        "relativePosition": 0.864078,
+        "relativePosition": 0.852273,
         "parentBlockId": "B00048",
         "sourceLineStart": 145,
         "sourceLineEnd": 145,
@@ -1905,12 +1611,12 @@
         }
       },
       {
-        "id": "P000091",
-        "ordinal": 91,
+        "id": "P000077",
+        "ordinal": 77,
         "text": "Το πρωτόδικο  Δικαστήριο καταγράφοντας ότι αποδεχόταν τη μαρτυρία της παρά τις διαπιστώσεις  αυτές, σημείωσε τη μεγάλη ηλικία της Εφεσίβλητης 1 και ότι δεν είχε φοιτήσει  ποτέ στο σχολείο, για να δικαιολογήσει με τον τρόπο αυτό ότι τα σημεία σύγχυσης  και μη συνοχής στη μαρτυρία της, οφείλονταν σε αυτούς τους παράγοντες και δεν  άπτονταν της ειλικρίνειας της.",
         "startOffset": 11289,
         "endOffset": 11650,
-        "relativePosition": 0.873786,
+        "relativePosition": 0.863636,
         "parentBlockId": "B00048",
         "sourceLineStart": 145,
         "sourceLineEnd": 145,
@@ -1926,12 +1632,12 @@
         }
       },
       {
-        "id": "P000092",
-        "ordinal": 92,
+        "id": "P000078",
+        "ordinal": 78,
         "text": "Ασφαλώς και το εκδικάζον Δικαστήριο έχει την  ευχέρεια να αποδεχτεί ως αξιόπιστη τη μαρτυρία μάρτυρος παρά τη διαπίστωση σύγχυσης  και μη συνοχής στη μαρτυρία, νοουμένου ότι τα σημεία αυτά δεν πλήττουν καίρια  την αξιοπιστία του μάρτυρα και μπορεί το Δικαστήριο να αισθανθεί ασφάλεια ότι ο  μάρτυρας έχει ομιλήσει την αλήθεια αναφορικά με τα γεγονότα που θα αντλήσει από  τη μαρτυρία του για να εξαγάγει τα ευρήματα του.",
         "startOffset": 11652,
         "endOffset": 12072,
-        "relativePosition": 0.883495,
+        "relativePosition": 0.875,
         "parentBlockId": "B00048",
         "sourceLineStart": 145,
         "sourceLineEnd": 145,
@@ -1947,12 +1653,12 @@
         }
       },
       {
-        "id": "P000093",
-        "ordinal": 93,
+        "id": "P000079",
+        "ordinal": 79,
         "text": "Έχουμε εξετάσει τη μαρτυρία της  Εφεσίβλητης 1 στην ολότητα της.",
         "startOffset": 12075,
         "endOffset": 12139,
-        "relativePosition": 0.893204,
+        "relativePosition": 0.886364,
         "parentBlockId": "B00049",
         "sourceLineStart": 148,
         "sourceLineEnd": 148,
@@ -1968,12 +1674,12 @@
         }
       },
       {
-        "id": "P000094",
-        "ordinal": 94,
+        "id": "P000080",
+        "ordinal": 80,
         "text": "Δεν βρίσκουμε να υπάρχει, εν προκειμένω,  περιθώριο για επέμβαση στην κρίση του πρωτόδικου Δικαστηρίου.",
         "startOffset": 12141,
         "endOffset": 12244,
-        "relativePosition": 0.902913,
+        "relativePosition": 0.897727,
         "parentBlockId": "B00049",
         "sourceLineStart": 148,
         "sourceLineEnd": 148,
@@ -1989,12 +1695,12 @@
         }
       },
       {
-        "id": "P000095",
-        "ordinal": 95,
+        "id": "P000081",
+        "ordinal": 81,
         "text": "Άλλωστε, η επί  του προκειμένου μαρτυρία της Εφεσίβλητης 1, επιβεβαιώθηκε από τη γειτόνισσα και  πρώτη ξαδέλφη της μητέρας της και από τον υιό της (της Εφεσίβλητης 1) που  κατέθεσαν ως μάρτυρες στη δίκη.",
         "startOffset": 12246,
         "endOffset": 12449,
-        "relativePosition": 0.912621,
+        "relativePosition": 0.909091,
         "parentBlockId": "B00049",
         "sourceLineStart": 148,
         "sourceLineEnd": 148,
@@ -2010,12 +1716,12 @@
         }
       },
       {
-        "id": "P000096",
-        "ordinal": 96,
-        "text": "Και των δύο αυτών μαρτύρων η μαρτυρία έγινε  αποδεχτή από το πρωτόδικο Δικαστήριο, τα δε ευρήματα αξιοπιστίας του πρωτόδικου  Δικαστηρίου αναφορικά με τους δύο αυτούς μάρτυρες δεν προσβάλλονται με την  έφεση.",
-        "startOffset": 12451,
-        "endOffset": 12659,
-        "relativePosition": 0.92233,
+        "id": "P000082",
+        "ordinal": 82,
+        "text": "Και των δύο αυτών μαρτύρων η μαρτυρία έγινε  αποδεχτή από το πρωτόδικο Δικαστήριο, τα δε ευρήματα αξιοπιστίας του πρωτόδικου  Δικαστηρίου αναφορικά με τους δύο αυτούς μάρτυρες δεν προσβάλλονται με την  έφεση. Ούτε ο λόγος έφεσης 2 ευσταθεί.",
+        "startOffset": 12449,
+        "endOffset": 12689,
+        "relativePosition": 0.920455,
         "parentBlockId": "B00049",
         "sourceLineStart": 148,
         "sourceLineEnd": 148,
@@ -2023,7 +1729,7 @@
           "bold": false,
           "italic": false,
           "centered": false,
-          "uppercaseRatio": 0.017,
+          "uppercaseRatio": 0.02,
           "headingCandidate": false,
           "listCandidate": false,
           "paragraphNumber": "",
@@ -2031,33 +1737,12 @@
         }
       },
       {
-        "id": "P000097",
-        "ordinal": 97,
-        "text": "Ούτε ο λόγος έφεσης 2 ευσταθεί.",
-        "startOffset": 12661,
-        "endOffset": 12692,
-        "relativePosition": 0.932039,
-        "parentBlockId": "B00049",
-        "sourceLineStart": 148,
-        "sourceLineEnd": 148,
-        "formatting": {
-          "bold": false,
-          "italic": false,
-          "centered": false,
-          "uppercaseRatio": 0.042,
-          "headingCandidate": false,
-          "listCandidate": false,
-          "paragraphNumber": "",
-          "htmlPath": ""
-        }
-      },
-      {
-        "id": "P000098",
-        "ordinal": 98,
+        "id": "P000083",
+        "ordinal": 83,
         "text": "Η έφεση απορρίπτεται.",
         "startOffset": 12695,
         "endOffset": 12716,
-        "relativePosition": 0.941748,
+        "relativePosition": 0.931818,
         "parentBlockId": "B00050",
         "sourceLineStart": 151,
         "sourceLineEnd": 151,
@@ -2073,12 +1758,12 @@
         }
       },
       {
-        "id": "P000099",
-        "ordinal": 99,
+        "id": "P000084",
+        "ordinal": 84,
         "text": "€3.500 έξοδα της έφεσης, πλέον Φ.Π.Α. αν  υπάρχει, επιδικάζονται υπέρ των Εφεσίβλητων 1 και 3 και εναντίον του  Εφεσείοντα.",
         "startOffset": 12719,
         "endOffset": 12842,
-        "relativePosition": 0.951456,
+        "relativePosition": 0.943182,
         "parentBlockId": "B00051",
         "sourceLineStart": 154,
         "sourceLineEnd": 154,
@@ -2094,12 +1779,12 @@
         }
       },
       {
-        "id": "P000100",
-        "ordinal": 100,
+        "id": "P000085",
+        "ordinal": 85,
         "text": "Χ.  Μαλαχτός, Δ.",
         "startOffset": 12899,
         "endOffset": 12915,
-        "relativePosition": 0.961165,
+        "relativePosition": 0.954545,
         "parentBlockId": "B00052",
         "sourceLineStart": 157,
         "sourceLineEnd": 157,
@@ -2115,12 +1800,12 @@
         }
       },
       {
-        "id": "P000101",
-        "ordinal": 101,
+        "id": "P000086",
+        "ordinal": 86,
         "text": "Ι.  Ιωαννίδης, Δ.",
         "startOffset": 12972,
         "endOffset": 12989,
-        "relativePosition": 0.970874,
+        "relativePosition": 0.965909,
         "parentBlockId": "B00053",
         "sourceLineStart": 160,
         "sourceLineEnd": 160,
@@ -2136,12 +1821,12 @@
         }
       },
       {
-        "id": "P000102",
-        "ordinal": 102,
+        "id": "P000087",
+        "ordinal": 87,
         "text": "Ε.  Εφραίμ, Δ.",
         "startOffset": 13046,
         "endOffset": 13060,
-        "relativePosition": 0.980583,
+        "relativePosition": 0.977273,
         "parentBlockId": "B00054",
         "sourceLineStart": 163,
         "sourceLineEnd": 163,
@@ -2157,12 +1842,12 @@
         }
       },
       {
-        "id": "P000103",
-        "ordinal": 103,
+        "id": "P000088",
+        "ordinal": 88,
         "text": "[1]   «Όταν τα γεγονότα τα οποία θα  πιστοποιηθούν δεν είναι προσωπικώς γνωστά στον κοινοτάρχη αλλά το πιστοποιητικό  βασίζεται σε πληροφορίες και δηλώσεις τρίτων μερών, ο κοινοτάρχης διατυπώνει το  πιστοποιητικό με τέτοιο τρόπο ώστε αυτό να καθιστά σαφές από μόνο του ότι  βασίζεται σε πληροφορίες και να κατονομάζει τους πληροφοριοδότες, και αυτός δεν  πιστοποιεί το πιστοποιητικό εκτός αν είναι ικανοποιημένος ότι οι  πληροφοριοδότες αυτοί είναι εξ όσων κάλλιον γνωρίζει και πιστεύει πρόσωπα  αξιόπιστα.»",
         "startOffset": 13063,
         "endOffset": 13570,
-        "relativePosition": 0.990291,
+        "relativePosition": 0.988636,
         "parentBlockId": "B00055",
         "sourceLineStart": 166,
         "sourceLineEnd": 166,
@@ -2178,8 +1863,8 @@
         }
       },
       {
-        "id": "P000104",
-        "ordinal": 104,
+        "id": "P000089",
+        "ordinal": 89,
         "text": "cylaw.org: Από το ΚΙΝOΠ/CyLii για τον Παγκύπριο Δικηγορικό Σύλλογο",
         "startOffset": 13587,
         "endOffset": 13653,
@@ -2202,7 +1887,7 @@
   },
   "sectionMap": {
     "version": "nomologies-v2.0.0:sections-v1",
-    "paragraphCount": 104,
+    "paragraphCount": 89,
     "spans": [
       {
         "id": "S00001",
@@ -2210,14 +1895,14 @@
         "endParagraphId": "P000001",
         "sectionType": "caption",
         "speakerRole": "unknown",
-        "heading": "Τίτλος υπόθεσης",
+        "heading": "Κυρίτλος υπόθεσης",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.98,
+        "confidence": 0.99,
         "boundaryEvidenceParagraphIds": [
           "P000001"
         ],
-        "rationale": "Περιέχει μόνο το όνομα των διαδίκων και τον αριθμό/ημερομηνία της έφεσης."
+        "rationale": "Περιέχει μόνο τον τίτλο και τα διάδικα μέρη της υπόθεσης."
       },
       {
         "id": "S00002",
@@ -2228,12 +1913,12 @@
         "heading": "Ιστότοπος",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.96,
+        "confidence": 0.97,
         "boundaryEvidenceParagraphIds": [
           "P000002",
           "P000004"
         ],
-        "rationale": "Περιέχει σήμανση και πλοήγηση ιστοτόπου, όχι δικαστικό περιεχόμενο."
+        "rationale": "Πρόκειται για υλικό περιβάλλοντος ιστότοπου και όχι για το σώμα της απόφασης."
       },
       {
         "id": "S00003",
@@ -2249,7 +1934,7 @@
           "P000005",
           "P000009"
         ],
-        "rationale": "Αναφέρει το δικαστήριο, τη δικαιοδοσία, τον αριθμό της έφεσης, την ημερομηνία και τη σύνθεση."
+        "rationale": "Περιέχει το δικαστήριο, τη δικαιοδοσία, τον αριθμό έφεσης, την ημερομηνία και τη σύνθεση."
       },
       {
         "id": "S00004",
@@ -2265,7 +1950,7 @@
           "P000010",
           "P000023"
         ],
-        "rationale": "Περιέχει μόνο τα ονόματα των διαδίκων και τις τροποποιήσεις της καταχώρισης."
+        "rationale": "Παραθέτει μόνο τα ονόματα των διαδίκων και τη θέση τους ως εφεσείοντα/εφεσίβλητων."
       },
       {
         "id": "S00005",
@@ -2273,14 +1958,14 @@
         "endParagraphId": "P000024",
         "sectionType": "other",
         "speakerRole": "unknown",
-        "heading": "Διαχωριστικό",
+        "heading": "Διαχωριστική γραμμή",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.97,
+        "confidence": 0.95,
         "boundaryEvidenceParagraphIds": [
           "P000024"
         ],
-        "rationale": "Αποτελεί μόνο διαχωριστική γραμμή."
+        "rationale": "Είναι απλή διαχωριστική γραμμή χωρίς νομικό περιεχόμενο."
       },
       {
         "id": "S00006",
@@ -2288,7 +1973,7 @@
         "endParagraphId": "P000027",
         "sectionType": "appearances",
         "speakerRole": "unknown",
-        "heading": "Παραστάσεις",
+        "heading": "Εμφανίσεις",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
         "confidence": 0.99,
@@ -2296,7 +1981,7 @@
           "P000025",
           "P000027"
         ],
-        "rationale": "Αναφέρει μόνο τους δικηγόρους και για ποιους παραστάθηκαν."
+        "rationale": "Αναφέρονται αποκλειστικά οι δικηγόροι και οι παραστάσεις τους."
       },
       {
         "id": "S00007",
@@ -2304,14 +1989,14 @@
         "endParagraphId": "P000028",
         "sectionType": "other",
         "speakerRole": "unknown",
-        "heading": "",
+        "heading": "Διαχωριστική γραμμή",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.99,
+        "confidence": 0.97,
         "boundaryEvidenceParagraphIds": [
           "P000028"
         ],
-        "rationale": "Πρόκειται για διαχωριστική γραμμή και όχι για μέρος της απόφασης."
+        "rationale": "Είναι απλή διαχωριστική γραμμή χωρίς νομικό περιεχόμενο."
       },
       {
         "id": "S00008",
@@ -2322,11 +2007,11 @@
         "heading": "Ομόφωνη απόφαση",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.97,
+        "confidence": 0.985,
         "boundaryEvidenceParagraphIds": [
           "P000029"
         ],
-        "rationale": "Περιέχει τη δήλωση ότι η απόφαση είναι ομόφωνη και θα δοθεί από τον δικαστή."
+        "rationale": "Αναφέρει ότι η απόφαση είναι ομόφωνη και ποιος θα την εκδώσει."
       },
       {
         "id": "S00009",
@@ -2334,14 +2019,14 @@
         "endParagraphId": "P000030",
         "sectionType": "other",
         "speakerRole": "unknown",
-        "heading": "",
+        "heading": "Διαχωριστική γραμμή",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.99,
+        "confidence": 0.97,
         "boundaryEvidenceParagraphIds": [
           "P000030"
         ],
-        "rationale": "Πρόκειται για διαχωριστική γραμμή."
+        "rationale": "Είναι απλή διαχωριστική γραμμή χωρίς νομικό περιεχόμενο."
       },
       {
         "id": "S00010",
@@ -2356,332 +2041,357 @@
         "boundaryEvidenceParagraphIds": [
           "P000031"
         ],
-        "rationale": "Αποτελεί τυπική επικεφαλίδα της απόφασης."
+        "rationale": "Πρόκειται για τον τυπικό τίτλο της απόφασης."
       },
       {
         "id": "S00011",
         "startParagraphId": "P000032",
-        "endParagraphId": "P000041",
+        "endParagraphId": "P000037",
         "sectionType": "facts",
         "speakerRole": "authoring_judge",
         "heading": "Αντικείμενο της έφεσης",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.9665,
+        "confidence": 0.9617,
         "boundaryEvidenceParagraphIds": [
           "P000032",
-          "P000041"
+          "P000037"
         ],
-        "rationale": "Αναπτύσσεται η ιστορία του ακινήτου, οι μεταβιβάσεις και το δικονομικό υπόβαθρο της έφεσης."
+        "rationale": "Περιγράφει ουδέτερα το αντικείμενο της έφεσης και τα πραγματικά δεδομένα του ακινήτου."
       },
       {
         "id": "S00012",
-        "startParagraphId": "P000042",
-        "endParagraphId": "P000044",
-        "sectionType": "legal_findings",
+        "startParagraphId": "P000038",
+        "endParagraphId": "P000039",
+        "sectionType": "procedural_history",
         "speakerRole": "authoring_judge",
-        "heading": "",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.85,
-        "boundaryEvidenceParagraphIds": [
-          "P000042",
-          "P000046"
-        ],
-        "rationale": "Διατυπώνονται συμπεράσματα για τη σημασία της εχθρικής κατοχής και τη διάκριση από την εγγραφή μεριδίου."
-      },
-      {
-        "id": "S00013",
-        "startParagraphId": "P000045",
-        "endParagraphId": "P000050",
-        "sectionType": "facts",
-        "speakerRole": "court",
-        "heading": "Πραγματικό υπόβαθρο",
+        "heading": "πρωτόδικη αγωγή",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
         "confidence": 0.94,
         "boundaryEvidenceParagraphIds": [
-          "P000045",
-          "P000050"
+          "P000038",
+          "P000039"
         ],
-        "rationale": "Απαριθμούνται ουδέτερα τα δεδομένα της διαφοράς και η σχετική εγγραφή."
+        "rationale": "Αναφέρεται η καταχώριση της αγωγής και το επιτυχές αποτέλεσμά της."
+      },
+      {
+        "id": "S00013",
+        "startParagraphId": "P000040",
+        "endParagraphId": "P000042",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "heading": "διάδοχοι και μεταβίβαση",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.94,
+        "boundaryEvidenceParagraphIds": [
+          "P000040",
+          "P000042"
+        ],
+        "rationale": "Δίνονται στοιχεία για τους κληρονόμους και τη μεταβίβαση του οφέλους."
       },
       {
         "id": "S00014",
-        "startParagraphId": "P000051",
-        "endParagraphId": "P000052",
-        "sectionType": "procedural_history",
-        "speakerRole": "court",
-        "heading": "Πρωτόδικη αξιολόγηση",
+        "startParagraphId": "P000043",
+        "endParagraphId": "P000044",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "heading": "αρχή για εχθρική κατοχή και εγγραφή",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.95,
+        "confidence": 0.91,
         "boundaryEvidenceParagraphIds": [
-          "P000051",
-          "P000052"
+          "P000043",
+          "P000044"
         ],
-        "rationale": "Περιγράφεται η κρίση του πρωτόδικου Δικαστηρίου για τη μαρτυρία του Κοινοτάρχη."
+        "rationale": "Διατυπώνεται γενικός νομικός κανόνας για την εχθρική κατοχή και την εγγραφή μεριδίου."
       },
       {
         "id": "S00015",
-        "startParagraphId": "P000053",
-        "endParagraphId": "P000056",
+        "startParagraphId": "P000045",
+        "endParagraphId": "P000046",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "heading": "Πραγματικό υπόβαθρο",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.91,
+        "boundaryEvidenceParagraphIds": [
+          "P000045",
+          "P000046"
+        ],
+        "rationale": "Τα δύο αποσπάσματα περιγράφουν ουδέτερα την έκταση και το αντικείμενο της διαφοράς."
+      },
+      {
+        "id": "S00016",
+        "startParagraphId": "P000047",
+        "endParagraphId": "P000051",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "heading": "πρωτόδικη διαταγή",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.904,
+        "boundaryEvidenceParagraphIds": [
+          "P000047",
+          "P000051"
+        ],
+        "rationale": "Τα αποσπάσματα αναφέρονται στην πρωτόδικη απόφαση και στα ευρήματα του πρωτόδικου Δικαστηρίου."
+      },
+      {
+        "id": "S00017",
+        "startParagraphId": "P000052",
+        "endParagraphId": "P000055",
         "sectionType": "appellant_submissions",
         "speakerRole": "appellant",
         "heading": "Λόγοι έφεσης",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.98,
+        "confidence": 0.96,
         "boundaryEvidenceParagraphIds": [
-          "P000053",
-          "P000056"
+          "P000052",
+          "P000055"
         ],
-        "rationale": "Αναφέρονται ρητά οι λόγοι έφεσης 1, 2 και 3 και η θέση του Εφεσείοντα."
-      },
-      {
-        "id": "S00016",
-        "startParagraphId": "P000057",
-        "endParagraphId": "P000058",
-        "sectionType": "holding",
-        "speakerRole": "authoring_judge",
-        "heading": "Απόρριψη ισχυρισμού",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.92,
-        "boundaryEvidenceParagraphIds": [
-          "P000057",
-          "P000058"
-        ],
-        "rationale": "Διατυπώνεται ευθέως η απόρριψη της θέσης ως αβάσιμης."
-      },
-      {
-        "id": "S00017",
-        "startParagraphId": "P000059",
-        "endParagraphId": "P000063",
-        "sectionType": "quoted_authority",
-        "speakerRole": "quoted_court",
-        "heading": "Νομολογία για εχθρική κατοχή και εγγραφή",
-        "isQuotedMaterial": true,
-        "quotedSourceType": "case",
-        "confidence": 0.906,
-        "boundaryEvidenceParagraphIds": [
-          "P000059",
-          "P000063"
-        ],
-        "rationale": "Τα χωρία παραθέτουν και εφαρμόζουν ρητώς προηγούμενη νομολογία με παραπομπές σε άλλες υποθέσεις."
+        "rationale": "Τα αποσπάσματα αποδίδουν ρητά τους λόγους και τη θέση του Εφεσείοντα."
       },
       {
         "id": "S00018",
-        "startParagraphId": "P000064",
-        "endParagraphId": "P000065",
-        "sectionType": "appellant_submissions",
-        "speakerRole": "appellant",
-        "heading": "Σχετική ένσταση του Εφεσείοντα",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.98,
-        "boundaryEvidenceParagraphIds": [
-          "P000064",
-          "P000065"
-        ],
-        "rationale": "Οι προτάσεις αποδίδονται ρητώς στον Εφεσείοντα ως μέρος του περιγράμματος αγόρευσης."
-      },
-      {
-        "id": "S00019",
-        "startParagraphId": "P000066",
-        "endParagraphId": "P000070",
+        "startParagraphId": "P000056",
+        "endParagraphId": "P000057",
         "sectionType": "court_analysis",
         "speakerRole": "authoring_judge",
-        "heading": "Απάντηση του Δικαστηρίου και απόρριψη του λόγου 3",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.976,
-        "boundaryEvidenceParagraphIds": [
-          "P000066",
-          "P000070"
-        ],
-        "rationale": "Το Δικαστήριο απορρίπτει τη θέση του Εφεσείοντα και καταλήγει ρητώς στην απόρριψη του λόγου έφεσης 3."
-      },
-      {
-        "id": "S00020",
-        "startParagraphId": "P000071",
-        "endParagraphId": "P000073",
-        "sectionType": "appellant_submissions",
-        "speakerRole": "appellant",
-        "heading": "Ισχυρισμοί του Εφεσείοντα για τη μαρτυρία του Κοινοτάρχη",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.99,
-        "boundaryEvidenceParagraphIds": [
-          "P000071",
-          "P000073"
-        ],
-        "rationale": "Τα χωρία αποδίδουν τις δύο συγκεκριμένες ενστάσεις που προβάλλει ο Εφεσείων."
-      },
-      {
-        "id": "S00021",
-        "startParagraphId": "P000074",
-        "endParagraphId": "P000075",
-        "sectionType": "court_analysis",
-        "speakerRole": "authoring_judge",
-        "heading": "Αποδοχή της πρωτόδικης αξιολόγησης της μαρτυρίας",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.975,
-        "boundaryEvidenceParagraphIds": [
-          "P000074",
-          "P000075"
-        ],
-        "rationale": "Τα αποσπάσματα περιέχουν ρητή αποδοχή της πρωτόδικης αξιολόγησης και της συνακόλουθης διαπίστωσης."
-      },
-      {
-        "id": "S00022",
-        "startParagraphId": "P000076",
-        "endParagraphId": "P000077",
-        "sectionType": "documentary_evidence",
-        "speakerRole": "unknown",
-        "heading": "Πιστοποιητικό Κοινοτικού Συμβουλίου",
-        "isQuotedMaterial": true,
-        "quotedSourceType": "other",
-        "confidence": 0.99,
-        "boundaryEvidenceParagraphIds": [
-          "P000076",
-          "P000077"
-        ],
-        "rationale": "Το κείμενο παραθέτει αυτολεξεί το περιεχόμενο του πιστοποιητικού."
-      },
-      {
-        "id": "S00023",
-        "startParagraphId": "P000078",
-        "endParagraphId": "P000078",
-        "sectionType": "legal_framework",
-        "speakerRole": "authoring_judge",
-        "heading": "Απαίτηση μνείας πηγών",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.92,
-        "boundaryEvidenceParagraphIds": [
-          "P000078"
-        ],
-        "rationale": "Το απόσπασμα διατυπώνει κανόνα για το πότε πρέπει να αναφέρονται οι πηγές κατά το άρθρο 82(3) του Κεφ.224."
-      },
-      {
-        "id": "S00024",
-        "startParagraphId": "P000079",
-        "endParagraphId": "P000082",
-        "sectionType": "court_analysis",
-        "speakerRole": "authoring_judge",
-        "heading": "Αποδεικτική αξία του πιστοποιητικού",
+        "heading": "Απόρριψη του ισχυρισμού",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
         "confidence": 0.95,
         "boundaryEvidenceParagraphIds": [
-          "P000079",
-          "P000080",
-          "P000081",
-          "P000082"
+          "P000056",
+          "P000057"
         ],
-        "rationale": "Τα αποσπάσματα καταλήγουν στην αξιολογική κρίση ότι το πιστοποιητικό δεν είχε αποδεικτική αξία."
+        "rationale": "Το Δικαστήριο αποφαίνεται ότι η θέση είναι αβάσιμη και ότι δεν υφίσταται τέτοιο κώλυμα."
+      },
+      {
+        "id": "S00019",
+        "startParagraphId": "P000058",
+        "endParagraphId": "P000058",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "heading": "Έννοια της εγγραφής",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.88,
+        "boundaryEvidenceParagraphIds": [
+          "P000058",
+          "P000059"
+        ],
+        "rationale": "Τα αποσπάσματα διατυπώνουν τον κανόνα για τη σημασία της εγγραφής και τη διακοπή της εχθρικής κατοχής με παραπομπές."
+      },
+      {
+        "id": "S00020",
+        "startParagraphId": "P000059",
+        "endParagraphId": "P000059",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "heading": "Σημασία της εγγραφής το 2001",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.93,
+        "boundaryEvidenceParagraphIds": [
+          "P000059"
+        ],
+        "rationale": "Το Δικαστήριο αξιολογεί τη σημασία της εγγραφής και εφαρμόζει το δικό του συλλογισμό."
+      },
+      {
+        "id": "S00021",
+        "startParagraphId": "P000060",
+        "endParagraphId": "P000061",
+        "sectionType": "appellant_submissions",
+        "speakerRole": "appellant",
+        "heading": "Συναφές ζήτημα στο περίγραμμα",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.97,
+        "boundaryEvidenceParagraphIds": [
+          "P000060",
+          "P000061"
+        ],
+        "rationale": "Το απόσπασμα αποδίδει ζήτημα που εγείρεται στο περίγραμμα αγόρευσης του Εφεσείοντα."
+      },
+      {
+        "id": "S00022",
+        "startParagraphId": "P000062",
+        "endParagraphId": "P000063",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "heading": "Απόρριψη της ένστασης για τη διττή βάση",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.94,
+        "boundaryEvidenceParagraphIds": [
+          "P000062",
+          "P000063"
+        ],
+        "rationale": "Το Δικαστήριο απορρίπτει την ένσταση και εξηγεί γιατί δεν υπήρχε πρόβλημα ασυμβίβαστου."
+      },
+      {
+        "id": "S00023",
+        "startParagraphId": "P000064",
+        "endParagraphId": "P000064",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "heading": "Απόρριψη λόγου 3",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 1,
+        "boundaryEvidenceParagraphIds": [
+          "P000064"
+        ],
+        "rationale": "Πρόκειται για ρητή διατακτική κρίση επί του λόγου έφεσης."
+      },
+      {
+        "id": "S00024",
+        "startParagraphId": "P000065",
+        "endParagraphId": "P000066",
+        "sectionType": "appellant_submissions",
+        "speakerRole": "appellant",
+        "heading": "Παράπονα για τη μαρτυρία του Κοινοτάρχη",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.98,
+        "boundaryEvidenceParagraphIds": [
+          "P000065",
+          "P000066"
+        ],
+        "rationale": "Ο Εφεσείων διατυπώνει τους λόγους του παραπόνου του."
       },
       {
         "id": "S00025",
-        "startParagraphId": "P000083",
-        "endParagraphId": "P000083",
-        "sectionType": "holding",
+        "startParagraphId": "P000067",
+        "endParagraphId": "P000068",
+        "sectionType": "court_analysis",
         "speakerRole": "authoring_judge",
+        "heading": "Αξιολόγηση της μαρτυρίας του Κοινοτάρχη",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.96,
+        "boundaryEvidenceParagraphIds": [
+          "P000067",
+          "P000068"
+        ],
+        "rationale": "Το Δικαστήριο αιτιολογεί γιατί θεωρεί ορθή την πρωτόδικη προσέγγιση."
+      },
+      {
+        "id": "S00026",
+        "startParagraphId": "P000069",
+        "endParagraphId": "P000070",
+        "sectionType": "documentary_evidence",
+        "speakerRole": "unknown",
+        "heading": "Περιεχόμενο του Πιστοποιητικού",
+        "isQuotedMaterial": true,
+        "quotedSourceType": "other",
+        "confidence": 0.92,
+        "boundaryEvidenceParagraphIds": [
+          "P000069",
+          "P000070"
+        ],
+        "rationale": "Το κείμενο παραθέτει αυτούσιο το περιεχόμενο του πιστοποιητικού και την επισήμανση που το ακολουθεί."
+      },
+      {
+        "id": "S00027",
+        "startParagraphId": "P000071",
+        "endParagraphId": "P000071",
+        "sectionType": "appellant_submissions",
+        "speakerRole": "appellant",
+        "heading": "Θέση Εφεσείοντα",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.94,
+        "boundaryEvidenceParagraphIds": [
+          "P000071"
+        ],
+        "rationale": "Αποδίδεται ρητά στον Εφεσείοντα θέση για τη γνώση του Κοινοτάρχη."
+      },
+      {
+        "id": "S00028",
+        "startParagraphId": "P000072",
+        "endParagraphId": "P000072",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "heading": "Αξιολόγηση αποδεικτικής αξίας πιστοποιητικού",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.96,
+        "boundaryEvidenceParagraphIds": [
+          "P000072"
+        ],
+        "rationale": "Το Δικαστήριο καταλήγει ότι το Πιστοποιητικό είχε μηδενική αποδεικτική αξία."
+      },
+      {
+        "id": "S00029",
+        "startParagraphId": "P000073",
+        "endParagraphId": "P000073",
+        "sectionType": "holding",
+        "speakerRole": "court",
         "heading": "Απόρριψη λόγου έφεσης 1",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
         "confidence": 0.99,
         "boundaryEvidenceParagraphIds": [
-          "P000083"
+          "P000073"
         ],
-        "rationale": "Το απόσπασμα περιέχει την τελική κρίση για τον λόγο έφεσης 1."
+        "rationale": "Περιέχει την τελική κρίση επί του πρώτου λόγου έφεσης."
       },
       {
-        "id": "S00026",
-        "startParagraphId": "P000084",
-        "endParagraphId": "P000084",
+        "id": "S00030",
+        "startParagraphId": "P000074",
+        "endParagraphId": "P000074",
         "sectionType": "appellant_submissions",
         "speakerRole": "appellant",
-        "heading": "Θέση Εφεσείοντος για τη μαρτυρία της Εφεσίβλητης 1",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.79,
-        "boundaryEvidenceParagraphIds": [
-          "P000084"
-        ],
-        "rationale": "Το δεύτερο σκέλος του αποσπάσματος αποδίδει ρητά θέση στον Εφεσείοντα."
-      },
-      {
-        "id": "S00027",
-        "startParagraphId": "P000085",
-        "endParagraphId": "P000085",
-        "sectionType": "legal_framework",
-        "speakerRole": "authoring_judge",
-        "heading": "Αρχές επέμβασης στο θέμα αξιοπιστίας",
+        "heading": "Θέση Εφεσείοντα για τη μαρτυρία της Εφεσίβλητης 1",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
         "confidence": 0.95,
         "boundaryEvidenceParagraphIds": [
-          "P000085"
+          "P000074"
         ],
-        "rationale": "Το απόσπασμα εισάγει γενικές αρχές που διέπουν την επέμβαση του Εφετείου."
-      },
-      {
-        "id": "S00028",
-        "startParagraphId": "P000086",
-        "endParagraphId": "P000089",
-        "sectionType": "quoted_authority",
-        "speakerRole": "quoted_court",
-        "heading": "Παρατιθέμενη νομολογία για την επέμβαση του Εφετείου",
-        "isQuotedMaterial": true,
-        "quotedSourceType": "case",
-        "confidence": 0.9525,
-        "boundaryEvidenceParagraphIds": [
-          "P000086",
-          "P000087",
-          "P000088",
-          "P000089"
-        ],
-        "rationale": "Τα αποσπάσματα αποτελούν παραπομπή σε άλλη νομολογία και όχι πρωτότυπη κρίση του Δικαστηρίου."
-      },
-      {
-        "id": "S00029",
-        "startParagraphId": "P000090",
-        "endParagraphId": "P000096",
-        "sectionType": "court_analysis",
-        "speakerRole": "authoring_judge",
-        "heading": "Αξιολόγηση των σημείων σύγχυσης και μη συνοχής",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.9814,
-        "boundaryEvidenceParagraphIds": [
-          "P000090",
-          "P000091",
-          "P000096"
-        ],
-        "rationale": "Τα αποσπάσματα εκθέτουν τη δικανική εκτίμηση ότι οι αντιφάσεις δεν παραγνωρίστηκαν και εξηγούνται."
-      },
-      {
-        "id": "S00030",
-        "startParagraphId": "P000097",
-        "endParagraphId": "P000097",
-        "sectionType": "holding",
-        "speakerRole": "authoring_judge",
-        "heading": "Απόρριψη λόγου έφεσης 2",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.99,
-        "boundaryEvidenceParagraphIds": [
-          "P000097"
-        ],
-        "rationale": "Η παράγραφος διατυπώνει το συγκεκριμένο αποτέλεσμα ως προς τον λόγο έφεσης 2."
+        "rationale": "Το τελευταίο μέρος αποδίδει ρητά τη θέση στον Εφεσείοντα."
       },
       {
         "id": "S00031",
-        "startParagraphId": "P000098",
-        "endParagraphId": "P000098",
+        "startParagraphId": "P000075",
+        "endParagraphId": "P000075",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "heading": "Αρχή επέμβασης στο ζήτημα αξιοπιστίας",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.97,
+        "boundaryEvidenceParagraphIds": [
+          "P000075"
+        ],
+        "rationale": "Διατυπώνεται γενική αρχή για την επέμβαση του εφετείου στην αξιολόγηση αξιοπιστίας."
+      },
+      {
+        "id": "S00032",
+        "startParagraphId": "P000076",
+        "endParagraphId": "P000082",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "heading": "Εφαρμογή της αρχής στα πραγματικά δεδομένα",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.9929,
+        "boundaryEvidenceParagraphIds": [
+          "P000076",
+          "P000082"
+        ],
+        "rationale": "Ακολουθεί η αξιολόγηση της μαρτυρίας και η εξήγηση γιατί δεν δικαιολογείται επέμβαση."
+      },
+      {
+        "id": "S00033",
+        "startParagraphId": "P000083",
+        "endParagraphId": "P000083",
         "sectionType": "disposition",
         "speakerRole": "court",
         "heading": "Απόρριψη έφεσης",
@@ -2689,83 +2399,79 @@
         "quotedSourceType": "none",
         "confidence": 0.99,
         "boundaryEvidenceParagraphIds": [
-          "P000098"
+          "P000083"
         ],
-        "rationale": "Η παράγραφος περιέχει την τελική διατακτική για την έφεση."
+        "rationale": "Περιέχει το τελικό διατακτικό ότι η έφεση απορρίπτεται."
       },
       {
-        "id": "S00032",
-        "startParagraphId": "P000099",
-        "endParagraphId": "P000099",
+        "id": "S00034",
+        "startParagraphId": "P000084",
+        "endParagraphId": "P000084",
         "sectionType": "costs",
         "speakerRole": "court",
         "heading": "Έξοδα έφεσης",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
-        "confidence": 0.99,
+        "confidence": 0.985,
         "boundaryEvidenceParagraphIds": [
-          "P000099"
+          "P000084"
         ],
-        "rationale": "Η παράγραφος περιέχει την τελική διατακτική για τα έξοδα."
-      },
-      {
-        "id": "S00033",
-        "startParagraphId": "P000100",
-        "endParagraphId": "P000102",
-        "sectionType": "signature",
-        "speakerRole": "court",
-        "heading": "Υπογραφές δικαστών",
-        "isQuotedMaterial": false,
-        "quotedSourceType": "none",
-        "confidence": 0.98,
-        "boundaryEvidenceParagraphIds": [
-          "P000100",
-          "P000102"
-        ],
-        "rationale": "Οι τρεις παράγραφοι περιέχουν τα ονόματα των δικαστών μετά τη διατακτική."
-      },
-      {
-        "id": "S00034",
-        "startParagraphId": "P000103",
-        "endParagraphId": "P000103",
-        "sectionType": "quoted_legislation",
-        "speakerRole": "legislature",
-        "heading": "Υποσημείωση με νομοθετικό κείμενο",
-        "isQuotedMaterial": true,
-        "quotedSourceType": "legislation",
-        "confidence": 0.88,
-        "boundaryEvidenceParagraphIds": [
-          "P000103"
-        ],
-        "rationale": "Η παράγραφος είναι αυτούσια παράθεση κανόνα σε υποσημείωση."
+        "rationale": "Περιέχει μόνο τη διαταγή για τα έξοδα της έφεσης."
       },
       {
         "id": "S00035",
-        "startParagraphId": "P000104",
-        "endParagraphId": "P000104",
-        "sectionType": "other",
-        "speakerRole": "unknown",
-        "heading": "Υποσέλιδο ιστότοπου",
+        "startParagraphId": "P000085",
+        "endParagraphId": "P000087",
+        "sectionType": "signature",
+        "speakerRole": "authoring_judge",
+        "heading": "Υπογραφές δικαστών",
         "isQuotedMaterial": false,
         "quotedSourceType": "none",
         "confidence": 0.99,
         "boundaryEvidenceParagraphIds": [
-          "P000104"
+          "P000085",
+          "P000087"
         ],
-        "rationale": "Η παράγραφος είναι υλικό ιστότοπου και όχι μέρος της δικαστικής απόφασης."
+        "rationale": "Οι τρεις τελευταίες παράγραφοι είναι οι υπογραφές των δικαστών."
+      },
+      {
+        "id": "S00036",
+        "startParagraphId": "P000088",
+        "endParagraphId": "P000088",
+        "sectionType": "quoted_authority",
+        "speakerRole": "quoted_court",
+        "heading": "",
+        "isQuotedMaterial": true,
+        "quotedSourceType": "case",
+        "confidence": 0.72,
+        "boundaryEvidenceParagraphIds": [
+          "P000088"
+        ],
+        "rationale": "Το κείμενο παρατίθεται αυτούσιο ως παραπομπή σε άλλη δικαστική διατύπωση."
+      },
+      {
+        "id": "S00037",
+        "startParagraphId": "P000089",
+        "endParagraphId": "P000089",
+        "sectionType": "other",
+        "speakerRole": "unknown",
+        "heading": "",
+        "isQuotedMaterial": false,
+        "quotedSourceType": "none",
+        "confidence": 0.99,
+        "boundaryEvidenceParagraphIds": [
+          "P000089"
+        ],
+        "rationale": "Πρόκειται για υλικό ιστότοπου και όχι για το περιεχόμενο της απόφασης."
       }
     ],
     "coverageComplete": true,
     "overlapFree": true,
     "reviewFlags": [
-      "section_boundary_ambiguous_P000028",
-      "section_boundary_ambiguous_P000030",
-      "section_boundary_ambiguous_P000047",
+      "section_boundary_ambiguous_P000045",
+      "section_boundary_ambiguous_P000046",
       "section_boundary_ambiguous_P000059",
-      "section_boundary_ambiguous_P000060",
-      "section_boundary_ambiguous_P000061",
-      "section_boundary_ambiguous_P000062",
-      "section_boundary_ambiguous_P000063"
+      "section_boundary_ambiguous_P000071"
     ]
   },
   "stages": [
@@ -2774,9 +2480,9 @@
       "status": "completed",
       "model": "deterministic",
       "responseId": "",
-      "startedAt": "2026-07-30T20:04:42.985Z",
-      "completedAt": "2026-07-30T20:04:42.993Z",
-      "elapsedMs": 8,
+      "startedAt": "2026-07-30T20:09:55.079Z",
+      "completedAt": "2026-07-30T20:09:55.090Z",
+      "elapsedMs": 11,
       "inputCharacters": 13653,
       "outputCharacters": 13653,
       "errorCode": ""
@@ -2785,10 +2491,10 @@
       "stage": "sections-1",
       "status": "completed",
       "model": "gpt-5.4-mini-2026-03-17",
-      "responseId": "resp_04ad23f6ad90e3d0016a6bae5bab088196ad346f51c7515294",
-      "startedAt": "2026-07-30T20:04:42.993Z",
-      "completedAt": "2026-07-30T20:05:00.359Z",
-      "elapsedMs": 8057,
+      "responseId": "resp_07c062abfabc78a4016a6baf942414819a8f6c741515ae88db",
+      "startedAt": "2026-07-30T20:09:55.090Z",
+      "completedAt": "2026-07-30T20:10:13.801Z",
+      "elapsedMs": 7616,
       "inputCharacters": 0,
       "outputCharacters": 0,
       "errorCode": ""
@@ -2797,10 +2503,10 @@
       "stage": "sections-2",
       "status": "completed",
       "model": "gpt-5.4-mini-2026-03-17",
-      "responseId": "resp_0429cc319ad579c0016a6bae5ba8788193969d862e71429016",
-      "startedAt": "2026-07-30T20:04:42.993Z",
-      "completedAt": "2026-07-30T20:05:00.359Z",
-      "elapsedMs": 9388,
+      "responseId": "resp_043ac54f864dcbfd016a6baf93edec8199ac6d990d0f001c1d",
+      "startedAt": "2026-07-30T20:09:55.090Z",
+      "completedAt": "2026-07-30T20:10:13.801Z",
+      "elapsedMs": 11059,
       "inputCharacters": 0,
       "outputCharacters": 0,
       "errorCode": ""
@@ -2809,10 +2515,10 @@
       "stage": "sections-3",
       "status": "completed",
       "model": "gpt-5.4-mini-2026-03-17",
-      "responseId": "resp_00097d94c6897b35016a6bae5bb0548197937d3f9dd49ec792",
-      "startedAt": "2026-07-30T20:04:42.993Z",
-      "completedAt": "2026-07-30T20:05:00.359Z",
-      "elapsedMs": 11024,
+      "responseId": "resp_0dc74b9346bba44a016a6baf93f4688199b3280d71d3b94763",
+      "startedAt": "2026-07-30T20:09:55.090Z",
+      "completedAt": "2026-07-30T20:10:13.801Z",
+      "elapsedMs": 7099,
       "inputCharacters": 0,
       "outputCharacters": 0,
       "errorCode": ""
@@ -2821,10 +2527,10 @@
       "stage": "sections-4",
       "status": "completed",
       "model": "gpt-5.4-mini-2026-03-17",
-      "responseId": "resp_00cf1d50685ffb26016a6bae5babc88195881b4b81eb2daa21",
-      "startedAt": "2026-07-30T20:04:42.993Z",
-      "completedAt": "2026-07-30T20:05:00.359Z",
-      "elapsedMs": 7303,
+      "responseId": "resp_07c09c80f1204b58016a6baf93f3f4819a82999e60e293ccba",
+      "startedAt": "2026-07-30T20:09:55.090Z",
+      "completedAt": "2026-07-30T20:10:13.801Z",
+      "elapsedMs": 8625,
       "inputCharacters": 0,
       "outputCharacters": 0,
       "errorCode": ""
@@ -2833,10 +2539,10 @@
       "stage": "sections-5",
       "status": "completed",
       "model": "gpt-5.4-mini-2026-03-17",
-      "responseId": "resp_09ecf1b298b4fa14016a6bae6260c48190a65df200c0e10823",
-      "startedAt": "2026-07-30T20:04:42.993Z",
-      "completedAt": "2026-07-30T20:05:00.359Z",
-      "elapsedMs": 10059,
+      "responseId": "resp_0ec3a97848c181b1016a6baf9a60a08198a979c6bfc7d44816",
+      "startedAt": "2026-07-30T20:09:55.090Z",
+      "completedAt": "2026-07-30T20:10:13.801Z",
+      "elapsedMs": 11607,
       "inputCharacters": 0,
       "outputCharacters": 0,
       "errorCode": ""
@@ -2845,10 +2551,10 @@
       "stage": "sections-6",
       "status": "completed",
       "model": "gpt-5.4-mini-2026-03-17",
-      "responseId": "resp_0929ed4f009199ff016a6bae6323e481938cffbe63f1b514a0",
-      "startedAt": "2026-07-30T20:04:42.993Z",
-      "completedAt": "2026-07-30T20:05:00.359Z",
-      "elapsedMs": 8181,
+      "responseId": "resp_0276de01685e0e33016a6baf9ad6b0819bbc1a5b194a2fa7ed",
+      "startedAt": "2026-07-30T20:09:55.090Z",
+      "completedAt": "2026-07-30T20:10:13.801Z",
+      "elapsedMs": 4784,
       "inputCharacters": 0,
       "outputCharacters": 0,
       "errorCode": ""
