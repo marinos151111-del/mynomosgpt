@@ -1,0 +1,20 @@
+{
+  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
+  "sourceTitle": "Alexander Keith Edward v. Γεώργιου Αλεξάνδρου, από την Πάφο, ως διαχειριστή της περιουσίας της Αναστασίας Κώστα Αλεξάνδρου κ.α., ΠΟΛΙΤΙΚΗ ΕΦΕΣΗ ΑΡ. 30/2016, 12/1/2026",
+  "charset": "windows-1253",
+  "htmlCharacters": 41291,
+  "fetchedTextCharacters": 13653,
+  "cleanTextCharacters": 13653,
+  "paragraphCount": 56,
+  "paragraphCharacters": 13294,
+  "paragraphLength": {
+    "minimum": 2,
+    "median": 66,
+    "p90": 688,
+    "p95": 948,
+    "p99": 1047,
+    "maximum": 1079
+  },
+  "paragraphsAtMaximumSplit": 0,
+  "generatedAt": "2026-07-30T19:42:27.726Z"
+}

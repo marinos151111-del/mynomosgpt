@@ -3,6 +3,6 @@
   "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
   "mode": "sections",
   "message": "SECTION_WINDOW_LIMIT_EXCEEDED",
-  "stack": "Error: SECTION_WINDOW_LIMIT_EXCEEDED\n    at buildWindows (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:107:11)\n    at buildSectionMap (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:345:19)\n    at runNomologiesPipelineV2 (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/pipeline.ts:377:26)\n    at async file:///home/runner/work/mynomosgpt/mynomosgpt/scripts/run-test.ts:116:18",
-  "at": "2026-07-30T19:39:56.477Z"
+  "stack": "Error: SECTION_WINDOW_LIMIT_EXCEEDED\n    at buildWindows (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:107:11)\n    at buildSectionMap (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:345:19)\n    at runNomologiesPipelineV2 (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/pipeline.ts:377:26)\n    at async file:///home/runner/work/mynomosgpt/mynomosgpt/scripts/run-test.ts:152:18",
+  "at": "2026-07-30T19:42:27.736Z"
 }
