@@ -80,7 +80,10 @@ function buildWindows(paragraphs: JudgmentParagraphV2[]): Window[] {
       firstOrdinal: slice[0].ordinal,
       lastOrdinal: slice[slice.length - 1].ordinal,
     });
-    if (end >= paragraphs.length) break;
+    if (end >= paragraphs.length) {
+    start = paragraphs.length;
+    break;
+  }
     let overlapStart = end;
     let overlapCharacters = 0;
     let overlapParagraphs = 0;
