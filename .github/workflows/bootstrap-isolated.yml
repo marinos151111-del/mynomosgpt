@@ -1,0 +1,242 @@
+name: Bootstrap isolated Nomologies V2 repository
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - bootstrap/READY
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout isolated repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Import only the standalone Nomologies V2 pipeline
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch agent/nomologies-pipeline-v2 \
+            https://github.com/marinos151111-del/MyNomosAI.git /tmp/mynomos-source
+
+          mkdir -p src/nomologies-v2 scripts .github/workflows .github
+          cp /tmp/mynomos-source/supabase/functions/server/nomologies-v2/{types,source,cylaw,openai-responses,prompts,schemas,evidence,sections,agents,pipeline}.ts src/nomologies-v2/
+          cp /tmp/mynomos-source/scripts/run-nomologies-v2-ci.ts scripts/run-test.ts
+          sed -i 's#../supabase/functions/server/nomologies-v2/#../src/nomologies-v2/#g' scripts/run-test.ts
+
+          cat > deno.json <<'EOF'
+          {
+            "compilerOptions": {
+              "strict": true,
+              "lib": ["deno.window", "dom", "dom.iterable", "esnext"]
+            },
+            "tasks": {
+              "check": "deno check scripts/run-test.ts",
+              "test": "deno run --allow-net=api.openai.com,cylaw.org,www.cylaw.org --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,SOURCE_URL,PIPELINE_MODE --allow-read --allow-write=artifacts scripts/run-test.ts"
+            }
+          }
+          EOF
+
+          cat > .gitignore <<'EOF'
+          artifacts/
+          .env
+          .env.*
+          !.env.example
+          .DS_Store
+          EOF
+
+          cat > .env.example <<'EOF'
+          OPENAI_API_KEY=
+          NOMOLOGIES_V2_MODEL=
+          SOURCE_URL=https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html
+          PIPELINE_MODE=sections
+          EOF
+
+          cat > .github/nomologies-v2-test-request.json <<'EOF'
+          {
+            "source_url": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
+            "mode": "sections",
+            "model": "",
+            "request_id": "initial-isolated-test-001"
+          }
+          EOF
+
+          cat > .github/workflows/test-nomologies-v2.yml <<'EOF'
+          name: Test Nomologies V2 extraction
+
+          on:
+            workflow_dispatch:
+              inputs:
+                source_url:
+                  description: Official HTTPS CyLaw judgment URL
+                  required: true
+                  default: https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html
+                  type: string
+                mode:
+                  description: Test depth
+                  required: true
+                  default: sections
+                  type: choice
+                  options:
+                    - sections
+                    - full
+                model:
+                  description: Optional exact OpenAI model ID; leave blank for automatic selection
+                  required: false
+                  type: string
+            push:
+              branches: [main]
+              paths:
+                - .github/nomologies-v2-test-request.json
+                - src/nomologies-v2/**
+                - scripts/run-test.ts
+                - .github/workflows/test-nomologies-v2.yml
+
+          permissions:
+            contents: read
+
+          concurrency:
+            group: nomologies-v2-test-${{ github.ref }}
+            cancel-in-progress: false
+
+          jobs:
+            validate-and-test:
+              runs-on: ubuntu-latest
+              timeout-minutes: 90
+              steps:
+                - uses: actions/checkout@v4
+                - uses: denoland/setup-deno@v2
+                  with:
+                    deno-version: v2.x
+
+                - name: Type-check isolated pipeline
+                  run: deno check scripts/run-test.ts
+
+                - name: Resolve test request
+                  id: request
+                  shell: bash
+                  env:
+                    EVENT_NAME: ${{ github.event_name }}
+                    INPUT_SOURCE_URL: ${{ inputs.source_url }}
+                    INPUT_MODE: ${{ inputs.mode }}
+                    INPUT_MODEL: ${{ inputs.model }}
+                  run: |
+                    set -euo pipefail
+                    node <<'NODE'
+                    const fs = require('fs');
+                    let request;
+                    if (process.env.EVENT_NAME === 'workflow_dispatch') {
+                      request = {
+                        source_url: process.env.INPUT_SOURCE_URL,
+                        mode: process.env.INPUT_MODE || 'sections',
+                        model: process.env.INPUT_MODEL || ''
+                      };
+                    } else {
+                      request = JSON.parse(fs.readFileSync('.github/nomologies-v2-test-request.json', 'utf8'));
+                    }
+                    const source = String(request.source_url || '');
+                    if (!/^https:\/\/(?:www\.)?cylaw\.org\//i.test(source)) throw new Error('Only official HTTPS CyLaw URLs are allowed');
+                    fs.appendFileSync(process.env.GITHUB_OUTPUT, `source_url=${source}\nmode=${request.mode === 'full' ? 'full' : 'sections'}\nmodel=${String(request.model || '')}\n`);
+                    NODE
+
+                - name: Confirm OpenAI secret belongs to this repository
+                  shell: bash
+                  env:
+                    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+                  run: |
+                    test -n "${OPENAI_API_KEY:-}" || { echo 'Add OPENAI_API_KEY under this repository Settings → Secrets and variables → Actions.' >&2; exit 1; }
+
+                - name: Run real extraction
+                  shell: bash
+                  env:
+                    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+                    SOURCE_URL: ${{ steps.request.outputs.source_url }}
+                    PIPELINE_MODE: ${{ steps.request.outputs.mode }}
+                    NOMOLOGIES_V2_MODEL: ${{ steps.request.outputs.model }}
+                  run: |
+                    deno run \
+                      --allow-net=api.openai.com,cylaw.org,www.cylaw.org \
+                      --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,SOURCE_URL,PIPELINE_MODE \
+                      --allow-read \
+                      --allow-write=artifacts \
+                      scripts/run-test.ts
+
+                - name: Publish summary
+                  if: always()
+                  shell: bash
+                  run: |
+                    if [ -f artifacts/nomologies-v2/summary.md ]; then
+                      cat artifacts/nomologies-v2/summary.md >> "$GITHUB_STEP_SUMMARY"
+                    else
+                      printf '# Nomologies V2 test\n\nNo report was generated. Inspect the workflow logs.\n' >> "$GITHUB_STEP_SUMMARY"
+                    fi
+
+                - name: Upload visual report and structured result
+                  if: always()
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: nomologies-v2-test-${{ github.run_number }}
+                    path: artifacts/nomologies-v2
+                    if-no-files-found: warn
+                    retention-days: 30
+          EOF
+
+          cat > README.md <<'EOF'
+          # MyNomos GPT — Nomologies V2 Lab
+
+          Independent, section-first, evidence-grounded extraction for Cyprus judgments.
+
+          This repository is deliberately isolated from the original `MyNomosAI` repository. It contains no MyNomos frontend, production corpus, Supabase credentials, live storage configuration, or production deployment code.
+
+          ## Extraction coverage
+
+          The pipeline extracts case identity, citation, ECLI, docket, case number, joined cases, court, date, judges, authoring judge, parties, advocates, legal family, legal areas, proceeding and posture, material facts, chronology, witnesses and evidence, procedural history, grounds, relief, party submissions, legal issues, findings, holding, ratio decidendi, legal principles, obiter, legal tests, legislation and article ownership, cited authorities and treatment, final and component outcomes, orders, remedies, sentence, damages, interest, VAT, costs and remittal.
+
+          Every populated material field must contain exact paragraph-linked evidence from a legally permissible section and speaker.
+
+          ## Test through GitHub Actions
+
+          1. Add `OPENAI_API_KEY` under **Settings → Secrets and variables → Actions** in this repository.
+          2. Open **Actions → Test Nomologies V2 extraction → Run workflow**.
+          3. Start with `sections`; use `full` after reviewing the section map.
+          4. Download the HTML report and structured JSON artifact.
+
+          Never commit API keys or put them in browser code.
+          EOF
+
+          cat > SECURITY.md <<'EOF'
+          # Security
+
+          - Store `OPENAI_API_KEY` only as a GitHub Actions repository secret or server environment secret.
+          - Do not commit `.env` files, API keys, Supabase service-role keys or client records.
+          - The test runner accepts only official HTTPS `cylaw.org` judgment URLs.
+          - Model output remains subject to exact evidence validation and human review.
+          EOF
+
+          rm -rf bootstrap
+          rm -f .github/workflows/bootstrap-isolated.yml
+
+      - name: Validate isolated source
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check before committing
+        run: deno check scripts/run-test.ts
+
+      - name: Commit isolated repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Nomologies V2 Bootstrap"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Install isolated Nomologies V2 pipeline"
+          git push origin main
