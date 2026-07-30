@@ -7,7 +7,7 @@ import type {
 
 const MAX_PARAGRAPH_CHARS = 7_000;
 const MIN_SPLIT_FLOOR = 2_500;
-const ATOMIC_SEGMENT_THRESHOLD = 360;
+const ATOMIC_SEGMENT_THRESHOLD = 180;
 
 type SourceUnit = {
   text: string;
@@ -136,8 +136,14 @@ function sentenceSegments(block: string): string[] {
   for (const segment of segments) {
     const startsLowercase = /^[«“"'(\[]*[a-zα-ωάέήίόύώϊΐϋΰ]/u.test(segment);
     const previous = merged[merged.length - 1] || "";
-    const previousEndsWithAbbreviation = /(?:\b(?:v|vs|ν|αρ|ημερ|σελ|Δ|ΔΔ|Ltd|Co)\.|(?:[A-ZΑ-Ω]\.){2,})$/u.test(previous);
-    if (merged.length && (startsLowercase || previousEndsWithAbbreviation)) {
+    const openParentheses = (previous.match(/\(/g) || []).length > (previous.match(/\)/g) || []).length;
+    const openGreekQuote = (previous.match(/«/g) || []).length > (previous.match(/»/g) || []).length;
+    const openCurlyQuote = (previous.match(/“/g) || []).length > (previous.match(/”/g) || []).length;
+    const previousEndsWithAbbreviation = /(?:\(?βλ|πρβλ|κ\.ά|κ\.α|ν|v|vs|αρ|ημερ|σελ|Δ|ΔΔ|Ltd|Co|Insur)\.\s*$/iu.test(previous) || /(?:[A-ZΑ-Ω]\.){2,}\s*$/u.test(previous);
+    const shortCitationContinuation = segment.length <= 180 && /^(?:[A-ZΑ-Ω][\p{L}'’.-]+|\(?\d{4}\)|\d+\([A-ZΑ-Ω]\)|C\.L\.R\.|Α\.Α\.Δ\.)/u.test(segment);
+    const continuePrevious = startsLowercase || openParentheses || openGreekQuote || openCurlyQuote || previousEndsWithAbbreviation ||
+      (shortCitationContinuation && /(?:\b(?:ν|v|vs)\.|\(βλ\.|,\s*)/iu.test(previous));
+    if (merged.length && continuePrevious) {
       merged[merged.length - 1] = `${previous} ${segment}`.trim();
     } else {
       merged.push(segment);

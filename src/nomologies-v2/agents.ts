@@ -63,7 +63,7 @@ const FACT_PROCEDURE_TYPES = new Set<SectionType>([
   "court_analysis", "holding", "disposition", "remedy",
 ]);
 const ANALYSIS_TYPES = new Set<SectionType>([
-  "facts", "court_analysis", "findings_of_fact", "legal_findings", "holding",
+  "facts", "legal_framework", "court_analysis", "findings_of_fact", "legal_findings", "holding",
   "ratio_decidendi", "obiter_dictum", "dissent", "concurrence", "disposition",
 ]);
 const AUTHORITY_TYPES = new Set<SectionType>([

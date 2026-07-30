@@ -53,7 +53,7 @@ const SUBMISSION_SECTIONS = new Set<SectionType>([
   "defence_submissions", "other_party_submissions",
 ]);
 const ANALYSIS_SECTIONS = new Set<SectionType>([
-  "court_analysis", "findings_of_fact", "legal_findings", "holding",
+  "legal_framework", "court_analysis", "findings_of_fact", "legal_findings", "holding",
   "ratio_decidendi", "obiter_dictum", "dissent", "concurrence",
 ]);
 const LEGISLATION_SECTIONS = new Set<SectionType>([

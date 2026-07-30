@@ -56,8 +56,12 @@ BOUNDARY RULES
 - quoted_legislation: verbatim statutory/regulatory text, including a footnote
   whose marker is expressly tied to an article, rule or regulation. Use
   speakerRole=legislature and quotedSourceType=legislation.
-- quoted_authority: text or a proposition attributed to another judgment. Use
-  speakerRole=quoted_court and quotedSourceType=case.
+- quoted_authority: a substantial quotation or proposition expressly attributed
+  to another judgment. Use speakerRole=quoted_court and quotedSourceType=case.
+- A rule stated in the present court's own voice does NOT become quoted_authority
+  merely because it ends with a parenthetical citation, «βλ.» or a list of cases;
+  classify it as legal_framework, court_analysis, legal_findings or ratio_decidendi
+  according to its function.
 - court_analysis: the present court's evaluation and application. Signals include
   «Βρίσκουμε», «Κρίνουμε», «Πρόκειται για θέση αβάσιμη», «Δεν βρίσκουμε»,
   «Κατ' ακολουθία» and «Ως αποτέλεσμα».
