@@ -1,8 +1,0 @@
-{
-  "ok": false,
-  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
-  "mode": "full",
-  "message": "The judicial-analysis stage exceeded its safe execution time.",
-  "stack": "NomologiesOpenAIError: The judicial-analysis stage exceeded its safe execution time.\n    at createStructuredResponse (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/openai-responses.ts:299:13)\n    at async runAgent (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/agents.ts:177:20)\n    at async Promise.all (index 2)\n    at async runSpecialistAgents (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/agents.ts:367:99)\n    at async runNomologiesPipelineV2 (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/pipeline.ts:383:23)\n    at async file:///home/runner/work/mynomosgpt/mynomosgpt/scripts/run-test.ts:152:18",
-  "at": "2026-07-30T20:18:12.630Z"
-}
