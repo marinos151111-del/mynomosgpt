@@ -2,4 +2,4 @@
 
 - Source: https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html
 - Mode: sections
-- Error: SECTION_WINDOW_LIMIT_EXCEEDED
+- Error: The sections-1-of-1 stage exceeded its safe execution time.
