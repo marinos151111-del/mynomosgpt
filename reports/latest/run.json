@@ -1,7 +1,8 @@
 {
   "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
   "mode": "sections",
-  "exitCode": 1,
-  "workflowCommit": "3b9143fcb91a92dc3caed58e3f3c25531ae98a76",
-  "generatedAt": "2026-07-30T19:46:51Z"
+  "model": "gpt-5.4-mini",
+  "exitCode": 0,
+  "workflowCommit": "fdfc6fc0250a627a3d3fae9f2770128375c6c518",
+  "generatedAt": "2026-07-30T19:49:05Z"
 }
