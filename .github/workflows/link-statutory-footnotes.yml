@@ -1,0 +1,100 @@
+name: Link statutory footnotes deterministically
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/link-statutory-footnotes.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Add deterministic statutory-footnote attribution
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/nomologies-v2/sections.ts')
+          text = path.read_text(encoding='utf-8')
+          anchor = '''async function mapWithConcurrency<T, R>(
+          '''
+          function_code = r'''function correctStatutoryFootnotes(
+            source: JudgmentSourceV2,
+            spans: SectionSpanV2[],
+            reviewFlags: Set<string>,
+          ): SectionSpanV2[] {
+            const ordinal = new Map(source.paragraphs.map((paragraph) => [paragraph.id, paragraph.ordinal]));
+            return spans.map((span) => {
+              const start = ordinal.get(span.startParagraphId) || 0;
+              const end = ordinal.get(span.endParagraphId) || start;
+              if (!start || !end) return span;
+              const text = source.paragraphs.slice(start - 1, end).map((paragraph) => paragraph.text).join(" ");
+              const marker = text.match(/^\s*\[(\d{1,3})\]\s*[«“"]/u)?.[1] || "";
+              if (!marker || span.sectionType !== "quoted_authority") return span;
+
+              const preceding = source.paragraphs
+                .slice(Math.max(0, start - 45), start - 1)
+                .map((paragraph) => paragraph.text)
+                .join(" ");
+              const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+              const linkedToProvision = new RegExp(
+                `(?:άρθρ(?:ο|ου|ων)?|κανονισμ(?:ός|ού|ο)|κανόνα|διάταξ|section|article|rule|regulation)[^\\[] {0,0}`.replace("[^\\[] {0,0}", `[^\\[] {0,220}\\[${escaped}\\]`),
+                "iu",
+              ).test(preceding);
+              if (!linkedToProvision) return span;
+
+              reviewFlags.add(`section_deterministic_statutory_footnote_${span.startParagraphId}`);
+              return {
+                ...span,
+                sectionType: "quoted_legislation",
+                speakerRole: "legislature",
+                isQuotedMaterial: true,
+                quotedSourceType: "legislation",
+                confidence: Math.max(span.confidence, 0.97),
+                heading: span.heading || "Νομοθετική υποσημείωση",
+                rationale: "Η αριθμημένη υποσημείωση συνδέεται ρητά με προηγούμενη νομοθετική διάταξη.",
+              };
+            });
+          }
+
+          '''
+          if anchor not in text:
+              raise SystemExit('Concurrency anchor not found')
+          text = text.replace(anchor, function_code + anchor, 1)
+          old = '  const spans = reconcileCandidates(source, candidates, reviewFlags);'
+          new = '  const spans = correctStatutoryFootnotes(source, reconcileCandidates(source, candidates, reviewFlags), reviewFlags);'
+          if old not in text:
+              raise SystemExit('Reconcile call not found')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check footnote attribution
+        run: deno check scripts/run-test.ts
+
+      - name: Commit footnote attribution
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/link-statutory-footnotes.yml
+          git config user.name "Nomologies V2 Evidence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/nomologies-v2/sections.ts .github/workflows/link-statutory-footnotes.yml
+          git commit -m "Link statutory footnotes"
+          git push origin HEAD:main
