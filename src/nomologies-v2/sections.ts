@@ -29,8 +29,10 @@ type CandidateSpan = SectionSpanV2 & {
 };
 
 const WINDOW_TARGET_CHARS = 105_000;
-const WINDOW_OVERLAP_PARAGRAPHS = 14;
-const MAX_SECTION_WINDOWS = 24;
+const WINDOW_OVERLAP_TARGET_CHARS = 18_000;
+const MAX_WINDOW_OVERLAP_PARAGRAPHS = 14;
+const MIN_WINDOW_ADVANCE_PARAGRAPHS = 4;
+const MAX_SECTION_WINDOWS = 64;
 const MAX_CONCURRENCY = 3;
 
 function str(value: unknown): string {
@@ -79,7 +81,25 @@ function buildWindows(paragraphs: JudgmentParagraphV2[]): Window[] {
       lastOrdinal: slice[slice.length - 1].ordinal,
     });
     if (end >= paragraphs.length) break;
-    const next = Math.max(start + 1, end - WINDOW_OVERLAP_PARAGRAPHS);
+    let overlapStart = end;
+    let overlapCharacters = 0;
+    let overlapParagraphs = 0;
+    while (
+      overlapStart > start &&
+      overlapParagraphs < MAX_WINDOW_OVERLAP_PARAGRAPHS &&
+      overlapCharacters < WINDOW_OVERLAP_TARGET_CHARS
+    ) {
+      overlapStart -= 1;
+      overlapCharacters += paragraphs[overlapStart].text.length + 120;
+      overlapParagraphs += 1;
+    }
+
+    // A fixed 14-paragraph overlap could consume almost an entire window
+    // when CyLaw paragraphs are long, advancing only one paragraph per API
+    // call. Preserve useful context while guaranteeing material progress.
+    const minimumNext = Math.min(end, start + MIN_WINDOW_ADVANCE_PARAGRAPHS);
+    const next = Math.max(minimumNext, overlapStart);
+    if (next <= start) throw new Error("SECTION_WINDOW_PROGRESS_STALLED");
     start = next;
   }
 
