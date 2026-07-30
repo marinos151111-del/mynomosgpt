@@ -1,0 +1,53 @@
+name: Import isolated Nomologies V2 source
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened]
+    paths:
+      - bootstrap/REQUEST
+
+permissions:
+  contents: write
+
+jobs:
+  import-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout bootstrap branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Import only standalone pipeline files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch agent/nomologies-pipeline-v2 \
+            https://github.com/marinos151111-del/MyNomosAI.git /tmp/mynomos-source
+
+          mkdir -p src/nomologies-v2 scripts
+          cp /tmp/mynomos-source/supabase/functions/server/nomologies-v2/{types,source,cylaw,openai-responses,prompts,schemas,evidence,sections,agents,pipeline}.ts src/nomologies-v2/
+          cp /tmp/mynomos-source/scripts/run-nomologies-v2-ci.ts scripts/run-test.ts
+          sed -i 's#../supabase/functions/server/nomologies-v2/#../src/nomologies-v2/#g' scripts/run-test.ts
+          rm -rf bootstrap
+
+      - name: Type-check imported source
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Validate standalone graph
+        run: deno check scripts/run-test.ts
+
+      - name: Commit imported source to bootstrap branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Nomologies V2 Import"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Import isolated Nomologies V2 source"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
