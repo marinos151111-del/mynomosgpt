@@ -28,12 +28,12 @@ type CandidateSpan = SectionSpanV2 & {
   endOrdinal: number;
 };
 
-const WINDOW_TARGET_CHARS = 105_000;
-const WINDOW_OVERLAP_TARGET_CHARS = 18_000;
-const MAX_WINDOW_OVERLAP_PARAGRAPHS = 14;
-const MIN_WINDOW_ADVANCE_PARAGRAPHS = 4;
+const WINDOW_TARGET_CHARS = 5_500;
+const WINDOW_OVERLAP_TARGET_CHARS = 900;
+const MAX_WINDOW_OVERLAP_PARAGRAPHS = 8;
+const MIN_WINDOW_ADVANCE_PARAGRAPHS = 12;
 const MAX_SECTION_WINDOWS = 64;
-const MAX_CONCURRENCY = 3;
+const MAX_CONCURRENCY = 4;
 
 function str(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
@@ -356,9 +356,9 @@ export async function buildSectionMap(
       schema: NOMOLOGIES_SCHEMAS.sections.schema,
       system: SECTION_SYSTEM_PROMPT,
       user: sectionUserPayload(source, window, windows.length),
-      effort: "medium",
+      effort: "low",
       model: options.model,
-      timeoutMs: 170_000,
+      timeoutMs: 120_000,
       signal: options.signal,
     });
     return {

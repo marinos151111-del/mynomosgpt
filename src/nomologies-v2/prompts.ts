@@ -80,7 +80,9 @@ SPEAKER RULES
   because it contains words such as “held” or “appeal dismissed”.
 
 Return spans in document order. Use first and last passage IDs exactly as supplied.
-Boundary evidence must identify passages that justify the start or end of each span.`;
+Boundary evidence must identify passages that justify the start or end of each span.
+Keep each heading concise and each rationale to one short sentence. Merge adjacent
+passages only when section type, speaker, quotation status and legal function match.`;
 
 export const IDENTITY_SYSTEM_PROMPT = `${COMMON_EVIDENCE_RULES}
 
