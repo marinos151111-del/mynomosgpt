@@ -182,7 +182,7 @@ async function runAgent(
     user,
     effort,
     model: options.model,
-    timeoutMs: 185_000,
+    timeoutMs: 240_000,
     signal: options.signal,
   });
   return {
@@ -359,17 +359,17 @@ export async function runSpecialistAgents(
 ): Promise<SpecialistResultsV2> {
   const context = buildEvidenceContext(source, sectionMap);
   const identityUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, IDENTITY_TYPES, "head"), "nomologies.identity.v2");
-  const factsUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, FACT_PROCEDURE_TYPES, "all"), "nomologies.facts-procedure.v2");
-  const analysisUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, ANALYSIS_TYPES, "all"), "nomologies.analysis.v2");
+  const factsUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, FACT_PROCEDURE_TYPES, "none"), "nomologies.facts-procedure.v2");
+  const analysisUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, ANALYSIS_TYPES, "none"), "nomologies.analysis.v2");
   const authoritiesUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, AUTHORITY_TYPES, "none"), "nomologies.authorities.v2");
-  const outcomeUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, OUTCOME_TYPES, "tail"), "nomologies.outcome.v2");
+  const outcomeUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, OUTCOME_TYPES, "none"), "nomologies.outcome.v2");
 
   const [identityResponse, factsResponse, analysisResponse, authorityResponse, outcomeResponse] = await Promise.all([
     runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, "medium", options),
     runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "medium", options),
-    runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "high", options),
+    runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "medium", options),
     runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options),
-    runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "high", options),
+    runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "medium", options),
   ]);
 
   const flags = new Set<string>(sectionMap.reviewFlags);

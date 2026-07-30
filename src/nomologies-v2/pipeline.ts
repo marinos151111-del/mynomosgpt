@@ -294,9 +294,9 @@ async function runReviewer(
     schema: NOMOLOGIES_SCHEMAS.review.schema,
     system: REVIEW_SYSTEM_PROMPT,
     user,
-    effort: "high",
+    effort: "medium",
     model: options.model,
-    timeoutMs: 190_000,
+    timeoutMs: 240_000,
     signal: options.signal,
   });
   return {

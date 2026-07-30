@@ -146,6 +146,8 @@ NON-NEGOTIABLE ATTRIBUTION
   proposition necessary for the outcome and explains its application to facts.
 - legalPrincipleSummary is a concise Greek synthesis of the verified ratio, not
   a topic label and not a quotation dump.
+- Be selective: return only legally material issues, findings and principles;
+  do not repeat the same proposition across multiple fields.
 `;
 
 export const AUTHORITIES_SYSTEM_PROMPT = `${COMMON_EVIDENCE_RULES}
