@@ -1,0 +1,262 @@
+name: Upgrade Nomologies V2 to atomic section mapping
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/upgrade-atomic-sectioning.yml
+
+permissions:
+  contents: write
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Add sentence-level atomic passages and stronger attribution rules
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          source_path = Path('src/nomologies-v2/source.ts')
+          source = source_path.read_text(encoding='utf-8')
+
+          old_constants = '''const MAX_PARAGRAPH_CHARS = 7_000;
+          const MIN_SPLIT_FLOOR = 2_500;'''
+          new_constants = '''const MAX_PARAGRAPH_CHARS = 7_000;
+          const MIN_SPLIT_FLOOR = 2_500;
+          const ATOMIC_SEGMENT_THRESHOLD = 360;
+
+          type SourceUnit = {
+            text: string;
+            parentBlockId: string;
+          };'''
+          if old_constants not in source:
+              raise SystemExit('source constants anchor not found')
+          source = source.replace(old_constants, new_constants, 1)
+
+          old_blocks = '''function initialBlocks(text: string): string[] {
+            let blocks = text.split(/\\n\\s*\\n+/g).map((block) => block.trim()).filter(Boolean);
+            const lines = text.split("\\n").map((line) => line.trim()).filter(Boolean);
+
+            // CyLaw pages often flatten each legal paragraph onto its own line. Use line
+            // segmentation only when blank-line segmentation plainly collapsed the source.
+            if (blocks.length <= 5 && lines.length >= 12) blocks = lines;
+
+            // Preserve numbered legal paragraphs even when the source has only single line
+            // breaks. This does not classify the paragraph; it only restores boundaries.
+            if (blocks.length < 12 && lines.length >= 20) {
+              const numbered = lines.filter((line) => /^(?:\\[?\\d{1,4}\\]?|\\(\\d{1,4}\\))\\s*[.)]?\\s+/u.test(line)).length;
+              if (numbered >= Math.max(5, Math.floor(lines.length * 0.18))) blocks = lines;
+            }
+
+            return blocks.flatMap(splitLongBlock);
+          }'''
+
+          new_blocks = '''function sentenceSegments(block: string): string[] {
+            const clean = block.trim();
+            if (!clean) return [];
+            const structural = formattingHints(clean).headingCandidate || /^[_—–-]{4,}$/u.test(clean);
+            if (clean.length <= ATOMIC_SEGMENT_THRESHOLD || structural) return splitLongBlock(clean);
+
+            let segments: string[] = [];
+            try {
+              const segmenter = new Intl.Segmenter("el", { granularity: "sentence" });
+              segments = [...segmenter.segment(clean)]
+                .map((item) => item.segment.trim())
+                .filter(Boolean);
+            } catch {
+              segments = clean
+                .split(/(?<=[.!;·])\\s+(?=[«“"'(\\[]*[A-ZΑ-ΩΆΈΉΊΌΎΏ])/u)
+                .map((item) => item.trim())
+                .filter(Boolean);
+            }
+
+            // Extremely long legal paragraphs sometimes omit normal sentence boundaries.
+            // Split only at strong proposition-owner transitions so submissions and the
+            // present court's response do not remain inside one attribution unit.
+            if (segments.length <= 1 && clean.length > 900) {
+              segments = clean
+                .split(/(?=\\b(?:Ο Εφεσείων|Η Εφεσείουσα|Ο Αιτητής|Η Αιτήτρια|Ο Καθ' ου|Η Καθ' ης|Βρίσκουμε|Κρίνουμε|Υπενθυμίζουμε|Κατ' ακολουθία|Ως αποτέλεσμα|Πρόκειται για θέση|Δεν βρίσκουμε)\\b)/u)
+                .map((item) => item.trim())
+                .filter(Boolean);
+            }
+
+            const merged: string[] = [];
+            for (const segment of segments) {
+              const startsLowercase = /^[«“"'(\\[]*[a-zα-ωάέήίόύώϊΐϋΰ]/u.test(segment);
+              const previous = merged[merged.length - 1] || "";
+              const previousEndsWithAbbreviation = /(?:\\b(?:v|vs|ν|αρ|ημερ|σελ|Δ|ΔΔ|Ltd|Co)\\.|(?:[A-ZΑ-Ω]\\.){2,})$/u.test(previous);
+              if (merged.length && (startsLowercase || previousEndsWithAbbreviation)) {
+                merged[merged.length - 1] = `${previous} ${segment}`.trim();
+              } else {
+                merged.push(segment);
+              }
+            }
+            return merged.flatMap(splitLongBlock).filter(Boolean);
+          }
+
+          function initialBlocks(text: string): SourceUnit[] {
+            let blocks = text.split(/\\n\\s*\\n+/g).map((block) => block.trim()).filter(Boolean);
+            const lines = text.split("\\n").map((line) => line.trim()).filter(Boolean);
+
+            // CyLaw pages often flatten each legal paragraph onto its own line. Use line
+            // segmentation only when blank-line segmentation plainly collapsed the source.
+            if (blocks.length <= 5 && lines.length >= 12) blocks = lines;
+
+            // Preserve numbered legal paragraphs even when the source has only single line
+            // breaks. This does not classify the paragraph; it only restores boundaries.
+            if (blocks.length < 12 && lines.length >= 20) {
+              const numbered = lines.filter((line) => /^(?:\\[?\\d{1,4}\\]?|\\(\\d{1,4}\\))\\s*[.)]?\\s+/u.test(line)).length;
+              if (numbered >= Math.max(5, Math.floor(lines.length * 0.18))) blocks = lines;
+            }
+
+            return blocks.flatMap((block, index) => {
+              const parentBlockId = `B${String(index + 1).padStart(5, "0")}`;
+              return sentenceSegments(block).map((text) => ({ text, parentBlockId }));
+            });
+          }'''
+          if old_blocks not in source:
+              raise SystemExit('initialBlocks function anchor not found')
+          source = source.replace(old_blocks, new_blocks, 1)
+
+          old_prepare = '''  const blocks = initialBlocks(cleanText);
+            if (!blocks.length) throw new Error("JUDGMENT_PARAGRAPHS_EMPTY");
+
+            let cursor = 0;
+            const paragraphs: JudgmentParagraphV2[] = blocks.map((block, index) => {
+              let startOffset = cleanText.indexOf(block, cursor);
+              if (startOffset < 0) startOffset = cursor;
+              const endOffset = startOffset + block.length;
+              cursor = endOffset;
+              const parentBlockId = `B${String(index + 1).padStart(5, "0")}`;
+              return {
+                id: `P${String(index + 1).padStart(6, "0")}`,
+                ordinal: index + 1,
+                text: block,
+                startOffset,
+                endOffset,
+                relativePosition: blocks.length > 1 ? Number((index / (blocks.length - 1)).toFixed(6)) : 1,
+                parentBlockId,
+                sourceLineStart: lineNumberAt(cleanText, startOffset),
+                sourceLineEnd: lineNumberAt(cleanText, endOffset),
+                formatting: formattingHints(block),
+              };
+            });'''
+
+          new_prepare = '''  const units = initialBlocks(cleanText);
+            if (!units.length) throw new Error("JUDGMENT_PARAGRAPHS_EMPTY");
+
+            let cursor = 0;
+            const paragraphs: JudgmentParagraphV2[] = units.map((unit, index) => {
+              const block = unit.text;
+              let startOffset = cleanText.indexOf(block, cursor);
+              if (startOffset < 0) startOffset = cursor;
+              const endOffset = startOffset + block.length;
+              cursor = endOffset;
+              return {
+                id: `P${String(index + 1).padStart(6, "0")}`,
+                ordinal: index + 1,
+                text: block,
+                startOffset,
+                endOffset,
+                relativePosition: units.length > 1 ? Number((index / (units.length - 1)).toFixed(6)) : 1,
+                parentBlockId: unit.parentBlockId,
+                sourceLineStart: lineNumberAt(cleanText, startOffset),
+                sourceLineEnd: lineNumberAt(cleanText, endOffset),
+                formatting: formattingHints(block),
+              };
+            });'''
+          if old_prepare not in source:
+              raise SystemExit('prepare paragraph block anchor not found')
+          source = source.replace(old_prepare, new_prepare, 1)
+          source_path.write_text(source, encoding='utf-8')
+
+          prompt_path = Path('src/nomologies-v2/prompts.ts')
+          prompts = prompt_path.read_text(encoding='utf-8')
+          start = prompts.index('export const SECTION_SYSTEM_PROMPT = `')
+          end = prompts.index('\n\nexport const IDENTITY_SYSTEM_PROMPT', start)
+          replacement = '''export const SECTION_SYSTEM_PROMPT = `${COMMON_EVIDENCE_RULES}
+
+          TASK — STRUCTURAL MAPPING ONLY
+          Map the complete judgment into contiguous atomic passage ranges. Do not extract
+          the case record yet. Every supplied passage must belong to exactly one span.
+
+          ATOMIC-PASSAGE RULE
+          Supplied paragraph IDs may represent sentence-level passages inside one original
+          court paragraph. Classify the owner and legal function of the proposition itself,
+          not merely the grammatical narrator. Do not merge adjacent passages with different
+          owners or functions merely because they share the same original parent block.
+
+          BOUNDARY RULES
+          - caption: formal parties and case title only.
+          - court_header: court, jurisdiction, panel, date and formal header metadata.
+          - case_metadata: standalone judgment headings, unanimity/byline statements,
+            amendment notes and other case-administration information.
+          - appearances: advocates and representation only.
+          - procedural_history: earlier proceedings, lower-court orders and procedural route.
+          - facts: neutral narrative of events, not arguments, legal rules or findings.
+          - witness_evidence/documentary_evidence: testimony or documents being described.
+          - *_submissions: a proposition attributed to that party, even when the present
+            judge narrates it. Signals include «ο Εφεσείων διατείνεται/υποστηρίζει/
+            προβάλλει/ισχυρίζεται», «κατά τον Εφεσείοντα» and equivalent English wording.
+          - legal_framework: a general legal rule, test, standard or statutory framework
+            stated by the present court before or during application.
+          - quoted_legislation: verbatim statutory/regulatory text, including a footnote
+            whose marker is expressly tied to an article, rule or regulation. Use
+            speakerRole=legislature and quotedSourceType=legislation.
+          - quoted_authority: text or a proposition attributed to another judgment. Use
+            speakerRole=quoted_court and quotedSourceType=case.
+          - court_analysis: the present court's evaluation and application. Signals include
+            «Βρίσκουμε», «Κρίνουμε», «Πρόκειται για θέση αβάσιμη», «Δεν βρίσκουμε»,
+            «Κατ' ακολουθία» and «Ως αποτέλεσμα».
+          - findings_of_fact/legal_findings: determinations made by the present court.
+          - holding: the concrete resolution of an issue or ground, for example
+            «Ο λόγος έφεσης 3 απορρίπτεται».
+          - ratio_decidendi: a general rule necessary for the result, not merely a topic.
+          - obiter_dictum: a non-essential judicial observation.
+          - disposition/remedy/sentence/damages/costs: operative final orders only.
+          - signature: judicial signatures after the operative order.
+          - other: website chrome, separators, source footers and material outside the judgment.
+
+          SPEAKER RULES
+          - Once the judgment-byline identifies the delivering judge, neutral facts, legal
+            framework, analysis, findings and holdings stated in the reasons normally use
+            speakerRole=authoring_judge; use court for a genuinely collective voice.
+          - Party arguments use the corresponding party speaker role, not authoring_judge.
+          - Website/navigation material uses unknown.
+          - A quotation from another judgment never becomes this court's holding merely
+            because it contains words such as “held” or “appeal dismissed”.
+
+          Return spans in document order. Use first and last passage IDs exactly as supplied.
+          Boundary evidence must identify passages that justify the start or end of each span.`;'''
+          prompts = prompts[:start] + replacement + prompts[end:]
+          prompt_path.write_text(prompts, encoding='utf-8')
+          PY
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check atomic pipeline
+        run: deno check scripts/run-test.ts
+
+      - name: Commit atomic mapping upgrade
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/upgrade-atomic-sectioning.yml
+          git config user.name "Nomologies V2 Architecture Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/nomologies-v2/source.ts src/nomologies-v2/prompts.ts .github/workflows/upgrade-atomic-sectioning.yml
+          git commit -m "Add atomic passage section mapping"
+          git push origin HEAD:main
