@@ -7,6 +7,12 @@ import type {
 
 const MAX_PARAGRAPH_CHARS = 7_000;
 const MIN_SPLIT_FLOOR = 2_500;
+const ATOMIC_SEGMENT_THRESHOLD = 360;
+
+type SourceUnit = {
+  text: string;
+  parentBlockId: string;
+};
 
 function normalizeNewlines(value: string): string {
   return String(value || "")
@@ -97,7 +103,50 @@ function splitLongBlock(block: string): string[] {
   return parts.filter(Boolean);
 }
 
-function initialBlocks(text: string): string[] {
+function sentenceSegments(block: string): string[] {
+  const clean = block.trim();
+  if (!clean) return [];
+  const structural = formattingHints(clean).headingCandidate || /^[_—–-]{4,}$/u.test(clean);
+  if (clean.length <= ATOMIC_SEGMENT_THRESHOLD || structural) return splitLongBlock(clean);
+
+  let segments: string[] = [];
+  try {
+    const segmenter = new Intl.Segmenter("el", { granularity: "sentence" });
+    segments = [...segmenter.segment(clean)]
+      .map((item) => item.segment.trim())
+      .filter(Boolean);
+  } catch {
+    segments = clean
+      .split(/(?<=[.!;·])\s+(?=[«“"'(\[]*[A-ZΑ-ΩΆΈΉΊΌΎΏ])/u)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  // Extremely long legal paragraphs sometimes omit normal sentence boundaries.
+  // Split only at strong proposition-owner transitions so submissions and the
+  // present court's response do not remain inside one attribution unit.
+  if (segments.length <= 1 && clean.length > 900) {
+    segments = clean
+      .split(/(?=\b(?:Ο Εφεσείων|Η Εφεσείουσα|Ο Αιτητής|Η Αιτήτρια|Ο Καθ' ου|Η Καθ' ης|Βρίσκουμε|Κρίνουμε|Υπενθυμίζουμε|Κατ' ακολουθία|Ως αποτέλεσμα|Πρόκειται για θέση|Δεν βρίσκουμε)\b)/u)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  const merged: string[] = [];
+  for (const segment of segments) {
+    const startsLowercase = /^[«“"'(\[]*[a-zα-ωάέήίόύώϊΐϋΰ]/u.test(segment);
+    const previous = merged[merged.length - 1] || "";
+    const previousEndsWithAbbreviation = /(?:\b(?:v|vs|ν|αρ|ημερ|σελ|Δ|ΔΔ|Ltd|Co)\.|(?:[A-ZΑ-Ω]\.){2,})$/u.test(previous);
+    if (merged.length && (startsLowercase || previousEndsWithAbbreviation)) {
+      merged[merged.length - 1] = `${previous} ${segment}`.trim();
+    } else {
+      merged.push(segment);
+    }
+  }
+  return merged.flatMap(splitLongBlock).filter(Boolean);
+}
+
+function initialBlocks(text: string): SourceUnit[] {
   let blocks = text.split(/\n\s*\n+/g).map((block) => block.trim()).filter(Boolean);
   const lines = text.split("\n").map((line) => line.trim()).filter(Boolean);
 
@@ -112,7 +161,10 @@ function initialBlocks(text: string): string[] {
     if (numbered >= Math.max(5, Math.floor(lines.length * 0.18))) blocks = lines;
   }
 
-  return blocks.flatMap(splitLongBlock);
+  return blocks.flatMap((block, index) => {
+    const parentBlockId = `B${String(index + 1).padStart(5, "0")}`;
+    return sentenceSegments(block).map((text) => ({ text, parentBlockId }));
+  });
 }
 
 async function sha256(value: string): Promise<string> {
@@ -135,24 +187,24 @@ export async function prepareJudgmentSource(input: NomologiesPipelineInputV2): P
 
   const sourceHash = await sha256(cleanText);
   const sourceId = `src_${sourceHash.slice(0, 24)}`;
-  const blocks = initialBlocks(cleanText);
-  if (!blocks.length) throw new Error("JUDGMENT_PARAGRAPHS_EMPTY");
+  const units = initialBlocks(cleanText);
+  if (!units.length) throw new Error("JUDGMENT_PARAGRAPHS_EMPTY");
 
   let cursor = 0;
-  const paragraphs: JudgmentParagraphV2[] = blocks.map((block, index) => {
+  const paragraphs: JudgmentParagraphV2[] = units.map((unit, index) => {
+    const block = unit.text;
     let startOffset = cleanText.indexOf(block, cursor);
     if (startOffset < 0) startOffset = cursor;
     const endOffset = startOffset + block.length;
     cursor = endOffset;
-    const parentBlockId = `B${String(index + 1).padStart(5, "0")}`;
     return {
       id: `P${String(index + 1).padStart(6, "0")}`,
       ordinal: index + 1,
       text: block,
       startOffset,
       endOffset,
-      relativePosition: blocks.length > 1 ? Number((index / (blocks.length - 1)).toFixed(6)) : 1,
-      parentBlockId,
+      relativePosition: units.length > 1 ? Number((index / (units.length - 1)).toFixed(6)) : 1,
+      parentBlockId: unit.parentBlockId,
       sourceLineStart: lineNumberAt(cleanText, startOffset),
       sourceLineEnd: lineNumberAt(cleanText, endOffset),
       formatting: formattingHints(block),

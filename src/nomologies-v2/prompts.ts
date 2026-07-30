@@ -30,33 +30,57 @@ ABSOLUTE RULES
 export const SECTION_SYSTEM_PROMPT = `${COMMON_EVIDENCE_RULES}
 
 TASK — STRUCTURAL MAPPING ONLY
-Map the complete judgment into contiguous paragraph ranges. Do not extract the
-case record yet. Every paragraph must belong to exactly one span.
+Map the complete judgment into contiguous atomic passage ranges. Do not extract
+the case record yet. Every supplied passage must belong to exactly one span.
+
+ATOMIC-PASSAGE RULE
+Supplied paragraph IDs may represent sentence-level passages inside one original
+court paragraph. Classify the owner and legal function of the proposition itself,
+not merely the grammatical narrator. Do not merge adjacent passages with different
+owners or functions merely because they share the same original parent block.
 
 BOUNDARY RULES
-- caption: formal parties/case title only.
-- court_header: court, panel, date, judgment-by line and formal header metadata.
-- appearances: advocates and representation.
-- procedural_history: earlier proceedings and procedural route.
-- facts: neutral narrative of events, not submissions or findings.
-- witness_evidence/documentary_evidence: evidence given or documents described.
-- *_submissions: arguments advanced by that party, even when persuasive.
-- quoted_legislation: substantial verbatim statutory text.
-- quoted_authority: passages or propositions attributed to another judgment.
-- court_analysis: the present court's reasoning.
+- caption: formal parties and case title only.
+- court_header: court, jurisdiction, panel, date and formal header metadata.
+- case_metadata: standalone judgment headings, unanimity/byline statements,
+  amendment notes and other case-administration information.
+- appearances: advocates and representation only.
+- procedural_history: earlier proceedings, lower-court orders and procedural route.
+- facts: neutral narrative of events, not arguments, legal rules or findings.
+- witness_evidence/documentary_evidence: testimony or documents being described.
+- *_submissions: a proposition attributed to that party, even when the present
+  judge narrates it. Signals include «ο Εφεσείων διατείνεται/υποστηρίζει/
+  προβάλλει/ισχυρίζεται», «κατά τον Εφεσείοντα» and equivalent English wording.
+- legal_framework: a general legal rule, test, standard or statutory framework
+  stated by the present court before or during application.
+- quoted_legislation: verbatim statutory/regulatory text, including a footnote
+  whose marker is expressly tied to an article, rule or regulation. Use
+  speakerRole=legislature and quotedSourceType=legislation.
+- quoted_authority: text or a proposition attributed to another judgment. Use
+  speakerRole=quoted_court and quotedSourceType=case.
+- court_analysis: the present court's evaluation and application. Signals include
+  «Βρίσκουμε», «Κρίνουμε», «Πρόκειται για θέση αβάσιμη», «Δεν βρίσκουμε»,
+  «Κατ' ακολουθία» and «Ως αποτέλεσμα».
 - findings_of_fact/legal_findings: determinations made by the present court.
-- holding: the court's resolution of an issue.
-- ratio_decidendi: general rule necessary for the result.
-- obiter_dictum: non-essential judicial observation.
+- holding: the concrete resolution of an issue or ground, for example
+  «Ο λόγος έφεσης 3 απορρίπτεται».
+- ratio_decidendi: a general rule necessary for the result, not merely a topic.
+- obiter_dictum: a non-essential judicial observation.
 - disposition/remedy/sentence/damages/costs: operative final orders only.
+- signature: judicial signatures after the operative order.
+- other: website chrome, separators, source footers and material outside the judgment.
 
-A paragraph quoting another judgment remains quoted_authority even if the quote
-contains words such as “held”, “we decide” or “the appeal is dismissed”. Do not
-assign it to the present court. Use speakerRole=quoted_court.
+SPEAKER RULES
+- Once the judgment-byline identifies the delivering judge, neutral facts, legal
+  framework, analysis, findings and holdings stated in the reasons normally use
+  speakerRole=authoring_judge; use court for a genuinely collective voice.
+- Party arguments use the corresponding party speaker role, not authoring_judge.
+- Website/navigation material uses unknown.
+- A quotation from another judgment never becomes this court's holding merely
+  because it contains words such as “held” or “appeal dismissed”.
 
-Return spans in document order. Use the first and last paragraph IDs exactly as
-provided. Boundary evidence should identify paragraphs that justify the start or
-end of the span.`;
+Return spans in document order. Use first and last passage IDs exactly as supplied.
+Boundary evidence must identify passages that justify the start or end of each span.`;
 
 export const IDENTITY_SYSTEM_PROMPT = `${COMMON_EVIDENCE_RULES}
 
