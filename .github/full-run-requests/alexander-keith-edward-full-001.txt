@@ -1,0 +1,1 @@
+Run the complete isolated evidence-grounded extraction for the first benchmark judgment.
