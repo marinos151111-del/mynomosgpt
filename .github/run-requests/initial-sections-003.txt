@@ -1,0 +1,1 @@
+Run the isolated section-recognition benchmark after adaptive windowing fix.
