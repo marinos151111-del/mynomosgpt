@@ -1,5 +1,6 @@
 import { fetchCyLawJudgment, isOfficialCyLawUrl } from "../src/nomologies-v2/cylaw.ts";
 import { runNomologiesPipelineV2 } from "../src/nomologies-v2/pipeline.ts";
+import { prepareJudgmentSource } from "../src/nomologies-v2/source.ts";
 import type { SectionMapV2 } from "../src/nomologies-v2/types.ts";
 
 type JsonRecord = Record<string, unknown>;
@@ -111,6 +112,41 @@ if (!env("OPENAI_API_KEY")) await fail(new Error("GitHub secret OPENAI_API_KEY i
 try {
   await Deno.mkdir(OUTPUT_DIR, { recursive: true });
   const fetched = await fetchCyLawJudgment(sourceUrl);
+  const prepared = await prepareJudgmentSource({
+    text: fetched.text,
+    html: fetched.html,
+    sourceTitle: fetched.sourceTitle,
+    sourceUrl,
+    sourceDatabase: fetched.sourceDatabase,
+    charset: fetched.charset,
+    mode,
+  });
+  const paragraphLengths = prepared.paragraphs.map((paragraph) => paragraph.text.length).sort((a, b) => a - b);
+  const percentile = (fraction: number): number => paragraphLengths.length
+    ? paragraphLengths[Math.min(paragraphLengths.length - 1, Math.floor((paragraphLengths.length - 1) * fraction))]
+    : 0;
+  const diagnostics = {
+    sourceUrl,
+    sourceTitle: fetched.sourceTitle,
+    charset: fetched.charset,
+    htmlCharacters: fetched.html.length,
+    fetchedTextCharacters: fetched.text.length,
+    cleanTextCharacters: prepared.cleanText.length,
+    paragraphCount: prepared.paragraphs.length,
+    paragraphCharacters: paragraphLengths.reduce((sum, length) => sum + length, 0),
+    paragraphLength: {
+      minimum: paragraphLengths[0] || 0,
+      median: percentile(0.5),
+      p90: percentile(0.9),
+      p95: percentile(0.95),
+      p99: percentile(0.99),
+      maximum: paragraphLengths.at(-1) || 0,
+    },
+    paragraphsAtMaximumSplit: paragraphLengths.filter((length) => length >= 6_900).length,
+    generatedAt: new Date().toISOString(),
+  };
+  await Deno.writeTextFile(`${OUTPUT_DIR}/source-diagnostics.json`, JSON.stringify(diagnostics, null, 2));
+  console.log('Source diagnostics:', JSON.stringify(diagnostics));
   const startedAt = Date.now();
   console.log(`Running Nomologies V2 ${mode} test for ${sourceUrl}`);
   const result = await runNomologiesPipelineV2({
