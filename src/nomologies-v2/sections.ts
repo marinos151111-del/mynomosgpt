@@ -322,6 +322,45 @@ function reconcileCandidates(
   return spans;
 }
 
+function correctStatutoryFootnotes(
+  source: JudgmentSourceV2,
+  spans: SectionSpanV2[],
+  reviewFlags: Set<string>,
+): SectionSpanV2[] {
+  const ordinal = new Map(source.paragraphs.map((paragraph) => [paragraph.id, paragraph.ordinal]));
+  return spans.map((span) => {
+    const start = ordinal.get(span.startParagraphId) || 0;
+    const end = ordinal.get(span.endParagraphId) || start;
+    if (!start || !end) return span;
+    const text = source.paragraphs.slice(start - 1, end).map((paragraph) => paragraph.text).join(" ");
+    const marker = text.match(/^\s*\[(\d{1,3})\]\s*[«“"]/u)?.[1] || "";
+    if (!marker || span.sectionType !== "quoted_authority") return span;
+
+    const preceding = source.paragraphs
+      .slice(Math.max(0, start - 45), start - 1)
+      .map((paragraph) => paragraph.text)
+      .join(" ");
+    const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const linkedToProvision = new RegExp(
+      `(?:άρθρ(?:ο|ου|ων)?|κανονισμ(?:ός|ού|ο)|κανόνα|διάταξ|section|article|rule|regulation)[^\\[] {0,0}`.replace("[^\\[] {0,0}", `[^\\[] {0,220}\\[${escaped}\\]`),
+      "iu",
+    ).test(preceding);
+    if (!linkedToProvision) return span;
+
+    reviewFlags.add(`section_deterministic_statutory_footnote_${span.startParagraphId}`);
+    return {
+      ...span,
+      sectionType: "quoted_legislation",
+      speakerRole: "legislature",
+      isQuotedMaterial: true,
+      quotedSourceType: "legislation",
+      confidence: Math.max(span.confidence, 0.97),
+      heading: span.heading || "Νομοθετική υποσημείωση",
+      rationale: "Η αριθμημένη υποσημείωση συνδέεται ρητά με προηγούμενη νομοθετική διάταξη.",
+    };
+  });
+}
+
 async function mapWithConcurrency<T, R>(
   values: T[],
   limit: number,
@@ -369,7 +408,7 @@ export async function buildSectionMap(
 
   const candidates = results.flatMap((result) => result.candidates);
   if (!candidates.length) reviewFlags.add("section_agent_returned_no_valid_spans");
-  const spans = reconcileCandidates(source, candidates, reviewFlags);
+  const spans = correctStatutoryFootnotes(source, reconcileCandidates(source, candidates, reviewFlags), reviewFlags);
   const map: SectionMapV2 = {
     version: `${NOMOLOGIES_V2_VERSION}:sections-v1`,
     paragraphCount: source.paragraphs.length,
