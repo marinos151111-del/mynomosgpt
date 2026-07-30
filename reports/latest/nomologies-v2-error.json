@@ -1,8 +1,0 @@
-{
-  "ok": false,
-  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
-  "mode": "sections",
-  "message": "The sections-1-of-1 stage exceeded its safe execution time.",
-  "stack": "NomologiesOpenAIError: The sections-1-of-1 stage exceeded its safe execution time.\n    at createStructuredResponse (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/openai-responses.ts:299:13)\n    at async file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:353:22\n    at async file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:337:24\n    at async Promise.all (index 0)\n    at async mapWithConcurrency (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:340:3)\n    at async buildSectionMap (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/sections.ts:352:19)\n    at async runNomologiesPipelineV2 (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/pipeline.ts:377:20)\n    at async file:///home/runner/work/mynomosgpt/mynomosgpt/scripts/run-test.ts:152:18",
-  "at": "2026-07-30T20:01:54.647Z"
-}
