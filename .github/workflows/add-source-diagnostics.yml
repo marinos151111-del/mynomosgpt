@@ -1,0 +1,105 @@
+name: Add source diagnostics to isolated test runner
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/add-source-diagnostics.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Add deterministic source diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('scripts/run-test.ts')
+          text = path.read_text(encoding='utf-8')
+
+          import_anchor = 'import { runNomologiesPipelineV2 } from "../src/nomologies-v2/pipeline.ts";'
+          import_line = 'import { prepareJudgmentSource } from "../src/nomologies-v2/source.ts";'
+          if import_line not in text:
+              if import_anchor not in text:
+                  raise SystemExit('Pipeline import anchor not found')
+              text = text.replace(import_anchor, import_anchor + '\n' + import_line, 1)
+
+          old = '''  const fetched = await fetchCyLawJudgment(sourceUrl);
+            const startedAt = Date.now();
+            console.log(`Running Nomologies V2 ${mode} test for ${sourceUrl}`);'''
+
+          new = '''  const fetched = await fetchCyLawJudgment(sourceUrl);
+            const prepared = await prepareJudgmentSource({
+              text: fetched.text,
+              html: fetched.html,
+              sourceTitle: fetched.sourceTitle,
+              sourceUrl,
+              sourceDatabase: fetched.sourceDatabase,
+              charset: fetched.charset,
+              mode,
+            });
+            const paragraphLengths = prepared.paragraphs.map((paragraph) => paragraph.text.length).sort((a, b) => a - b);
+            const percentile = (fraction: number): number => paragraphLengths.length
+              ? paragraphLengths[Math.min(paragraphLengths.length - 1, Math.floor((paragraphLengths.length - 1) * fraction))]
+              : 0;
+            const diagnostics = {
+              sourceUrl,
+              sourceTitle: fetched.sourceTitle,
+              charset: fetched.charset,
+              htmlCharacters: fetched.html.length,
+              fetchedTextCharacters: fetched.text.length,
+              cleanTextCharacters: prepared.cleanText.length,
+              paragraphCount: prepared.paragraphs.length,
+              paragraphCharacters: paragraphLengths.reduce((sum, length) => sum + length, 0),
+              paragraphLength: {
+                minimum: paragraphLengths[0] || 0,
+                median: percentile(0.5),
+                p90: percentile(0.9),
+                p95: percentile(0.95),
+                p99: percentile(0.99),
+                maximum: paragraphLengths.at(-1) || 0,
+              },
+              paragraphsAtMaximumSplit: paragraphLengths.filter((length) => length >= 6_900).length,
+              generatedAt: new Date().toISOString(),
+            };
+            await Deno.writeTextFile(`${OUTPUT_DIR}/source-diagnostics.json`, JSON.stringify(diagnostics, null, 2));
+            console.log('Source diagnostics:', JSON.stringify(diagnostics));
+            const startedAt = Date.now();
+            console.log(`Running Nomologies V2 ${mode} test for ${sourceUrl}`);'''
+
+          if old not in text:
+              raise SystemExit('Fetched-source block not found; refusing blind patch')
+          text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check diagnostics patch
+        run: deno check scripts/run-test.ts
+
+      - name: Commit diagnostics patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/add-source-diagnostics.yml
+          git config user.name "Nomologies V2 Diagnostics Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/run-test.ts .github/workflows/add-source-diagnostics.yml
+          git commit -m "Record source diagnostics before extraction"
+          git push origin HEAD:main
