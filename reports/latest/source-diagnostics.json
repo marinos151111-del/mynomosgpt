@@ -5,16 +5,16 @@
   "htmlCharacters": 41291,
   "fetchedTextCharacters": 13653,
   "cleanTextCharacters": 13653,
-  "paragraphCount": 56,
-  "paragraphCharacters": 13294,
+  "paragraphCount": 104,
+  "paragraphCharacters": 13207,
   "paragraphLength": {
     "minimum": 2,
-    "median": 66,
-    "p90": 688,
-    "p95": 948,
-    "p99": 1047,
-    "maximum": 1079
+    "median": 94,
+    "p90": 319,
+    "p95": 359,
+    "p99": 420,
+    "maximum": 507
   },
   "paragraphsAtMaximumSplit": 0,
-  "generatedAt": "2026-07-30T19:48:14.143Z"
+  "generatedAt": "2026-07-30T19:59:04.630Z"
 }
