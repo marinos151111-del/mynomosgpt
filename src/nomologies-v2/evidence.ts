@@ -40,6 +40,32 @@ const FACT_SECTIONS = new Set<SectionType>([
   "facts", "witness_evidence", "documentary_evidence", "findings_of_fact",
   "procedural_history", "court_analysis",
 ]);
+const FACT_NARRATIVE_SECTIONS = new Set<SectionType>([
+  "facts", "findings_of_fact", "procedural_history",
+]);
+const WITNESS_EVIDENCE_SECTIONS = new Set<SectionType>([
+  "facts", "witness_evidence", "documentary_evidence", "findings_of_fact",
+  "procedural_history", "court_analysis", "legal_findings",
+]);
+const PROCEDURAL_HISTORY_SECTIONS = new Set<SectionType>([
+  "case_metadata", "facts", "procedural_history", "court_analysis", "legal_findings", "holding",
+]);
+const ORIGINATING_PROCEEDING_SECTIONS = new Set<SectionType>([
+  "caption", "facts", "procedural_history",
+]);
+const LOWER_COURT_DECISION_SECTIONS = new Set<SectionType>([
+  "facts", "procedural_history", "court_analysis", "legal_findings",
+]);
+const GROUNDS_SECTIONS = new Set<SectionType>([
+  "appellant_submissions", "respondent_submissions", "applicant_submissions",
+  "respondent_public_body_submissions", "prosecution_submissions",
+  "defence_submissions", "other_party_submissions", "court_analysis", "legal_findings", "holding",
+]);
+const RELIEF_SECTIONS = new Set<SectionType>([
+  "caption", "facts", "procedural_history", "appellant_submissions",
+  "respondent_submissions", "applicant_submissions", "respondent_public_body_submissions",
+  "prosecution_submissions", "defence_submissions", "other_party_submissions",
+]);
 const PROCEDURE_SECTIONS = new Set<SectionType>([
   "caption", "case_metadata", "procedural_history", "appellant_submissions",
   "respondent_submissions", "applicant_submissions",
@@ -107,11 +133,32 @@ function policyFor(fieldPath: string): FieldPolicy {
   if (path.startsWith("identity.")) {
     return { allowedSections: IDENTITY_SECTIONS, titleAllowed: true, minimumQuoteLength: 2 };
   }
+  if (["facts.summary", "facts.materialFacts", "facts.chronology", "facts.undisputedFacts", "facts.disputedFacts"].includes(path)) {
+    return { allowedSections: FACT_NARRATIVE_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 12 };
+  }
+  if (path === "facts.witnessesAndEvidence") {
+    return { allowedSections: WITNESS_EVIDENCE_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 12 };
+  }
   if (path.startsWith("facts.")) {
     return { allowedSections: FACT_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 12 };
   }
   if (path === "procedure.submissionsByParty") {
     return { allowedSections: SUBMISSION_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 12 };
+  }
+  if (path === "procedure.proceduralHistory") {
+    return { allowedSections: PROCEDURAL_HISTORY_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 8 };
+  }
+  if (path === "procedure.originatingProceeding") {
+    return { allowedSections: ORIGINATING_PROCEEDING_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 8 };
+  }
+  if (path === "procedure.lowerCourtDecision") {
+    return { allowedSections: LOWER_COURT_DECISION_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 8 };
+  }
+  if (path === "procedure.groundsOrIssues") {
+    return { allowedSections: GROUNDS_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 8 };
+  }
+  if (path === "procedure.reliefSought") {
+    return { allowedSections: RELIEF_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 8 };
   }
   if (path.startsWith("procedure.")) {
     return { allowedSections: PROCEDURE_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 8 };

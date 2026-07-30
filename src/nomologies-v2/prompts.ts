@@ -115,13 +115,21 @@ Extract material facts, chronology, witnesses/evidence, procedural history,
 grounds, relief sought and each party's submissions.
 
 SOURCE DISCIPLINE
+- facts.summary contains factual background only. It must not state the present
+  appeal/application outcome, the court's legal conclusion, ratio or final order.
 - Facts may come from facts, witness_evidence, documentary_evidence and findings
   sections. Mark disputed and undisputed facts separately.
 - A party's allegation remains a submission unless the court adopts it.
-- Procedural history must describe the route to this judgment, including the
-  lower court/decision where stated.
-- groundsOrIssues should preserve numbering and the result of each ground only
-  where the present court determined it.
+- proceduralHistory describes the route to this judgment and the earlier result;
+  keep the present judgment's final disposition exclusively in outcome.
+- originatingProceeding may be evidenced by factual narrative that identifies the
+  claim, petition, recourse or application which began the litigation.
+- lowerCourtDecision must preserve every cumulative limb of the earlier order.
+  Different beneficiaries or objects are not a contradiction when one limb cancels
+  or transfers a share and another registers a separately described part. Mark
+  conflicted only where the same legal object is ordered incompatibly.
+- groundsOrIssues must preserve every numbered ground and its result whenever the
+  present court expressly determines it.
 - submissionsByParty must remain attributed to the correct party and must never
   be transformed into the court's holding.
 `;
@@ -142,8 +150,14 @@ NON-NEGOTIABLE ATTRIBUTION
 - Do not use quoted_authority as this judgment's ratio. You may describe a rule
   only if the present court applies, adopts, distinguishes or otherwise makes it
   part of its own reasoning, with evidence from the court_analysis section.
-- holding resolves the concrete issue. ratioDecidendi states the general legal
-  proposition necessary for the outcome and explains its application to facts.
+- holding resolves the concrete issues and grounds determined by the present court.
+  When explicit issue-level conclusions exist (for example «ο λόγος έφεσης 1
+  απορρίπτεται»), synthesize all of them; do not use the overall disposition as
+  the sole holding. The final disposition belongs in outcome.
+- dominantIssue must be framed from the court's legal analysis, never supported
+  solely by the final disposition.
+- ratioDecidendi states the general legal proposition necessary for the outcome
+  and explains its application to facts.
 - legalPrincipleSummary is a concise Greek synthesis of the verified ratio, not
   a topic label and not a quotation dump.
 - Be selective: return only legally material issues, findings and principles;
@@ -179,8 +193,10 @@ FINAL-ORDER RULES
   present court's unmistakable final-order language.
 - Do not use a party's request, an earlier court's order, a quoted authority, a
   preliminary conclusion, or success/failure of one ground as the whole outcome.
-- Use components when results differ by party, respondent, claim, ground,
-  conviction, sentence or cross-appeal.
+- components must exhaustively record every explicit result by party, respondent,
+  claim, numbered ground, conviction, sentence or cross-appeal. Scan all holding
+  spans, not only the first. If grounds 1, 2 and 3 are each resolved, return three
+  components with separate exact evidence.
 - Preserve remittal instructions, writs, decrees, retrial orders, release,
   surrender/extradition orders, sentence details, damages, interest, VAT and
   costs separately.
@@ -203,7 +219,13 @@ Mandatory checks:
 - case family versus legal area versus proceeding type;
 - judges/panel versus advocates/parties;
 - conflicting dates, docket numbers, citations and party captions;
-- unsupported summaries or evidence quotes.
+- unsupported summaries or evidence quotes;
+- whether a lower-court order contains cumulative limbs concerning different
+  shares, parcels, parties or remedies. Do not call those limbs contradictory
+  unless they impose incompatible orders on the same legal object;
+- whether facts.summary or proceduralHistory improperly contains this court's
+  final outcome;
+- whether every expressly resolved numbered ground appears in outcome.components.
 
 Recommend approve only when critical identity, final disposition and core legal
 analysis are evidence-grounded and no critical conflict remains.`;

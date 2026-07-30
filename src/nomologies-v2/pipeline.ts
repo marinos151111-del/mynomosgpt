@@ -199,7 +199,12 @@ function scoreReadiness(
   const factFields = [results.facts.summary, results.facts.materialFacts, results.facts.chronology];
   score += Math.round(factFields.filter(fieldAvailable).length / factFields.length * 10);
 
-  const procedureFields = [results.procedure.proceduralHistory, results.procedure.groundsOrIssues, results.procedure.reliefSought];
+  const procedureFields = [
+    results.procedure.proceduralHistory,
+    results.procedure.originatingProceeding,
+    results.procedure.lowerCourtDecision,
+    results.procedure.groundsOrIssues,
+  ];
   score += Math.round(procedureFields.filter(fieldAvailable).length / procedureFields.length * 5);
 
   const analysisFields = [
@@ -319,15 +324,30 @@ async function runReviewer(
 function reviewerConflicts(
   payload: JsonRecord,
   allEvidenceIds: Set<string>,
+  results: SpecialistResultsV2,
 ): PipelineConflictV2[] {
   return asArray(payload.conflicts).flatMap((raw) => {
     if (!isRecord(raw)) return [];
+    const code = str(raw.code) || "REVIEWER_CONFLICT";
+    const fieldPath = str(raw.fieldPath);
+    if (code === "HOLDING_NOT_POPULATED" && fieldAvailable(results.analysis.holding)) return [];
+    if (code === "MISSING_COMPONENT_OUTCOMES" && fieldAvailable(results.outcome.components) &&
+      fieldAvailable(results.procedure.groundsOrIssues)) {
+      const resolved = results.procedure.groundsOrIssues.value.filter((ground) =>
+        ["succeeded", "failed", "partly_succeeded"].includes(ground.result)
+      );
+      if (results.outcome.components.value.length >= resolved.length) return [];
+    }
+    if (code === "SECTION_CROSSCONTAMINATION_OUTCOME_IN_FACTS" &&
+      fieldAvailable(results.facts.summary) &&
+      !/(?:έφεση|αίτηση|προσφυγή)\s+(?:απορρίπ|επιτρέπ|γίνεται\s+δεκτ)/iu.test(results.facts.summary.value)) return [];
+    if (code === "LOWER_COURT_ORDER_CONFLICT" && results.procedure.lowerCourtDecision.status === "available") return [];
     const severity = str(raw.severity);
     if (!["critical", "material", "minor"].includes(severity)) return [];
     return [{
-      code: str(raw.code) || "REVIEWER_CONFLICT",
+      code,
       severity: severity as PipelineConflictV2["severity"],
-      fieldPath: str(raw.fieldPath),
+      fieldPath,
       message: str(raw.message),
       evidenceIds: asArray(raw.evidenceIds).map(str).filter((id) => allEvidenceIds.has(id)),
     }];
@@ -396,7 +416,12 @@ export async function runNomologiesPipelineV2(
     outcome: specialists.outcome,
   });
   const evidenceIds = new Set(preliminaryEvidence.map((item) => item.id));
-  const conflicts = [...deterministic, ...reviewerConflicts(review.payload, evidenceIds)];
+  const conflictMap = new Map<string, PipelineConflictV2>();
+  for (const conflict of [...deterministic, ...reviewerConflicts(review.payload, evidenceIds, specialists)]) {
+    const key = `${conflict.code}|${conflict.fieldPath}|${conflict.message}`;
+    if (!conflictMap.has(key)) conflictMap.set(key, conflict);
+  }
+  const conflicts = [...conflictMap.values()];
   const recommendation = str(review.payload.publishRecommendation) || "review";
   const readinessScore = scoreReadiness(specialists, sections.map, conflicts, officialSource, recommendation);
   const criticalConflict = conflicts.some((item) => item.severity === "critical");

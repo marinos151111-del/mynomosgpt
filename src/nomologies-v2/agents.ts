@@ -23,6 +23,9 @@ import type {
   CaseIdentityV2,
   CaseOutcomeV2,
   CaseProcedureV2,
+  EvidenceAnchorV2,
+  GroundOrIssueV2,
+  OutcomeComponentV2,
   JudgmentParagraphV2,
   JudgmentSourceV2,
   PipelineStageAuditV2,
@@ -352,6 +355,178 @@ function validatedOutcome(
   };
 }
 
+const PRESENT_OUTCOME_RE = /(?:η|η παρούσα|το|ο)\s*(?:έφεση|αίτηση|προσφυγή|αναφορά|ένσταση)\s+(?:απορρίπ|επιτρέπ|γίνεται\s+δεκτ|έγινε\s+δεκτ|withdrawn|dismissed|allowed)/iu;
+
+function removeOutcomeClauses(value: string): string {
+  const pieces = String(value || "")
+    .split(/(?<=[.!;··])\s+|\s*[·;]\s*/u)
+    .map((piece) => piece.trim())
+    .filter(Boolean)
+    .filter((piece) => !PRESENT_OUTCOME_RE.test(piece));
+  return pieces.join(". ").replace(/\.{2,}/g, ".").trim();
+}
+
+function clearFieldFlags(flags: Set<string>, paths: string[]): void {
+  for (const flag of [...flags]) {
+    if (paths.some((path) => flag.startsWith(`${path}:`))) flags.delete(flag);
+  }
+}
+
+function resultAnchorNumber(anchor: EvidenceAnchorV2): string {
+  const match = anchor.quote.match(/λόγ(?:ος|οι)\s+(?:έφεσης\s+)?(\d{1,3})/iu);
+  return match?.[1] || "";
+}
+
+function explicitGroundResultAnchors(procedure: CaseProcedureV2): EvidenceAnchorV2[] {
+  return procedure.groundsOrIssues.evidence.filter((anchor) =>
+    /λόγ(?:ος|οι)\s+(?:έφεσης\s+)?\d+/iu.test(anchor.quote) &&
+    /(απορρίπ|δεν\s+ευσταθ|δεν\s+ευστατεί|γίνεται\s+δεκτ|έγινε\s+δεκτ|επιτρέπ|μερικώς)/iu.test(anchor.quote)
+  );
+}
+
+function outcomeCodeForGround(result: GroundOrIssueV2["result"]): OutcomeComponentV2["result"] | "" {
+  if (result === "failed") return "dismissed";
+  if (result === "succeeded") return "allowed";
+  if (result === "partly_succeeded") return "partly_allowed";
+  return "";
+}
+
+function buildHoldingText(grounds: GroundOrIssueV2[]): string {
+  const resolved = grounds.filter((ground) => outcomeCodeForGround(ground.result));
+  if (!resolved.length) return "";
+  return resolved.map((ground) => {
+    const label = ground.number ? `Λόγος ${ground.number}` : (ground.title || "Ζήτημα");
+    if (ground.result === "failed") return `${label}: απορρίφθηκε`;
+    if (ground.result === "succeeded") return `${label}: έγινε δεκτός`;
+    return `${label}: έγινε εν μέρει δεκτός`;
+  }).join("· ") + ".";
+}
+
+function cumulativeLowerCourtDecision(procedure: CaseProcedureV2): CaseProcedureV2["lowerCourtDecision"] | null {
+  if (procedure.lowerCourtDecision.status !== "conflicted") return null;
+  const orderEvidence = procedure.lowerCourtDecision.evidence.filter((anchor) =>
+    /(διατάχ|ακύρω|μεταβίβ|εγγραφ|επιδικά)/iu.test(anchor.quote)
+  );
+  if (orderEvidence.length < 2) return null;
+  const kinds = new Set<string>();
+  for (const anchor of orderEvidence) {
+    if (/ακύρω/iu.test(anchor.quote)) kinds.add("cancellation");
+    if (/μεταβίβ/iu.test(anchor.quote)) kinds.add("transfer");
+    if (/εγγραφ/iu.test(anchor.quote)) kinds.add("registration");
+    if (/επιδικά/iu.test(anchor.quote)) kinds.add("award");
+  }
+  if (kinds.size < 2) return null;
+  const value = `Το πρωτόδικο Δικαστήριο εξέδωσε σωρευτικά τις ακόλουθες διαταγές: ${orderEvidence.map((anchor, index) => `(${index + 1}) ${anchor.quote}`).join(" ")}`;
+  return {
+    status: "available",
+    value,
+    confidence: Math.max(0.9, procedure.lowerCourtDecision.confidence),
+    evidence: orderEvidence,
+    conflicts: [],
+  };
+}
+
+function reconcileSpecialistFields(input: {
+  facts: CaseFactsV2;
+  procedure: CaseProcedureV2;
+  analysis: CaseAnalysisV2;
+  outcome: CaseOutcomeV2;
+  flags: Set<string>;
+}): void {
+  const { facts, procedure, analysis, outcome, flags } = input;
+
+  if (facts.summary.status === "available") {
+    const cleaned = removeOutcomeClauses(facts.summary.value);
+    const evidence = facts.summary.evidence.filter((anchor) => anchor.sectionType !== "disposition" && anchor.sectionType !== "remedy" && anchor.sectionType !== "costs");
+    if (cleaned && evidence.length) {
+      facts.summary = { ...facts.summary, value: cleaned, evidence };
+      clearFieldFlags(flags, ["facts.summary"]);
+    }
+  }
+
+  if (procedure.proceduralHistory.status === "available") {
+    const cleaned = removeOutcomeClauses(procedure.proceduralHistory.value);
+    const evidence = procedure.proceduralHistory.evidence.filter((anchor) => anchor.sectionType !== "disposition" && anchor.sectionType !== "remedy" && anchor.sectionType !== "costs");
+    if (cleaned && evidence.length) {
+      procedure.proceduralHistory = { ...procedure.proceduralHistory, value: cleaned, evidence };
+      clearFieldFlags(flags, ["procedure.proceduralHistory"]);
+    }
+  }
+
+  const lowerCourt = cumulativeLowerCourtDecision(procedure);
+  if (lowerCourt) {
+    procedure.lowerCourtDecision = lowerCourt;
+    clearFieldFlags(flags, ["procedure.lowerCourtDecision"]);
+  }
+
+  const explicitAnchors = explicitGroundResultAnchors(procedure);
+  const grounds = procedure.groundsOrIssues.status === "available" ? procedure.groundsOrIssues.value : [];
+  if (grounds.length && explicitAnchors.length) {
+    const holdingText = buildHoldingText(grounds);
+    if (holdingText) {
+      analysis.holding = {
+        status: "available",
+        value: holdingText,
+        confidence: 0.98,
+        evidence: explicitAnchors,
+        conflicts: [],
+      };
+      clearFieldFlags(flags, ["analysis.holding"]);
+    }
+
+    const existing = new Map(outcome.components.status === "available"
+      ? outcome.components.value.map((component) => [component.groundOrIssue.toLocaleLowerCase("el"), component])
+      : []);
+    const components: OutcomeComponentV2[] = outcome.components.status === "available" ? [...outcome.components.value] : [];
+    const componentEvidence = outcome.components.status === "available" ? [...outcome.components.evidence] : [];
+    for (const ground of grounds) {
+      const result = outcomeCodeForGround(ground.result);
+      if (!result || !ground.number) continue;
+      const key = `λόγος έφεσης ${ground.number}`.toLocaleLowerCase("el");
+      if (existing.has(key)) continue;
+      const anchor = explicitAnchors.find((item) => resultAnchorNumber(item) === ground.number);
+      if (!anchor) continue;
+      const component: OutcomeComponentV2 = {
+        target: `Λόγος έφεσης ${ground.number}`,
+        groundOrIssue: `λόγος έφεσης ${ground.number}`,
+        result,
+        remedy: "",
+        orderText: anchor.quote,
+      };
+      components.push(component);
+      componentEvidence.push(anchor);
+      existing.set(key, component);
+    }
+    if (components.length) {
+      outcome.components = {
+        status: "available",
+        value: components.sort((left, right) => left.target.localeCompare(right.target, "el", { numeric: true })),
+        confidence: Math.max(0.97, outcome.components.confidence),
+        evidence: [...new Map(componentEvidence.map((anchor) => [`${anchor.paragraphIds.join(",")}|${anchor.quote}`, anchor])).values()],
+        conflicts: [],
+      };
+      clearFieldFlags(flags, ["outcome.components"]);
+    }
+  }
+
+  const dominantNeedsRepair = analysis.dominantIssue.status !== "available" ||
+    [...flags].some((flag) => flag.startsWith("analysis.dominantIssue:"));
+  if (dominantNeedsRepair && analysis.legalIssues.status === "available" && analysis.legalIssues.value.length) {
+    const primary = analysis.legalIssues.value.find((issue) => issue.centrality === "primary") || analysis.legalIssues.value[0];
+    const evidence = analysis.legalIssues.evidence.filter((anchor) => anchor.sectionType !== "disposition");
+    if (primary?.issue && evidence.length) {
+      analysis.dominantIssue = {
+        status: "available",
+        value: primary.issue,
+        confidence: 0.96,
+        evidence,
+        conflicts: [],
+      };
+      clearFieldFlags(flags, ["analysis.dominantIssue"]);
+    }
+  }
+}
+
 export async function runSpecialistAgents(
   source: JudgmentSourceV2,
   sectionMap: SectionMapV2,
@@ -378,6 +553,14 @@ export async function runSpecialistAgents(
   const analysis = validatedAnalysis(analysisResponse.data, context, flags);
   const authorities = validatedAuthorities(authorityResponse.data, context, flags);
   const outcome = validatedOutcome(outcomeResponse.data, context, flags);
+
+  reconcileSpecialistFields({
+    facts: factsProcedure.facts,
+    procedure: factsProcedure.procedure,
+    analysis,
+    outcome,
+    flags,
+  });
 
   return {
     identity: identity.identity,
