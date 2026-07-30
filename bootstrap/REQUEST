@@ -1,0 +1,1 @@
+Import the standalone Nomologies V2 source only. Do not import MyNomos frontend, corpus, Supabase configuration, or credentials.
