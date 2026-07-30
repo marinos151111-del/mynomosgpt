@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.window", "dom", "dom.iterable", "esnext"]
+  },
+  "tasks": {
+    "check": "deno check scripts/run-test.ts",
+    "test": "deno run --allow-net=api.openai.com,cylaw.org,www.cylaw.org --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,SOURCE_URL,PIPELINE_MODE --allow-read --allow-write=artifacts scripts/run-test.ts"
+  }
+}
