@@ -1,0 +1,1 @@
+Run sentence-level atomic section recognition with bounded concurrent windows.
