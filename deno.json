@@ -1,10 +1,18 @@
 {
   "compilerOptions": {
     "strict": true,
-    "lib": ["deno.window", "dom", "dom.iterable", "esnext"]
+    "lib": ["deno.ns", "dom", "dom.iterable", "esnext"]
   },
   "tasks": {
-    "check": "deno check scripts/run-test.ts",
+    "check": "deno check server.ts scripts/run-test.ts",
+    "start": "deno run --allow-net --allow-env --allow-read server.ts",
     "test": "deno run --allow-net=api.openai.com,cylaw.org,www.cylaw.org --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,SOURCE_URL,PIPELINE_MODE --allow-read --allow-write=artifacts scripts/run-test.ts"
+  },
+  "deploy": {
+    "runtime": {
+      "type": "dynamic",
+      "entrypoint": "./server.ts",
+      "memory_limit": "768 MB"
+    }
   }
 }
