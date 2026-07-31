@@ -1,0 +1,105 @@
+name: Build and deploy Nomologies V2 case preview
+
+on:
+  push:
+    branches:
+      - agent/nomologies-v2-case-preview
+      - main
+    paths:
+      - .github/nomologies-case-preview/**
+      - .github/workflows/deploy-nomologies-case-preview.yml
+      - case-preview/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: nomologies-case-preview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-preview:
+    if: github.ref_name == 'agent/nomologies-v2-case-preview' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/nomologies-v2-case-preview
+          fetch-depth: 0
+
+      - name: Reconstruct and validate preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .github/nomologies-case-preview/chunk-* > /tmp/nomologies-case-preview.b64
+          base64 --decode /tmp/nomologies-case-preview.b64 > /tmp/nomologies-case-preview.zip
+          unzip -t /tmp/nomologies-case-preview.zip
+          rm -rf case-preview
+          mkdir -p case-preview
+          unzip -q /tmp/nomologies-case-preview.zip -d case-preview
+          touch case-preview/.nojekyll
+
+          test -s case-preview/index.html
+          test -s case-preview/styles.css
+          test -s case-preview/app.js
+          test -s case-preview/case-data.js
+          node --check case-preview/app.js
+          node --check case-preview/case-data.js
+          grep -q 'ΚΥΡΙΑΡΧΗ ΝΟΜΙΚΗ ΑΡΧΗ' case-preview/index.html
+          grep -q 'Ε5/2025' case-preview/case-data.js
+          grep -q 'Χρονολόγιο' case-preview/index.html
+          grep -q 'Νομοθεσία' case-preview/index.html
+          ! grep -R -E 'OPENAI_API_KEY|SUPABASE_SERVICE_ROLE_KEY|LAB_ACCESS_KEY' case-preview
+
+      - name: Commit validated preview assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add case-preview
+          if git diff --cached --quiet; then
+            echo 'Preview assets are already current.'
+            exit 0
+          fi
+          git commit -m 'Build Nomologies V2 user-facing case preview'
+          git push origin HEAD:agent/nomologies-v2-case-preview
+
+  deploy-pages:
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate published preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s case-preview/index.html
+          test -s case-preview/styles.css
+          test -s case-preview/app.js
+          test -s case-preview/case-data.js
+          node --check case-preview/app.js
+          node --check case-preview/case-data.js
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: case-preview
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
