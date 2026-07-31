@@ -1,0 +1,125 @@
+name: Wire elite search into Pipeline Lab
+
+on:
+  push:
+    branches:
+      - agent/lexis-search-v1
+    paths:
+      - .github/workflows/apply-elite-search-server.yml
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/lexis-search-v1
+          fetch-depth: 0
+      - name: Patch server routes and automatic indexing
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('server.ts')
+          text = path.read_text(encoding='utf-8')
+
+          import_anchor = 'import { NomologiesOpenAIError } from "./src/nomologies-v2/openai-responses.ts";\n'
+          import_replacement = import_anchor + '''import {\n  clearNomologiesCorpus,\n  indexNomologiesRecord,\n  searchCorpusStatus,\n  searchNomologiesCorpus,\n} from "./src/nomologies-search/store.ts";\nimport type { SearchFiltersV1 } from "./src/nomologies-search/types.ts";\n'''
+          if 'searchNomologiesCorpus' not in text:
+              if import_anchor not in text:
+                  raise SystemExit('server import anchor missing')
+              text = text.replace(import_anchor, import_replacement, 1)
+
+          result_anchor = '    job.result = compactResult(result);\n'
+          result_replacement = '''    let searchIndex: Record<string, unknown> | undefined;\n    if (result.mode === "full") {\n      const indexed = await indexNomologiesRecord(result.record, {\n        semantic: true,\n        signal: controller.signal,\n      });\n      searchIndex = {\n        indexed: true,\n        semanticIndexed: indexed.semanticIndexed,\n        documentId: indexed.document.id,\n        smartTags: indexed.document.smartTags.slice(0, 20),\n        indexSize: searchCorpusStatus().indexSize,\n      };\n    }\n\n    job.result = compactResult(searchIndex ? { ...result, searchIndex } : result);\n'''
+          if 'semanticIndexed: indexed.semanticIndexed' not in text:
+              if result_anchor not in text:
+                  raise SystemExit('job result anchor missing')
+              text = text.replace(result_anchor, result_replacement, 1)
+
+          function_anchor = 'async function staticFile(pathname: string): Promise<Response> {\n'
+          functions = r'''async function searchRequest(request: Request): Promise<Response> {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+  const payload = await readJsonBody(request);
+  const query = stringValue(payload.query || payload.text);
+  if (!query) throw new HttpError(400, "SEARCH_QUERY_REQUIRED", "Enter a legal search query.");
+  const filters = payload.filters && typeof payload.filters === "object" && !Array.isArray(payload.filters)
+    ? payload.filters as SearchFiltersV1
+    : {};
+  const limit = Math.max(1, Math.min(100, Number(payload.limit) || 20));
+  const semantic = payload.semantic !== false;
+  const result = await searchNomologiesCorpus(query, {
+    filters,
+    limit,
+    semantic,
+    signal: request.signal,
+  });
+  return json({ ok: true, result });
+}
+
+function searchStatusRequest(request: Request): Response {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+  return json({ ok: true, ...searchCorpusStatus() });
+}
+
+function clearSearchRequest(request: Request): Response {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+  clearNomologiesCorpus();
+  return json({ ok: true, indexSize: 0 });
+}
+
+'''
+          if 'async function searchRequest' not in text:
+              if function_anchor not in text:
+                  raise SystemExit('static function anchor missing')
+              text = text.replace(function_anchor, functions + function_anchor, 1)
+
+          text = text.replace(
+              'if (!/^(index\\.html|app\\.js|styles\\.css)$/.test(normalized)) return text("Not found", 404);',
+              'if (!/^(index\\.html|app\\.js|styles\\.css|search\\.html|search\\.js)$/.test(normalized)) return text("Not found", 404);'
+          )
+
+          health_anchor = '        retainedJobs: jobs.size,\n        version: "2.2.0-legal-quality",\n'
+          health_replacement = '        retainedJobs: jobs.size,\n        searchIndexSize: Number(searchCorpusStatus().indexSize || 0),\n        semanticSearchConfigured: Boolean(env("OPENAI_API_KEY")),\n        version: "2.3.0-elite-search",\n'
+          if 'version: "2.3.0-elite-search"' not in text:
+              if health_anchor not in text:
+                  raise SystemExit('health anchor missing')
+              text = text.replace(health_anchor, health_replacement, 1)
+
+          route_anchor = '    if (request.method === "POST" && (url.pathname === "/api/jobs" || url.pathname === "/api/parse")) {\n      return await createJobRequest(request);\n    }\n'
+          route_replacement = route_anchor + '''    if (request.method === "POST" && url.pathname === "/api/search") {\n      return await searchRequest(request);\n    }\n    if (request.method === "GET" && url.pathname === "/api/search/status") {\n      return searchStatusRequest(request);\n    }\n    if (request.method === "DELETE" && url.pathname === "/api/search") {\n      return clearSearchRequest(request);\n    }\n'''
+          if 'url.pathname === "/api/search"' not in text:
+              if route_anchor not in text:
+                  raise SystemExit('route anchor missing')
+              text = text.replace(route_anchor, route_replacement, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Type-check and run search tests
+        run: |
+          deno task check
+          deno task test:search
+      - name: Commit validated server wiring
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No server changes required"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add server.ts
+          git commit -m "Wire elite search into Pipeline Lab"
+          git push origin HEAD:agent/lexis-search-v1
