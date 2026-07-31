@@ -11,6 +11,7 @@ on:
       - main
     paths:
       - trigger/legal-quality-hardening.txt
+      - scripts/patch-legal-quality-type-fix.py
 
 permissions:
   contents: write
@@ -29,6 +30,7 @@ jobs:
         run: |
           python scripts/patch-legal-quality-contract.py
           python scripts/patch-legal-quality-runtime.py
+          python scripts/patch-legal-quality-type-fix.py
 
       - uses: denoland/setup-deno@v2
         with:
@@ -49,6 +51,7 @@ jobs:
         run: |
           rm -f scripts/patch-legal-quality-contract.py
           rm -f scripts/patch-legal-quality-runtime.py
+          rm -f scripts/patch-legal-quality-type-fix.py
           rm -f .github/workflows/apply-legal-quality-hardening.yml
           rm -f trigger/legal-quality-hardening.txt
           git config user.name 'Nomologies V2 Bot'
