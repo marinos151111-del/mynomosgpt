@@ -1,0 +1,9 @@
+{
+  "url": "https://marvel-cloudy-refurbished-humanities.trycloudflare.com",
+  "password": "My-Drop-Site",
+  "mode": "asynchronous-hardened",
+  "workflow_run": "30608297523",
+  "branch": "agent/fix-full-extraction-524",
+  "full_extraction_verified_completed": true,
+  "expires_when_job_stops": true
+}
