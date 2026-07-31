@@ -4,17 +4,22 @@ on:
   push:
     branches:
       - agent/pipeline-lab-web
+      - agent/lexis-search-v1
     paths:
       - server.ts
+      - elite-server.ts
       - web/**
       - src/nomologies-v2/**
+      - src/nomologies-search/**
       - deno.json
       - .github/workflows/check-pipeline-lab.yml
   pull_request:
     paths:
       - server.ts
+      - elite-server.ts
       - web/**
       - src/nomologies-v2/**
+      - src/nomologies-search/**
       - deno.json
 
 permissions:
@@ -33,6 +38,7 @@ jobs:
         run: |
           deno task check
           deno check web/app.js
+          deno check web/search.js
       - name: Start Pipeline Lab and test public routes
         shell: bash
         run: |
@@ -46,7 +52,10 @@ jobs:
             fi
             sleep 0.5
           done
-          grep -q 'nomologies-v2-pipeline-lab' /tmp/health.json
+          grep -Eq 'nomologies-v2-(pipeline|elite-search)-lab' /tmp/health.json
+          grep -q 'searchIndexSize' /tmp/health.json
           curl --fail --silent http://127.0.0.1:8000/ | grep -q 'Intake. Parse. Verify.'
           curl --fail --silent http://127.0.0.1:8000/app.js | grep -q 'renderFullResult'
+          curl --fail --silent http://127.0.0.1:8000/search.html | grep -q 'Elite Cyprus Legal Search'
+          curl --fail --silent http://127.0.0.1:8000/search.js | grep -q 'scoreBreakdown'
           curl --fail --silent http://127.0.0.1:8000/styles.css | grep -q -- '--brass'

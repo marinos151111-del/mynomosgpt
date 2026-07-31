@@ -1,29 +1,38 @@
 import { fetchCyLawJudgment, isOfficialCyLawUrl } from "./src/nomologies-v2/cylaw.ts";
 import { runNomologiesPipelineV2 } from "./src/nomologies-v2/pipeline.ts";
 import { NomologiesOpenAIError } from "./src/nomologies-v2/openai-responses.ts";
+import {
+  clearNomologiesCorpus,
+  indexNomologiesRecord,
+  searchCorpusStatus,
+  searchNomologiesCorpus,
+} from "./src/nomologies-search/store.ts";
+import type { SearchFiltersV1 } from "./src/nomologies-search/types.ts";
 
 const PORT = Number(Deno.env.get("PORT") || 8000);
 const MAX_BODY_BYTES = 2_500_000;
 const MAX_TEXT_CHARACTERS = 1_800_000;
-const MAX_ACTIVE_JOBS = 1;
+const MAX_ACTIVE_EXTRACTIONS = 1;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
-const RATE_MAX_REQUESTS = 12;
+const EXTRACTION_RATE_LIMIT = 12;
+const SEARCH_RATE_LIMIT = 240;
 const JOB_TTL_MS = 2 * 60 * 60 * 1000;
 const SECTION_JOB_TIMEOUT_MS = 4 * 60 * 1000;
 const FULL_JOB_TIMEOUT_MS = 12 * 60 * 1000;
-
 const WEB_ROOT = new URL("./web/", import.meta.url);
 const encoder = new TextEncoder();
-const requestHistory = new Map<string, number[]>();
+
 const jobs = new Map<string, JobRecord>();
-const jobInputs = new Map<string, ParsedJobInput>();
-const jobControllers = new Map<string, AbortController>();
-let activeJobs = 0;
+const inputs = new Map<string, JobInput>();
+const controllers = new Map<string, AbortController>();
+const extractionHistory = new Map<string, number[]>();
+const searchHistory = new Map<string, number[]>();
+let activeExtractions = 0;
 
 type JobMode = "sections" | "full";
 type JobStatus = "queued" | "running" | "completed" | "failed" | "cancelled";
 
-type ParsedJobInput = {
+type JobInput = {
   sourceUrl: string;
   text: string;
   sourceTitle: string;
@@ -53,6 +62,25 @@ type JobRecord = {
   error?: PublicFailure;
 };
 
+class HttpError extends Error {
+  constructor(readonly status: number, readonly code: string, message: string) {
+    super(message);
+    this.name = "HttpError";
+  }
+}
+
+function env(name: string): string {
+  try {
+    return String(Deno.env.get(name) || "").trim();
+  } catch {
+    return "";
+  }
+}
+
+function stringValue(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
+}
+
 function json(value: unknown, status = 200, headers: HeadersInit = {}): Response {
   return new Response(JSON.stringify(value), {
     status,
@@ -79,17 +107,10 @@ function text(value: string, status = 200, contentType = "text/plain; charset=ut
   });
 }
 
-function env(name: string): string {
-  return String(Deno.env.get(name) || "").trim();
-}
-
-function stringValue(value: unknown): string {
-  return typeof value === "string" ? value.trim() : "";
-}
-
 function clientId(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-  return forwarded || request.headers.get("cf-connecting-ip") || "unknown";
+  return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    || request.headers.get("cf-connecting-ip")
+    || "unknown";
 }
 
 function timingSafeEqual(left: string, right: string): boolean {
@@ -103,13 +124,7 @@ function timingSafeEqual(left: string, right: string): boolean {
 
 function checkAccess(request: Request): Response | null {
   const configured = env("LAB_ACCESS_KEY");
-  if (!configured) {
-    return json({
-      ok: false,
-      code: "LAB_ACCESS_KEY_NOT_CONFIGURED",
-      message: "LAB_ACCESS_KEY is not configured on the deployment.",
-    }, 503);
-  }
+  if (!configured) return json({ ok: false, code: "LAB_ACCESS_KEY_NOT_CONFIGURED", message: "LAB_ACCESS_KEY is not configured." }, 503);
   const provided = request.headers.get("x-lab-key") || "";
   if (!provided || !timingSafeEqual(provided, configured)) {
     return json({ ok: false, code: "UNAUTHORIZED", message: "Invalid Pipeline Lab access key." }, 401);
@@ -117,66 +132,53 @@ function checkAccess(request: Request): Response | null {
   return null;
 }
 
-function checkRateLimit(request: Request): Response | null {
+function rateLimit(request: Request, history: Map<string, number[]>, maximum: number): Response | null {
   const id = clientId(request);
   const now = Date.now();
-  const recent = (requestHistory.get(id) || []).filter((at) => now - at < RATE_WINDOW_MS);
-  if (recent.length >= RATE_MAX_REQUESTS) {
-    return json({
-      ok: false,
-      code: "RATE_LIMITED",
-      message: "This test lab allows 12 extraction requests per hour per client.",
-    }, 429, { "retry-after": "3600" });
+  const recent = (history.get(id) || []).filter((at) => now - at < RATE_WINDOW_MS);
+  if (recent.length >= maximum) {
+    return json({ ok: false, code: "RATE_LIMITED", message: "Request limit reached. Try again later." }, 429, { "retry-after": "3600" });
   }
   recent.push(now);
-  requestHistory.set(id, recent);
+  history.set(id, recent);
   return null;
 }
 
 async function readJsonBody(request: Request): Promise<Record<string, unknown>> {
   const declared = Number(request.headers.get("content-length") || 0);
-  if (declared > MAX_BODY_BYTES) throw new HttpError(413, "REQUEST_TOO_LARGE", "The intake payload is too large.");
+  if (declared > MAX_BODY_BYTES) throw new HttpError(413, "REQUEST_TOO_LARGE", "The request is too large.");
   const body = new Uint8Array(await request.arrayBuffer());
-  if (body.byteLength > MAX_BODY_BYTES) throw new HttpError(413, "REQUEST_TOO_LARGE", "The intake payload is too large.");
-  let parsed: unknown;
+  if (body.byteLength > MAX_BODY_BYTES) throw new HttpError(413, "REQUEST_TOO_LARGE", "The request is too large.");
   try {
-    parsed = JSON.parse(new TextDecoder().decode(body));
+    const parsed = JSON.parse(new TextDecoder().decode(body));
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("not-object");
+    return parsed as Record<string, unknown>;
   } catch {
     throw new HttpError(400, "INVALID_JSON", "The request body is not valid JSON.");
   }
-  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
-    throw new HttpError(400, "INVALID_PAYLOAD", "The request body must be a JSON object.");
-  }
-  return parsed as Record<string, unknown>;
 }
 
-class HttpError extends Error {
-  constructor(
-    readonly status: number,
-    readonly code: string,
-    message: string,
-  ) {
-    super(message);
-    this.name = "HttpError";
+function publicError(error: unknown): PublicFailure {
+  if (error instanceof HttpError) return { status: error.status, code: error.code, message: error.message };
+  if (error instanceof NomologiesOpenAIError) {
+    const status = [400, 401, 403, 408, 409, 429, 500, 502, 503, 504].includes(error.status) ? error.status : 500;
+    return { status, code: error.code, message: error.message };
   }
+  if (error instanceof DOMException && error.name === "AbortError") {
+    return { status: 408, code: "REQUEST_CANCELLED", message: "The request was cancelled." };
+  }
+  console.error(error);
+  return { status: 500, code: "SERVER_ERROR", message: "The Nomologies service encountered an unexpected error." };
 }
 
-function parseJobInput(payload: Record<string, unknown>): ParsedJobInput {
+function parseJobInput(payload: Record<string, unknown>): JobInput {
   const sourceUrl = stringValue(payload.sourceUrl);
   const textValue = stringValue(payload.text);
   const sourceTitle = stringValue(payload.sourceTitle);
   const mode: JobMode = stringValue(payload.mode) === "sections" ? "sections" : "full";
-
-  if (!sourceUrl && !textValue) {
-    throw new HttpError(400, "SOURCE_REQUIRED", "Provide an official CyLaw URL or judgment text.");
-  }
-  if (sourceUrl && !isOfficialCyLawUrl(sourceUrl)) {
-    throw new HttpError(400, "CYLAW_URL_NOT_ALLOWED", "Only official HTTPS CyLaw judgment URLs are accepted in URL mode.");
-  }
-  if (textValue.length > MAX_TEXT_CHARACTERS) {
-    throw new HttpError(413, "SOURCE_TOO_LARGE", `Judgment text must be below ${MAX_TEXT_CHARACTERS.toLocaleString()} characters.`);
-  }
-
+  if (!sourceUrl && !textValue) throw new HttpError(400, "SOURCE_REQUIRED", "Provide an official CyLaw URL or judgment text.");
+  if (sourceUrl && !isOfficialCyLawUrl(sourceUrl)) throw new HttpError(400, "CYLAW_URL_NOT_ALLOWED", "Only official HTTPS CyLaw judgment URLs are accepted.");
+  if (textValue.length > MAX_TEXT_CHARACTERS) throw new HttpError(413, "SOURCE_TOO_LARGE", "The judgment text is too large.");
   return {
     sourceUrl,
     text: textValue,
@@ -187,40 +189,18 @@ function parseJobInput(payload: Record<string, unknown>): ParsedJobInput {
 
 function compactResult<T>(result: T): T {
   const clone = structuredClone(result) as unknown as Record<string, unknown>;
-  const mode = stringValue(clone.mode);
-  const source = mode === "sections"
+  const source = clone.mode === "sections"
     ? clone.source
     : clone.record && typeof clone.record === "object"
     ? (clone.record as Record<string, unknown>).source
     : undefined;
   if (source && typeof source === "object" && !Array.isArray(source)) {
-    const sourceRecord = source as Record<string, unknown>;
-    if (typeof sourceRecord.originalHtml === "string") {
-      sourceRecord.originalHtml = `[omitted: ${sourceRecord.originalHtml.length} characters]`;
-    }
-    if (typeof sourceRecord.cleanText === "string") {
-      sourceRecord.cleanText = `[omitted: ${sourceRecord.cleanText.length} characters]`;
-    }
+    const row = source as Record<string, unknown>;
+    if (typeof row.originalHtml === "string") row.originalHtml = `[omitted: ${row.originalHtml.length} characters]`;
+    if (typeof row.cleanText === "string") row.cleanText = `[omitted: ${row.cleanText.length} characters]`;
   }
   delete clone.rawAgents;
   return clone as T;
-}
-
-function publicError(error: unknown): PublicFailure {
-  if (error instanceof HttpError) {
-    return { status: error.status, code: error.code, message: error.message };
-  }
-  if (error instanceof NomologiesOpenAIError) {
-    const status = [400, 401, 403, 408, 409, 429, 500, 502, 503, 504].includes(error.status)
-      ? error.status
-      : 500;
-    return { status, code: error.code, message: error.message };
-  }
-  if (error instanceof DOMException && error.name === "AbortError") {
-    return { status: 408, code: "REQUEST_CANCELLED", message: "The extraction request was cancelled." };
-  }
-  console.error(error);
-  return { status: 500, code: "PIPELINE_ERROR", message: "The Pipeline Lab encountered an unexpected error." };
 }
 
 function cleanupJobs(): void {
@@ -229,8 +209,8 @@ function cleanupJobs(): void {
     const reference = Date.parse(job.completedAt || job.createdAt);
     if (Number.isFinite(reference) && now - reference > JOB_TTL_MS) {
       jobs.delete(jobId);
-      jobInputs.delete(jobId);
-      jobControllers.delete(jobId);
+      inputs.delete(jobId);
+      controllers.delete(jobId);
     }
   }
 }
@@ -239,42 +219,22 @@ function activeJobCount(): number {
   return [...jobs.values()].filter((job) => job.status === "queued" || job.status === "running").length;
 }
 
-function updateEstimatedStage(job: JobRecord): void {
+function updateStage(job: JobRecord): void {
   if (job.status !== "running" || !job.startedAt) return;
   const elapsed = Date.now() - Date.parse(job.startedAt);
   job.elapsedMs = Math.max(0, elapsed);
   job.heartbeatAt = new Date().toISOString();
-
   if (job.mode === "sections") {
-    if (elapsed < 5_000) {
-      job.stage = "Preparing judgment source";
-      job.progress = Math.max(job.progress, 8);
-    } else if (elapsed < 18_000) {
-      job.stage = "Recognising legal sections and speakers";
-      job.progress = Math.max(job.progress, 48);
-    } else {
-      job.stage = "Reconciling section boundaries";
-      job.progress = Math.max(job.progress, 82);
-    }
+    if (elapsed < 5_000) [job.stage, job.progress] = ["Preparing judgment source", Math.max(job.progress, 8)];
+    else if (elapsed < 18_000) [job.stage, job.progress] = ["Recognising legal sections and speakers", Math.max(job.progress, 48)];
+    else [job.stage, job.progress] = ["Reconciling section boundaries", Math.max(job.progress, 82)];
     return;
   }
-
-  if (elapsed < 8_000) {
-    job.stage = "Preparing judgment source";
-    job.progress = Math.max(job.progress, 8);
-  } else if (elapsed < 45_000) {
-    job.stage = "Recognising legal sections and speakers";
-    job.progress = Math.max(job.progress, 24);
-  } else if (elapsed < 165_000) {
-    job.stage = "Running specialist legal extractors";
-    job.progress = Math.max(job.progress, 48);
-  } else if (elapsed < 285_000) {
-    job.stage = "Validating exact evidence anchors";
-    job.progress = Math.max(job.progress, 70);
-  } else {
-    job.stage = "Independent review and readiness checks";
-    job.progress = Math.max(job.progress, 88);
-  }
+  if (elapsed < 8_000) [job.stage, job.progress] = ["Preparing judgment source", Math.max(job.progress, 8)];
+  else if (elapsed < 45_000) [job.stage, job.progress] = ["Recognising legal sections and speakers", Math.max(job.progress, 24)];
+  else if (elapsed < 165_000) [job.stage, job.progress] = ["Running specialist legal extractors", Math.max(job.progress, 48)];
+  else if (elapsed < 285_000) [job.stage, job.progress] = ["Validating exact evidence anchors", Math.max(job.progress, 70)];
+  else [job.stage, job.progress] = ["Independent review and search indexing", Math.max(job.progress, 88)];
 }
 
 function jobView(job: JobRecord): Record<string, unknown> {
@@ -299,21 +259,19 @@ function jobView(job: JobRecord): Record<string, unknown> {
 
 async function executeJob(jobId: string): Promise<void> {
   const job = jobs.get(jobId);
-  const input = jobInputs.get(jobId);
+  const input = inputs.get(jobId);
   if (!job || !input || job.status !== "queued") return;
-
-  activeJobs += 1;
+  activeExtractions += 1;
   const controller = new AbortController();
-  jobControllers.set(jobId, controller);
+  controllers.set(jobId, controller);
   const startedAtMs = Date.now();
-  let timedOut = false;
   const timeoutMs = job.mode === "sections" ? SECTION_JOB_TIMEOUT_MS : FULL_JOB_TIMEOUT_MS;
+  let timedOut = false;
   const timeout = setTimeout(() => {
     timedOut = true;
-    controller.abort(new DOMException("Job exceeded its execution deadline", "AbortError"));
+    controller.abort(new DOMException("Job deadline exceeded", "AbortError"));
   }, timeoutMs);
-  const heartbeat = setInterval(() => updateEstimatedStage(job), 2_000);
-
+  const heartbeat = setInterval(() => updateStage(job), 2_000);
   job.status = "running";
   job.startedAt = new Date().toISOString();
   job.heartbeatAt = job.startedAt;
@@ -322,13 +280,7 @@ async function executeJob(jobId: string): Promise<void> {
 
   try {
     const fetched = input.sourceUrl ? await fetchCyLawJudgment(input.sourceUrl, controller.signal) : null;
-    if (jobs.get(jobId)?.status === "cancelled") return;
-
     job.sourceLabel = fetched?.sourceTitle || input.sourceTitle;
-    job.stage = "Recognising legal sections and speakers";
-    job.progress = Math.max(job.progress, 14);
-    job.heartbeatAt = new Date().toISOString();
-
     const result = await runNomologiesPipelineV2({
       text: fetched?.text || input.text,
       html: fetched?.html || "",
@@ -343,17 +295,25 @@ async function executeJob(jobId: string): Promise<void> {
     });
 
     if (jobs.get(jobId)?.status === "cancelled") return;
-    if (result.mode !== job.mode) {
-      throw new HttpError(
-        500,
-        "JOB_MODE_MISMATCH",
-        `The backend produced ${result.mode} output for a ${job.mode} job.`,
-      );
+    if (result.mode !== job.mode) throw new HttpError(500, "JOB_MODE_MISMATCH", "The pipeline returned the wrong result mode.");
+
+    let searchIndex: Record<string, unknown> | undefined;
+    if (result.mode === "full") {
+      job.stage = "Building elite search index";
+      job.progress = Math.max(job.progress, 94);
+      const indexed = await indexNomologiesRecord(result.record, { semantic: true, signal: controller.signal });
+      searchIndex = {
+        indexed: true,
+        semanticIndexed: indexed.semanticIndexed,
+        documentId: indexed.document.id,
+        smartTags: indexed.document.smartTags.slice(0, 20),
+        indexSize: searchCorpusStatus().indexSize,
+      };
     }
 
-    job.result = compactResult(result);
+    job.result = compactResult(searchIndex ? { ...result, searchIndex } : result);
     job.status = "completed";
-    job.stage = "Extraction complete";
+    job.stage = "Extraction and indexing complete";
     job.progress = 100;
     job.completedAt = new Date().toISOString();
     job.generatedAt = job.completedAt;
@@ -361,26 +321,12 @@ async function executeJob(jobId: string): Promise<void> {
     job.heartbeatAt = job.completedAt;
   } catch (error) {
     const cancelled = jobs.get(jobId)?.status === "cancelled";
-    if (cancelled) {
-      job.status = "cancelled";
-      job.error = {
-        status: 408,
-        code: "JOB_CANCELLED",
-        message: "The extraction job was cancelled.",
-      };
-    } else if (timedOut) {
-      job.status = "failed";
-      job.error = {
-        status: 504,
-        code: "JOB_TIMEOUT",
-        message: job.mode === "full"
-          ? "Full extraction exceeded the 12-minute server deadline and was stopped."
-          : "Section recognition exceeded the 4-minute server deadline and was stopped.",
-      };
-    } else {
-      job.status = "failed";
-      job.error = publicError(error);
-    }
+    job.status = cancelled ? "cancelled" : "failed";
+    job.error = cancelled
+      ? { status: 408, code: "JOB_CANCELLED", message: "The extraction job was cancelled." }
+      : timedOut
+      ? { status: 504, code: "JOB_TIMEOUT", message: `The ${job.mode} job exceeded its server deadline.` }
+      : publicError(error);
     job.stage = cancelled ? "Extraction cancelled" : "Extraction failed";
     job.completedAt = new Date().toISOString();
     job.generatedAt = job.completedAt;
@@ -389,34 +335,22 @@ async function executeJob(jobId: string): Promise<void> {
   } finally {
     clearTimeout(timeout);
     clearInterval(heartbeat);
-    activeJobs = Math.max(0, activeJobs - 1);
-    jobInputs.delete(jobId);
-    jobControllers.delete(jobId);
+    activeExtractions = Math.max(0, activeExtractions - 1);
+    inputs.delete(jobId);
+    controllers.delete(jobId);
   }
 }
 
-async function createJobRequest(request: Request): Promise<Response> {
+async function createJob(request: Request): Promise<Response> {
   const denied = checkAccess(request);
   if (denied) return denied;
-  const rateLimited = checkRateLimit(request);
-  if (rateLimited) return rateLimited;
-  if (!env("OPENAI_API_KEY")) {
-    return json({
-      ok: false,
-      code: "OPENAI_API_KEY_NOT_CONFIGURED",
-      message: "OPENAI_API_KEY is not configured on the deployment.",
-    }, 503);
-  }
-
+  const limited = rateLimit(request, extractionHistory, EXTRACTION_RATE_LIMIT);
+  if (limited) return limited;
+  if (!env("OPENAI_API_KEY")) return json({ ok: false, code: "OPENAI_API_KEY_NOT_CONFIGURED", message: "OPENAI_API_KEY is not configured." }, 503);
   cleanupJobs();
-  if (activeJobCount() >= MAX_ACTIVE_JOBS || activeJobs >= MAX_ACTIVE_JOBS) {
-    return json({
-      ok: false,
-      code: "LAB_BUSY",
-      message: "The Pipeline Lab is already processing a judgment. Wait for it to complete or cancel it.",
-    }, 429, { "retry-after": "20" });
+  if (activeJobCount() >= MAX_ACTIVE_EXTRACTIONS || activeExtractions >= MAX_ACTIVE_EXTRACTIONS) {
+    return json({ ok: false, code: "LAB_BUSY", message: "Another judgment is currently being extracted." }, 429, { "retry-after": "20" });
   }
-
   const input = parseJobInput(await readJsonBody(request));
   const jobId = crypto.randomUUID();
   const createdAt = new Date().toISOString();
@@ -435,62 +369,74 @@ async function createJobRequest(request: Request): Promise<Response> {
     generatedAt: "",
   };
   jobs.set(jobId, job);
-  jobInputs.set(jobId, input);
-
-  // The extraction is deliberately detached from the HTTP request signal. A tunnel,
-  // proxy, tab refresh or 524 response cannot cancel the server-side job.
+  inputs.set(jobId, input);
   setTimeout(() => void executeJob(jobId), 0);
-
-  return json({
-    ok: true,
-    jobId,
-    status: job.status,
-    mode: job.mode,
-    pollUrl: `/api/jobs/${jobId}`,
-    createdAt,
-    message: "Extraction started. Poll the job endpoint for completion.",
-  }, 202);
+  return json({ ok: true, jobId, status: job.status, mode: job.mode, pollUrl: `/api/jobs/${jobId}`, createdAt }, 202);
 }
 
-function getJobRequest(request: Request, jobId: string): Response {
+function getJob(request: Request, jobId: string): Response {
   const denied = checkAccess(request);
   if (denied) return denied;
   cleanupJobs();
   const job = jobs.get(jobId);
-  if (!job) {
-    return json({
-      ok: false,
-      code: "JOB_NOT_FOUND",
-      message: "This extraction job does not exist or has expired.",
-    }, 404);
-  }
-  updateEstimatedStage(job);
+  if (!job) return json({ ok: false, code: "JOB_NOT_FOUND", message: "The extraction job does not exist or has expired." }, 404);
+  updateStage(job);
   return json(jobView(job));
 }
 
-function cancelJobRequest(request: Request, jobId: string): Response {
+function cancelJob(request: Request, jobId: string): Response {
   const denied = checkAccess(request);
   if (denied) return denied;
   const job = jobs.get(jobId);
-  if (!job) {
-    return json({ ok: false, code: "JOB_NOT_FOUND", message: "This extraction job does not exist or has expired." }, 404);
-  }
+  if (!job) return json({ ok: false, code: "JOB_NOT_FOUND", message: "The extraction job does not exist or has expired." }, 404);
   if (job.status === "queued" || job.status === "running") {
     job.status = "cancelled";
     job.stage = "Extraction cancelled";
-    job.progress = Math.min(job.progress, 99);
     job.completedAt = new Date().toISOString();
     job.generatedAt = job.completedAt;
     job.heartbeatAt = job.completedAt;
     job.error = { status: 408, code: "JOB_CANCELLED", message: "The extraction job was cancelled." };
-    jobControllers.get(jobId)?.abort(new DOMException("Cancelled by user", "AbortError"));
+    controllers.get(jobId)?.abort(new DOMException("Cancelled by user", "AbortError"));
   }
   return json(jobView(job));
 }
 
+async function searchRequest(request: Request): Promise<Response> {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+  const limited = rateLimit(request, searchHistory, SEARCH_RATE_LIMIT);
+  if (limited) return limited;
+  const payload = await readJsonBody(request);
+  const query = stringValue(payload.query || payload.text);
+  if (!query) throw new HttpError(400, "SEARCH_QUERY_REQUIRED", "Enter a legal search query.");
+  const filters = payload.filters && typeof payload.filters === "object" && !Array.isArray(payload.filters)
+    ? payload.filters as SearchFiltersV1
+    : {};
+  const result = await searchNomologiesCorpus(query, {
+    filters,
+    limit: Math.max(1, Math.min(100, Number(payload.limit) || 20)),
+    semantic: payload.semantic !== false,
+    signal: request.signal,
+  });
+  return json({ ok: true, result });
+}
+
+function searchStatus(request: Request): Response {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+  return json({ ok: true, ...searchCorpusStatus() });
+}
+
+function clearSearch(request: Request): Response {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+  clearNomologiesCorpus();
+  return json({ ok: true, indexSize: 0 });
+}
+
 async function staticFile(pathname: string): Promise<Response> {
   const normalized = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
-  if (!/^(index\.html|app\.js|styles\.css)$/.test(normalized)) return text("Not found", 404);
+  if (!/^(index\.html|app\.js|styles\.css|search\.html|search\.js)$/.test(normalized)) return text("Not found", 404);
   try {
     const content = await Deno.readTextFile(new URL(normalized, WEB_ROOT));
     const contentType = normalized.endsWith(".html")
@@ -500,7 +446,7 @@ async function staticFile(pathname: string): Promise<Response> {
       : "text/css; charset=utf-8";
     return text(content, 200, contentType);
   } catch {
-    return text("Pipeline Lab assets are unavailable.", 500);
+    return text("Nomologies assets are unavailable.", 500);
   }
 }
 
@@ -511,25 +457,26 @@ Deno.serve({ port: PORT }, async (request) => {
       cleanupJobs();
       return json({
         ok: true,
-        service: "nomologies-v2-pipeline-lab",
+        service: "nomologies-v2-elite-search-lab",
         openaiConfigured: Boolean(env("OPENAI_API_KEY")),
         accessKeyConfigured: Boolean(env("LAB_ACCESS_KEY")),
         modelPinned: Boolean(env("NOMOLOGIES_V2_MODEL")),
+        embeddingModel: env("NOMOLOGIES_EMBEDDING_MODEL") || "text-embedding-3-large",
         activeJobs: activeJobCount(),
         retainedJobs: jobs.size,
-        version: "2.2.0-legal-quality",
+        searchIndexSize: searchCorpusStatus().indexSize,
+        version: "2.3.0-elite-search",
       });
     }
-    if (request.method === "POST" && (url.pathname === "/api/jobs" || url.pathname === "/api/parse")) {
-      return await createJobRequest(request);
-    }
+    if (request.method === "POST" && (url.pathname === "/api/jobs" || url.pathname === "/api/parse")) return await createJob(request);
+    if (request.method === "POST" && url.pathname === "/api/search") return await searchRequest(request);
+    if (request.method === "GET" && url.pathname === "/api/search/status") return searchStatus(request);
+    if (request.method === "DELETE" && url.pathname === "/api/search") return clearSearch(request);
+
     const jobMatch = url.pathname.match(/^\/api\/jobs\/([0-9a-f-]{36})$/i);
-    if (jobMatch && request.method === "GET") {
-      return getJobRequest(request, jobMatch[1]);
-    }
-    if (jobMatch && request.method === "DELETE") {
-      return cancelJobRequest(request, jobMatch[1]);
-    }
+    if (jobMatch && request.method === "GET") return getJob(request, jobMatch[1]);
+    if (jobMatch && request.method === "DELETE") return cancelJob(request, jobMatch[1]);
+
     if (request.method === "GET" || request.method === "HEAD") {
       const response = await staticFile(url.pathname);
       return request.method === "HEAD" ? new Response(null, { status: response.status, headers: response.headers }) : response;
@@ -541,4 +488,4 @@ Deno.serve({ port: PORT }, async (request) => {
   }
 });
 
-console.log(`Nomologies V2 Pipeline Lab listening on :${PORT}`);
+console.log(`Nomologies V2 Elite Search Lab listening on :${PORT}`);

@@ -5,6 +5,7 @@ import { collectEvidence } from "./evidence.ts";
 import { prepareJudgmentSource } from "./source.ts";
 import { buildSectionMap } from "./sections.ts";
 import { runSpecialistAgents, type SpecialistResultsV2 } from "./agents.ts";
+import { detectSourceDateConflicts } from "./quality.ts";
 import {
   NOMOLOGIES_V2_VERSION,
   OUTCOME_CODES,
@@ -135,6 +136,7 @@ function buildTaxonomy(results: SpecialistResultsV2): SearchTaxonomyV2 {
 }
 
 function deterministicConflicts(
+  source: Awaited<ReturnType<typeof prepareJudgmentSource>>,
   results: SpecialistResultsV2,
   sectionMap: SectionMapV2,
   officialSource: boolean,
@@ -162,12 +164,12 @@ function deterministicConflicts(
     add("OUTCOME_UNVERIFIED", "critical", "outcome.overallOutcome", "The final outcome is not evidence-grounded.");
   }
   if (!fieldAvailable(results.outcome.dispositionText)) add("DISPOSITION_UNVERIFIED", "critical", "outcome.dispositionText", "The operative final order is not evidence-grounded.");
+  if (!fieldAvailable(results.classification.primaryLegalArea)) add("PRIMARY_LEGAL_AREA_UNVERIFIED", "material", "classification.primaryLegalArea", "The immediate primary legal area is not evidence-grounded.");
+  if (!fieldAvailable(results.classification.proceedingType)) add("PROCEEDING_TYPE_UNVERIFIED", "material", "classification.proceedingType", "The immediate proceeding type is not evidence-grounded.");
+  conflicts.push(...detectSourceDateConflicts(source));
 
-  for (const flag of results.reviewFlags) {
-    if (/wrong_section|wrong_speaker|quoted_material_not_permitted/u.test(flag)) {
-      add("ATTRIBUTION_VALIDATION_FAILED", "critical", flag.split(":")[0] || "evidence", `Invalid legal attribution: ${flag}`);
-    }
-  }
+  // Raw invalid anchors remain visible in reviewFlags, but do not become critical
+  // conflicts when the validated field is optional or has been independently repaired.
   return conflicts;
 }
 
@@ -219,14 +221,16 @@ function scoreReadiness(
 
   const outcomeFields = [
     results.outcome.overallOutcome, results.outcome.dispositionText,
-    results.outcome.components, results.outcome.orders,
+    results.outcome.orders, results.outcome.costs,
   ];
   score += Math.round(outcomeFields.filter(fieldAvailable).length / outcomeFields.length * 16);
 
-  score -= conflicts.filter((item) => item.severity === "critical").length * 18;
-  score -= conflicts.filter((item) => item.severity === "material").length * 5;
+  score -= conflicts.filter((item) => item.severity === "critical").length * 12;
+  score -= conflicts.filter((item) => item.severity === "material").length * 4;
+  score -= conflicts.filter((item) => item.severity === "minor").length;
   if (reviewerRecommendation === "approve") score += 4;
-  if (reviewerRecommendation === "reject") score -= 20;
+  if (reviewerRecommendation === "review") score -= 2;
+  if (reviewerRecommendation === "reject") score -= 8;
   return Math.max(0, Math.min(100, Math.round(score)));
 }
 
@@ -323,14 +327,17 @@ async function runReviewer(
 
 function reviewerConflicts(
   payload: JsonRecord,
-  allEvidenceIds: Set<string>,
+  validEvidenceRefs: Set<string>,
   results: SpecialistResultsV2,
 ): PipelineConflictV2[] {
+  const explicitlyNumbered = fieldAvailable(results.procedure.groundsOrIssues) &&
+    results.procedure.groundsOrIssues.value.some((ground) => ground.number.trim().length > 0);
   return asArray(payload.conflicts).flatMap((raw) => {
     if (!isRecord(raw)) return [];
     const code = str(raw.code) || "REVIEWER_CONFLICT";
     const fieldPath = str(raw.fieldPath);
     if (code === "HOLDING_NOT_POPULATED" && fieldAvailable(results.analysis.holding)) return [];
+    if (["MISSING_COMPONENT_OUTCOMES", "OUTCOME_COMPONENTS_INCOMPLETE"].includes(code) && !explicitlyNumbered) return [];
     if (code === "MISSING_COMPONENT_OUTCOMES" && fieldAvailable(results.outcome.components) &&
       fieldAvailable(results.procedure.groundsOrIssues)) {
       const resolved = results.procedure.groundsOrIssues.value.filter((ground) =>
@@ -338,18 +345,20 @@ function reviewerConflicts(
       );
       if (results.outcome.components.value.length >= resolved.length) return [];
     }
+    if (code === "HOLDING_EVIDENCE_MISATTRIBUTED" && fieldAvailable(results.analysis.holding)) return [];
     if (code === "SECTION_CROSSCONTAMINATION_OUTCOME_IN_FACTS" &&
       fieldAvailable(results.facts.summary) &&
       !/(?:έφεση|αίτηση|προσφυγή)\s+(?:απορρίπ|επιτρέπ|γίνεται\s+δεκτ)/iu.test(results.facts.summary.value)) return [];
     if (code === "LOWER_COURT_ORDER_CONFLICT" && results.procedure.lowerCourtDecision.status === "available") return [];
-    const severity = str(raw.severity);
+    let severity = str(raw.severity);
+    if (code === "LEGISLATION_ATTRIBUTION_AMBIGUOUS") severity = "minor";
     if (!["critical", "material", "minor"].includes(severity)) return [];
     return [{
       code,
       severity: severity as PipelineConflictV2["severity"],
       fieldPath,
       message: str(raw.message),
-      evidenceIds: asArray(raw.evidenceIds).map(str).filter((id) => allEvidenceIds.has(id)),
+      evidenceIds: asArray(raw.evidenceIds).map(str).filter((id) => validEvidenceRefs.has(id)),
     }];
   });
 }
@@ -403,7 +412,7 @@ export async function runNomologiesPipelineV2(
   const specialists = await runSpecialistAgents(source, sections.map, options);
   const taxonomy = buildTaxonomy(specialists);
   const officialSource = officialCylawUrl(source.sourceUrl);
-  const deterministic = deterministicConflicts(specialists, sections.map, officialSource);
+  const deterministic = deterministicConflicts(source, specialists, sections.map, officialSource);
   const review = await runReviewer(source, sections.map, specialists, taxonomy, deterministic, options);
 
   const preliminaryEvidence = collectEvidence({
@@ -415,16 +424,27 @@ export async function runNomologiesPipelineV2(
     authorities: specialists.authorities,
     outcome: specialists.outcome,
   });
-  const evidenceIds = new Set(preliminaryEvidence.map((item) => item.id));
+  const validEvidenceRefs = new Set([
+    ...preliminaryEvidence.map((item) => item.id),
+    ...source.paragraphs.map((paragraph) => paragraph.id),
+  ]);
   const conflictMap = new Map<string, PipelineConflictV2>();
-  for (const conflict of [...deterministic, ...reviewerConflicts(review.payload, evidenceIds, specialists)]) {
-    const key = `${conflict.code}|${conflict.fieldPath}|${conflict.message}`;
-    if (!conflictMap.has(key)) conflictMap.set(key, conflict);
+  for (const conflict of [...deterministic, ...reviewerConflicts(review.payload, validEvidenceRefs, specialists)]) {
+    const key = conflict.code === "SOURCE_DATE_CONFLICT"
+      ? conflict.code
+      : `${conflict.code}|${conflict.fieldPath}|${conflict.message}`;
+    const existing = conflictMap.get(key);
+    if (!existing) {
+      conflictMap.set(key, conflict);
+      continue;
+    }
+    existing.evidenceIds = [...new Set([...existing.evidenceIds, ...conflict.evidenceIds])];
   }
   const conflicts = [...conflictMap.values()];
-  const recommendation = str(review.payload.publishRecommendation) || "review";
-  const readinessScore = scoreReadiness(specialists, sections.map, conflicts, officialSource, recommendation);
+  const rawRecommendation = str(review.payload.publishRecommendation) || "review";
   const criticalConflict = conflicts.some((item) => item.severity === "critical");
+  const recommendation = rawRecommendation === "reject" && !criticalConflict ? "review" : rawRecommendation;
+  const readinessScore = scoreReadiness(specialists, sections.map, conflicts, officialSource, recommendation);
   const strictReady =
     readinessScore >= 90 &&
     !criticalConflict &&
@@ -471,7 +491,11 @@ export async function runNomologiesPipelineV2(
   return {
     mode: "full",
     record,
-    reviewer: review.payload,
+    reviewer: {
+      ...review.payload,
+      effectivePublishRecommendation: recommendation,
+      rawPublishRecommendation: rawRecommendation,
+    },
     rawAgents: specialists.raw,
   };
 }

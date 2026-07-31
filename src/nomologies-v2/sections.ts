@@ -322,6 +322,81 @@ function reconcileCandidates(
   return spans;
 }
 
+const ADOPTED_AUTHORITY_RE = /(?:αναπαράγ(?:ουμε|εται|ονται)(?:\s+πιο\s+κάτω)?\s+(?:τα\s+εκεί\s+λεγόμενα|τις\s+αρχές)|υιοθετ(?:ούμε|είται|ούνται)|επαναλαμβάν(?:ουμε|εται|ονται)(?:\s+ως\s+δικές?\s+μας)?|κάν(?:ουμε|ει)\s+(?:τις\s+αρχές|τα\s+λεγόμενα)\s+δικές?\s+μας|expressly\s+adopt(?:s|ed|ing)?|make(?:s)?\s+(?:the\s+)?(?:principles|reasoning)\s+(?:its|our)\s+own)/iu;
+
+function correctAdoptedAuthorities(
+  source: JudgmentSourceV2,
+  spans: SectionSpanV2[],
+  reviewFlags: Set<string>,
+): SectionSpanV2[] {
+  const ordinal = new Map(source.paragraphs.map((paragraph) => [paragraph.id, paragraph.ordinal]));
+  const output: SectionSpanV2[] = [];
+
+  for (const span of spans) {
+    if (!["quoted_authority", "adopted_authority"].includes(span.sectionType)) {
+      output.push(span);
+      continue;
+    }
+    const start = ordinal.get(span.startParagraphId) || 0;
+    const end = ordinal.get(span.endParagraphId) || start;
+    if (!start || !end) {
+      output.push(span);
+      continue;
+    }
+    const paragraphs = source.paragraphs.slice(start - 1, end);
+    const adoptionIndex = paragraphs.findIndex((paragraph) => ADOPTED_AUTHORITY_RE.test(paragraph.text));
+    if (adoptionIndex < 0) {
+      output.push(span);
+      continue;
+    }
+
+    reviewFlags.add(`section_deterministic_adopted_authority_${paragraphs[adoptionIndex].id}`);
+    if (adoptionIndex > 0) {
+      output.push({
+        ...span,
+        endParagraphId: paragraphs[adoptionIndex - 1].id,
+        sectionType: "quoted_authority",
+        speakerRole: "quoted_court",
+        isQuotedMaterial: true,
+        quotedSourceType: "case",
+      });
+    }
+
+    const bridge = paragraphs[adoptionIndex];
+    output.push({
+      ...span,
+      startParagraphId: bridge.id,
+      endParagraphId: bridge.id,
+      sectionType: "adopted_authority",
+      speakerRole: "authoring_judge",
+      isQuotedMaterial: false,
+      quotedSourceType: "case",
+      confidence: Math.max(span.confidence, 0.98),
+      heading: "Ρητή υιοθέτηση νομολογιακού πλαισίου",
+      rationale: "Το παρόν Δικαστήριο δηλώνει ότι αναπαράγει, επαναλαμβάνει ή υιοθετεί το νομολογιακό πλαίσιο που ακολουθεί.",
+      boundaryEvidenceParagraphIds: [bridge.id],
+    });
+
+    if (adoptionIndex < paragraphs.length - 1) {
+      output.push({
+        ...span,
+        startParagraphId: paragraphs[adoptionIndex + 1].id,
+        sectionType: "quoted_authority",
+        speakerRole: "quoted_court",
+        isQuotedMaterial: true,
+        quotedSourceType: "case",
+        heading: span.heading || "Παρατιθέμενη νομολογία",
+        rationale: "Το σώμα της παραπομπής παραμένει υλικό άλλης απόφασης· η ρητή υιοθέτηση καταγράφεται χωριστά.",
+      });
+    }
+  }
+
+  return output.map((span, index) => ({
+    ...span,
+    id: `S${String(index + 1).padStart(5, "0")}`,
+  }));
+}
+
 function correctStatutoryFootnotes(
   source: JudgmentSourceV2,
   spans: SectionSpanV2[],
@@ -408,7 +483,9 @@ export async function buildSectionMap(
 
   const candidates = results.flatMap((result) => result.candidates);
   if (!candidates.length) reviewFlags.add("section_agent_returned_no_valid_spans");
-  const spans = correctStatutoryFootnotes(source, reconcileCandidates(source, candidates, reviewFlags), reviewFlags);
+  const reconciled = reconcileCandidates(source, candidates, reviewFlags);
+  const adopted = correctAdoptedAuthorities(source, reconciled, reviewFlags);
+  const spans = correctStatutoryFootnotes(source, adopted, reviewFlags);
   const map: SectionMapV2 = {
     version: `${NOMOLOGIES_V2_VERSION}:sections-v1`,
     paragraphCount: source.paragraphs.length,
