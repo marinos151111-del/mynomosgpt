@@ -5,7 +5,7 @@
 // submissions, judicial analysis, legislation, authorities and disposition.
 // No material field is publishable without paragraph-linked evidence.
 
-export const NOMOLOGIES_V2_VERSION = "nomologies-v2.0.0" as const;
+export const NOMOLOGIES_V2_VERSION = "nomologies-v2.1.0" as const;
 
 export const SECTION_TYPES = [
   "caption",
@@ -26,6 +26,7 @@ export const SECTION_TYPES = [
   "legal_framework",
   "quoted_legislation",
   "quoted_authority",
+  "adopted_authority",
   "court_analysis",
   "findings_of_fact",
   "legal_findings",
@@ -153,6 +154,7 @@ export const PROCEEDING_TYPES = [
   "company_petition",
   "insolvency_petition",
   "interim_application",
+  "expedition_application",
   "leave_application",
   "extension_of_time_application",
   "legal_aid_application",
@@ -263,6 +265,14 @@ export const AUTHORITY_TREATMENTS = [
   "unknown",
 ] as const;
 export type AuthorityTreatmentV2 = typeof AUTHORITY_TREATMENTS[number];
+
+export const AUTHORITY_CITATION_CONTEXTS = [
+  "direct",
+  "adopted_quotation",
+  "nested_quotation",
+  "unknown",
+] as const;
+export type AuthorityCitationContextV2 = typeof AUTHORITY_CITATION_CONTEXTS[number];
 
 export const INSTRUMENT_ROLES = [
   "substantive",
@@ -529,6 +539,7 @@ export interface AuthorityV2 {
   court: string;
   year: number | null;
   treatment: AuthorityTreatmentV2;
+  citationContext: AuthorityCitationContextV2;
   legalPoint: string;
   quoted: boolean;
 }

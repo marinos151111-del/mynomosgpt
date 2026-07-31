@@ -322,6 +322,37 @@ function reconcileCandidates(
   return spans;
 }
 
+const ADOPTED_AUTHORITY_RE = /(?:αναπαράγ(?:ουμε|εται|ονται)|υιοθετ(?:ούμε|είται|ούνται)|επαναλαμβάν(?:ουμε|εται|ονται)|κάν(?:ουμε|ει)\s+δικές?\s+μας|παραθέτ(?:ουμε|εται)\s+(?:πιο\s+κάτω\s+)?(?:τα\s+εκεί\s+λεγόμενα|τις\s+αρχές)|adopt(?:s|ed|ing)?|reproduc(?:e|es|ed|ing)|endorse(?:s|d)?)/iu;
+
+function correctAdoptedAuthorities(
+  source: JudgmentSourceV2,
+  spans: SectionSpanV2[],
+  reviewFlags: Set<string>,
+): SectionSpanV2[] {
+  const ordinal = new Map(source.paragraphs.map((paragraph) => [paragraph.id, paragraph.ordinal]));
+  return spans.map((span) => {
+    if (span.sectionType !== "quoted_authority") return span;
+    const start = ordinal.get(span.startParagraphId) || 0;
+    const end = ordinal.get(span.endParagraphId) || start;
+    if (!start || !end) return span;
+    const lead = source.paragraphs
+      .slice(Math.max(0, start - 2), Math.min(source.paragraphs.length, end))
+      .map((paragraph) => paragraph.text)
+      .join(" ");
+    if (!ADOPTED_AUTHORITY_RE.test(lead)) return span;
+    reviewFlags.add(`section_deterministic_adopted_authority_${span.startParagraphId}`);
+    return {
+      ...span,
+      sectionType: "adopted_authority",
+      isQuotedMaterial: true,
+      quotedSourceType: "case",
+      confidence: Math.max(span.confidence, 0.97),
+      heading: span.heading || "Ρητώς υιοθετημένη νομολογιακή αρχή",
+      rationale: "Το παρόν Δικαστήριο δηλώνει ρητά ότι αναπαράγει ή υιοθετεί το παρατιθέμενο νομολογιακό πλαίσιο.",
+    };
+  });
+}
+
 function correctStatutoryFootnotes(
   source: JudgmentSourceV2,
   spans: SectionSpanV2[],
@@ -408,7 +439,9 @@ export async function buildSectionMap(
 
   const candidates = results.flatMap((result) => result.candidates);
   if (!candidates.length) reviewFlags.add("section_agent_returned_no_valid_spans");
-  const spans = correctStatutoryFootnotes(source, reconcileCandidates(source, candidates, reviewFlags), reviewFlags);
+  const reconciled = reconcileCandidates(source, candidates, reviewFlags);
+  const adopted = correctAdoptedAuthorities(source, reconciled, reviewFlags);
+  const spans = correctStatutoryFootnotes(source, adopted, reviewFlags);
   const map: SectionMapV2 = {
     version: `${NOMOLOGIES_V2_VERSION}:sections-v1`,
     paragraphCount: source.paragraphs.length,

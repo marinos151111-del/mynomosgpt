@@ -1,4 +1,5 @@
 import {
+  AUTHORITY_CITATION_CONTEXTS,
   AUTHORITY_TREATMENTS,
   CASE_FAMILIES,
   COURT_LEVELS,
@@ -221,6 +222,7 @@ const AUTHORITY = object({
   court: string(),
   year: integer(),
   treatment: enumeration(AUTHORITY_TREATMENTS),
+  citationContext: enumeration(AUTHORITY_CITATION_CONTEXTS),
   legalPoint: string(),
   quoted: boolean(),
 });

@@ -86,7 +86,14 @@ function showState(name) {
     error: elements.errorState,
     results: elements.resultsState,
   })) {
-    node.hidden = key !== name;
+    const visible = key === name;
+    node.hidden = !visible;
+    node.style.display = visible ? "" : "none";
+    node.setAttribute("aria-hidden", visible ? "false" : "true");
+  }
+  if (name === "results") {
+    elements.errorTitle.textContent = "";
+    elements.errorMessage.textContent = "";
   }
   const activeIndex = name === "empty" || name === "error" ? 0 : name === "processing" ? 1 : 2;
   $$(".step").forEach((node, index) => {
@@ -422,7 +429,7 @@ function renderFullResult(envelope, result) {
     fieldList("Secondary legal principles", analysis.secondaryPrinciples, (item) => `<article class="list-card"><b>${h(item.principle || "")}</b><p>${h(item.applicationToFacts || "")}</p><small>${h(item.type || "")}</small></article>`),
     fieldList("Judicial findings", analysis.findings, (item) => `<article class="list-card"><b>${h(item.finding || "")}</b><small>${h(item.type || "")}</small></article>`),
     fieldList("Legislation and provisions", authorities.legislation, (item) => `<article class="list-card"><b>${h(item.instrumentName || item.lawLabel || item.lawId || "Instrument")}</b><p>${h(item.proposition || "")}</p><small>${h(item.role || "")} · ${item.primary ? "Primary" : "Secondary"} · ${h((item.provisions || []).map((provision) => provision.display || provision.article).filter(Boolean).join(" · ") || "No provision")}</small></article>`),
-    fieldList("Cited authorities", authorities.authorities, (item) => `<article class="list-card"><b>${h(item.name || "Authority")}</b><p>${h(item.legalPoint || "")}</p><small>${h(item.citation || "")} · ${h(item.treatment || "unknown")}</small></article>`),
+    fieldList("Cited authorities", authorities.authorities, (item) => `<article class="list-card"><b>${h(item.name || "Authority")}</b><p>${h(item.legalPoint || "")}</p><small>${h(item.citation || "")} · ${h(item.treatment || "unknown")} · ${h(item.citationContext || "unknown context")}</small></article>`),
     resultSection("Outcome, orders and money", "Operative result", outcomeBody),
     fieldList("Component outcomes", outcome.components, (item) => `<article class="list-card"><b>${h(item.target || item.groundOrIssue || "Component")}</b><p>${h(item.orderText || item.remedy || "")}</p><small>${h(item.result || "unknown")}</small></article>`),
     resultSection("Conflicts and review gate", `${conflicts.length} conflict${conflicts.length === 1 ? "" : "s"}`, conflictHtml),

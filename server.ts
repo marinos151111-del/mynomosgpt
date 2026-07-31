@@ -517,7 +517,7 @@ Deno.serve({ port: PORT }, async (request) => {
         modelPinned: Boolean(env("NOMOLOGIES_V2_MODEL")),
         activeJobs: activeJobCount(),
         retainedJobs: jobs.size,
-        version: "2.1.0-async-jobs",
+        version: "2.2.0-legal-quality",
       });
     }
     if (request.method === "POST" && (url.pathname === "/api/jobs" || url.pathname === "/api/parse")) {

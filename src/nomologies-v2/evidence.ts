@@ -83,11 +83,11 @@ const ANALYSIS_SECTIONS = new Set<SectionType>([
   "ratio_decidendi", "obiter_dictum", "dissent", "concurrence",
 ]);
 const LEGISLATION_SECTIONS = new Set<SectionType>([
-  "legal_framework", "quoted_legislation", "court_analysis", "legal_findings",
+  "legal_framework", "quoted_legislation", "adopted_authority", "court_analysis", "legal_findings",
   "holding", "ratio_decidendi", "disposition", "remedy", "sentence",
 ]);
 const AUTHORITY_SECTIONS = new Set<SectionType>([
-  "quoted_authority", "legal_framework", "court_analysis", "legal_findings",
+  "quoted_authority", "adopted_authority", "legal_framework", "court_analysis", "legal_findings",
   "holding", "ratio_decidendi", "obiter_dictum", "dissent", "concurrence",
 ]);
 const OUTCOME_SECTIONS = new Set<SectionType>([
@@ -330,23 +330,25 @@ export function validateExtractedField<T>(
   const evidence: EvidenceAnchorV2[] = [];
   const flags: string[] = [];
 
+  // Optional unavailable fields carry no publishable proposition. Ignore stray
+  // model evidence instead of manufacturing false attribution conflicts.
+  if (requestedStatus === "unavailable" || (requestedStatus === "indeterminate" && !meaningful(value))) {
+    return {
+      field: {
+        status: requestedStatus,
+        value: fallback,
+        confidence: clamp01(row.confidence),
+        evidence: [],
+        conflicts: rawConflicts,
+      },
+      reviewFlags: [],
+    };
+  }
+
   for (const [index, item] of asArray(row.evidence).entries()) {
     const validated = validateRawAnchor(item, fieldPath, index, context);
     flags.push(...validated.flags);
     if (validated.anchor) evidence.push(validated.anchor);
-  }
-
-  if (requestedStatus === "unavailable") {
-    return {
-      field: {
-        status: "unavailable",
-        value: fallback,
-        confidence: clamp01(row.confidence),
-        evidence,
-        conflicts: rawConflicts,
-      },
-      reviewFlags: flags,
-    };
   }
 
   if (requestedStatus === "conflicted") {

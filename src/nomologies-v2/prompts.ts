@@ -57,7 +57,11 @@ BOUNDARY RULES
   whose marker is expressly tied to an article, rule or regulation. Use
   speakerRole=legislature and quotedSourceType=legislation.
 - quoted_authority: a substantial quotation or proposition expressly attributed
-  to another judgment. Use speakerRole=quoted_court and quotedSourceType=case.
+  to another judgment and merely reproduced or discussed.
+- adopted_authority: quoted reasoning from another judgment that the present court
+  expressly adopts, repeats, endorses, reproduces as its own governing framework,
+  or introduces with language such as «αναπαράγουμε τα εκεί λεγόμενά μας».
+  Keep isQuotedMaterial=true, speakerRole=quoted_court and quotedSourceType=case.
 - A rule stated in the present court's own voice does NOT become quoted_authority
   merely because it ends with a parenthetical citation, «βλ.» or a list of cases;
   classify it as legal_framework, court_analysis, legal_findings or ratio_decidendi
@@ -106,6 +110,11 @@ Required distinctions:
   law; do not collapse procedure into subject matter.
 - Return multiple legalAreas where the judgment materially crosses fields, and
   select the principal one separately.
+- Classify the immediate proceeding decided by this judgment, not merely the
+  underlying dispute. An application for expedition within a civil appeal is
+  proceedingType=expedition_application, primaryLegalArea=civil_procedure and
+  proceduralPosture=interim_stage; contract or construction remain additional
+  legal areas. Apply the equivalent criminal/public procedural area where needed.
 `;
 
 export const FACTS_PROCEDURE_SYSTEM_PROMPT = `${COMMON_EVIDENCE_RULES}
@@ -128,8 +137,11 @@ SOURCE DISCIPLINE
   Different beneficiaries or objects are not a contradiction when one limb cancels
   or transfers a share and another registers a separately described part. Mark
   conflicted only where the same legal object is ordered incompatibly.
-- groundsOrIssues must preserve every numbered ground and its result whenever the
-  present court expressly determines it.
+- groundsOrIssues may describe grounds, reasons advanced, or issues considered.
+  Populate number only when that exact number is printed in the judgment. Never
+  manufacture Ground 1 / Ground 2 / Ground 3 to organise unnumbered reasoning.
+- For applications, reliefSought.status must reflect the final determination when
+  the request is unambiguously granted, refused or partly granted.
 - submissionsByParty must remain attributed to the correct party and must never
   be transformed into the court's holding.
 `;
@@ -147,9 +159,13 @@ NON-NEGOTIABLE ATTRIBUTION
 - Do not use appellant/respondent/applicant/prosecution/defence submissions as a
   judicial holding unless the court expressly adopts the proposition; cite the
   adoption passage, not merely the submission.
-- Do not use quoted_authority as this judgment's ratio. You may describe a rule
-  only if the present court applies, adopts, distinguishes or otherwise makes it
-  part of its own reasoning, with evidence from the court_analysis section.
+- Do not use quoted_authority as this judgment's ratio. adopted_authority may
+  explain provenance, but the ratio or legal-principle summary must also be
+  supported by the present court's own restatement, application or conclusion.
+- A court_analysis passage may support holding only when it contains an explicit
+  determination; a descriptive observation is not a holding.
+- Do not add formulations such as «κατ' εξαίρεση» or “exceptional remedy” unless
+  the present judgment expressly uses or necessarily adopts that proposition.
 - holding resolves the concrete issues and grounds determined by the present court.
   When explicit issue-level conclusions exist (for example «ο λόγος έφεσης 1
   απορρίπτεται»), synthesize all of them; do not use the overall disposition as
@@ -179,6 +195,14 @@ OWNERSHIP AND ROLE RULES
 - For cited cases, treatment describes what the present court did: followed,
   applied, adopted, approved, distinguished, doubted, disapproved, overruled,
   not_followed, considered, cited or mentioned.
+- citationContext is direct when the present court itself cites the authority;
+  adopted_quotation when the present court expressly adopts or reproduces that
+  authority's reasoning; nested_quotation when the case appears only inside a
+  reproduced quotation from another case. Do not flatten nested citations.
+- primary means the immediate legal basis governing the proceeding decided in
+  this judgment. A law governing the underlying injunction, contract or offence
+  is contextual/background when the immediate decision concerns a procedural
+  application under a different rule.
 - legalPoint states the proposition for which the present court used the case.
 - A case name/citation must occur in the evidence supporting that authority.
 `;
@@ -193,10 +217,10 @@ FINAL-ORDER RULES
   present court's unmistakable final-order language.
 - Do not use a party's request, an earlier court's order, a quoted authority, a
   preliminary conclusion, or success/failure of one ground as the whole outcome.
-- components must exhaustively record every explicit result by party, respondent,
-  claim, numbered ground, conviction, sentence or cross-appeal. Scan all holding
-  spans, not only the first. If grounds 1, 2 and 3 are each resolved, return three
-  components with separate exact evidence.
+- components record separately operative results by party, respondent, claim,
+  expressly numbered ground, conviction, sentence or cross-appeal. Do not create
+  components for every analytical reason supporting one global application order,
+  and never invent numbered components when the judgment did not number them.
 - Preserve remittal instructions, writs, decrees, retrial orders, release,
   surrender/extradition orders, sentence details, damages, interest, VAT and
   costs separately.
@@ -225,7 +249,15 @@ Mandatory checks:
   unless they impose incompatible orders on the same legal object;
 - whether facts.summary or proceduralHistory improperly contains this court's
   final outcome;
-- whether every expressly resolved numbered ground appears in outcome.components.
+- whether every expressly resolved numbered ground appears in outcome.components;
+- whether a quoted rule was expressly adopted or is merely nested inside another
+  authority; record the distinction instead of treating all citations as direct;
+- internal source contradictions, including two dates for the same lower-court
+  decision;
+- do not raise conflicts for genuinely unavailable optional fields and do not
+  demand component outcomes for unnumbered reasons supporting one global order.
 
+Recommend reject only when core identity, disposition or legal analysis is unsafe.
+Use review for correctable taxonomy, citation-context or source-consistency issues.
 Recommend approve only when critical identity, final disposition and core legal
 analysis are evidence-grounded and no critical conflict remains.`;

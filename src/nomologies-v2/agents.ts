@@ -10,6 +10,7 @@ import {
   OUTCOME_SYSTEM_PROMPT,
 } from "./prompts.ts";
 import { NOMOLOGIES_SCHEMAS } from "./schemas.ts";
+import { reconcileNomologiesQuality } from "./quality.ts";
 import {
   buildEvidenceContext,
   validateExtractedField,
@@ -70,7 +71,7 @@ const ANALYSIS_TYPES = new Set<SectionType>([
   "ratio_decidendi", "obiter_dictum", "dissent", "concurrence", "disposition",
 ]);
 const AUTHORITY_TYPES = new Set<SectionType>([
-  "legal_framework", "quoted_legislation", "quoted_authority", "court_analysis",
+  "legal_framework", "quoted_legislation", "quoted_authority", "adopted_authority", "court_analysis",
   "legal_findings", "holding", "ratio_decidendi", "obiter_dictum", "dissent",
   "concurrence", "disposition", "remedy", "sentence",
 ]);
@@ -558,6 +559,16 @@ export async function runSpecialistAgents(
     facts: factsProcedure.facts,
     procedure: factsProcedure.procedure,
     analysis,
+    outcome,
+    flags,
+  });
+  reconcileNomologiesQuality({
+    source,
+    context,
+    classification: identity.classification,
+    procedure: factsProcedure.procedure,
+    analysis,
+    authorities,
     outcome,
     flags,
   });

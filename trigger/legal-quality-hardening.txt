@@ -1,1 +1,0 @@
-Apply and validate the reviewed Nomologies V2 legal-quality hardening patch.
