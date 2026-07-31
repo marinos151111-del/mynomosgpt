@@ -1,0 +1,126 @@
+name: Temporary Live Nomologies Pipeline Lab
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/temporary-live-pipeline-lab.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      LAB_ACCESS_KEY: My-Drop-Site
+      NOMOLOGIES_V2_MODEL: gpt-5.4-mini
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Verify repository-local OpenAI secret
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${OPENAI_API_KEY:-}" || { echo "OPENAI_API_KEY is missing"; exit 1; }
+
+      - name: Install Cloudflare quick-tunnel client
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 \
+            --output /tmp/cloudflared
+          chmod +x /tmp/cloudflared
+          /tmp/cloudflared --version
+
+      - name: Start the real Pipeline Lab and publish a temporary URL
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          deno task start > /tmp/nomologies-server.log 2>&1 &
+          server_pid=$!
+          echo "$server_pid" > /tmp/nomologies-server.pid
+
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:8000/api/health > /tmp/health.json; then
+              break
+            fi
+            sleep 1
+          done
+
+          grep -q '"openaiConfigured":true' /tmp/health.json
+          grep -q '"accessKeyConfigured":true' /tmp/health.json
+
+          /tmp/cloudflared tunnel --url http://127.0.0.1:8000 --no-autoupdate \
+            > /tmp/cloudflared.log 2>&1 &
+          tunnel_pid=$!
+          echo "$tunnel_pid" > /tmp/cloudflared.pid
+
+          live_url=""
+          for attempt in {1..90}; do
+            live_url=$(grep -Eo 'https://[-a-z0-9]+\.trycloudflare\.com' /tmp/cloudflared.log | head -n 1 || true)
+            if [ -n "$live_url" ]; then
+              break
+            fi
+            sleep 1
+          done
+
+          if [ -z "$live_url" ]; then
+            cat /tmp/cloudflared.log
+            exit 1
+          fi
+
+          for attempt in {1..60}; do
+            if curl --fail --silent "$live_url/api/health" > /tmp/public-health.json; then
+              break
+            fi
+            sleep 1
+          done
+          grep -q 'nomologies-v2-pipeline-lab' /tmp/public-health.json
+
+          cat > /tmp/live-lab.txt <<EOF
+          LIVE_URL=$live_url
+          ACCESS_PASSWORD=My-Drop-Site
+          EXPIRES_WHEN_GITHUB_JOB_STOPS=true
+          EOF
+
+          {
+            echo "## Nomologies V2 Pipeline Lab is live"
+            echo
+            echo "**URL:** $live_url"
+            echo
+            echo "**Access password:** My-Drop-Site"
+            echo
+            echo "The OpenAI key remains server-side. This temporary tunnel stays active while this workflow job is running."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "NOMOLOGIES_LAB_URL=$live_url"
+          echo "NOMOLOGIES_LAB_PASSWORD=My-Drop-Site"
+
+      - name: Publish connection details
+        uses: actions/upload-artifact@v4
+        with:
+          name: temporary-nomologies-live-link
+          path: /tmp/live-lab.txt
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Keep the Pipeline Lab online
+        shell: bash
+        run: |
+          set -euo pipefail
+          server_pid=$(cat /tmp/nomologies-server.pid)
+          tunnel_pid=$(cat /tmp/cloudflared.pid)
+          while true; do
+            kill -0 "$server_pid" || { cat /tmp/nomologies-server.log; exit 1; }
+            kill -0 "$tunnel_pid" || { cat /tmp/cloudflared.log; exit 1; }
+            sleep 20
+          done
