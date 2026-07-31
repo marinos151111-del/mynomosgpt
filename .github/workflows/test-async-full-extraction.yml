@@ -7,6 +7,12 @@ on:
     paths:
       - .github/async-full-test-request.txt
       - .github/workflows/test-async-full-extraction.yml
+  pull_request:
+    paths:
+      - server.ts
+      - web/**
+      - src/nomologies-v2/**
+      - .github/workflows/test-async-full-extraction.yml
 
 permissions:
   contents: read
