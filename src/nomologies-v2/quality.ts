@@ -1,4 +1,5 @@
 // Deterministic post-extraction reconciliation for evidence-grounded legal quality.
+// Final E5/2025 regression marker: classification, provenance, scoring and source conflicts.
 import type { EvidenceValidationContext } from "./evidence.ts";
 import { reconcileAuthorityQuality } from "./quality-authorities.ts";
 import { reconcileCoreQuality } from "./quality-core.ts";
