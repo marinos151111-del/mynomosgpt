@@ -17,13 +17,4 @@ patch(
     r'''const ADOPTED_AUTHORITY_RE = /(?:αναπαράγ(?:ουμε|εται|ονται)(?:\s+πιο\s+κάτω)?\s+(?:τα\s+εκεί\s+λεγόμενα|τις\s+αρχές)|υιοθετ(?:ούμε|είται|ούνται)|επαναλαμβάν(?:ουμε|εται|ονται)(?:\s+ως\s+δικές?\s+μας)?|κάν(?:ουμε|ει)\s+(?:τις\s+αρχές|τα\s+λεγόμενα)\s+δικές?\s+μας|expressly\s+adopt(?:s|ed|ing)?|make(?:s)?\s+(?:the\s+)?(?:principles|reasoning)\s+(?:its|our)\s+own)/iu;''',
 )
 
-patch(
-    ".github/workflows/regression-e5-legal-quality.yml",
-    '''          assert any(item['code'] == 'SOURCE_DATE_CONFLICT' for item in conflicts)
-          assert record['readinessScore'] >= 70, record['readinessScore']''',
-    '''          assert sum(item['code'] == 'SOURCE_DATE_CONFLICT' for item in conflicts) == 1
-          assert not any(item['code'] in {'QUOTE_ATTRIBUTION_MISCLASSIFIED', 'QUOTE_ATTRIBUTION_MISLABEL', 'BOUNDARY_SPLIT_QUOTATION'} for item in conflicts)
-          assert record['readinessScore'] >= 80, record['readinessScore']''',
-)
-
 print("Narrowed adopted-authority detection to explicit adoption language only.")
