@@ -1,0 +1,36 @@
+name: Check Supabase global backend
+
+on:
+  push:
+    branches:
+      - agent/supabase-global-backend
+    paths:
+      - src/nomologies-v2/**
+      - src/nomologies-search/**
+      - supabase/functions/nomologies-api/**
+      - supabase/functions/nomologies-worker/**
+      - .github/workflows/check-supabase-global-backend.yml
+  pull_request:
+    paths:
+      - src/nomologies-v2/**
+      - src/nomologies-search/**
+      - supabase/functions/nomologies-api/**
+      - supabase/functions/nomologies-worker/**
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Type-check staged finalizer and Edge Functions
+        run: |
+          deno check src/nomologies-v2/staged-finalize.ts
+          deno check supabase/functions/nomologies-api/index.ts
+          deno check supabase/functions/nomologies-worker/index.ts
