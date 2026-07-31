@@ -1,0 +1,52 @@
+name: Check Nomologies Pipeline Lab
+
+on:
+  push:
+    branches:
+      - agent/pipeline-lab-web
+    paths:
+      - server.ts
+      - web/**
+      - src/nomologies-v2/**
+      - deno.json
+      - .github/workflows/check-pipeline-lab.yml
+  pull_request:
+    paths:
+      - server.ts
+      - web/**
+      - src/nomologies-v2/**
+      - deno.json
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Type-check server and pipeline
+        run: |
+          deno task check
+          deno check web/app.js
+      - name: Start Pipeline Lab and test public routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          deno task start > /tmp/nomologies-lab.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true; cat /tmp/nomologies-lab.log' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:8000/api/health > /tmp/health.json; then
+              break
+            fi
+            sleep 0.5
+          done
+          grep -q 'nomologies-v2-pipeline-lab' /tmp/health.json
+          curl --fail --silent http://127.0.0.1:8000/ | grep -q 'Intake. Parse. Verify.'
+          curl --fail --silent http://127.0.0.1:8000/app.js | grep -q 'renderFullResult'
+          curl --fail --silent http://127.0.0.1:8000/styles.css | grep -q -- '--brass'
