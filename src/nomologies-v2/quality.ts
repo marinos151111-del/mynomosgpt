@@ -1,3 +1,4 @@
+// Deterministic post-extraction reconciliation for evidence-grounded legal quality.
 import type { EvidenceValidationContext } from "./evidence.ts";
 import { reconcileAuthorityQuality } from "./quality-authorities.ts";
 import { reconcileCoreQuality } from "./quality-core.ts";
