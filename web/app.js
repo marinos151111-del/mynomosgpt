@@ -41,6 +41,9 @@ const state = {
   envelope: null,
   startedAt: 0,
   timer: null,
+  activeJobId: null,
+  activeMode: null,
+  pollToken: 0,
 };
 
 function h(value) {
@@ -428,12 +431,142 @@ function renderFullResult(envelope, result) {
   ].join("");
 }
 
-function renderResult(envelope) {
+function renderResult(envelope, expectedMode = state.activeMode) {
+  const result = envelope?.result || {};
+  if (!result.mode || (expectedMode && result.mode !== expectedMode)) {
+    const error = new Error(`The backend returned ${result.mode || "unknown"} output for the active ${expectedMode || "unknown"} run.`);
+    error.code = "STALE_OR_MISMATCHED_RESULT";
+    throw error;
+  }
   state.envelope = envelope;
-  const result = envelope.result || {};
   if (result.mode === "sections") renderSectionsResult(envelope, result);
   else renderFullResult(envelope, result);
   showState("results");
+}
+
+function sleep(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+async function responseJson(response) {
+  try {
+    return await response.json();
+  } catch {
+    const error = new Error(`The backend returned HTTP ${response.status} without a valid JSON response.`);
+    error.code = "INVALID_BACKEND_RESPONSE";
+    throw error;
+  }
+}
+
+function jobStageIndex(progress) {
+  const value = Number(progress || 0);
+  if (value < 15) return 0;
+  if (value < 38) return 1;
+  if (value < 66) return 2;
+  if (value < 84) return 3;
+  return 4;
+}
+
+function applyJobProgress(job) {
+  const progress = Math.max(2, Math.min(99, Number(job.progress || 2)));
+  const elapsed = Number(job.elapsedMs || (Date.now() - state.startedAt));
+  elements.elapsedTime.textContent = formatTime(elapsed);
+  setProcessingStage(jobStageIndex(progress), progress, job.stage || "Extraction is running");
+  setServiceStatus("ready", job.status === "running" ? "1 active job" : "Backend ready");
+}
+
+async function pollJob({ jobId, pollUrl, accessKey, mode, token }) {
+  const started = Date.now();
+  let consecutiveNetworkFailures = 0;
+  const clientDeadlineMs = 13 * 60 * 1000;
+
+  while (token === state.pollToken && state.activeJobId === jobId) {
+    if (Date.now() - started > clientDeadlineMs) {
+      const error = new Error("The backend did not finalise the extraction within 13 minutes. The active job was stopped instead of leaving the page waiting indefinitely.");
+      error.code = "JOB_CLIENT_DEADLINE";
+      throw error;
+    }
+
+    let response;
+    try {
+      response = await fetch(pollUrl || `./api/jobs/${encodeURIComponent(jobId)}`, {
+        method: "GET",
+        headers: { "x-lab-key": accessKey },
+        cache: "no-store",
+      });
+      consecutiveNetworkFailures = 0;
+    } catch (error) {
+      consecutiveNetworkFailures += 1;
+      if (consecutiveNetworkFailures >= 8) {
+        const failure = new Error("The page lost contact with the extraction backend. No stale result was displayed.");
+        failure.code = "JOB_POLL_NETWORK_FAILURE";
+        throw failure;
+      }
+      await sleep(Math.min(5000, 800 * consecutiveNetworkFailures));
+      continue;
+    }
+
+    const job = await responseJson(response);
+    if (!response.ok || !job.ok) {
+      const error = new Error(job.message || `Job polling returned HTTP ${response.status}.`);
+      error.code = job.code || "JOB_POLL_FAILED";
+      throw error;
+    }
+    if (job.jobId !== jobId || job.mode !== mode) {
+      const error = new Error("The backend returned status for a different run. The result was rejected rather than mixing runs.");
+      error.code = "JOB_ID_OR_MODE_MISMATCH";
+      throw error;
+    }
+    if (token !== state.pollToken || state.activeJobId !== jobId) return;
+
+    applyJobProgress(job);
+
+    if (job.status === "completed") {
+      if (!job.result || job.result.mode !== mode) {
+        const error = new Error("The completed job returned a stale or mismatched extraction result.");
+        error.code = "COMPLETED_JOB_RESULT_MISMATCH";
+        throw error;
+      }
+      const envelope = {
+        ok: true,
+        jobId,
+        mode,
+        elapsedMs: Number(job.elapsedMs || 0),
+        generatedAt: job.generatedAt || job.completedAt || new Date().toISOString(),
+        result: job.result,
+      };
+      stopProgress(true);
+      renderResult(envelope, mode);
+      state.activeJobId = null;
+      state.activeMode = null;
+      return;
+    }
+
+    if (job.status === "failed" || job.status === "cancelled") {
+      const error = new Error(job.error?.message || `The extraction job ended with status ${job.status}.`);
+      error.code = job.error?.code || job.status.toUpperCase();
+      state.activeJobId = null;
+      state.activeMode = null;
+      throw error;
+    }
+
+    await sleep(1800);
+  }
+}
+
+async function cancelActiveJob() {
+  const jobId = state.activeJobId;
+  const accessKey = elements.accessKey.value;
+  if (!jobId || !accessKey) return;
+  try {
+    await fetch(`./api/jobs/${encodeURIComponent(jobId)}`, {
+      method: "DELETE",
+      headers: { "x-lab-key": accessKey },
+      cache: "no-store",
+    });
+  } catch {
+    // Resetting the page must not block on cancellation transport.
+  }
 }
 
 async function submit(event) {
@@ -452,12 +585,19 @@ async function submit(event) {
     return;
   }
 
+  state.pollToken += 1;
+  const token = state.pollToken;
+  state.activeJobId = null;
+  state.activeMode = payload.mode;
+  state.envelope = null;
+  elements.resultContent.innerHTML = "";
+  elements.metricStrip.innerHTML = "";
   elements.parseButton.disabled = true;
   showState("processing");
   startProgress(payload.mode);
 
   try {
-    const response = await fetch("./api/parse", {
+    const response = await fetch("./api/jobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -465,28 +605,46 @@ async function submit(event) {
       },
       body: JSON.stringify(payload),
     });
-    let envelope;
-    try {
-      envelope = await response.json();
-    } catch {
-      throw new Error(`The backend returned HTTP ${response.status} without a valid response.`);
-    }
-    if (!response.ok || !envelope.ok) {
-      const error = new Error(envelope.message || `The backend returned HTTP ${response.status}.`);
-      error.code = envelope.code || "PARSE_FAILED";
+    const created = await responseJson(response);
+    if (!response.ok || !created.ok) {
+      const error = new Error(created.message || `The backend returned HTTP ${response.status}.`);
+      error.code = created.code || "JOB_CREATION_FAILED";
       throw error;
     }
-    stopProgress(true);
-    renderResult(envelope);
+    if (!created.jobId || created.mode !== payload.mode) {
+      const error = new Error("The backend did not create a valid job for the selected extraction mode.");
+      error.code = "INVALID_JOB_RECEIPT";
+      throw error;
+    }
+
+    state.activeJobId = created.jobId;
+    state.activeMode = payload.mode;
+    await pollJob({
+      jobId: created.jobId,
+      pollUrl: created.pollUrl || `./api/jobs/${encodeURIComponent(created.jobId)}`,
+      accessKey,
+      mode: payload.mode,
+      token,
+    });
   } catch (error) {
-    showError(error.code || "Parse failed", error.message || String(error));
+    if (token === state.pollToken) {
+      state.activeJobId = null;
+      state.activeMode = null;
+      showError(error.code || "Parse failed", error.message || String(error));
+    }
   } finally {
-    elements.parseButton.disabled = false;
-    checkHealth();
+    if (token === state.pollToken) {
+      elements.parseButton.disabled = false;
+      checkHealth();
+    }
   }
 }
 
 function resetLab() {
+  void cancelActiveJob();
+  state.pollToken += 1;
+  state.activeJobId = null;
+  state.activeMode = null;
   stopProgress(false);
   state.envelope = null;
   elements.resultContent.innerHTML = "";

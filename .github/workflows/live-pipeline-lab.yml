@@ -1,0 +1,129 @@
+name: Live Nomologies Pipeline Lab
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/live-lab-request.txt
+  pull_request:
+    paths:
+      - .github/live-lab-request.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      NOMOLOGIES_V2_MODEL: gpt-5.4-mini
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Validate application
+        run: |
+          deno task check
+          deno check web/app.js
+
+      - name: Install Cloudflare tunnel client
+        run: |
+          curl --fail --location --silent --show-error \
+            https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 \
+            --output /tmp/cloudflared
+          chmod +x /tmp/cloudflared
+
+      - name: Start isolated Pipeline Lab and private tunnel
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo "OPENAI_API_KEY repository secret is missing" >&2
+            exit 1
+          fi
+
+          access_key=$(openssl rand -hex 16)
+          echo "LAB_ACCESS_KEY=${access_key}" >> "$GITHUB_ENV"
+          export LAB_ACCESS_KEY="$access_key"
+
+          deno task start > /tmp/nomologies-live-server.log 2>&1 &
+          server_pid=$!
+          echo "$server_pid" > /tmp/server.pid
+
+          for attempt in {1..40}; do
+            if curl --fail --silent http://127.0.0.1:8000/api/health > /tmp/local-health.json; then
+              break
+            fi
+            sleep 0.5
+          done
+          grep -q '2.1.0-async-jobs' /tmp/local-health.json
+
+          /tmp/cloudflared tunnel --url http://127.0.0.1:8000 --no-autoupdate > /tmp/cloudflared.log 2>&1 &
+          tunnel_pid=$!
+          echo "$tunnel_pid" > /tmp/tunnel.pid
+
+          live_url=""
+          for attempt in {1..90}; do
+            live_url=$(grep -Eo 'https://[-a-z0-9]+\.trycloudflare\.com' /tmp/cloudflared.log | head -n 1 || true)
+            if [ -n "$live_url" ]; then
+              break
+            fi
+            sleep 1
+          done
+          if [ -z "$live_url" ]; then
+            echo "Cloudflare tunnel URL was not created" >&2
+            exit 1
+          fi
+
+          for attempt in {1..60}; do
+            if curl --fail --silent "$live_url/api/health" > /tmp/public-health.json; then
+              break
+            fi
+            sleep 1
+          done
+          grep -q '2.1.0-async-jobs' /tmp/public-health.json
+
+          expires_at=$(date -u -d '+5 hours 40 minutes' +'%Y-%m-%dT%H:%M:%SZ')
+          echo "LIVE_URL=${live_url}" >> "$GITHUB_ENV"
+          echo "EXPIRES_AT=${expires_at}" >> "$GITHUB_ENV"
+
+      - name: Create private tunnel access receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - "$LIVE_URL" "$LAB_ACCESS_KEY" "$EXPIRES_AT" <<'PY'
+          import json, sys
+          payload = {
+              "url": sys.argv[1],
+              "password": sys.argv[2],
+              "expiresAt": sys.argv[3],
+              "version": "2.1.0-async-jobs",
+              "testCase": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
+          }
+          open('/tmp/nomologies-live-access.json','w',encoding='utf-8').write(json.dumps(payload, indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nomologies-live-access
+          path: /tmp/nomologies-live-access.json
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Keep the verified test site online
+        shell: bash
+        run: |
+          set -euo pipefail
+          for minute in {1..340}; do
+            kill -0 "$(cat /tmp/server.pid)"
+            kill -0 "$(cat /tmp/tunnel.pid)"
+            curl --fail --silent http://127.0.0.1:8000/api/health > /dev/null
+            sleep 60
+          done

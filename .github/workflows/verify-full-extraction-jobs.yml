@@ -1,0 +1,159 @@
+name: Verify asynchronous full extraction jobs
+
+on:
+  push:
+    branches:
+      - agent/fix-full-extraction-jobs
+    paths:
+      - .github/workflows/verify-full-extraction-jobs.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      NOMOLOGIES_V2_MODEL: gpt-5.4-mini
+      LAB_ACCESS_KEY: integration-test-only
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/fix-full-extraction-jobs
+          fetch-depth: 0
+
+      - name: Apply server and browser asynchronous-job patches
+        run: |
+          python scripts/fix-server-cancellation-narrowing.py
+          python scripts/apply-web-job-polling.py
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check server, browser contract and pipeline
+        run: |
+          deno task check
+          deno check web/app.js
+          grep -q 'fetch("./api/jobs"' web/app.js
+          grep -q 'JOB_ID_OR_MODE_MISMATCH' web/app.js
+          grep -q '2.1.0-async-jobs' server.ts
+
+      - name: Run real Full Extraction job through the web API
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo "OPENAI_API_KEY repository secret is missing" >&2
+            exit 1
+          fi
+
+          deno task start > /tmp/nomologies-async-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true; echo "--- server log ---"; cat /tmp/nomologies-async-server.log' EXIT
+
+          for attempt in {1..40}; do
+            if curl --fail --silent http://127.0.0.1:8000/api/health > /tmp/health.json; then
+              break
+            fi
+            sleep 0.5
+          done
+          grep -q '2.1.0-async-jobs' /tmp/health.json
+
+          cat > /tmp/request.json <<'JSON'
+          {
+            "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
+            "mode": "full"
+          }
+          JSON
+
+          status=$(curl --silent --output /tmp/job-created.json --write-out '%{http_code}' \
+            -X POST http://127.0.0.1:8000/api/jobs \
+            -H 'content-type: application/json' \
+            -H 'x-lab-key: integration-test-only' \
+            --data-binary @/tmp/request.json)
+          test "$status" = "202"
+
+          python - <<'PY'
+          import json
+          receipt=json.load(open('/tmp/job-created.json'))
+          assert receipt['ok'] is True, receipt
+          assert receipt['mode'] == 'full', receipt
+          assert receipt['status'] == 'queued', receipt
+          assert receipt['jobId'], receipt
+          open('/tmp/job-id.txt','w').write(receipt['jobId'])
+          PY
+
+          job_id=$(cat /tmp/job-id.txt)
+          completed=0
+          for attempt in {1..420}; do
+            curl --fail --silent \
+              -H 'x-lab-key: integration-test-only' \
+              "http://127.0.0.1:8000/api/jobs/${job_id}" > /tmp/job-status.json
+
+            state=$(python - <<'PY'
+          import json
+          p=json.load(open('/tmp/job-status.json'))
+          print(p.get('status',''))
+          PY
+            )
+            stage=$(python - <<'PY'
+          import json
+          p=json.load(open('/tmp/job-status.json'))
+          print(p.get('stage',''))
+          PY
+            )
+            progress=$(python - <<'PY'
+          import json
+          p=json.load(open('/tmp/job-status.json'))
+          print(p.get('progress',0))
+          PY
+            )
+            echo "poll ${attempt}: ${state} ${progress}% ${stage}"
+
+            if [ "$state" = "completed" ]; then
+              completed=1
+              break
+            fi
+            if [ "$state" = "failed" ] || [ "$state" = "cancelled" ]; then
+              cat /tmp/job-status.json
+              exit 1
+            fi
+            sleep 2
+          done
+          test "$completed" = "1"
+
+          python - <<'PY'
+          import json
+          p=json.load(open('/tmp/job-status.json'))
+          assert p['ok'] is True, p
+          assert p['jobId'] == open('/tmp/job-id.txt').read(), p
+          assert p['mode'] == 'full', p
+          assert p['status'] == 'completed', p
+          assert p['progress'] == 100, p
+          result=p.get('result') or {}
+          assert result.get('mode') == 'full', result
+          record=result.get('record') or {}
+          assert record.get('identity',{}).get('caseNumber',{}).get('value') == '30/2016', record.get('identity')
+          assert record.get('outcome',{}).get('overallOutcome',{}).get('value') == 'appeal_dismissed', record.get('outcome')
+          assert record.get('analysis',{}).get('legalPrincipleSummary',{}).get('status') == 'available', record.get('analysis')
+          print(json.dumps({
+              'jobId': p['jobId'],
+              'elapsedMs': p.get('elapsedMs'),
+              'caseNumber': record['identity']['caseNumber']['value'],
+              'outcome': record['outcome']['overallOutcome']['value'],
+              'mode': result['mode'],
+          }, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Commit validated asynchronous job changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add server.ts web/app.js web/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix full extraction job polling"
+          git pull --rebase origin agent/fix-full-extraction-jobs
+          git push origin HEAD:agent/fix-full-extraction-jobs
