@@ -1,0 +1,51 @@
+name: Fix Supabase worker collection typing
+
+on:
+  push:
+    branches:
+      - agent/supabase-global-backend
+    paths:
+      - .github/workflows/fix-supabase-worker-types.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/supabase-global-backend
+          fetch-depth: 0
+      - name: Apply typed collection patch
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('supabase/functions/nomologies-worker/index.ts')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              'const legislation=value(record.authorities.legislation,[]);',
+              'const legislation:any[]=value<any[]>(record.authorities.legislation,[]);'
+          )
+          text = text.replace(
+              'const authorities=value(record.authorities.authorities,[]);',
+              'const authorities:any[]=value<any[]>(record.authorities.authorities,[]);'
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Validate worker and API
+        run: |
+          deno check src/nomologies-v2/staged-finalize.ts
+          deno check supabase/functions/nomologies-api/index.ts
+          deno check supabase/functions/nomologies-worker/index.ts
+      - name: Commit validated fix
+        run: |
+          git config user.name "chatgpt-agent"
+          git config user.email "actions@github.com"
+          git add supabase/functions/nomologies-worker/index.ts
+          git commit -m "Fix staged worker collection typing"
+          git push origin HEAD:agent/supabase-global-backend
