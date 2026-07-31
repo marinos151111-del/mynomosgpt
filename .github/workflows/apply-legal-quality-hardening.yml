@@ -6,6 +6,11 @@ on:
       - agent/legal-quality-hardening
     paths:
       - trigger/legal-quality-hardening.txt
+  pull_request:
+    branches:
+      - main
+    paths:
+      - trigger/legal-quality-hardening.txt
 
 permissions:
   contents: write
