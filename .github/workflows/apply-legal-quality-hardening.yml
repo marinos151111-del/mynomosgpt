@@ -1,0 +1,53 @@
+name: Apply Nomologies legal quality hardening
+
+on:
+  push:
+    branches:
+      - agent/legal-quality-hardening
+    paths:
+      - trigger/legal-quality-hardening.txt
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/legal-quality-hardening
+          fetch-depth: 0
+
+      - name: Apply reviewed legal-quality patches
+        run: |
+          python scripts/patch-legal-quality-contract.py
+          python scripts/patch-legal-quality-runtime.py
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check pipeline and web server
+        run: deno task check
+
+      - name: Verify critical hardening markers
+        run: |
+          grep -q 'expedition_application' src/nomologies-v2/types.ts
+          grep -q 'adopted_authority' src/nomologies-v2/types.ts
+          grep -q 'citationContext' src/nomologies-v2/schemas.ts
+          grep -q 'SOURCE_DATE_CONFLICT' src/nomologies-v2/quality.ts
+          grep -q '\[hidden\].*display: none' web/styles.css
+
+      - name: Commit validated source changes
+        run: |
+          rm -f scripts/patch-legal-quality-contract.py
+          rm -f scripts/patch-legal-quality-runtime.py
+          rm -f .github/workflows/apply-legal-quality-hardening.yml
+          rm -f trigger/legal-quality-hardening.txt
+          git config user.name 'Nomologies V2 Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          git commit -m 'Harden Nomologies legal extraction quality'
+          git push origin HEAD:agent/legal-quality-hardening
