@@ -430,8 +430,15 @@ export async function runNomologiesPipelineV2(
   ]);
   const conflictMap = new Map<string, PipelineConflictV2>();
   for (const conflict of [...deterministic, ...reviewerConflicts(review.payload, validEvidenceRefs, specialists)]) {
-    const key = `${conflict.code}|${conflict.fieldPath}|${conflict.message}`;
-    if (!conflictMap.has(key)) conflictMap.set(key, conflict);
+    const key = conflict.code === "SOURCE_DATE_CONFLICT"
+      ? `${conflict.code}|${conflict.fieldPath}`
+      : `${conflict.code}|${conflict.fieldPath}|${conflict.message}`;
+    const existing = conflictMap.get(key);
+    if (!existing) {
+      conflictMap.set(key, conflict);
+      continue;
+    }
+    existing.evidenceIds = [...new Set([...existing.evidenceIds, ...conflict.evidenceIds])];
   }
   const conflicts = [...conflictMap.values()];
   const rawRecommendation = str(review.payload.publishRecommendation) || "review";

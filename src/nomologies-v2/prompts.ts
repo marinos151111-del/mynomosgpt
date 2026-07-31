@@ -58,10 +58,11 @@ BOUNDARY RULES
   speakerRole=legislature and quotedSourceType=legislation.
 - quoted_authority: a substantial quotation or proposition expressly attributed
   to another judgment and merely reproduced or discussed.
-- adopted_authority: quoted reasoning from another judgment that the present court
-  expressly adopts, repeats, endorses, reproduces as its own governing framework,
-  or introduces with language such as «αναπαράγουμε τα εκεί λεγόμενά μας».
-  Keep isQuotedMaterial=true, speakerRole=quoted_court and quotedSourceType=case.
+- adopted_authority: the present court's short adoption bridge, or a narrowly
+  bounded quotation it expressly adopts. Mark only the sentence(s) carrying the
+  adoption. The nested quotation that follows remains quoted_authority. An adoption
+  bridge uses speakerRole=authoring_judge and isQuotedMaterial=false; verbatim
+  adopted text uses speakerRole=quoted_court and isQuotedMaterial=true.
 - A rule stated in the present court's own voice does NOT become quoted_authority
   merely because it ends with a parenthetical citation, «βλ.» or a list of cases;
   classify it as legal_framework, court_analysis, legal_findings or ratio_decidendi
