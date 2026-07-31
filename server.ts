@@ -322,7 +322,7 @@ async function executeJob(jobId: string): Promise<void> {
 
   try {
     const fetched = input.sourceUrl ? await fetchCyLawJudgment(input.sourceUrl, controller.signal) : null;
-    if (job.status === "cancelled") return;
+    if (jobs.get(jobId)?.status === "cancelled") return;
 
     job.sourceLabel = fetched?.sourceTitle || input.sourceTitle;
     job.stage = "Recognising legal sections and speakers";
@@ -342,7 +342,7 @@ async function executeJob(jobId: string): Promise<void> {
       model: env("NOMOLOGIES_V2_MODEL") || undefined,
     });
 
-    if (job.status === "cancelled") return;
+    if (jobs.get(jobId)?.status === "cancelled") return;
     if (result.mode !== job.mode) {
       throw new HttpError(
         500,
@@ -360,7 +360,9 @@ async function executeJob(jobId: string): Promise<void> {
     job.elapsedMs = Date.now() - startedAtMs;
     job.heartbeatAt = job.completedAt;
   } catch (error) {
-    if (job.status === "cancelled") {
+    const cancelled = jobs.get(jobId)?.status === "cancelled";
+    if (cancelled) {
+      job.status = "cancelled";
       job.error = {
         status: 408,
         code: "JOB_CANCELLED",
@@ -379,7 +381,7 @@ async function executeJob(jobId: string): Promise<void> {
       job.status = "failed";
       job.error = publicError(error);
     }
-    job.stage = job.status === "cancelled" ? "Extraction cancelled" : "Extraction failed";
+    job.stage = cancelled ? "Extraction cancelled" : "Extraction failed";
     job.completedAt = new Date().toISOString();
     job.generatedAt = job.completedAt;
     job.elapsedMs = Date.now() - startedAtMs;
