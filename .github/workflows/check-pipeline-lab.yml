@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - agent/pipeline-lab-web
+      - agent/fix-full-extraction-524
     paths:
       - server.ts
       - web/**
@@ -16,6 +17,7 @@ on:
       - web/**
       - src/nomologies-v2/**
       - deno.json
+      - .github/workflows/check-pipeline-lab.yml
 
 permissions:
   contents: read
@@ -30,11 +32,17 @@ jobs:
         with:
           deno-version: v2.x
       - name: Type-check server and pipeline
+        run: deno task check
+      - name: Syntax-check browser scripts
         run: |
-          deno task check
-          deno check web/app.js
-      - name: Start Pipeline Lab and test public routes
+          node --check web/app.js
+          node --check web/async-patch.js
+      - name: Start Pipeline Lab and test asynchronous routes
         shell: bash
+        env:
+          OPENAI_API_KEY: test-key-not-valid
+          LAB_ACCESS_KEY: test-password
+          NOMOLOGIES_V2_MODEL: gpt-5.4-mini
         run: |
           set -euo pipefail
           deno task start > /tmp/nomologies-lab.log 2>&1 &
@@ -47,6 +55,22 @@ jobs:
             sleep 0.5
           done
           grep -q 'nomologies-v2-pipeline-lab' /tmp/health.json
+          grep -q '"asynchronousJobs":true' /tmp/health.json
           curl --fail --silent http://127.0.0.1:8000/ | grep -q 'Intake. Parse. Verify.'
           curl --fail --silent http://127.0.0.1:8000/app.js | grep -q 'renderFullResult'
+          curl --fail --silent http://127.0.0.1:8000/async-patch.js | grep -q 'pollJob'
           curl --fail --silent http://127.0.0.1:8000/styles.css | grep -q -- '--brass'
+
+          curl --fail --silent \
+            -X POST http://127.0.0.1:8000/api/parse \
+            -H 'content-type: application/json' \
+            -H 'x-lab-key: test-password' \
+            --data '{"text":"ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ. ΑΠΟΦΑΣΗ. Τα πραγματικά γεγονότα της δοκιμαστικής υπόθεσης εκτίθενται αποκλειστικά για τον έλεγχο της ασύγχρονης διαδρομής. Η έφεση απορρίπτεται.","sourceTitle":"Async route test","mode":"sections"}' \
+            > /tmp/job.json
+          grep -q '"status":"queued"' /tmp/job.json
+          job_id=$(python -c 'import json; print(json.load(open("/tmp/job.json"))["jobId"])')
+          curl --fail --silent \
+            -H 'x-lab-key: test-password' \
+            "http://127.0.0.1:8000/api/jobs/${job_id}" \
+            > /tmp/job-status.json
+          grep -Eq '"status":"(queued|running|failed|completed)"' /tmp/job-status.json
