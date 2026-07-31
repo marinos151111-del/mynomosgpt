@@ -322,7 +322,7 @@ function reconcileCandidates(
   return spans;
 }
 
-const ADOPTED_AUTHORITY_RE = /(?:αναπαράγ(?:ουμε|εται|ονται)|υιοθετ(?:ούμε|είται|ούνται)|επαναλαμβάν(?:ουμε|εται|ονται)|κάν(?:ουμε|ει)\s+δικές?\s+μας|παραθέτ(?:ουμε|εται)\s+(?:πιο\s+κάτω\s+)?(?:τα\s+εκεί\s+λεγόμενα|τις\s+αρχές)|adopt(?:s|ed|ing)?|reproduc(?:e|es|ed|ing)|endorse(?:s|d)?)/iu;
+const ADOPTED_AUTHORITY_RE = /(?:αναπαράγ(?:ουμε|εται|ονται)(?:\s+πιο\s+κάτω)?\s+(?:τα\s+εκεί\s+λεγόμενα|τις\s+αρχές)|υιοθετ(?:ούμε|είται|ούνται)|επαναλαμβάν(?:ουμε|εται|ονται)(?:\s+ως\s+δικές?\s+μας)?|κάν(?:ουμε|ει)\s+(?:τις\s+αρχές|τα\s+λεγόμενα)\s+δικές?\s+μας|expressly\s+adopt(?:s|ed|ing)?|make(?:s)?\s+(?:the\s+)?(?:principles|reasoning)\s+(?:its|our)\s+own)/iu;
 
 function correctAdoptedAuthorities(
   source: JudgmentSourceV2,
