@@ -1,0 +1,1 @@
+Launch the asynchronous full-extraction Pipeline Lab after the HTTP 524 and model-stage timeout fixes.
