@@ -185,7 +185,11 @@ async function runAgent(
     user,
     effort,
     model: options.model,
-    timeoutMs: 240_000,
+    timeoutMs: stage === "judicial-analysis"
+      ? 480_000
+      : stage === "facts-procedure" || stage === "legislation-authorities"
+      ? 360_000
+      : 300_000,
     signal: options.signal,
   });
   return {
@@ -539,10 +543,21 @@ export async function runSpecialistAgents(
   const authoritiesUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, AUTHORITY_TYPES, "none"), "nomologies.authorities.v2");
   const outcomeUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, OUTCOME_TYPES, "none"), "nomologies.outcome.v2");
 
-  const [identityResponse, factsResponse, analysisResponse, authorityResponse, outcomeResponse] = await Promise.all([
+  // The judicial-analysis schema is the largest and most reasoning-intensive.
+  // Run it without four competing model requests; the remaining specialists then
+  // execute in parallel. The web job is asynchronous, so reliability takes priority
+  // over holding a single browser request open.
+  const analysisResponse = await runAgent(
+    "judicial-analysis",
+    NOMOLOGIES_SCHEMAS.analysis,
+    ANALYSIS_SYSTEM_PROMPT,
+    analysisUser,
+    "medium",
+    options,
+  );
+  const [identityResponse, factsResponse, authorityResponse, outcomeResponse] = await Promise.all([
     runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, "medium", options),
     runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "medium", options),
-    runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "medium", options),
     runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options),
     runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "medium", options),
   ]);

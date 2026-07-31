@@ -301,7 +301,7 @@ async function runReviewer(
     user,
     effort: "medium",
     model: options.model,
-    timeoutMs: 240_000,
+    timeoutMs: 420_000,
     signal: options.signal,
   });
   return {
