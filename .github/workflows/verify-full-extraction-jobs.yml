@@ -155,4 +155,5 @@ jobs:
           git add server.ts web/app.js web/index.html
           git diff --cached --quiet && exit 0
           git commit -m "Fix full extraction job polling"
+          git pull --rebase origin agent/fix-full-extraction-jobs
           git push origin HEAD:agent/fix-full-extraction-jobs
