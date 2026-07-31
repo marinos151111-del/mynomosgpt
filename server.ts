@@ -8,11 +8,46 @@ const MAX_TEXT_CHARACTERS = 1_800_000;
 const MAX_ACTIVE_JOBS = 2;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 const RATE_MAX_REQUESTS = 12;
+const JOB_TTL_MS = 2 * 60 * 60 * 1000;
 
 const WEB_ROOT = new URL("./web/", import.meta.url);
 const encoder = new TextEncoder();
 let activeJobs = 0;
 const requestHistory = new Map<string, number[]>();
+
+type ParseMode = "sections" | "full";
+type JobStatus = "queued" | "running" | "completed" | "failed";
+
+type ParseInput = {
+  sourceUrl: string;
+  pastedText: string;
+  suppliedTitle: string;
+  mode: ParseMode;
+};
+
+type PublicFailure = {
+  status: number;
+  code: string;
+  message: string;
+};
+
+type ParseJob = {
+  id: string;
+  status: JobStatus;
+  mode: ParseMode;
+  stage: string;
+  progress: number;
+  createdAt: string;
+  startedAt: string;
+  completedAt: string;
+  expiresAt: number;
+  elapsedMs: number;
+  input: ParseInput;
+  result?: unknown;
+  error?: PublicFailure;
+};
+
+const jobs = new Map<string, ParseJob>();
 
 function json(value: unknown, status = 200, headers: HeadersInit = {}): Response {
   return new Response(JSON.stringify(value), {
@@ -143,7 +178,148 @@ function compactResult<T>(result: T): T {
   return clone as T;
 }
 
-async function parseRequest(request: Request): Promise<Response> {
+function publicError(error: unknown): PublicFailure {
+  if (error instanceof HttpError) {
+    return { status: error.status, code: error.code, message: error.message };
+  }
+  if (error instanceof NomologiesOpenAIError) {
+    const status = [400, 401, 403, 408, 409, 429, 500, 502, 503, 504].includes(error.status)
+      ? error.status
+      : 500;
+    return { status, code: error.code, message: error.message };
+  }
+  if (error instanceof DOMException && error.name === "AbortError") {
+    return { status: 408, code: "REQUEST_CANCELLED", message: "The extraction request was cancelled." };
+  }
+  console.error(error);
+  return { status: 500, code: "PIPELINE_ERROR", message: "The Pipeline Lab encountered an unexpected error." };
+}
+
+function pruneJobs(): void {
+  const now = Date.now();
+  for (const [id, job] of jobs) {
+    if (job.expiresAt <= now) jobs.delete(id);
+  }
+}
+
+function estimatedJobState(job: ParseJob): { stage: string; progress: number } {
+  if (job.status === "queued") return { stage: "Queued for extraction", progress: 2 };
+  if (job.status === "completed") return { stage: "Extraction complete", progress: 100 };
+  if (job.status === "failed") return { stage: "Extraction stopped", progress: Math.max(5, job.progress) };
+
+  const elapsed = job.startedAt ? Math.max(0, Date.now() - Date.parse(job.startedAt)) : 0;
+  if (job.mode === "sections") {
+    if (elapsed < 2_000) return { stage: "Preparing judgment source", progress: 8 };
+    if (elapsed < 7_000) return { stage: "Assigning atomic passage IDs", progress: 28 };
+    if (elapsed < 16_000) return { stage: "Recognising legal sections and speakers", progress: 58 };
+    if (elapsed < 30_000) return { stage: "Reconciling section boundaries", progress: 84 };
+    return { stage: "Finalising section map", progress: 94 };
+  }
+
+  if (elapsed < 3_000) return { stage: "Preparing judgment source", progress: 6 };
+  if (elapsed < 25_000) return { stage: "Recognising legal sections and speakers", progress: 20 };
+  if (elapsed < 95_000) return { stage: "Running specialist legal extractors", progress: 45 };
+  if (elapsed < 165_000) return { stage: "Validating exact evidence anchors", progress: 68 };
+  if (elapsed < 260_000) return { stage: "Running independent legal review", progress: 86 };
+  return { stage: "Calculating readiness and conflicts", progress: 95 };
+}
+
+function jobSnapshot(job: ParseJob): Record<string, unknown> {
+  const estimated = estimatedJobState(job);
+  const snapshot: Record<string, unknown> = {
+    ok: job.status !== "failed",
+    jobId: job.id,
+    status: job.status,
+    mode: job.mode,
+    stage: estimated.stage,
+    progress: estimated.progress,
+    createdAt: job.createdAt,
+    startedAt: job.startedAt,
+    completedAt: job.completedAt,
+    elapsedMs: job.status === "running" && job.startedAt
+      ? Math.max(0, Date.now() - Date.parse(job.startedAt))
+      : job.elapsedMs,
+  };
+  if (job.status === "completed") {
+    snapshot.generatedAt = job.completedAt;
+    snapshot.result = job.result;
+  }
+  if (job.status === "failed") {
+    snapshot.error = job.error || {
+      status: 500,
+      code: "PIPELINE_ERROR",
+      message: "The extraction failed unexpectedly.",
+    };
+  }
+  return snapshot;
+}
+
+function validateParseInput(payload: Record<string, unknown>): ParseInput {
+  const sourceUrl = stringValue(payload.sourceUrl);
+  const pastedText = stringValue(payload.text);
+  const suppliedTitle = stringValue(payload.sourceTitle);
+  const mode: ParseMode = stringValue(payload.mode) === "sections" ? "sections" : "full";
+
+  if (!sourceUrl && !pastedText) {
+    throw new HttpError(400, "SOURCE_REQUIRED", "Provide an official CyLaw URL or judgment text.");
+  }
+  if (sourceUrl && !isOfficialCyLawUrl(sourceUrl)) {
+    throw new HttpError(400, "CYLAW_URL_NOT_ALLOWED", "Only official HTTPS CyLaw judgment URLs are accepted in URL mode.");
+  }
+  if (pastedText.length > MAX_TEXT_CHARACTERS) {
+    throw new HttpError(413, "SOURCE_TOO_LARGE", `Judgment text must be below ${MAX_TEXT_CHARACTERS.toLocaleString()} characters.`);
+  }
+
+  return { sourceUrl, pastedText, suppliedTitle, mode };
+}
+
+async function executeJob(job: ParseJob): Promise<void> {
+  job.status = "running";
+  job.stage = "Preparing judgment source";
+  job.progress = 6;
+  job.startedAt = new Date().toISOString();
+  const startedAt = Date.now();
+
+  try {
+    const fetched = job.input.sourceUrl ? await fetchCyLawJudgment(job.input.sourceUrl) : null;
+    job.stage = job.mode === "sections"
+      ? "Recognising legal sections and speakers"
+      : "Running full evidence-bound extraction";
+    job.progress = job.mode === "sections" ? 45 : 20;
+
+    const result = await runNomologiesPipelineV2({
+      text: fetched?.text || job.input.pastedText,
+      html: fetched?.html || "",
+      sourceTitle: fetched?.sourceTitle || job.input.suppliedTitle || "Uploaded judgment",
+      sourceUrl: fetched?.sourceUrl || "",
+      sourceDatabase: fetched?.sourceDatabase || "uploaded_text",
+      charset: fetched?.charset || "utf-8",
+      mode: job.input.mode,
+    }, {
+      model: env("NOMOLOGIES_V2_MODEL") || undefined,
+    });
+
+    job.result = compactResult(result);
+    job.status = "completed";
+    job.stage = "Extraction complete";
+    job.progress = 100;
+    job.completedAt = new Date().toISOString();
+    job.elapsedMs = Date.now() - startedAt;
+    job.expiresAt = Date.now() + JOB_TTL_MS;
+  } catch (error) {
+    job.status = "failed";
+    job.error = publicError(error);
+    job.stage = "Extraction stopped";
+    job.completedAt = new Date().toISOString();
+    job.elapsedMs = Date.now() - startedAt;
+    job.expiresAt = Date.now() + JOB_TTL_MS;
+  } finally {
+    activeJobs = Math.max(0, activeJobs - 1);
+    job.input.pastedText = "";
+  }
+}
+
+async function createParseJob(request: Request): Promise<Response> {
   const denied = checkAccess(request);
   if (denied) return denied;
   const rateLimited = checkRateLimit(request);
@@ -163,70 +339,60 @@ async function parseRequest(request: Request): Promise<Response> {
     }, 429, { "retry-after": "30" });
   }
 
-  const payload = await readJsonBody(request);
-  const sourceUrl = stringValue(payload.sourceUrl);
-  const pastedText = stringValue(payload.text);
-  const suppliedTitle = stringValue(payload.sourceTitle);
-  const requestedMode = stringValue(payload.mode) === "sections" ? "sections" : "full";
-
-  if (!sourceUrl && !pastedText) {
-    throw new HttpError(400, "SOURCE_REQUIRED", "Provide an official CyLaw URL or judgment text.");
-  }
-  if (sourceUrl && !isOfficialCyLawUrl(sourceUrl)) {
-    throw new HttpError(400, "CYLAW_URL_NOT_ALLOWED", "Only official HTTPS CyLaw judgment URLs are accepted in URL mode.");
-  }
-  if (pastedText.length > MAX_TEXT_CHARACTERS) {
-    throw new HttpError(413, "SOURCE_TOO_LARGE", `Judgment text must be below ${MAX_TEXT_CHARACTERS.toLocaleString()} characters.`);
-  }
-
+  pruneJobs();
+  const input = validateParseInput(await readJsonBody(request));
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
+  const job: ParseJob = {
+    id,
+    status: "queued",
+    mode: input.mode,
+    stage: "Queued for extraction",
+    progress: 2,
+    createdAt,
+    startedAt: "",
+    completedAt: "",
+    expiresAt: Date.now() + JOB_TTL_MS,
+    elapsedMs: 0,
+    input,
+  };
+  jobs.set(id, job);
   activeJobs += 1;
-  const startedAt = Date.now();
-  try {
-    const fetched = sourceUrl ? await fetchCyLawJudgment(sourceUrl, request.signal) : null;
-    const result = await runNomologiesPipelineV2({
-      text: fetched?.text || pastedText,
-      html: fetched?.html || "",
-      sourceTitle: fetched?.sourceTitle || suppliedTitle || "Uploaded judgment",
-      sourceUrl: fetched?.sourceUrl || "",
-      sourceDatabase: fetched?.sourceDatabase || "uploaded_text",
-      charset: fetched?.charset || "utf-8",
-      mode: requestedMode,
-    }, {
-      signal: request.signal,
-      model: env("NOMOLOGIES_V2_MODEL") || undefined,
-    });
 
-    return json({
-      ok: true,
-      elapsedMs: Date.now() - startedAt,
-      generatedAt: new Date().toISOString(),
-      result: compactResult(result),
-    });
-  } finally {
-    activeJobs = Math.max(0, activeJobs - 1);
-  }
+  queueMicrotask(() => {
+    void executeJob(job);
+  });
+
+  const pollUrl = `/api/jobs/${id}`;
+  return json({
+    ok: true,
+    jobId: id,
+    status: "queued",
+    mode: input.mode,
+    pollUrl,
+    createdAt,
+    message: "Extraction started. Poll the job endpoint for completion.",
+  }, 202, { location: pollUrl });
 }
 
-function publicError(error: unknown): { status: number; code: string; message: string } {
-  if (error instanceof HttpError) {
-    return { status: error.status, code: error.code, message: error.message };
+function getParseJob(request: Request, id: string): Response {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+  pruneJobs();
+  const job = jobs.get(id);
+  if (!job) {
+    return json({
+      ok: false,
+      code: "JOB_NOT_FOUND",
+      message: "This extraction job was not found or has expired.",
+    }, 404);
   }
-  if (error instanceof NomologiesOpenAIError) {
-    const status = [400, 401, 403, 408, 409, 429, 500, 502, 503, 504].includes(error.status)
-      ? error.status
-      : 500;
-    return { status, code: error.code, message: error.message };
-  }
-  if (error instanceof DOMException && error.name === "AbortError") {
-    return { status: 408, code: "REQUEST_CANCELLED", message: "The extraction request was cancelled." };
-  }
-  console.error(error);
-  return { status: 500, code: "PIPELINE_ERROR", message: "The Pipeline Lab encountered an unexpected error." };
+  return json(jobSnapshot(job));
 }
 
 async function staticFile(pathname: string): Promise<Response> {
   const normalized = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
-  if (!/^(index\.html|app\.js|styles\.css)$/.test(normalized)) return text("Not found", 404);
+  if (!/^(index\.html|app\.js|async-patch\.js|styles\.css)$/.test(normalized)) return text("Not found", 404);
   try {
     const content = await Deno.readTextFile(new URL(normalized, WEB_ROOT));
     const contentType = normalized.endsWith(".html")
@@ -244,6 +410,7 @@ Deno.serve({ port: PORT }, async (request) => {
   const url = new URL(request.url);
   try {
     if (request.method === "GET" && url.pathname === "/api/health") {
+      pruneJobs();
       return json({
         ok: true,
         service: "nomologies-v2-pipeline-lab",
@@ -251,11 +418,17 @@ Deno.serve({ port: PORT }, async (request) => {
         accessKeyConfigured: Boolean(env("LAB_ACCESS_KEY")),
         modelPinned: Boolean(env("NOMOLOGIES_V2_MODEL")),
         activeJobs,
-        version: "2.0.0-lab",
+        retainedJobs: jobs.size,
+        asynchronousJobs: true,
+        version: "2.1.0-lab",
       });
     }
     if (request.method === "POST" && url.pathname === "/api/parse") {
-      return await parseRequest(request);
+      return await createParseJob(request);
+    }
+    const jobMatch = url.pathname.match(/^\/api\/jobs\/([0-9a-f-]{36})$/i);
+    if (request.method === "GET" && jobMatch) {
+      return getParseJob(request, jobMatch[1]);
     }
     if (request.method === "GET" || request.method === "HEAD") {
       const response = await staticFile(url.pathname);

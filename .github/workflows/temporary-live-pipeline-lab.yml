@@ -1,0 +1,84 @@
+name: Temporary live asynchronous Pipeline Lab
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  live-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      LAB_ACCESS_KEY: My-Drop-Site
+      NOMOLOGIES_V2_MODEL: gpt-5.4-mini
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Validate application
+        run: |
+          test -n "$OPENAI_API_KEY"
+          deno task check
+          node --check web/app.js
+          node --check web/async-patch.js
+      - name: Install Cloudflare tunnel client
+        run: |
+          curl --fail --location --silent --show-error \
+            https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 \
+            --output /tmp/cloudflared
+          chmod +x /tmp/cloudflared
+      - name: Start Pipeline Lab and publish temporary URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          deno task start > /tmp/nomologies-server.log 2>&1 &
+          echo $! > /tmp/nomologies-server.pid
+          for attempt in {1..40}; do
+            if curl --fail --silent http://127.0.0.1:8000/api/health > /tmp/local-health.json; then break; fi
+            sleep 0.5
+          done
+          grep -q '"asynchronousJobs":true' /tmp/local-health.json
+          /tmp/cloudflared tunnel --url http://127.0.0.1:8000 --no-autoupdate > /tmp/cloudflared.log 2>&1 &
+          echo $! > /tmp/cloudflared.pid
+          live_url=""
+          for attempt in {1..90}; do
+            live_url=$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' /tmp/cloudflared.log | tail -1 || true)
+            if [ -n "$live_url" ]; then break; fi
+            sleep 1
+          done
+          test -n "$live_url"
+          for attempt in {1..30}; do
+            if curl --fail --silent "$live_url/api/health" > /tmp/public-health.json; then break; fi
+            sleep 1
+          done
+          grep -q '"asynchronousJobs":true' /tmp/public-health.json
+          echo "LIVE_URL=$live_url"
+          echo "## Temporary Nomologies Pipeline Lab" >> "$GITHUB_STEP_SUMMARY"
+          echo "$live_url" >> "$GITHUB_STEP_SUMMARY"
+          echo "Password: My-Drop-Site" >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep temporary lab online
+        shell: bash
+        run: |
+          set -euo pipefail
+          live_url=$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' /tmp/cloudflared.log | tail -1)
+          for minute in $(seq 1 330); do
+            kill -0 "$(cat /tmp/nomologies-server.pid)"
+            kill -0 "$(cat /tmp/cloudflared.pid)"
+            curl --fail --silent "$live_url/api/health" > /dev/null
+            sleep 60
+          done
+      - name: Upload tunnel logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: temporary-live-pipeline-lab
+          path: |
+            /tmp/nomologies-server.log
+            /tmp/cloudflared.log
+          if-no-files-found: ignore

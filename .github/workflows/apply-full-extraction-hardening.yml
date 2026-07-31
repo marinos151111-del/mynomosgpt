@@ -1,0 +1,98 @@
+name: Apply full-extraction hardening
+
+on:
+  push:
+    branches:
+      - agent/fix-full-extraction-524
+    paths:
+      - .github/full-extraction-hardening-request.txt
+
+permissions:
+  contents: write
+
+jobs:
+  harden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/fix-full-extraction-524
+          fetch-depth: 0
+      - name: Apply resilient specialist scheduling and timeouts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          agents_path = Path('src/nomologies-v2/agents.ts')
+          agents = agents_path.read_text(encoding='utf-8')
+
+          old_timeout = '''    timeoutMs: 240_000,
+              signal: options.signal,'''
+          new_timeout = '''    timeoutMs: stage === "judicial-analysis"
+                ? 480_000
+                : stage === "facts-procedure" || stage === "legislation-authorities"
+                ? 360_000
+                : 300_000,
+              signal: options.signal,'''
+          if old_timeout not in agents:
+              raise SystemExit('agents timeout anchor not found')
+          agents = agents.replace(old_timeout, new_timeout, 1)
+
+          old_parallel = '''  const [identityResponse, factsResponse, analysisResponse, authorityResponse, outcomeResponse] = await Promise.all([
+              runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, "medium", options),
+              runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "medium", options),
+              runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "medium", options),
+              runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options),
+              runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "medium", options),
+            ]);'''
+          new_parallel = '''  // The judicial-analysis schema is the largest and most reasoning-intensive.
+            // Run it without four competing model requests; the remaining specialists then
+            // execute in parallel. The web job is asynchronous, so reliability takes priority
+            // over holding a single browser request open.
+            const analysisResponse = await runAgent(
+              "judicial-analysis",
+              NOMOLOGIES_SCHEMAS.analysis,
+              ANALYSIS_SYSTEM_PROMPT,
+              analysisUser,
+              "medium",
+              options,
+            );
+            const [identityResponse, factsResponse, authorityResponse, outcomeResponse] = await Promise.all([
+              runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, "medium", options),
+              runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "medium", options),
+              runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options),
+              runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "medium", options),
+            ]);'''
+          if old_parallel not in agents:
+              raise SystemExit('specialist scheduling anchor not found')
+          agents_path.write_text(agents.replace(old_parallel, new_parallel, 1), encoding='utf-8')
+
+          pipeline_path = Path('src/nomologies-v2/pipeline.ts')
+          pipeline = pipeline_path.read_text(encoding='utf-8')
+          old_review_timeout = '''    timeoutMs: 240_000,
+              signal: options.signal,'''
+          new_review_timeout = '''    timeoutMs: 420_000,
+              signal: options.signal,'''
+          if old_review_timeout not in pipeline:
+              raise SystemExit('review timeout anchor not found')
+          pipeline_path.write_text(pipeline.replace(old_review_timeout, new_review_timeout, 1), encoding='utf-8')
+          PY
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Type-check hardened pipeline
+        run: deno task check
+      - name: Commit hardened extraction pipeline
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/nomologies-v2/agents.ts src/nomologies-v2/pipeline.ts
+          if git diff --cached --quiet; then
+            echo "No hardening changes required"
+          else
+            git commit -m "Harden asynchronous full extraction"
+            git push origin HEAD:agent/fix-full-extraction-524
+          fi

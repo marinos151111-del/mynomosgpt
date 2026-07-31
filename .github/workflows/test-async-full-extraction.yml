@@ -1,0 +1,115 @@
+name: Test asynchronous full extraction
+
+on:
+  pull_request:
+    paths:
+      - server.ts
+      - web/**
+      - src/nomologies-v2/**
+      - .github/workflows/test-async-full-extraction.yml
+
+permissions:
+  contents: read
+
+jobs:
+  full-extraction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      LAB_ACCESS_KEY: integration-test-password
+      NOMOLOGIES_V2_MODEL: gpt-5.4-mini
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Confirm repository OpenAI secret
+        run: test -n "$OPENAI_API_KEY"
+      - name: Start Pipeline Lab
+        shell: bash
+        run: |
+          set -euo pipefail
+          deno task start > /tmp/nomologies-lab.log 2>&1 &
+          echo $! > /tmp/nomologies-lab.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:8000/api/health > /tmp/health.json; then
+              break
+            fi
+            sleep 1
+          done
+          grep -q '"asynchronousJobs":true' /tmp/health.json
+      - name: Start full extraction and poll until complete
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent \
+            -X POST http://127.0.0.1:8000/api/parse \
+            -H 'content-type: application/json' \
+            -H 'x-lab-key: integration-test-password' \
+            --data '{"sourceUrl":"https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html","mode":"full"}' \
+            > /tmp/job-created.json
+
+          job_id=$(python -c 'import json; print(json.load(open("/tmp/job-created.json"))["jobId"])')
+          echo "job_id=$job_id"
+
+          completed=0
+          for attempt in {1..300}; do
+            curl --fail --silent \
+              -H 'x-lab-key: integration-test-password' \
+              "http://127.0.0.1:8000/api/jobs/${job_id}" \
+              > /tmp/job-status.json
+            status=$(python -c 'import json; print(json.load(open("/tmp/job-status.json"))["status"])')
+            stage=$(python -c 'import json; print(json.load(open("/tmp/job-status.json")).get("stage", ""))')
+            echo "attempt=$attempt status=$status stage=$stage"
+            if [ "$status" = "completed" ]; then
+              completed=1
+              break
+            fi
+            if [ "$status" = "failed" ]; then
+              cat /tmp/job-status.json
+              exit 1
+            fi
+            sleep 5
+          done
+          test "$completed" = "1"
+
+          python - <<'PY'
+          import json
+          payload = json.load(open('/tmp/job-status.json', encoding='utf-8'))
+          assert payload['status'] == 'completed'
+          result = payload['result']
+          assert result['mode'] == 'full'
+          record = result['record']
+          assert record['identity']['caseName']['status'] == 'available'
+          assert record['identity']['caseNumber']['status'] == 'available'
+          assert record['analysis']['legalPrincipleSummary']['status'] == 'available'
+          assert record['outcome']['overallOutcome']['status'] == 'available'
+          assert record['outcome']['dispositionText']['status'] == 'available'
+          receipt = {
+              'status': payload['status'],
+              'elapsedMs': payload.get('elapsedMs'),
+              'caseName': record['identity']['caseName']['value'],
+              'caseNumber': record['identity']['caseNumber']['value'],
+              'outcome': record['outcome']['overallOutcome']['value'],
+              'readinessScore': record.get('readinessScore'),
+              'strictReady': record.get('strictReady'),
+          }
+          json.dump(receipt, open('/tmp/async-full-receipt.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+          print(json.dumps(receipt, ensure_ascii=False, indent=2))
+          PY
+      - name: Stop Pipeline Lab
+        if: always()
+        run: |
+          kill "$(cat /tmp/nomologies-lab.pid)" 2>/dev/null || true
+          tail -200 /tmp/nomologies-lab.log || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: async-full-extraction-receipt
+          path: |
+            /tmp/job-created.json
+            /tmp/job-status.json
+            /tmp/async-full-receipt.json
+            /tmp/nomologies-lab.log
+          if-no-files-found: ignore

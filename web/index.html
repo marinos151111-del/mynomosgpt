@@ -157,7 +157,7 @@
             <li><i></i><div><b>Evidence validation</b><span>Verify exact quotes, paragraph ownership and speaker attribution.</span></div></li>
             <li><i></i><div><b>Independent review</b><span>Detect contradictions and calculate readiness.</span></div></li>
           </ol>
-          <div class="processing-note"><b>Do not close this tab.</b> A full extraction can take several minutes because every material field is independently verified.</div>
+          <div class="processing-note"><b>You can keep this tab open.</b> Full extraction now runs as a background job, so the web proxy cannot cut it off while the legal agents finish.</div>
         </div>
 
         <div id="errorState" class="error-state" hidden>
@@ -194,5 +194,6 @@
   </footer>
 
   <script src="./app.js" defer></script>
+  <script src="./async-patch.js" defer></script>
 </body>
 </html>
