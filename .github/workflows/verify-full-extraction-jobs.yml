@@ -24,8 +24,10 @@ jobs:
           ref: agent/fix-full-extraction-jobs
           fetch-depth: 0
 
-      - name: Apply browser job polling patch
-        run: python scripts/apply-web-job-polling.py
+      - name: Apply server and browser asynchronous-job patches
+        run: |
+          python scripts/fix-server-cancellation-narrowing.py
+          python scripts/apply-web-job-polling.py
 
       - uses: denoland/setup-deno@v2
         with:
@@ -34,6 +36,7 @@ jobs:
       - name: Type-check server, browser contract and pipeline
         run: |
           deno task check
+          deno check web/app.js
           grep -q 'fetch("./api/jobs"' web/app.js
           grep -q 'JOB_ID_OR_MODE_MISMATCH' web/app.js
           grep -q '2.1.0-async-jobs' server.ts
@@ -145,11 +148,11 @@ jobs:
           }, ensure_ascii=False, indent=2))
           PY
 
-      - name: Commit validated browser changes
+      - name: Commit validated asynchronous job changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/app.js web/index.html
+          git add server.ts web/app.js web/index.html
           git diff --cached --quiet && exit 0
           git commit -m "Fix full extraction job polling"
           git push origin HEAD:agent/fix-full-extraction-jobs
