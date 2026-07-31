@@ -3,7 +3,7 @@ import { buildSearchDocument } from "./document.ts";
 import { cosineSimilarity, embedTexts, semanticSearchConfigured } from "./embeddings.ts";
 import { LexicalCaseIndexV1 } from "./lexical.ts";
 import { normalizeLegalText } from "./normalize.ts";
-import { parseSearchQuery } from "./query.ts";
+import { parseSearchQuery } from "./query-elite.ts";
 import type {
   EliteSearchResponseV1,
   ParsedSearchQueryV1,

@@ -1,5 +1,5 @@
 import { LexicalCaseIndexV1 } from "./lexical.ts";
-import { parseSearchQuery } from "./query.ts";
+import { parseSearchQuery } from "./query-elite.ts";
 import type { SearchDocumentV1, SearchFieldNameV1 } from "./types.ts";
 import { NOMOLOGIES_SEARCH_VERSION } from "./types.ts";
 import { normalizeLegalText } from "./normalize.ts";
@@ -153,7 +153,7 @@ Deno.test("Greek legal concept query retrieves the expedition case", () => {
 
 Deno.test("Greeklish query expands to the Cyprus legal concept", () => {
   const parsed = parseSearchQuery("epispefsi efesis");
-  assert(parsed.expandedTerms.some((term) => term.includes("επίσπευση")), "Greeklish should expand to Greek concept");
+  assert(parsed.expandedTerms.some((term) => normalizeLegalText(term).includes(normalizeLegalText("επίσπευση"))), "Greeklish should expand to Greek concept");
   const result = index().search(parsed, 10);
   assert(result.hits[0]?.document.id === "e5", "Greeklish expedition query should rank E5 first");
 });
