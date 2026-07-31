@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - .github/live-lab-request.txt
+  pull_request:
+    paths:
+      - .github/live-lab-request.txt
   workflow_dispatch:
 
 permissions:
