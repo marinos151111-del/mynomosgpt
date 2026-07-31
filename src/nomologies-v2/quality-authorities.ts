@@ -184,19 +184,20 @@ function supportingAnchor(
 
   const span = context.sectionByParagraphId.get(sourceMatch.id);
   if (!span) return extracted;
+  const explicitAdoption = /(?:αναπαράγ(?:ουμε|εται|ονται)(?:\s+πιο\s+κάτω)?\s+(?:τα\s+εκεί\s+λεγόμενα|τις\s+αρχές)|υιοθετ(?:ούμε|είται|ούνται)|επαναλαμβάν(?:ουμε|εται|ονται)(?:\s+ως\s+δικές?\s+μας)?|expressly\s+adopt)/iu.test(sourceMatch.text);
   const sourceAnchor: EvidenceAnchorV2 = {
     id: `EV_authorities_context_det_${sourceMatch.ordinal}`,
     paragraphIds: [sourceMatch.id],
     quote: sourceMatch.text,
-    sectionType: span.sectionType,
-    speakerRole: span.speakerRole,
+    sectionType: explicitAdoption ? "adopted_authority" : span.sectionType,
+    speakerRole: explicitAdoption ? "authoring_judge" : span.speakerRole,
     supports: [authority.name, "citation provenance"],
     exactMatch: true,
   };
 
-  // A deterministic adoption bridge takes precedence over model-selected nested
+  // Explicit adoption language takes precedence over model-selected nested
   // evidence because it records what the present court did with the authority.
-  if (span.sectionType === "adopted_authority") return sourceAnchor;
+  if (explicitAdoption || span.sectionType === "adopted_authority") return sourceAnchor;
   return extracted || sourceAnchor;
 }
 

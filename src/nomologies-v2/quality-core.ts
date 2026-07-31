@@ -195,6 +195,29 @@ function clearInventedGroundNumbers(
   if (changed) clearQualityFlags(flags, ["procedure.groundsOrIssues"]);
 }
 
+function normalizeApplicationOutcome(
+  expedition: boolean,
+  outcome: CaseOutcomeV2,
+  flags: Set<string>,
+): void {
+  if (!expedition || outcome.overallOutcome.status !== "available") return;
+  const current = outcome.overallOutcome.value;
+  const normalized = current === "dismissed"
+    ? "application_dismissed" as const
+    : current === "allowed"
+    ? "application_allowed" as const
+    : current === "partly_allowed"
+    ? "application_partly_allowed" as const
+    : null;
+  if (!normalized) return;
+  outcome.overallOutcome = {
+    ...outcome.overallOutcome,
+    value: normalized,
+    confidence: Math.max(0.99, outcome.overallOutcome.confidence),
+  };
+  clearQualityFlags(flags, ["outcome.overallOutcome"]);
+}
+
 function reconcileRelief(
   procedure: CaseProcedureV2,
   outcome: CaseOutcomeV2,
@@ -329,6 +352,7 @@ export function reconcileCoreQuality(input: {
   flags: Set<string>;
 }): { expedition: boolean } {
   const expedition = reconcileExpeditionClassification(input);
+  normalizeApplicationOutcome(expedition, input.outcome, input.flags);
   clearInventedGroundNumbers(input.procedure, input.context, input.flags);
   reconcileRelief(input.procedure, input.outcome, input.flags);
   reconcileHolding(input.analysis, input.context, input.flags);
