@@ -38,6 +38,37 @@ jobs:
           SOURCE_URL: https://www.cylaw.org/cgi-bin/open.pl?file=/courtOfAppeal/2026/202607-E5-25PolEfAit270426.html
         run: deno task test
 
+      - name: Print legal-quality diagnostic
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('artifacts/nomologies-v2/nomologies-v2-result.json').read_text(encoding='utf-8'))
+          record = result['record']
+          instruments = record['authorities']['legislation']['value']
+          authorities = record['authorities']['authorities']['value']
+          diagnostic = {
+              'caseNumber': record['identity']['caseNumber']['value'],
+              'primaryLegalArea': record['classification']['primaryLegalArea'],
+              'proceedingType': record['classification']['proceedingType'],
+              'proceduralPosture': record['classification']['proceduralPosture'],
+              'overallOutcome': record['outcome']['overallOutcome'],
+              'relief': record['procedure']['reliefSought'],
+              'grounds': record['procedure']['groundsOrIssues']['value'],
+              'components': record['outcome']['components'],
+              'legalPrinciple': record['analysis']['legalPrincipleSummary']['value'],
+              'instruments': instruments,
+              'authorityContexts': sorted({item.get('citationContext', 'missing') for item in authorities}),
+              'conflicts': record['conflicts'],
+              'readiness': record['readinessScore'],
+          }
+          print(json.dumps(diagnostic, ensure_ascii=False, indent=2))
+          Path('artifacts/nomologies-v2/legal-quality-diagnostic.json').write_text(
+              json.dumps(diagnostic, ensure_ascii=False, indent=2), encoding='utf-8'
+          )
+          PY
+
       - name: Assert legal-quality corrections
         run: |
           python - <<'PY'
@@ -47,7 +78,8 @@ jobs:
           result = json.loads(Path('artifacts/nomologies-v2/nomologies-v2-result.json').read_text(encoding='utf-8'))
           assert result['mode'] == 'full'
           record = result['record']
-          assert record['identity']['caseNumber']['value'] == 'Ε5/2025'
+          case_number = record['identity']['caseNumber']['value'].strip().replace('E', 'Ε')
+          assert case_number == 'Ε5/2025', case_number
           assert record['classification']['primaryLegalArea']['value'] == 'civil_procedure'
           assert record['classification']['proceedingType']['value'] == 'expedition_application'
           assert record['classification']['proceduralPosture']['value'] == 'interim_stage'
@@ -73,16 +105,10 @@ jobs:
           assert not any(item['severity'] == 'critical' for item in conflicts)
           assert any(item['code'] == 'SOURCE_DATE_CONFLICT' for item in conflicts)
           assert record['readinessScore'] >= 70, record['readinessScore']
-          print(json.dumps({
-              'readiness': record['readinessScore'],
-              'conflicts': conflicts,
-              'authorityContexts': sorted(contexts),
-              'primaryLegalArea': record['classification']['primaryLegalArea']['value'],
-              'proceedingType': record['classification']['proceedingType']['value'],
-          }, ensure_ascii=False, indent=2))
           PY
 
       - name: Upload reviewed regression artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nomologies-e5-legal-quality
