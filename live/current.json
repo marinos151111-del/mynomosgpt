@@ -1,0 +1,8 @@
+{
+  "url": "https://myers-vegetables-authorization-psychiatry.trycloudflare.com",
+  "password": "My-Drop-Site",
+  "mode": "asynchronous",
+  "source_branch": "agent/fix-full-extraction-524",
+  "workflow_run": "30607529234",
+  "expires_when_job_stops": true
+}
