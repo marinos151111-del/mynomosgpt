@@ -1,0 +1,48 @@
+name: Apply final Nomologies legal quality patch
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-final-legal-quality.yml
+      - scripts/finalize-legal-quality.py
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/legal-quality-hardening
+          fetch-depth: 0
+
+      - name: Apply final reviewed patch
+        run: python scripts/finalize-legal-quality.py
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check final pipeline
+        run: deno task check
+
+      - name: Verify final quality markers
+        run: |
+          grep -q 'article32Instrument' src/nomologies-v2/quality-authorities.ts
+          grep -q 'citation provenance' src/nomologies-v2/quality-authorities.ts
+          grep -q '? conflict.code' src/nomologies-v2/pipeline.ts
+
+      - name: Commit validated patch
+        run: |
+          rm -f scripts/finalize-legal-quality.py
+          rm -f .github/workflows/apply-final-legal-quality.yml
+          git config user.name 'Nomologies V2 Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          git commit -m 'Finalize Nomologies legal quality hardening'
+          git push origin HEAD:agent/legal-quality-hardening
