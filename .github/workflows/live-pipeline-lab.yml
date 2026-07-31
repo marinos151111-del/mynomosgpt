@@ -88,28 +88,14 @@ jobs:
           grep -q '2.1.0-async-jobs' /tmp/public-health.json
 
           expires_at=$(date -u -d '+5 hours 40 minutes' +'%Y-%m-%dT%H:%M:%SZ')
-          python - <<'PY'
-          import json, os
-          payload = {
-              "url": os.environ["LIVE_URL"],
-              "password": os.environ["LAB_ACCESS_KEY"],
-              "expiresAt": os.environ["EXPIRES_AT"],
-              "version": "2.1.0-async-jobs",
-              "testCase": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
-          }
-          open('/tmp/nomologies-live-access.json','w',encoding='utf-8').write(json.dumps(payload, indent=2))
-          PY
-        env:
-          LIVE_URL: ${{ env.LIVE_URL }}
-          EXPIRES_AT: ${{ env.EXPIRES_AT }}
+          echo "LIVE_URL=${live_url}" >> "$GITHUB_ENV"
+          echo "EXPIRES_AT=${expires_at}" >> "$GITHUB_ENV"
 
-      - name: Resolve tunnel access file
+      - name: Create private tunnel access receipt
         shell: bash
         run: |
           set -euo pipefail
-          live_url=$(grep -Eo 'https://[-a-z0-9]+\.trycloudflare\.com' /tmp/cloudflared.log | head -n 1)
-          expires_at=$(date -u -d '+5 hours 40 minutes' +'%Y-%m-%dT%H:%M:%SZ')
-          python - "$live_url" "$LAB_ACCESS_KEY" "$expires_at" <<'PY'
+          python - "$LIVE_URL" "$LAB_ACCESS_KEY" "$EXPIRES_AT" <<'PY'
           import json, sys
           payload = {
               "url": sys.argv[1],
