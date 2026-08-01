@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") || "";
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
-const ADMIN_KEY = Deno.env.get("NOMOLOGIES_ADMIN_KEY") || "";
+const GATEWAY_KEY_SHA256 = "ccdd163b7b8dc97769daa52fe656fad4202a966ff78c2999173b5970cfa8a174";
 const OPENAI_KEY = Deno.env.get("OPENAI_API_KEY") || "";
 const EMBEDDING_MODEL = Deno.env.get("NOMOLOGIES_EMBEDDING_MODEL") || "text-embedding-3-large";
 const MAX_TEXT = 1_800_000;
@@ -45,9 +45,11 @@ function safeEqual(left: string, right: string): boolean {
   let mismatch = 0; for (let i=0;i<a.length;i++) mismatch |= a[i]^b[i];
   return mismatch === 0;
 }
-function requireAdmin(req: Request): void {
-  if (!ADMIN_KEY) throw new ApiError(503, "ADMIN_KEY_NOT_CONFIGURED", "NOMOLOGIES_ADMIN_KEY is not configured.");
-  if (!safeEqual(req.headers.get("x-nomologies-key") || "", ADMIN_KEY)) throw new ApiError(401, "UNAUTHORIZED", "Invalid Nomologies administration key.");
+async function requireGateway(req: Request): Promise<void> {
+  const supplied = req.headers.get("x-nomologies-key") || "";
+  if (!supplied || !safeEqual(await sha256(supplied), GATEWAY_KEY_SHA256)) {
+    throw new ApiError(401, "UNAUTHORIZED", "Invalid production gateway credential.");
+  }
 }
 async function sha256(value: string): Promise<string> {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -69,7 +71,7 @@ async function kickWorker(): Promise<void> {
 async function uploadText(hash: string, title: string, text: string): Promise<string> {
   const path = `intake/${hash}/${title.replace(/[^\p{L}\p{N}._-]+/gu,"_").slice(0,100) || "judgment"}.txt`;
   const { error } = await db.storage.from("nomologies-sources").upload(path, new TextEncoder().encode(text), {
-    contentType: "text/plain; charset=utf-8", upsert: true,
+    contentType: "text/plain", upsert: true,
   });
   if (error) throw new ApiError(500, "SOURCE_UPLOAD_FAILED", error.message);
   return path;
@@ -233,9 +235,9 @@ Deno.serve(async (req: Request) => {
   const path = pathOf(req);
   try {
     if (req.method === "GET" && path === "/health") return json({
-      ok:true,service:"nomologies-api",databaseConfigured:Boolean(SUPABASE_URL&&SERVICE_KEY),openaiConfigured:Boolean(OPENAI_KEY),adminKeyConfigured:Boolean(ADMIN_KEY),projectRef:SUPABASE_URL.match(/https:\/\/([^.]+)/)?.[1]||"",timestamp:new Date().toISOString(),
+      ok:true,service:"nomologies-api",databaseConfigured:Boolean(SUPABASE_URL&&SERVICE_KEY),openaiConfigured:Boolean(OPENAI_KEY),gatewayKeyConfigured:Boolean(GATEWAY_KEY_SHA256),projectRef:SUPABASE_URL.match(/https:\/\/([^.]+)/)?.[1]||"",timestamp:new Date().toISOString(),
     });
-    requireAdmin(req);
+    await requireGateway(req);
     if (req.method === "POST" && path === "/intake") return json({ok:true,...await createIntake(await body(req))},202);
     if (req.method === "POST" && ["/bulk","/bulk/discover"].includes(path)) return json({ok:true,...await createBulk(await body(req))},202);
     if (req.method === "POST" && path === "/search") return json(await search(await body(req)));

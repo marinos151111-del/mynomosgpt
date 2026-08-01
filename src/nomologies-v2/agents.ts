@@ -541,11 +541,14 @@ export async function runSpecialistAgents(
   const outcomeUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, OUTCOME_TYPES, "none"), "nomologies.outcome.v2");
 
   const [identityResponse, factsResponse, analysisResponse, authorityResponse, outcomeResponse] = await Promise.all([
-    runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, "medium", options),
-    runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "medium", options),
-    runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "medium", options),
-    runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options),
-    runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "medium", options),
+    // Specialist agents run concurrently inside a bounded Edge Function. Low
+    // reasoning keeps the slowest response under the platform execution limit;
+    // deterministic reconciliation and the independent reviewer remain intact.
+    runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, "low", options),
+    runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "low", options),
+    runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "low", options),
+    runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "low", options),
+    runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "low", options),
   ]);
 
   const flags = new Set<string>(sectionMap.reviewFlags);

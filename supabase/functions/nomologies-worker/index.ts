@@ -85,8 +85,8 @@ async function processSource(task:Task){
   if(sourceUrl){const fetched=await fetchCyLawJudgment(sourceUrl);text=fetched.text;html=fetched.html;title=fetched.sourceTitle||title;sourceUrl=fetched.sourceUrl;sourceDatabase=fetched.sourceDatabase;charset=fetched.charset;}
   const source=await prepareJudgmentSource({text,html,sourceTitle:title,sourceUrl,sourceDatabase,charset,mode:"full"});
   const base=`runs/${task.run_id}`;
-  const originalPath=html?await uploadSource(`${base}/original.html`,html,"text/html; charset=utf-8"):await uploadSource(`${base}/original.txt`,text,"text/plain; charset=utf-8");
-  const normalizedPath=await uploadSource(`${base}/normalized.txt`,source.cleanText,"text/plain; charset=utf-8");
+  const originalPath=html?await uploadSource(`${base}/original.html`,html,"text/html"):await uploadSource(`${base}/original.txt`,text,"text/plain");
+  const normalizedPath=await uploadSource(`${base}/normalized.txt`,source.cleanText,"text/plain");
   const artifactPath=await uploadJson(`${base}/source.json`,source);
   await db.schema("nomologies").from("source_documents").update({source_url:source.sourceUrl,source_title:source.sourceTitle,source_database:source.sourceDatabase,charset:source.charset,language_hint:source.languageHint,original_storage_path:originalPath,normalized_storage_path:normalizedPath,clean_text:source.cleanText.length<=500000?source.cleanText:"",character_count:source.characterCount,paragraph_count:source.paragraphs.length,metadata:{canonicalSourceHash:source.sourceHash,retrievedAt:source.retrievedAt}}).eq("id",row.id);
   await db.schema("nomologies").from("pipeline_runs").update({source_artifact_path:artifactPath,current_stage:"sections",stage_state:{source:{status:"completed",artifactPath,paragraphCount:source.paragraphs.length}}}).eq("id",task.run_id);
