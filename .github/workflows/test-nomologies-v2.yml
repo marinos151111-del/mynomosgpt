@@ -150,6 +150,7 @@ jobs:
           git add reports/branch-latest
           git diff --cached --quiet && { echo 'Nothing to commit'; exit 0; }
           git commit -m "Publish branch test report (run ${GITHUB_RUN_NUMBER})"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Upload visual report and structured result
