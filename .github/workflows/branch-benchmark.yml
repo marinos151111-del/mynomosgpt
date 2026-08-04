@@ -13,6 +13,11 @@ on:
         required: true
         default: "10"
         type: string
+  push:
+    branches:
+      - "claude/**"
+    paths:
+      - .github/benchmark-request.json
 
 permissions:
   contents: write
@@ -44,12 +49,29 @@ jobs:
         run: |
           test -n "${OPENAI_API_KEY:-}" || { echo 'OPENAI_API_KEY is missing.' >&2; exit 1; }
 
+      - name: Resolve request
+        id: request
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_INDEX_URL: ${{ inputs.index_url }}
+          INPUT_CASE_COUNT: ${{ inputs.case_count }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "index_url=${INPUT_INDEX_URL}" >> "$GITHUB_OUTPUT"
+            echo "case_count=${INPUT_CASE_COUNT}" >> "$GITHUB_OUTPUT"
+          else
+            echo "index_url=$(jq -r '.index_url' .github/benchmark-request.json)" >> "$GITHUB_OUTPUT"
+            echo "case_count=$(jq -r '.case_count' .github/benchmark-request.json)" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run benchmark
         shell: bash
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          INDEX_URL: ${{ inputs.index_url }}
-          CASE_COUNT: ${{ inputs.case_count }}
+          INDEX_URL: ${{ steps.request.outputs.index_url }}
+          CASE_COUNT: ${{ steps.request.outputs.case_count }}
           BUDGET_MINUTES: "72"
           NOMOLOGIES_V2_MODEL: ""
         run: |
