@@ -29,7 +29,7 @@ concurrency:
 jobs:
   benchmark:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 200
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -72,7 +72,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           INDEX_URL: ${{ steps.request.outputs.index_url }}
           CASE_COUNT: ${{ steps.request.outputs.case_count }}
-          BUDGET_MINUTES: "72"
+          BUDGET_MINUTES: "185"
           NOMOLOGIES_V2_MODEL: ""
         run: |
           deno run \
@@ -96,12 +96,13 @@ jobs:
         run: |
           set -euo pipefail
           if [ ! -d artifacts/nomologies-v2-benchmark ]; then echo 'No benchmark output'; exit 0; fi
-          rm -rf reports/branch-benchmark
-          mkdir -p reports/branch-benchmark
-          cp -R artifacts/nomologies-v2-benchmark/. reports/branch-benchmark/
+          DEST="reports/branch-benchmark-${{ steps.request.outputs.case_count }}cases"
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+          cp -R artifacts/nomologies-v2-benchmark/. "$DEST/"
           git config user.name "Nomologies V2 Benchmark Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add reports/branch-benchmark
+          git add "$DEST"
           git diff --cached --quiet && { echo 'Nothing to commit'; exit 0; }
           git commit -m "Publish branch benchmark (run ${GITHUB_RUN_NUMBER})"
           git pull --rebase origin "${GITHUB_REF_NAME}"

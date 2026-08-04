@@ -138,7 +138,7 @@ function summaryTable(rows: CaseMetrics[]): string {
 if (import.meta.main) {
   const indexUrl = env("INDEX_URL") || "https://www.cylaw.org/supreme/index_2026.html";
   const count = Math.max(1, Math.min(20, Number(env("CASE_COUNT") || 10)));
-  const budgetMs = Math.max(10, Math.min(80, Number(env("BUDGET_MINUTES") || 75))) * 60_000;
+  const budgetMs = Math.max(10, Math.min(300, Number(env("BUDGET_MINUTES") || 75))) * 60_000;
   const startedAt = Date.now();
 
   await Deno.mkdir(OUTPUT_DIR, { recursive: true });
