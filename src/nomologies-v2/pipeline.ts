@@ -256,9 +256,13 @@ function scoreReadiness(
   ];
   score += Math.round(outcomeFields.filter(fieldAvailable).length / outcomeFields.length * 16);
 
+  // Critical conflicts stay heavy and uncapped: they describe defects that
+  // make the record unpublishable. Material and minor conflicts are capped in
+  // aggregate so a pile of small caveats cannot bury an otherwise
+  // well-grounded extraction — they remain fully visible in the record.
   score -= conflicts.filter((item) => item.severity === "critical").length * 15;
-  score -= conflicts.filter((item) => item.severity === "material").length * 4;
-  score -= conflicts.filter((item) => item.severity === "minor").length * 1;
+  score -= Math.min(15, conflicts.filter((item) => item.severity === "material").length * 3);
+  score -= Math.min(3, conflicts.filter((item) => item.severity === "minor").length * 1);
   if (reviewerRecommendation === "approve") score += 4;
   if (reviewerRecommendation === "reject") score -= 20;
   return Math.max(0, Math.min(100, Math.round(score)));
