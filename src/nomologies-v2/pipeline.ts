@@ -1,4 +1,8 @@
-import { createStructuredResponseWithRetry } from "./openai-responses.ts";
+import {
+  createStructuredResponseWithRetry,
+  nomologiesMiniModel,
+  nomologiesProfile,
+} from "./openai-responses.ts";
 import { REVIEW_SYSTEM_PROMPT } from "./prompts.ts";
 import { NOMOLOGIES_SCHEMAS } from "./schemas.ts";
 import { collectEvidence } from "./evidence.ts";
@@ -334,8 +338,8 @@ async function runReviewer(
     system: REVIEW_SYSTEM_PROMPT,
     user,
     effort: "medium",
-    model: options.model,
-    fallbackModel: "gpt-5-mini",
+    model: options.model || (nomologiesProfile() === "economy" ? nomologiesMiniModel() : undefined),
+    fallbackModel: nomologiesMiniModel(),
     timeoutMs: 300_000,
     signal: options.signal,
   });
@@ -447,7 +451,36 @@ export async function runNomologiesPipelineV2(
   const officialSource = officialCylawUrl(source.sourceUrl);
   const hasSourceUrl = source.sourceUrl.length > 0;
   const deterministic = deterministicConflicts(specialists, sections.map, officialSource, hasSourceUrl);
-  const review = await runReviewer(source, sections.map, specialists, taxonomy, deterministic, options);
+
+  // Economy profile: the independent review is the most expensive stage, and
+  // a record that cannot reach publishable readiness stays human-review-first
+  // regardless — reviewing it buys nothing. Records near the bar still get
+  // the full independent check.
+  const preliminaryReadiness = scoreReadiness(specialists, sections.map, deterministic, officialSource, hasSourceUrl, "review");
+  const skipReview = nomologiesProfile() === "economy" && preliminaryReadiness < 65;
+  const skippedAt = new Date().toISOString();
+  const review = skipReview
+    ? {
+      payload: {
+        publishRecommendation: "review",
+        conflicts: [],
+        sectionCorrections: [],
+        qualitySummary: "Independent review skipped by the economy profile: the record is below the publishable-readiness threshold and remains human-review-first.",
+      } as JsonRecord,
+      audit: {
+        stage: "independent-review",
+        status: "skipped",
+        model: "",
+        responseId: "",
+        startedAt: skippedAt,
+        completedAt: skippedAt,
+        elapsedMs: 0,
+        inputCharacters: 0,
+        outputCharacters: 0,
+        errorCode: "",
+      } as PipelineStageAuditV2,
+    }
+    : await runReviewer(source, sections.map, specialists, taxonomy, deterministic, options);
 
   const preliminaryEvidence = collectEvidence({
     identity: specialists.identity,

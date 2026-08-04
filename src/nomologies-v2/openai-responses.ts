@@ -64,6 +64,22 @@ function str(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+// Cost profile. "economy" runs mechanical stages (sections, identity,
+// outcome, authorities) and the reviewer on the mini model, keeps the
+// flagship for facts and judicial analysis, and skips the reviewer for
+// records that cannot reach publishable readiness anyway. "quality" runs
+// everything on the resolved flagship model. An explicit NOMOLOGIES_V2_MODEL
+// pin always wins over profile tiering.
+export type NomologiesProfile = "economy" | "quality";
+
+export function nomologiesProfile(): NomologiesProfile {
+  return env("NOMOLOGIES_V2_PROFILE").toLowerCase() === "quality" ? "quality" : "economy";
+}
+
+export function nomologiesMiniModel(): string {
+  return env("NOMOLOGIES_V2_MINI_MODEL") || "gpt-5.4-mini";
+}
+
 let cachedModel = "";
 
 function modelRank(id: string): number {

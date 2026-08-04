@@ -1,5 +1,7 @@
 import {
   createStructuredResponseWithRetry,
+  nomologiesMiniModel,
+  nomologiesProfile,
   type ReasoningEffort,
 } from "./openai-responses.ts";
 import {
@@ -175,6 +177,7 @@ async function runAgent(
   user: string,
   effort: ReasoningEffort,
   options: { signal?: AbortSignal; model?: string },
+  stageModel?: string,
 ): Promise<{ data: JsonRecord; audit: PipelineStageAuditV2 }> {
   const startedAt = new Date().toISOString();
   const response = await createStructuredResponseWithRetry({
@@ -184,8 +187,8 @@ async function runAgent(
     system,
     user,
     effort,
-    model: options.model,
-    fallbackModel: "gpt-5-mini",
+    model: options.model || stageModel,
+    fallbackModel: nomologiesMiniModel(),
     timeoutMs: 300_000,
     signal: options.signal,
   });
@@ -540,12 +543,19 @@ export async function runSpecialistAgents(
   const authoritiesUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, AUTHORITY_TYPES, "none"), "nomologies.authorities.v2");
   const outcomeUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, OUTCOME_TYPES, "none"), "nomologies.outcome.v2");
 
+  // Economy profile: mechanical stages run on the mini model with lighter
+  // reasoning; facts and judicial analysis keep the flagship model because
+  // that is where legal nuance lives. An explicit model pin overrides all.
+  const economy = nomologiesProfile() === "economy";
+  const mini = economy ? nomologiesMiniModel() : undefined;
+  const mechanicalEffort: ReasoningEffort = economy ? "low" : "medium";
+
   const [identityResponse, factsResponse, analysisResponse, authorityResponse, outcomeResponse] = await Promise.all([
-    runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, "medium", options),
+    runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, mechanicalEffort, options, mini),
     runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "medium", options),
     runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "medium", options),
-    runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options),
-    runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, "medium", options),
+    runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options, mini),
+    runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, mechanicalEffort, options, mini),
   ]);
 
   const flags = new Set<string>(sectionMap.reviewFlags);

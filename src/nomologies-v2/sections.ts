@@ -1,4 +1,8 @@
-import { createStructuredResponseWithRetry } from "./openai-responses.ts";
+import {
+  createStructuredResponseWithRetry,
+  nomologiesMiniModel,
+  nomologiesProfile,
+} from "./openai-responses.ts";
 import { SECTION_SYSTEM_PROMPT } from "./prompts.ts";
 import { NOMOLOGIES_SCHEMAS } from "./schemas.ts";
 import {
@@ -477,8 +481,8 @@ export async function buildSectionMap(
       system: SECTION_SYSTEM_PROMPT,
       user: sectionUserPayload(source, window, windows.length),
       effort: "low",
-      model: options.model,
-      fallbackModel: "gpt-5-mini",
+      model: options.model || (nomologiesProfile() === "economy" ? nomologiesMiniModel() : undefined),
+      fallbackModel: nomologiesMiniModel(),
       timeoutMs: 120_000,
       signal: options.signal,
     });
