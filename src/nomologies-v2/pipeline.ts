@@ -1,4 +1,4 @@
-import { createStructuredResponse } from "./openai-responses.ts";
+import { createStructuredResponseWithRetry } from "./openai-responses.ts";
 import { REVIEW_SYSTEM_PROMPT } from "./prompts.ts";
 import { NOMOLOGIES_SCHEMAS } from "./schemas.ts";
 import { collectEvidence } from "./evidence.ts";
@@ -327,7 +327,7 @@ async function runReviewer(
     deterministicConflicts: deterministic,
     sourceParagraphs: reviewContextParagraphs(source, [], evidence),
   });
-  const response = await createStructuredResponse({
+  const response = await createStructuredResponseWithRetry({
     stage: "independent-review",
     schemaName: NOMOLOGIES_SCHEMAS.review.name,
     schema: NOMOLOGIES_SCHEMAS.review.schema,
@@ -335,7 +335,7 @@ async function runReviewer(
     user,
     effort: "medium",
     model: options.model,
-    timeoutMs: 240_000,
+    timeoutMs: 300_000,
     signal: options.signal,
   });
   return {

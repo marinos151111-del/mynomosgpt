@@ -1,5 +1,5 @@
 import {
-  createStructuredResponse,
+  createStructuredResponseWithRetry,
   type ReasoningEffort,
 } from "./openai-responses.ts";
 import {
@@ -177,7 +177,7 @@ async function runAgent(
   options: { signal?: AbortSignal; model?: string },
 ): Promise<{ data: JsonRecord; audit: PipelineStageAuditV2 }> {
   const startedAt = new Date().toISOString();
-  const response = await createStructuredResponse({
+  const response = await createStructuredResponseWithRetry({
     stage,
     schemaName: schema.name,
     schema: schema.schema,
@@ -185,7 +185,7 @@ async function runAgent(
     user,
     effort,
     model: options.model,
-    timeoutMs: 240_000,
+    timeoutMs: 300_000,
     signal: options.signal,
   });
   return {

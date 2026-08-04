@@ -212,6 +212,23 @@ async function callResponses(
   return last;
 }
 
+// One transparent retry for retryable provider failures (timeouts, rate
+// limits, 5xx). A single slow OpenAI response must not kill a whole
+// multi-stage extraction. User cancellation is never retried.
+export async function createStructuredResponseWithRetry<T extends JsonRecord = JsonRecord>(
+  request: StructuredResponseRequest,
+): Promise<StructuredResponseResult<T>> {
+  try {
+    return await createStructuredResponse<T>(request);
+  } catch (error) {
+    const retryable = error instanceof NomologiesOpenAIError &&
+      error.retryable &&
+      !request.signal?.aborted;
+    if (!retryable) throw error;
+    return await createStructuredResponse<T>(request);
+  }
+}
+
 export async function createStructuredResponse<T extends JsonRecord = JsonRecord>(
   request: StructuredResponseRequest,
 ): Promise<StructuredResponseResult<T>> {

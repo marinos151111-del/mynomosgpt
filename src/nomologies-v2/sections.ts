@@ -1,4 +1,4 @@
-import { createStructuredResponse } from "./openai-responses.ts";
+import { createStructuredResponseWithRetry } from "./openai-responses.ts";
 import { SECTION_SYSTEM_PROMPT } from "./prompts.ts";
 import { NOMOLOGIES_SCHEMAS } from "./schemas.ts";
 import {
@@ -470,7 +470,7 @@ export async function buildSectionMap(
   const reviewFlags = new Set<string>();
 
   const results = await mapWithConcurrency(windows, MAX_CONCURRENCY, async (window) => {
-    const response = await createStructuredResponse({
+    const response = await createStructuredResponseWithRetry({
       stage: `sections-${window.index + 1}-of-${windows.length}`,
       schemaName: NOMOLOGIES_SCHEMAS.sections.name,
       schema: NOMOLOGIES_SCHEMAS.sections.schema,
