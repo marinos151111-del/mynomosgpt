@@ -30,7 +30,7 @@ on:
       - .github/workflows/test-nomologies-v2.yml
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: nomologies-v2-test-${{ github.ref }}
@@ -118,6 +118,39 @@ jobs:
           else
             printf '# Nomologies V2 test\n\nNo report was generated. Inspect the workflow logs.\n' >> "$GITHUB_STEP_SUMMARY"
           fi
+
+      - name: Print structured diagnostics to log
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          RESULT=artifacts/nomologies-v2/nomologies-v2-result.json
+          if [ ! -f "$RESULT" ]; then echo 'DIAG: no result JSON'; exit 0; fi
+          echo 'DIAG_CONFLICTS_START'
+          jq -c '[(.record.conflicts // [])[] | {severity, code, fieldPath}]' "$RESULT" || true
+          echo 'DIAG_CONFLICTS_END'
+          echo 'DIAG_FIELDS_START'
+          jq -c '[(.record // {}) | {identity, classification, facts, procedure, analysis, authorities, outcome} | to_entries[] | .key as $g | (.value // {}) | to_entries[] | select(.value.status? != null) | {f: ($g + "." + .key), s: .value.status}] | group_by(.s) | map({status: .[0].s, count: length, fields: [.[] | .f]})' "$RESULT" || true
+          echo 'DIAG_FIELDS_END'
+          echo 'DIAG_SECTIONS_START'
+          jq -c '[((.record.sectionMap // .sectionMap // {}).spans // [])[] | "\(.startParagraphId)-\(.endParagraphId) \(.sectionType) \(.speakerRole)"]' "$RESULT" || true
+          echo 'DIAG_SECTIONS_END'
+
+      - name: Commit report to this branch
+        if: always() && github.event_name == 'workflow_dispatch' && github.ref_name != 'main'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -d artifacts/nomologies-v2 ]; then echo 'No artifacts to commit'; exit 0; fi
+          rm -rf reports/branch-latest
+          mkdir -p reports/branch-latest
+          cp -R artifacts/nomologies-v2/. reports/branch-latest/
+          git config user.name "Nomologies V2 Test Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/branch-latest
+          git diff --cached --quiet && { echo 'Nothing to commit'; exit 0; }
+          git commit -m "Publish branch test report (run ${GITHUB_RUN_NUMBER})"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Upload visual report and structured result
         if: always()
