@@ -519,6 +519,7 @@ export async function runNomologiesPipelineV2(
   const record: NomologiesCaseRecordV2 = {
     schemaVersion: NOMOLOGIES_V2_VERSION,
     runId,
+    pipelineProfile: nomologiesProfile(),
     source,
     sectionMap: sections.map,
     identity: specialists.identity,

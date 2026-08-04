@@ -615,6 +615,7 @@ export interface PipelineStageAuditV2 {
 export interface NomologiesCaseRecordV2 {
   schemaVersion: typeof NOMOLOGIES_V2_VERSION;
   runId: string;
+  pipelineProfile: string;
   source: JudgmentSourceV2;
   sectionMap: SectionMapV2;
   identity: CaseIdentityV2;
