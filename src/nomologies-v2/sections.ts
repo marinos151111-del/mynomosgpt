@@ -234,6 +234,7 @@ function reconcileCandidates(
   };
 
   const assignments: Vote[] = [];
+  const assignmentHasVotes: boolean[] = [];
   for (const paragraph of source.paragraphs) {
     const votes = new Map<string, Vote>();
     for (const candidate of candidates) {
@@ -290,6 +291,32 @@ function reconcileCandidates(
       rationale: "No reliable section vote; preserved for human review.",
       evidence: new Set<string>(),
     });
+    assignmentHasVotes.push(ranked.length > 0);
+  }
+
+  // Absorb short interruptions between two identically classified neighbours:
+  // visual separator lines ("____") and unvoted gap paragraphs otherwise split
+  // one legal section into duplicate fragments.
+  const SEPARATOR_RE = /^[\s_\-–—=·•.*]{3,}$/u;
+  let cursor = 0;
+  while (cursor < assignments.length) {
+    const absorbable = (index: number): boolean =>
+      !assignmentHasVotes[index] || SEPARATOR_RE.test(source.paragraphs[index].text);
+    if (!absorbable(cursor)) {
+      cursor += 1;
+      continue;
+    }
+    let runEnd = cursor;
+    while (runEnd + 1 < assignments.length && runEnd - cursor < 2 && absorbable(runEnd + 1)) runEnd += 1;
+    const before = cursor > 0 ? assignments[cursor - 1] : null;
+    const after = runEnd + 1 < assignments.length ? assignments[runEnd + 1] : null;
+    if (before && after && before.key === after.key && before.key !== assignments[cursor].key) {
+      for (let index = cursor; index <= runEnd; index += 1) {
+        assignments[index] = before;
+        reviewFlags.add(`section_smoothed_${source.paragraphs[index].id}`);
+      }
+    }
+    cursor = runEnd + 1;
   }
 
   const spans: SectionSpanV2[] = [];
@@ -342,7 +369,7 @@ function correctStatutoryFootnotes(
       .join(" ");
     const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const linkedToProvision = new RegExp(
-      `(?:άρθρ(?:ο|ου|ων)?|κανονισμ(?:ός|ού|ο)|κανόνα|διάταξ|section|article|rule|regulation)[^\\[] {0,0}`.replace("[^\\[] {0,0}", `[^\\[] {0,220}\\[${escaped}\\]`),
+      `(?:άρθρ(?:ο|ου|ων)?|κανονισμ(?:ός|ού|ο)|κανόνα|διάταξ|section|article|rule|regulation)[^\\[]{0,220}\\[${escaped}\\]`,
       "iu",
     ).test(preceding);
     if (!linkedToProvision) return span;
@@ -359,6 +386,60 @@ function correctStatutoryFootnotes(
       rationale: "Η αριθμημένη υποσημείωση συνδέεται ρητά με προηγούμενη νομοθετική διάταξη.",
     };
   });
+}
+
+function mergedSpeaker(left: SpeakerRole, right: SpeakerRole): SpeakerRole | null {
+  if (left === right) return left;
+  if (left === "unknown") return right;
+  if (right === "unknown") return left;
+  // The authoring judge speaks for the court; treating these voices as distinct
+  // sections splits one continuous passage into duplicate fragments.
+  if ((left === "court" && right === "authoring_judge") || (left === "authoring_judge" && right === "court")) {
+    return "authoring_judge";
+  }
+  return null;
+}
+
+export function mergeAdjacentSpans(
+  source: JudgmentSourceV2,
+  spans: SectionSpanV2[],
+): SectionSpanV2[] {
+  const ordinal = new Map(source.paragraphs.map((paragraph) => [paragraph.id, paragraph.ordinal]));
+  const paragraphCount = (span: SectionSpanV2): number => {
+    const start = ordinal.get(span.startParagraphId) || 0;
+    const end = ordinal.get(span.endParagraphId) || start;
+    return Math.max(1, end - start + 1);
+  };
+  const merged: SectionSpanV2[] = [];
+  for (const span of spans) {
+    const previous = merged[merged.length - 1];
+    const speaker = previous ? mergedSpeaker(previous.speakerRole, span.speakerRole) : null;
+    if (
+      previous && speaker !== null &&
+      previous.sectionType === span.sectionType &&
+      previous.isQuotedMaterial === span.isQuotedMaterial &&
+      previous.quotedSourceType === span.quotedSourceType
+    ) {
+      const leftCount = paragraphCount(previous);
+      const rightCount = paragraphCount(span);
+      merged[merged.length - 1] = {
+        ...previous,
+        endParagraphId: span.endParagraphId,
+        speakerRole: speaker,
+        heading: previous.heading || span.heading,
+        confidence: Number(
+          ((previous.confidence * leftCount + span.confidence * rightCount) / (leftCount + rightCount)).toFixed(4),
+        ),
+        boundaryEvidenceParagraphIds: [
+          ...new Set([...previous.boundaryEvidenceParagraphIds, ...span.boundaryEvidenceParagraphIds]),
+        ].slice(0, 16),
+        rationale: span.rationale.length > previous.rationale.length ? span.rationale : previous.rationale,
+      };
+      continue;
+    }
+    merged.push(span);
+  }
+  return merged.map((span, index) => ({ ...span, id: `S${String(index + 1).padStart(5, "0")}` }));
 }
 
 async function mapWithConcurrency<T, R>(
@@ -408,7 +489,10 @@ export async function buildSectionMap(
 
   const candidates = results.flatMap((result) => result.candidates);
   if (!candidates.length) reviewFlags.add("section_agent_returned_no_valid_spans");
-  const spans = correctStatutoryFootnotes(source, reconcileCandidates(source, candidates, reviewFlags), reviewFlags);
+  const spans = mergeAdjacentSpans(
+    source,
+    correctStatutoryFootnotes(source, reconcileCandidates(source, candidates, reviewFlags), reviewFlags),
+  );
   const map: SectionMapV2 = {
     version: `${NOMOLOGIES_V2_VERSION}:sections-v1`,
     paragraphCount: source.paragraphs.length,

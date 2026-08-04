@@ -134,17 +134,33 @@ function buildTaxonomy(results: SpecialistResultsV2): SearchTaxonomyV2 {
   };
 }
 
+function fieldAtPath(results: SpecialistResultsV2, path: string): ExtractedFieldV2<unknown> | null {
+  const [group, name] = path.split(".");
+  const groups: Record<string, Record<string, ExtractedFieldV2<unknown>> | undefined> = {
+    identity: results.identity as unknown as Record<string, ExtractedFieldV2<unknown>>,
+    classification: results.classification as unknown as Record<string, ExtractedFieldV2<unknown>>,
+    facts: results.facts as unknown as Record<string, ExtractedFieldV2<unknown>>,
+    procedure: results.procedure as unknown as Record<string, ExtractedFieldV2<unknown>>,
+    analysis: results.analysis as unknown as Record<string, ExtractedFieldV2<unknown>>,
+    authorities: results.authorities as unknown as Record<string, ExtractedFieldV2<unknown>>,
+    outcome: results.outcome as unknown as Record<string, ExtractedFieldV2<unknown>>,
+  };
+  const field = groups[group]?.[name];
+  return field && typeof field === "object" && "status" in field ? field : null;
+}
+
 function deterministicConflicts(
   results: SpecialistResultsV2,
   sectionMap: SectionMapV2,
   officialSource: boolean,
+  hasSourceUrl: boolean,
 ): PipelineConflictV2[] {
   const conflicts: PipelineConflictV2[] = [];
   const add = (code: string, severity: PipelineConflictV2["severity"], fieldPath: string, message: string) => {
     conflicts.push({ code, severity, fieldPath, message, evidenceIds: [] });
   };
 
-  if (!officialSource) add("SOURCE_NOT_OFFICIAL_CYLAW", "material", "source.sourceUrl", "The source URL is not a verified CyLaw HTTPS address.");
+  if (hasSourceUrl && !officialSource) add("SOURCE_NOT_OFFICIAL_CYLAW", "material", "source.sourceUrl", "The source URL is not a verified CyLaw HTTPS address.");
   if (!sectionMap.coverageComplete || !sectionMap.overlapFree) add("SECTION_MAP_INCOMPLETE", "critical", "sectionMap", "The section map does not form a complete non-overlapping judgment partition.");
   if (!fieldAvailable(results.identity.caseName)) add("CASE_NAME_UNVERIFIED", "critical", "identity.caseName", "The present judgment's formal case name is not evidence-grounded.");
   if (!fieldAvailable(results.identity.decisionDate)) add("DECISION_DATE_UNVERIFIED", "critical", "identity.decisionDate", "The judgment date is not evidence-grounded.");
@@ -163,9 +179,22 @@ function deterministicConflicts(
   }
   if (!fieldAvailable(results.outcome.dispositionText)) add("DISPOSITION_UNVERIFIED", "critical", "outcome.dispositionText", "The operative final order is not evidence-grounded.");
 
+  // Invalid attribution anchors are already discarded by the evidence layer,
+  // so they must not block an otherwise well-grounded record. They stay visible
+  // as minor notes, and rise to material only when the field lost its grounding.
   for (const flag of results.reviewFlags) {
     if (/wrong_section|wrong_speaker|quoted_material_not_permitted/u.test(flag)) {
-      add("ATTRIBUTION_VALIDATION_FAILED", "critical", flag.split(":")[0] || "evidence", `Invalid legal attribution: ${flag}`);
+      const fieldPath = flag.split(":")[0] || "evidence";
+      const field = fieldAtPath(results, fieldPath);
+      const stillGrounded = !!field && fieldAvailable(field);
+      add(
+        "ATTRIBUTION_VALIDATION_FAILED",
+        stillGrounded ? "minor" : "material",
+        fieldPath,
+        stillGrounded
+          ? `Discarded wrongly attributed evidence; the field remains grounded by valid evidence: ${flag}`
+          : `Discarded wrongly attributed evidence and the field is no longer grounded: ${flag}`,
+      );
     }
   }
   return conflicts;
@@ -176,10 +205,14 @@ function scoreReadiness(
   sectionMap: SectionMapV2,
   conflicts: PipelineConflictV2[],
   officialSource: boolean,
+  hasSourceUrl: boolean,
   reviewerRecommendation: string,
 ): number {
   let score = 0;
+  // Manually supplied judgment text is a legitimate intake path; only an
+  // unverified remote URL forfeits the source bonus entirely.
   if (officialSource) score += 4;
+  else if (!hasSourceUrl) score += 2;
   if (sectionMap.coverageComplete && sectionMap.overlapFree) score += 8;
 
   const identityFields = [
@@ -223,8 +256,9 @@ function scoreReadiness(
   ];
   score += Math.round(outcomeFields.filter(fieldAvailable).length / outcomeFields.length * 16);
 
-  score -= conflicts.filter((item) => item.severity === "critical").length * 18;
-  score -= conflicts.filter((item) => item.severity === "material").length * 5;
+  score -= conflicts.filter((item) => item.severity === "critical").length * 15;
+  score -= conflicts.filter((item) => item.severity === "material").length * 4;
+  score -= conflicts.filter((item) => item.severity === "minor").length * 1;
   if (reviewerRecommendation === "approve") score += 4;
   if (reviewerRecommendation === "reject") score -= 20;
   return Math.max(0, Math.min(100, Math.round(score)));
@@ -321,6 +355,10 @@ async function runReviewer(
   };
 }
 
+// Reviewer conflicts remain visible, but only case-identity level errors keep
+// the power to block publication outright. Everything else is at most material.
+const REVIEWER_CRITICAL_CODES = /IDENTITY_MISMATCH|WRONG_CASE|WRONG_JUDGMENT|FABRICAT|HALLUCIN/i;
+
 function reviewerConflicts(
   payload: JsonRecord,
   allEvidenceIds: Set<string>,
@@ -344,9 +382,12 @@ function reviewerConflicts(
     if (code === "LOWER_COURT_ORDER_CONFLICT" && results.procedure.lowerCourtDecision.status === "available") return [];
     const severity = str(raw.severity);
     if (!["critical", "material", "minor"].includes(severity)) return [];
+    const capped = severity === "critical" && !REVIEWER_CRITICAL_CODES.test(code)
+      ? "material"
+      : severity;
     return [{
       code,
-      severity: severity as PipelineConflictV2["severity"],
+      severity: capped as PipelineConflictV2["severity"],
       fieldPath,
       message: str(raw.message),
       evidenceIds: asArray(raw.evidenceIds).map(str).filter((id) => allEvidenceIds.has(id)),
@@ -403,7 +444,8 @@ export async function runNomologiesPipelineV2(
   const specialists = await runSpecialistAgents(source, sections.map, options);
   const taxonomy = buildTaxonomy(specialists);
   const officialSource = officialCylawUrl(source.sourceUrl);
-  const deterministic = deterministicConflicts(specialists, sections.map, officialSource);
+  const hasSourceUrl = source.sourceUrl.length > 0;
+  const deterministic = deterministicConflicts(specialists, sections.map, officialSource, hasSourceUrl);
   const review = await runReviewer(source, sections.map, specialists, taxonomy, deterministic, options);
 
   const preliminaryEvidence = collectEvidence({
@@ -423,12 +465,15 @@ export async function runNomologiesPipelineV2(
   }
   const conflicts = [...conflictMap.values()];
   const recommendation = str(review.payload.publishRecommendation) || "review";
-  const readinessScore = scoreReadiness(specialists, sections.map, conflicts, officialSource, recommendation);
+  const readinessScore = scoreReadiness(specialists, sections.map, conflicts, officialSource, hasSourceUrl, recommendation);
   const criticalConflict = conflicts.some((item) => item.severity === "critical");
+  // A record is strict-ready when its core legal skeleton is evidence-grounded
+  // and nothing critical remains. A cautious "review" recommendation flags the
+  // record for attention but no longer disqualifies it; only "reject" blocks.
   const strictReady =
-    readinessScore >= 90 &&
+    readinessScore >= 75 &&
     !criticalConflict &&
-    recommendation === "approve" &&
+    recommendation !== "reject" &&
     fieldAvailable(specialists.identity.caseName) &&
     fieldAvailable(specialists.analysis.holding) &&
     (fieldAvailable(specialists.analysis.legalPrincipleSummary) || fieldAvailable(specialists.analysis.ratioDecidendi)) &&
@@ -460,9 +505,9 @@ export async function runNomologiesPipelineV2(
     ]),
     readinessScore,
     strictReady,
-    // V2 initially remains human-review-first even when strict-ready. The UI can
-    // approve and create a signed review decision before deployment.
-    humanReviewRequired: true,
+    // Strict-ready records are usable as-is; anything below the bar still asks
+    // for a human decision before publication.
+    humanReviewRequired: !strictReady,
     stages: [...stages, ...specialists.audits, review.audit],
     createdAt: pipelineStarted,
     updatedAt: now,

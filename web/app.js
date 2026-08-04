@@ -307,9 +307,35 @@ function fieldList(title, rawField, renderer, subtitle = "") {
   return resultSection(title, subtitle || `${row.status} · ${Math.round(Number(row.confidence || 0) * 100)}% confidence`, `${itemCards(Array.isArray(row.value) ? row.value : [], renderer)}${evidenceHtml(row)}`);
 }
 
+function sectionFlowHtml(spans) {
+  if (!spans.length) return "";
+  const groups = [];
+  for (const span of spans) {
+    const previous = groups[groups.length - 1];
+    if (previous && previous.sectionType === span.sectionType) {
+      previous.count += 1;
+      previous.end = span.endParagraphId;
+    } else {
+      groups.push({ sectionType: span.sectionType, count: 1, start: span.startParagraphId, end: span.endParagraphId });
+    }
+  }
+  return `<div class="section-flow">${groups.map((group) => `<span class="flow-chip" title="${h(group.start)}–${h(group.end)}">${h(group.sectionType)}${group.count > 1 ? `<b>×${group.count}</b>` : ""}</span>`).join("")}</div>`;
+}
+
 function sectionMapHtml(map) {
   const spans = Array.isArray(map?.spans) ? map.spans : [];
-  return resultSection("Section map", `${spans.length} legal spans`, `<div class="table-wrap"><table><thead><tr><th>Passages</th><th>Section</th><th>Speaker</th><th>Quoted</th><th>Confidence</th><th>Heading</th><th>Rationale</th></tr></thead><tbody>${spans.map((span) => `<tr><td><code>${h(span.startParagraphId)}–${h(span.endParagraphId)}</code></td><td><b>${h(span.sectionType)}</b></td><td>${h(span.speakerRole)}</td><td>${span.isQuotedMaterial ? h(span.quotedSourceType || "yes") : "no"}</td><td>${Math.round(Number(span.confidence || 0) * 100)}%</td><td>${h(span.heading || "—")}</td><td>${h(span.rationale || "")}</td></tr>`).join("")}</tbody></table></div>`);
+  const distinctTypes = new Set(spans.map((span) => span.sectionType)).size;
+  let previousType = null;
+  const rows = spans.map((span) => {
+    const groupStart = span.sectionType !== previousType;
+    previousType = span.sectionType;
+    return `<tr${groupStart ? ' class="group-start"' : ""}><td><code>${h(span.startParagraphId)}–${h(span.endParagraphId)}</code></td><td><b>${h(span.sectionType)}</b></td><td>${h(span.speakerRole)}</td><td>${span.isQuotedMaterial ? h(span.quotedSourceType || "yes") : "no"}</td><td>${Math.round(Number(span.confidence || 0) * 100)}%</td><td>${h(span.heading || "—")}</td><td>${h(span.rationale || "")}</td></tr>`;
+  }).join("");
+  return resultSection(
+    "Section map",
+    `${spans.length} spans · ${distinctTypes} section types`,
+    `${sectionFlowHtml(spans)}<div class="table-wrap"><table><thead><tr><th>Passages</th><th>Section</th><th>Speaker</th><th>Quoted</th><th>Confidence</th><th>Heading</th><th>Rationale</th></tr></thead><tbody>${rows}</tbody></table></div>`,
+  );
 }
 
 function metric(label, value, kind = "") {
@@ -350,7 +376,7 @@ function renderFullResult(envelope, result) {
   elements.resultMeta.textContent = `${field(identity.court).value || "Court unavailable"} · ${field(identity.decisionDate).value || "Date unavailable"} · ${Math.round(envelope.elapsedMs / 100) / 10}s`;
   const readiness = Number(record.readinessScore || 0);
   elements.metricStrip.innerHTML = [
-    metric("Readiness", `${readiness}/100`, readiness >= 90 ? "good" : readiness >= 70 ? "warn" : "bad"),
+    metric("Readiness", `${readiness}/100`, readiness >= 75 ? "good" : readiness >= 50 ? "warn" : "bad"),
     metric("Strict-ready", record.strictReady ? "Yes" : "No", record.strictReady ? "good" : "warn"),
     metric("Evidence", String(evidence.length), evidence.length ? "good" : "bad"),
     metric("Conflicts", String(conflicts.length), conflicts.some((item) => item.severity === "critical") ? "bad" : conflicts.length ? "warn" : "good"),
