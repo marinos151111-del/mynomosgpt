@@ -204,7 +204,10 @@ async function callResponses(
       );
     }
     if (last.ok || attempt === 2 || !retryableStatus(last.status)) return last;
-    const retryAfter = Math.min(2_000, Math.max(400, Number(last.headers.get("retry-after") || 0) * 1_000));
+    // Rate limits deserve a real pause: respect the provider's retry-after
+    // for up to 60 seconds instead of hammering straight back.
+    const cap = last.status === 429 ? 60_000 : 2_000;
+    const retryAfter = Math.min(cap, Math.max(400, Number(last.headers.get("retry-after") || 0) * 1_000));
     await new Promise((resolve) => setTimeout(resolve, retryAfter));
   }
   if (!last) {

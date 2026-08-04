@@ -188,6 +188,10 @@ if (import.meta.main) {
       const elapsedMs = Date.now() - caseStarted;
       const message = error instanceof Error ? error.message : String(error);
       console.error(`  FAILED: ${message}`);
+      if (/429|RATE_LIMIT/i.test(message) && Date.now() - startedAt < budgetMs) {
+        console.log("  Rate limited; cooling down 90s before the next case.");
+        await new Promise((resolve) => setTimeout(resolve, 90_000));
+      }
       rows.push({
         index: caseIndex,
         url,
