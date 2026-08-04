@@ -1,0 +1,95 @@
+name: Branch benchmark over CyLaw index
+
+on:
+  workflow_dispatch:
+    inputs:
+      index_url:
+        description: CyLaw index page listing judgments
+        required: true
+        default: https://www.cylaw.org/supreme/index_2026.html
+        type: string
+      case_count:
+        description: Number of judgments to run (max 20)
+        required: true
+        default: "10"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nomologies-branch-benchmark-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Use Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check batch runner
+        run: deno check scripts/run-batch.ts
+
+      - name: Confirm OpenAI secret
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          test -n "${OPENAI_API_KEY:-}" || { echo 'OPENAI_API_KEY is missing.' >&2; exit 1; }
+
+      - name: Run benchmark
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          INDEX_URL: ${{ inputs.index_url }}
+          CASE_COUNT: ${{ inputs.case_count }}
+          BUDGET_MINUTES: "72"
+          NOMOLOGIES_V2_MODEL: ""
+        run: |
+          deno run \
+            --allow-net=api.openai.com,cylaw.org,www.cylaw.org \
+            --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,INDEX_URL,CASE_COUNT,BUDGET_MINUTES,SOURCE_URL,PIPELINE_MODE \
+            --allow-read \
+            --allow-write=artifacts \
+            scripts/run-batch.ts
+
+      - name: Publish summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f artifacts/nomologies-v2-benchmark/summary.md ]; then
+            cat artifacts/nomologies-v2-benchmark/summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit benchmark to this branch
+        if: always() && github.ref_name != 'main'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -d artifacts/nomologies-v2-benchmark ]; then echo 'No benchmark output'; exit 0; fi
+          rm -rf reports/branch-benchmark
+          mkdir -p reports/branch-benchmark
+          cp -R artifacts/nomologies-v2-benchmark/. reports/branch-benchmark/
+          git config user.name "Nomologies V2 Benchmark Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/branch-benchmark
+          git diff --cached --quiet && { echo 'Nothing to commit'; exit 0; }
+          git commit -m "Publish branch benchmark (run ${GITHUB_RUN_NUMBER})"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Upload benchmark artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomologies-v2-benchmark-${{ github.run_number }}
+          path: artifacts/nomologies-v2-benchmark
+          if-no-files-found: warn
+          retention-days: 30
