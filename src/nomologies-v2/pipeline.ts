@@ -215,46 +215,42 @@ function scoreReadiness(
   else if (!hasSourceUrl) score += 2;
   if (sectionMap.coverageComplete && sectionMap.overlapFree) score += 8;
 
-  const identityFields = [
+  // A field the judgment genuinely does not contain (status "unavailable",
+  // e.g. no ECLI on older CyLaw pages) must not count against the score;
+  // only fields the extraction failed to ground reduce the ratio.
+  const availableRatio = (fields: Array<ExtractedFieldV2<unknown>>, weight: number): number => {
+    const countable = fields.filter((field) => field.status !== "unavailable");
+    if (!countable.length) return 0;
+    return Math.round(countable.filter(fieldAvailable).length / countable.length * weight);
+  };
+
+  score += availableRatio([
     results.identity.caseName, results.identity.decisionDate, results.identity.court,
     results.identity.caseNumber, results.identity.docket, results.identity.citation,
     results.identity.ecli, results.identity.judges,
-  ];
-  score += Math.round(identityFields.filter(fieldAvailable).length / identityFields.length * 18);
-
-  const classificationFields = [
+  ], 18);
+  score += availableRatio([
     results.classification.caseFamily, results.classification.primaryLegalArea,
     results.classification.proceedingType, results.classification.proceduralPosture,
     results.classification.courtLevel,
-  ];
-  score += Math.round(classificationFields.filter(fieldAvailable).length / classificationFields.length * 7);
-
-  const factFields = [results.facts.summary, results.facts.materialFacts, results.facts.chronology];
-  score += Math.round(factFields.filter(fieldAvailable).length / factFields.length * 10);
-
-  const procedureFields = [
+  ], 7);
+  score += availableRatio([results.facts.summary, results.facts.materialFacts, results.facts.chronology], 10);
+  score += availableRatio([
     results.procedure.proceduralHistory,
     results.procedure.originatingProceeding,
     results.procedure.lowerCourtDecision,
     results.procedure.groundsOrIssues,
-  ];
-  score += Math.round(procedureFields.filter(fieldAvailable).length / procedureFields.length * 5);
-
-  const analysisFields = [
+  ], 5);
+  score += availableRatio([
     results.analysis.legalIssues, results.analysis.holding, results.analysis.ratioDecidendi,
     results.analysis.legalPrincipleSummary, results.analysis.findings,
     results.analysis.legalTestsAndStandards,
-  ];
-  score += Math.round(analysisFields.filter(fieldAvailable).length / analysisFields.length * 24);
-
-  const authorityFields = [results.authorities.legislation, results.authorities.authorities];
-  score += Math.round(authorityFields.filter(fieldAvailable).length / authorityFields.length * 8);
-
-  const outcomeFields = [
+  ], 24);
+  score += availableRatio([results.authorities.legislation, results.authorities.authorities], 8);
+  score += availableRatio([
     results.outcome.overallOutcome, results.outcome.dispositionText,
     results.outcome.components, results.outcome.orders,
-  ];
-  score += Math.round(outcomeFields.filter(fieldAvailable).length / outcomeFields.length * 16);
+  ], 16);
 
   // Critical conflicts stay heavy and uncapped: they describe defects that
   // make the record unpublishable. Material and minor conflicts are capped in
@@ -339,6 +335,7 @@ async function runReviewer(
     user,
     effort: "medium",
     model: options.model,
+    fallbackModel: "gpt-5-mini",
     timeoutMs: 300_000,
     signal: options.signal,
   });

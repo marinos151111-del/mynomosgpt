@@ -17,6 +17,7 @@ export interface StructuredResponseRequest {
   stage: string;
   effort?: ReasoningEffort;
   model?: string;
+  fallbackModel?: string;
   timeoutMs?: number;
   signal?: AbortSignal;
 }
@@ -214,17 +215,21 @@ async function callResponses(
 
 // One transparent retry for retryable provider failures (timeouts, rate
 // limits, 5xx). A single slow OpenAI response must not kill a whole
-// multi-stage extraction. User cancellation is never retried.
+// multi-stage extraction. A timeout retries on the faster fallback model
+// when one is configured, because repeating the same slow call usually
+// times out again. User cancellation is never retried.
 export async function createStructuredResponseWithRetry<T extends JsonRecord = JsonRecord>(
   request: StructuredResponseRequest,
 ): Promise<StructuredResponseResult<T>> {
   try {
     return await createStructuredResponse<T>(request);
   } catch (error) {
-    const retryable = error instanceof NomologiesOpenAIError &&
-      error.retryable &&
-      !request.signal?.aborted;
-    if (!retryable) throw error;
+    if (!(error instanceof NomologiesOpenAIError) || !error.retryable || request.signal?.aborted) {
+      throw error;
+    }
+    if (error.code === "OPENAI_TIMEOUT" && request.fallbackModel && request.fallbackModel !== request.model) {
+      return await createStructuredResponse<T>({ ...request, model: request.fallbackModel });
+    }
     return await createStructuredResponse<T>(request);
   }
 }

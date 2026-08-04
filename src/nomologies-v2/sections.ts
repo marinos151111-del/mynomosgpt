@@ -478,6 +478,7 @@ export async function buildSectionMap(
       user: sectionUserPayload(source, window, windows.length),
       effort: "low",
       model: options.model,
+      fallbackModel: "gpt-5-mini",
       timeoutMs: 120_000,
       signal: options.signal,
     });

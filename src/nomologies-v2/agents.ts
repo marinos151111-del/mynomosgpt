@@ -185,6 +185,7 @@ async function runAgent(
     user,
     effort,
     model: options.model,
+    fallbackModel: "gpt-5-mini",
     timeoutMs: 300_000,
     signal: options.signal,
   });
