@@ -59,7 +59,9 @@ export async function extractJudgmentLinks(indexUrl: string, count: number): Pro
   const html = await decodeIndexHtml(indexUrl);
   const links: string[] = [];
   const seen = new Set<string>();
-  const pattern = /href=["']([^"']*open\.pl\?file=\/supreme\/\d{4}\/[^"']+?\.html)["']/gi;
+  // Any CyLaw judgment link (open.pl?file=...), regardless of which court
+  // database the index belongs to. Host validation happens below.
+  const pattern = /href=["']([^"']*open\.pl\?file=[^"']+?\.html)["']/gi;
   for (const match of html.matchAll(pattern)) {
     let absolute: string;
     try {
