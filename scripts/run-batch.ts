@@ -64,7 +64,11 @@ export async function extractJudgmentLinks(indexUrl: string, count: number): Pro
     for (const match of html.matchAll(pattern)) {
       let absolute: string;
       try {
-        absolute = new URL(match[1], indexUrl).toString();
+        const url = new URL(match[1], indexUrl);
+        // Search-result links append a highlight parameter; drop it so the
+        // judgment loads as its canonical page.
+        url.searchParams.delete("qstring");
+        absolute = url.toString();
       } catch {
         continue;
       }
@@ -77,10 +81,11 @@ export async function extractJudgmentLinks(indexUrl: string, count: number): Pro
     }
   };
   // Preferred: open.pl judgment links (.html on modern databases, .htm on
-  // older ones). Fallback: direct judgment page links used by older indexes —
-  // judgment files always live inside a year folder, which keeps site
-  // navigation (about/terms/help) out.
-  collect(/href=["']([^"']*open\.pl\?file=[^"']+?\.html?)["']/gi);
+  // older ones), optionally carrying extra query parameters as on search
+  // result pages. Fallback: direct judgment page links used by older
+  // indexes — judgment files always live inside a year folder, which keeps
+  // site navigation (about/terms/help) out.
+  collect(/href=["']([^"']*open\.pl\?file=[^"']+?\.html?(?:&[^"']*)?)["']/gi);
   if (!links.length) {
     const yearFolder = /\/(?:19|20)\d{2}\//;
     for (const match of html.matchAll(/href=["']([^"'#?]+?\.html?)["']/gi)) {
