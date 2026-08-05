@@ -435,7 +435,9 @@ function cumulativeLowerCourtDecision(procedure: CaseProcedureV2): CaseProcedure
 // these instead of a formal court caption, so when the model cannot ground
 // the deciding court, derive it deterministically from those verbatim lines.
 const ECLI_RE = /ECLI:CY:(AD|DOD|EDD|AAP):\d{4}:[A-Z]?\d+/i;
-const AAD_CITATION_RE = /\(\d{4}\)\s+\d\s+Α\.?Α\.?Δ\.?\s+\d+/u;
+// Official reporter citations: «(YYYY) N Α.Α.Δ. p» (Greek era) and
+// "(YYYY) N C.L.R. p" (English Cyprus Law Reports era).
+const AAD_CITATION_RE = /\(\d{4}\)\s+\d\s+(?:Α\.?Α\.?Δ\.?|C\.?\s?L\.?\s?R\.?)\s+\d+/u;
 
 function groundIdentityFromCitations(
   identity: CaseIdentityV2,
