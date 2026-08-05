@@ -59,21 +59,27 @@ export async function extractJudgmentLinks(indexUrl: string, count: number): Pro
   const html = await decodeIndexHtml(indexUrl);
   const links: string[] = [];
   const seen = new Set<string>();
-  // Any CyLaw judgment link (open.pl?file=...), regardless of which court
-  // database the index belongs to. Host validation happens below.
-  const pattern = /href=["']([^"']*open\.pl\?file=[^"']+?\.html)["']/gi;
-  for (const match of html.matchAll(pattern)) {
-    let absolute: string;
-    try {
-      absolute = new URL(match[1], indexUrl).toString();
-    } catch {
-      continue;
+  const indexPath = new URL(indexUrl).pathname.toLowerCase();
+  const collect = (pattern: RegExp) => {
+    for (const match of html.matchAll(pattern)) {
+      let absolute: string;
+      try {
+        absolute = new URL(match[1], indexUrl).toString();
+      } catch {
+        continue;
+      }
+      if (!isOfficialCyLawUrl(absolute) || seen.has(absolute)) continue;
+      const path = new URL(absolute).pathname.toLowerCase();
+      if (path.includes("index") || path === indexPath) continue;
+      seen.add(absolute);
+      links.push(absolute);
+      if (links.length >= count) break;
     }
-    if (!isOfficialCyLawUrl(absolute) || seen.has(absolute)) continue;
-    seen.add(absolute);
-    links.push(absolute);
-    if (links.length >= count) break;
-  }
+  };
+  // Preferred: open.pl judgment links (.html on modern databases, .htm on
+  // older ones). Fallback: direct judgment page links used by older indexes.
+  collect(/href=["']([^"']*open\.pl\?file=[^"']+?\.html?)["']/gi);
+  if (!links.length) collect(/href=["']([^"'#?]+?\.html?)["']/gi);
   return links;
 }
 

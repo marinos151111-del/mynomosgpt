@@ -95,7 +95,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ ! -d artifacts/nomologies-v2-benchmark ]; then echo 'No benchmark output'; exit 0; fi
+          # Require actual results; an empty artifacts directory from a failed
+          # run must never overwrite previously published reports.
+          if [ ! -f artifacts/nomologies-v2-benchmark/summary.md ]; then echo 'No benchmark output'; exit 0; fi
           DEST="reports/branch-benchmark-${{ steps.request.outputs.case_count }}cases"
           rm -rf "$DEST"
           mkdir -p "$DEST"
