@@ -1,0 +1,2452 @@
+{
+  "mode": "full",
+  "record": {
+    "schemaVersion": "nomologies-v2.0.0",
+    "runId": "2bb89ce6-9610-4ba2-8888-58533a25bb47",
+    "pipelineProfile": "economy",
+    "source": {
+      "sourceId": "src_4284d1bf621f929d467e6772",
+      "sourceHash": "4284d1bf621f929d467e6772b845bc1b70a3a9d21230bc47395a57daa1edae06",
+      "sourceUrl": "https://www.cylaw.org/help.html",
+      "sourceTitle": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+      "sourceDatabase": "cylaw",
+      "retrievedAt": "2026-08-05T06:04:24.087Z",
+      "charset": "windows-1253",
+      "languageHint": "el",
+      "originalHtml": "[omitted: 9411 characters]",
+      "cleanText": "[omitted: 7038 characters]",
+      "characterCount": 7038,
+      "paragraphs": [
+        {
+          "id": "P000001",
+          "ordinal": 1,
+          "text": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "startOffset": 0,
+          "endOffset": 78,
+          "relativePosition": 0,
+          "parentBlockId": "B00001",
+          "sourceLineStart": 1,
+          "sourceLineEnd": 1,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.152,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000002",
+          "ordinal": 2,
+          "text": "ΠΑΓΚΥΠΡΙΟΣ ΔΙΚΗΓΟΡΙΚΟΣ ΣΥΛΛΟΓΟΣ",
+          "startOffset": 84,
+          "endOffset": 115,
+          "relativePosition": 0.012987,
+          "parentBlockId": "B00002",
+          "sourceLineStart": 4,
+          "sourceLineEnd": 4,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000003",
+          "ordinal": 3,
+          "text": "Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "startOffset": 122,
+          "endOffset": 158,
+          "relativePosition": 0.025974,
+          "parentBlockId": "B00003",
+          "sourceLineStart": 7,
+          "sourceLineEnd": 7,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.156,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000004",
+          "ordinal": 4,
+          "text": "• CyLaw",
+          "startOffset": 167,
+          "endOffset": 174,
+          "relativePosition": 0.038961,
+          "parentBlockId": "B00004",
+          "sourceLineStart": 10,
+          "sourceLineEnd": 10,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.4,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000005",
+          "ordinal": 5,
+          "text": "• |",
+          "startOffset": 183,
+          "endOffset": 186,
+          "relativePosition": 0.051948,
+          "parentBlockId": "B00005",
+          "sourceLineStart": 13,
+          "sourceLineEnd": 13,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000006",
+          "ordinal": 6,
+          "text": "• Αναφορικά μ'εμάς",
+          "startOffset": 195,
+          "endOffset": 213,
+          "relativePosition": 0.064935,
+          "parentBlockId": "B00006",
+          "sourceLineStart": 16,
+          "sourceLineEnd": 16,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.071,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000007",
+          "ordinal": 7,
+          "text": "• |",
+          "startOffset": 222,
+          "endOffset": 225,
+          "relativePosition": 0.077922,
+          "parentBlockId": "B00007",
+          "sourceLineStart": 19,
+          "sourceLineEnd": 19,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000008",
+          "ordinal": 8,
+          "text": "• \">Επικοινωνία",
+          "startOffset": 234,
+          "endOffset": 249,
+          "relativePosition": 0.090909,
+          "parentBlockId": "B00008",
+          "sourceLineStart": 22,
+          "sourceLineEnd": 22,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.091,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000009",
+          "ordinal": 9,
+          "text": "Συμβουλές Αναζήτησης",
+          "startOffset": 254,
+          "endOffset": 274,
+          "relativePosition": 0.103896,
+          "parentBlockId": "B00009",
+          "sourceLineStart": 25,
+          "sourceLineEnd": 25,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.105,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000010",
+          "ordinal": 10,
+          "text": "Η ιστοσελίδα αυτή χρησιμοποιεί τη μηχανή αναζήτησης SINO η οποία αναπτύχθηκε από το Australasian Legal Information Institute (AustLii).",
+          "startOffset": 277,
+          "endOffset": 412,
+          "relativePosition": 0.116883,
+          "parentBlockId": "B00010",
+          "sourceLineStart": 28,
+          "sourceLineEnd": 28,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.096,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000011",
+          "ordinal": 11,
+          "text": "Η μηχανή αναζήτησης είναι ένα πρόγραμμα το οποίο σας παρουσιάζει με ένα κατάλογο από αρχεία τα οποία ανταποκρίνονται στα κριτήρια έρευνας τα οποία εσείς θέτετε.",
+          "startOffset": 413,
+          "endOffset": 573,
+          "relativePosition": 0.12987,
+          "parentBlockId": "B00010",
+          "sourceLineStart": 28,
+          "sourceLineEnd": 28,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.007,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000012",
+          "ordinal": 12,
+          "text": "Τα κριτήρα είναι του τύπου \"παρουσίασε μου όλα τις αποφάσεις που περιλαμβάνουν τις λέξεις Χ, Ψ και Ω.\"",
+          "startOffset": 574,
+          "endOffset": 676,
+          "relativePosition": 0.142857,
+          "parentBlockId": "B00010",
+          "sourceLineStart": 28,
+          "sourceLineEnd": 28,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.049,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000013",
+          "ordinal": 13,
+          "text": "Αυτό που θα πρέπει να έχετε υπόψη σας είναι ότι η μηχανή αναζήτησης επιστρέφει ένα κατάλογο αποφάσεων που περιλαμβάνουν τις λέξεις ή φράσεις που εσείς καθορίζετε.",
+          "startOffset": 679,
+          "endOffset": 841,
+          "relativePosition": 0.155844,
+          "parentBlockId": "B00011",
+          "sourceLineStart": 31,
+          "sourceLineEnd": 31,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.007,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000014",
+          "ordinal": 14,
+          "text": "Γι' αυτό, θα πρέπει να επιλέξετε τις λέξεις έρευνας προσεκτικά. Θα πετύχετε καλύτερα αποτελέσματα αν ερευνήσετε για χαρακτηριστικές λέξεις ή φράσεις.",
+          "startOffset": 842,
+          "endOffset": 991,
+          "relativePosition": 0.168831,
+          "parentBlockId": "B00011",
+          "sourceLineStart": 31,
+          "sourceLineEnd": 31,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.016,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000015",
+          "ordinal": 15,
+          "text": "Αφού επιλέξετε τις κατάλληλες ή χαρακτηριστικές λέξεις για τις οποίες θα ερευνήσετε, πληκτρολογήστε τις στην φόρμα έρευνας. Μετά αποφασίστε αν θέλετε να δείτε τις αποφάσεις που περιλαμβάνουν:",
+          "startOffset": 994,
+          "endOffset": 1185,
+          "relativePosition": 0.181818,
+          "parentBlockId": "B00012",
+          "sourceLineStart": 34,
+          "sourceLineEnd": 34,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.012,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000016",
+          "ordinal": 16,
+          "text": "-    οποιαδήποτε από τις λέξεις που δίνετε,",
+          "startOffset": 1188,
+          "endOffset": 1231,
+          "relativePosition": 0.194805,
+          "parentBlockId": "B00013",
+          "sourceLineStart": 37,
+          "sourceLineEnd": 37,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000017",
+          "ordinal": 17,
+          "text": "-    όλες τις λέξεις που δίνετε, ή",
+          "startOffset": 1234,
+          "endOffset": 1268,
+          "relativePosition": 0.207792,
+          "parentBlockId": "B00014",
+          "sourceLineStart": 40,
+          "sourceLineEnd": 40,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000018",
+          "ordinal": 18,
+          "text": "-    τις λέξεις ως φράση (δηλαδή, στην ακριβή σειρά με την οποία τις πληκτρολογήσατε).",
+          "startOffset": 1271,
+          "endOffset": 1357,
+          "relativePosition": 0.220779,
+          "parentBlockId": "B00015",
+          "sourceLineStart": 43,
+          "sourceLineEnd": 43,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000019",
+          "ordinal": 19,
+          "text": "Κάνετε την επιλογή σας στη φόρμα αναζήτησης.",
+          "startOffset": 1360,
+          "endOffset": 1404,
+          "relativePosition": 0.233766,
+          "parentBlockId": "B00016",
+          "sourceLineStart": 46,
+          "sourceLineEnd": 46,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.027,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000020",
+          "ordinal": 20,
+          "text": "Όταν είσαστε έτοιμοι πατήστε \"Αναζήτηση\".",
+          "startOffset": 1407,
+          "endOffset": 1448,
+          "relativePosition": 0.246753,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 49,
+          "sourceLineEnd": 49,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.029,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000021",
+          "ordinal": 21,
+          "text": "Θα παρουσιαστεί ένας κατάλογος από αποφάσεις.",
+          "startOffset": 1449,
+          "endOffset": 1494,
+          "relativePosition": 0.25974,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 49,
+          "sourceLineEnd": 49,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.026,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000022",
+          "ordinal": 22,
+          "text": "Μπορείτε πατώντας το \"Back\" ή \"Πίσω\" από τον πλοηγό σας να επιστρέψετε στην οθόνη έρευνας για να βελτιώσετε την έρευνα σας.",
+          "startOffset": 1495,
+          "endOffset": 1618,
+          "relativePosition": 0.272727,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 49,
+          "sourceLineEnd": 49,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.031,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000023",
+          "ordinal": 23,
+          "text": "Κεφαλαία και τόνοι",
+          "startOffset": 1621,
+          "endOffset": 1639,
+          "relativePosition": 0.285714,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 52,
+          "sourceLineEnd": 52,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.063,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000024",
+          "ordinal": 24,
+          "text": "Η μηχανή αναζήτησης SINO δεν διακρίνει μεταξύ κεφαλαίων και μικρών γραμμάτων ή μεταξύ τονισμένων και μη τονισμένων γραμμάτων. Έτσι, η φράση:",
+          "startOffset": 1642,
+          "endOffset": 1782,
+          "relativePosition": 0.298701,
+          "parentBlockId": "B00019",
+          "sourceLineStart": 55,
+          "sourceLineEnd": 55,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.043,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000025",
+          "ordinal": 25,
+          "text": "-    ευρωπαικη συμβαση ανθρωπινων δικαιωματων",
+          "startOffset": 1785,
+          "endOffset": 1830,
+          "relativePosition": 0.311688,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 58,
+          "sourceLineEnd": 58,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000026",
+          "ordinal": 26,
+          "text": "και η φράση:",
+          "startOffset": 1833,
+          "endOffset": 1845,
+          "relativePosition": 0.324675,
+          "parentBlockId": "B00021",
+          "sourceLineStart": 61,
+          "sourceLineEnd": 61,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000027",
+          "ordinal": 27,
+          "text": "-    ΕυΡΩπαΙκή σΥΜβαΣη ΑΝΘΡωπΙνων δίΚΑΙωμάτων",
+          "startOffset": 1848,
+          "endOffset": 1893,
+          "relativePosition": 0.337662,
+          "parentBlockId": "B00022",
+          "sourceLineStart": 64,
+          "sourceLineEnd": 64,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.405,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000028",
+          "ordinal": 28,
+          "text": "θα επιστρέψουν το ίδιο αποτέλεσμα.",
+          "startOffset": 1896,
+          "endOffset": 1930,
+          "relativePosition": 0.350649,
+          "parentBlockId": "B00023",
+          "sourceLineStart": 67,
+          "sourceLineEnd": 67,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000029",
+          "ordinal": 29,
+          "text": "Wildcards",
+          "startOffset": 1933,
+          "endOffset": 1942,
+          "relativePosition": 0.363636,
+          "parentBlockId": "B00024",
+          "sourceLineStart": 70,
+          "sourceLineEnd": 70,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000030",
+          "ordinal": 30,
+          "text": "Η μηχανή αναζήτησης SINO επιτρέπει την χρήση των εξής wildcards:",
+          "startOffset": 1945,
+          "endOffset": 2009,
+          "relativePosition": 0.376623,
+          "parentBlockId": "B00025",
+          "sourceLineStart": 73,
+          "sourceLineEnd": 73,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.093,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000031",
+          "ordinal": 31,
+          "text": "*    Αντικαθιστά το σύμβολο * με οποιοδήποτε αριθμό γραμμάτων (περιλαμβανομένου και κανενός).",
+          "startOffset": 2016,
+          "endOffset": 2109,
+          "relativePosition": 0.38961,
+          "parentBlockId": "B00026",
+          "sourceLineStart": 76,
+          "sourceLineEnd": 76,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.014,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000032",
+          "ordinal": 32,
+          "text": "?    Αντικαθιστά το σύμβολο ? με οποιαδήποτε ένα γράμμα.",
+          "startOffset": 2116,
+          "endOffset": 2172,
+          "relativePosition": 0.402597,
+          "parentBlockId": "B00027",
+          "sourceLineStart": 79,
+          "sourceLineEnd": 79,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.024,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000033",
+          "ordinal": 33,
+          "text": "[...]    Αναζητά για οποιοδήποτε ένα από τα γράμματα που περιλαμβάνονται στην παρένθεση.",
+          "startOffset": 2179,
+          "endOffset": 2267,
+          "relativePosition": 0.415584,
+          "parentBlockId": "B00028",
+          "sourceLineStart": 82,
+          "sourceLineEnd": 82,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.015,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000034",
+          "ordinal": 34,
+          "text": "Έτσι η έρευνα για τη λέξη: ε? α, θα επιστρέψει τις αποφάσεις που περιλαμβάνουν τις λέξεις: ενα, ελα, ΕΣΑ κοκ.",
+          "startOffset": 2267,
+          "endOffset": 2376,
+          "relativePosition": 0.428571,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 82,
+          "sourceLineEnd": 85,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.036,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000035",
+          "ordinal": 35,
+          "text": "Η έρευνα για τη λέξη περιουσ* θα επιστρέψει τις φράσεις που περιλαμβάνουν τις λέξεις περιουσία, περιουσιακά, περιουσιακές, περιούσιος κοκ.",
+          "startOffset": 2379,
+          "endOffset": 2517,
+          "relativePosition": 0.441558,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 85,
+          "sourceLineEnd": 85,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.009,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000036",
+          "ordinal": 36,
+          "text": "Η έρευνα για τη λέξη: κίνη[μσ]α θα αναζητήσει τις λέξεις κίνημα και κίνησα.",
+          "startOffset": 2518,
+          "endOffset": 2593,
+          "relativePosition": 0.454545,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 85,
+          "sourceLineEnd": 85,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.017,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000037",
+          "ordinal": 37,
+          "text": "Σε περίπτωση που η λέξη θα ξεκινήσει με το [...], τότε η όλη λέξη θα πρέπει να μπει σε εισαγωγικά αφού η μηχανή θα αντιλαμβάνεται το '[' μπροστά στη λέξη ως παρένθεση για σκοπούς ομαδοποίησης σε έρευνες τύπου Boolean.",
+          "startOffset": 2596,
+          "endOffset": 2813,
+          "relativePosition": 0.467532,
+          "parentBlockId": "B00030",
+          "sourceLineStart": 88,
+          "sourceLineEnd": 88,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.012,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000038",
+          "ordinal": 38,
+          "text": "Τα wildcards μπορούν να συνδυαστούν σε μια λέξη.",
+          "startOffset": 2816,
+          "endOffset": 2864,
+          "relativePosition": 0.480519,
+          "parentBlockId": "B00031",
+          "sourceLineStart": 91,
+          "sourceLineEnd": 91,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.025,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000039",
+          "ordinal": 39,
+          "text": "Έτσι η έρευνα: *επειγ* θα επιστρέψει αποφάσεις που περιλαμβάνουν τόσο τις λέξεις: επείγον, επείγουσα κλπ, όπως και τις λέξεις: κατεπείγον, κατεπείγουσα κλπ. Επίσης η έρευνα: νομοθε[στ]* θα επιστρέψει αποφάσεις που περιλαμβάνουν τις λέξεις νομοθεσία, νομοθέτης, νομοθετικός κλπ.",
+          "startOffset": 2865,
+          "endOffset": 3142,
+          "relativePosition": 0.493506,
+          "parentBlockId": "B00031",
+          "sourceLineStart": 91,
+          "sourceLineEnd": 91,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.004,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000040",
+          "ordinal": 40,
+          "text": "Τα wildcards μπορούν επίσης να χρησιμοποιηθούν σε έρευνες φράσεις. Έτσι η έρευνα για τη φράση:",
+          "startOffset": 3145,
+          "endOffset": 3239,
+          "relativePosition": 0.506494,
+          "parentBlockId": "B00032",
+          "sourceLineStart": 94,
+          "sourceLineEnd": 94,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.013,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000041",
+          "ordinal": 41,
+          "text": "περιουσιακ* διαφορ*",
+          "startOffset": 3246,
+          "endOffset": 3265,
+          "relativePosition": 0.519481,
+          "parentBlockId": "B00033",
+          "sourceLineStart": 97,
+          "sourceLineEnd": 97,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000042",
+          "ordinal": 42,
+          "text": "θα επιστρέψει τις αποφάσεις που περιλαμβάνουν τόσο τη φράση: περιουσιακή διαφορά όσο και τη φράση: περιουσιακές διαφορές.",
+          "startOffset": 3268,
+          "endOffset": 3389,
+          "relativePosition": 0.532468,
+          "parentBlockId": "B00034",
+          "sourceLineStart": 100,
+          "sourceLineEnd": 100,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000043",
+          "ordinal": 43,
+          "text": "Έρευνα τύπου Boolean",
+          "startOffset": 3392,
+          "endOffset": 3412,
+          "relativePosition": 0.545455,
+          "parentBlockId": "B00035",
+          "sourceLineStart": 103,
+          "sourceLineEnd": 103,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.056,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000044",
+          "ordinal": 44,
+          "text": "Όταν πραγματοποιείτε μια έρευνα με τη SINO, ουσιαστικά ερευνάτε για τις αποφάσεις που περιλαμβάνουν κάποιες λέξεις ή φράσεις.",
+          "startOffset": 3415,
+          "endOffset": 3540,
+          "relativePosition": 0.558442,
+          "parentBlockId": "B00036",
+          "sourceLineStart": 106,
+          "sourceLineEnd": 106,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.038,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000045",
+          "ordinal": 45,
+          "text": "Αν σκεφτείτε μια φράση που θεωρείτε ότι είναι αρκετά χαρακτηριστική, απλώς πληκτρολογείστε την χωρίς εισαγωγικά, επιλέξτε το \"Αναζήτηση τύπου Boolean\" και πατήστε το πλήκτρο \"Enter\". Με τον τρόπο αυτό θα βρείτε όλα τα έγγραφα που περιλαμβάνουν την ακριβή φράση που επιλέξατε.",
+          "startOffset": 3541,
+          "endOffset": 3816,
+          "relativePosition": 0.571429,
+          "parentBlockId": "B00036",
+          "sourceLineStart": 106,
+          "sourceLineEnd": 106,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.022,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000046",
+          "ordinal": 46,
+          "text": "Έτσι αν θέλετε να ερευνήστε για τη φράση: προσωρινό διάταγμα, απλά θα πληκτρολογούσατε:",
+          "startOffset": 3817,
+          "endOffset": 3904,
+          "relativePosition": 0.584416,
+          "parentBlockId": "B00036",
+          "sourceLineStart": 106,
+          "sourceLineEnd": 106,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000047",
+          "ordinal": 47,
+          "text": "προσωρινό διάταγμα",
+          "startOffset": 3911,
+          "endOffset": 3929,
+          "relativePosition": 0.597403,
+          "parentBlockId": "B00037",
+          "sourceLineStart": 109,
+          "sourceLineEnd": 109,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000048",
+          "ordinal": 48,
+          "text": "Αν θέλετε να παρουσιάζεται κάτι περισσότερο από μια φράση ή λέξη στις αποφάσεις που θα ανακτήσετε, βάλτε μεταξύ τους τη λέξη \"και\". Για παράδειγμα για να βρείτε κείμενα που περιλαμβάνουν τη φράση: πνευματικά δικαιώματα, καθώς και τη λέξη: μουσική, θα πληκτρολογούσατε:",
+          "startOffset": 3932,
+          "endOffset": 4200,
+          "relativePosition": 0.61039,
+          "parentBlockId": "B00038",
+          "sourceLineStart": 112,
+          "sourceLineEnd": 112,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.009,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000049",
+          "ordinal": 49,
+          "text": "πνευματικά δικαιώματα και μουσική",
+          "startOffset": 4207,
+          "endOffset": 4240,
+          "relativePosition": 0.623377,
+          "parentBlockId": "B00039",
+          "sourceLineStart": 115,
+          "sourceLineEnd": 115,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000050",
+          "ordinal": 50,
+          "text": "Αν από την άλλη θα θέλατε να βρείτε ένα όρο και/ή ένα άλλο όρο, βάλτε ένα ή μεταξύ τους. Για παράδειγμα, για να βρείτε αποφάσεις που περιλαμβάνουν τη λέξη: σύμβαση ή τη λέξη: πρωτόκολλο ή τη φράση: διεθνής συμφωνία, θα πληκτρολογούσατε:",
+          "startOffset": 4243,
+          "endOffset": 4479,
+          "relativePosition": 0.636364,
+          "parentBlockId": "B00040",
+          "sourceLineStart": 118,
+          "sourceLineEnd": 118,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.011,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000051",
+          "ordinal": 51,
+          "text": "σύμβαση ή διεθνής συμφωνία ή πρωτόκολλο",
+          "startOffset": 4486,
+          "endOffset": 4525,
+          "relativePosition": 0.649351,
+          "parentBlockId": "B00041",
+          "sourceLineStart": 121,
+          "sourceLineEnd": 121,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000052",
+          "ordinal": 52,
+          "text": "Αν θέλατε θα μπορούσατε να βάζατε αυτές τις δυο έρευνες μαζί - όπως:",
+          "startOffset": 4528,
+          "endOffset": 4596,
+          "relativePosition": 0.662338,
+          "parentBlockId": "B00042",
+          "sourceLineStart": 124,
+          "sourceLineEnd": 124,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.019,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000053",
+          "ordinal": 53,
+          "text": "σύμβαση ή διεθνής συμφωνία ή πρωτόκολλο και πνευματικά δικαιώματα και μουσική",
+          "startOffset": 4603,
+          "endOffset": 4680,
+          "relativePosition": 0.675325,
+          "parentBlockId": "B00043",
+          "sourceLineStart": 127,
+          "sourceLineEnd": 127,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000054",
+          "ordinal": 54,
+          "text": "Αν θέλετε να βρείτε δυο λέξεις ή φράσεις που παρουσιάζονται κοντά η μια στην άλλη ανεξάρτητα από τη σειρά που παρουσιάζονται οι λέξεις στο κείμενο (για παράδειγμα τα μέρη μιας υπόθεσης) μπορείτε να χρησιμοποιήσετε τον σύνδεσμο ΚΟΝΤΑ.",
+          "startOffset": 4683,
+          "endOffset": 4916,
+          "relativePosition": 0.688312,
+          "parentBlockId": "B00044",
+          "sourceLineStart": 130,
+          "sourceLineEnd": 130,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.031,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000055",
+          "ordinal": 55,
+          "text": "Έτσι αν θα θέλατε να βρείτε τις υποθέσεις όπου ο Ιωάννου ενήγαγε (ή είχε εναχθεί) από τον Γεωργίου, θα μπορούσατε να πληκτρολογήσετε:",
+          "startOffset": 4917,
+          "endOffset": 5050,
+          "relativePosition": 0.701299,
+          "parentBlockId": "B00044",
+          "sourceLineStart": 130,
+          "sourceLineEnd": 130,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.019,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000056",
+          "ordinal": 56,
+          "text": "ιωάννου κοντά γεωργίου",
+          "startOffset": 5057,
+          "endOffset": 5079,
+          "relativePosition": 0.714286,
+          "parentBlockId": "B00045",
+          "sourceLineStart": 133,
+          "sourceLineEnd": 133,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000057",
+          "ordinal": 57,
+          "text": "Αν θέλετε να βρείτε δυο τα κείμενα που περιλαμβάνουν μια λέξη αλλά δεν περιλαμβάνουν μια άλλη μπορείτε να χρησιμοποιήσετε τον σύνδεσμο ΟΧΙ.",
+          "startOffset": 5082,
+          "endOffset": 5221,
+          "relativePosition": 0.727273,
+          "parentBlockId": "B00046",
+          "sourceLineStart": 136,
+          "sourceLineEnd": 136,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.034,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000058",
+          "ordinal": 58,
+          "text": "Έτσι αν θα θέλατε να βρείτε τις υποθέσεις αμέλειας που δεν αφορούν τροχαία ατυχήματα , θα μπορούσατε να δοκιμάσετε την εντολή:",
+          "startOffset": 5222,
+          "endOffset": 5348,
+          "relativePosition": 0.74026,
+          "parentBlockId": "B00046",
+          "sourceLineStart": 136,
+          "sourceLineEnd": 136,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000059",
+          "ordinal": 59,
+          "text": "αμέλεια οχι τροχαια",
+          "startOffset": 5355,
+          "endOffset": 5374,
+          "relativePosition": 0.753247,
+          "parentBlockId": "B00047",
+          "sourceLineStart": 139,
+          "sourceLineEnd": 139,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000060",
+          "ordinal": 60,
+          "text": "Σε συνδυασμένες έρευνες Boolean είναι καλύτερα να χρησιμοποιείτε παρενθέσεις για την ομαδοποίηση των διαφόρων τμημάτων της έρευνας, όπως:",
+          "startOffset": 5377,
+          "endOffset": 5514,
+          "relativePosition": 0.766234,
+          "parentBlockId": "B00048",
+          "sourceLineStart": 142,
+          "sourceLineEnd": 142,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.017,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000061",
+          "ordinal": 61,
+          "text": "(σύμβαση ή διεθνής συμφωνία ή πρωτόκολλο) και πνευματικά δικαιώματα και (μουσική κοντα ζωντανη)",
+          "startOffset": 5521,
+          "endOffset": 5616,
+          "relativePosition": 0.779221,
+          "parentBlockId": "B00049",
+          "sourceLineStart": 145,
+          "sourceLineEnd": 145,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000062",
+          "ordinal": 62,
+          "text": "Έρευνα τίτλου",
+          "startOffset": 5619,
+          "endOffset": 5632,
+          "relativePosition": 0.792208,
+          "parentBlockId": "B00050",
+          "sourceLineStart": 148,
+          "sourceLineEnd": 148,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000063",
+          "ordinal": 63,
+          "text": "Για να πραγματοποιήσετε έρευνα μόνο στον συνοπτικό τίτλο της απόφασης επιλέξτε την \"Έρευνα τύπου Boolean\" και πληκτρολογήστε:",
+          "startOffset": 5635,
+          "endOffset": 5760,
+          "relativePosition": 0.805195,
+          "parentBlockId": "B00051",
+          "sourceLineStart": 151,
+          "sourceLineEnd": 151,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.019,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000064",
+          "ordinal": 64,
+          "text": "τίτλος(όροι έρευνας)",
+          "startOffset": 5767,
+          "endOffset": 5787,
+          "relativePosition": 0.818182,
+          "parentBlockId": "B00052",
+          "sourceLineStart": 154,
+          "sourceLineEnd": 154,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000065",
+          "ordinal": 65,
+          "text": "Η έρευνα τίτλου μπορεί να συνδιαστεί με άλλους όρους έρευνας τύπου boolean.",
+          "startOffset": 5790,
+          "endOffset": 5865,
+          "relativePosition": 0.831169,
+          "parentBlockId": "B00053",
+          "sourceLineStart": 157,
+          "sourceLineEnd": 157,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.016,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000066",
+          "ordinal": 66,
+          "text": "Για παράδειγμα για να βρείτε αποφάσεις που περιλαμβάνουν στο κείμενο τις λέξεις αμέλεια ή οχληρία και στον τίτλο το όνομα Μιχαήλ πληκτρολογήστε:",
+          "startOffset": 5866,
+          "endOffset": 6010,
+          "relativePosition": 0.844156,
+          "parentBlockId": "B00053",
+          "sourceLineStart": 157,
+          "sourceLineEnd": 157,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.016,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000067",
+          "ordinal": 67,
+          "text": "τίτλος(μιχαήλ) και αμέλεια ή οχληρία",
+          "startOffset": 6017,
+          "endOffset": 6053,
+          "relativePosition": 0.857143,
+          "parentBlockId": "B00054",
+          "sourceLineStart": 160,
+          "sourceLineEnd": 160,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000068",
+          "ordinal": 68,
+          "text": "Σε συνδιασμένες έρευνες είναι καλύτερα να περιλαμβάνετε τα διάφορα τμήματα της έρευνας σε παρενθέσεις ώστε να μην έχετε απρόσμενα αποτελέσματα.",
+          "startOffset": 6056,
+          "endOffset": 6199,
+          "relativePosition": 0.87013,
+          "parentBlockId": "B00055",
+          "sourceLineStart": 163,
+          "sourceLineEnd": 163,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.008,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000069",
+          "ordinal": 69,
+          "text": "Έτσι η πιο πάνω έρευνα θα μπορεί να γραφτεί ως:",
+          "startOffset": 6200,
+          "endOffset": 6247,
+          "relativePosition": 0.883117,
+          "parentBlockId": "B00055",
+          "sourceLineStart": 163,
+          "sourceLineEnd": 163,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000070",
+          "ordinal": 70,
+          "text": "τίτλος(μιχαήλ) και (αμέλεια ή οχληρία)",
+          "startOffset": 6254,
+          "endOffset": 6292,
+          "relativePosition": 0.896104,
+          "parentBlockId": "B00056",
+          "sourceLineStart": 166,
+          "sourceLineEnd": 166,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000071",
+          "ordinal": 71,
+          "text": "Άλλες εντολές έρευνας Boolean",
+          "startOffset": 6295,
+          "endOffset": 6324,
+          "relativePosition": 0.909091,
+          "parentBlockId": "B00057",
+          "sourceLineStart": 169,
+          "sourceLineEnd": 169,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.038,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000072",
+          "ordinal": 72,
+          "text": "Για πιο ακριβείς αναζητήσεις εγγύτητας, μπορείτε να χρησιμοποιήσετε την εντολή δ/αρ όπου ο αριθμός αντιπροσωπεύει τον αριθμό λέξεων που θα πρέπει να χωρίζει τις δυο λέξεις για τις οποίες ερευνάτε. Για παράδειγμα:",
+          "startOffset": 6327,
+          "endOffset": 6539,
+          "relativePosition": 0.922078,
+          "parentBlockId": "B00058",
+          "sourceLineStart": 172,
+          "sourceLineEnd": 172,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.011,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000073",
+          "ordinal": 73,
+          "text": "ιωάννου δ/10 γεωργίου",
+          "startOffset": 6546,
+          "endOffset": 6567,
+          "relativePosition": 0.935065,
+          "parentBlockId": "B00059",
+          "sourceLineStart": 175,
+          "sourceLineEnd": 175,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000074",
+          "ordinal": 74,
+          "text": "Αν θέλετε να πραγματοποιήσετε αναζητήσεις εγγύτητας όπου η σειρά που παρουσιάζονται οι λέξεις είναι καθορισμένη τότε χρησιμοποιήστε την εντολή προ/αρ. Έτσι η αναζήτηση:",
+          "startOffset": 6570,
+          "endOffset": 6738,
+          "relativePosition": 0.948052,
+          "parentBlockId": "B00060",
+          "sourceLineStart": 178,
+          "sourceLineEnd": 178,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.007,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000075",
+          "ordinal": 75,
+          "text": "ιωάννου προ/10 γεωργίου",
+          "startOffset": 6745,
+          "endOffset": 6768,
+          "relativePosition": 0.961039,
+          "parentBlockId": "B00061",
+          "sourceLineStart": 181,
+          "sourceLineEnd": 181,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000076",
+          "ordinal": 76,
+          "text": "θα επιστρέψει τις αποφάσεις όπου το όνομα Ιωάννου προηγείται της λέξης Γεωργίου μέχρι 10 λέξεις.",
+          "startOffset": 6771,
+          "endOffset": 6867,
+          "relativePosition": 0.974026,
+          "parentBlockId": "B00062",
+          "sourceLineStart": 184,
+          "sourceLineEnd": 184,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.025,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000077",
+          "ordinal": 77,
+          "text": "Δεν θα επιστρέψει όμως οποιαδήποτε απόφαση όπου το όνομα Ιωάννου ακολουθεί το όνομα Γεωργίου.",
+          "startOffset": 6868,
+          "endOffset": 6961,
+          "relativePosition": 0.987013,
+          "parentBlockId": "B00062",
+          "sourceLineStart": 184,
+          "sourceLineEnd": 184,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.038,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000078",
+          "ordinal": 78,
+          "text": "Cylaw.org: από το ΚΙΝΟΠ/CyLII για τον Παγκύπριο Δικηγορικό Σύλλογο.",
+          "startOffset": 6971,
+          "endOffset": 7038,
+          "relativePosition": 1,
+          "parentBlockId": "B00063",
+          "sourceLineStart": 187,
+          "sourceLineEnd": 187,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.236,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        }
+      ]
+    },
+    "sectionMap": {
+      "version": "nomologies-v2.0.0:sections-v1",
+      "paragraphCount": 78,
+      "spans": [
+        {
+          "id": "S00001",
+          "startParagraphId": "P000001",
+          "endParagraphId": "P000078",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "CyLaw chrome",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 1,
+          "boundaryEvidenceParagraphIds": [
+            "P000001",
+            "P000008",
+            "P000009",
+            "P000022",
+            "P000023",
+            "P000030",
+            "P000025",
+            "P000028",
+            "P000029",
+            "P000042",
+            "P000043",
+            "P000044",
+            "P000049",
+            "P000045",
+            "P000061",
+            "P000062"
+          ],
+          "rationale": "Ακολουθούν οδηγίες και παραδείγματα για αναζήτηση μόνο στον τίτλο, πάλι ως υλικό βοήθειας της ιστοσελίδας."
+        }
+      ],
+      "coverageComplete": true,
+      "overlapFree": true,
+      "reviewFlags": []
+    },
+    "identity": {
+      "caseName": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "shortName": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "citation": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "ecli": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "docket": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "caseNumber": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "joinedCaseNumbers": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "decisionDate": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "court": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "jurisdiction": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "language": {
+        "status": "indeterminate",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "era": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "judges": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "authoringJudges": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "parties": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "appearances": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "classification": {
+      "caseFamily": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalAreas": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "primaryLegalArea": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "proceedingType": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "proceduralPosture": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "caseTypeLabels": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "applicationTypes": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "writsRequested": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "subjectMatter": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "facts": {
+      "summary": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς άντληση πραγματικών περιστατικών."
+        ]
+      },
+      "materialFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς άντληση ουσιωδών γεγονότων."
+        ]
+      },
+      "chronology": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς άντληση χρονολογίας."
+        ]
+      },
+      "witnessesAndEvidence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς άντληση μαρτύρων ή αποδεικτικών μέσων."
+        ]
+      },
+      "undisputedFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς εντοπισμό παραδεκτών ή μη αμφισβητούμενων γεγονότων."
+        ]
+      },
+      "disputedFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς εντοπισμό αμφισβητούμενων γεγονότων."
+        ]
+      }
+    },
+    "procedure": {
+      "proceduralHistory": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς άντληση διαδικαστικού ιστορικού."
+        ]
+      },
+      "originatingProceeding": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς εντοπισμό της αρχικής διαδικασίας."
+        ]
+      },
+      "lowerCourtDecision": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς άντληση της κατώτερης απόφασης."
+        ]
+      },
+      "groundsOrIssues": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς εντοπισμό λόγων ή ζητημάτων."
+        ]
+      },
+      "reliefSought": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς εντοπισμό αιτηθείσας θεραπείας."
+        ]
+      },
+      "submissionsByParty": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": [
+          "Δεν παρασχέθηκε κείμενο απόφασης ή παράγραφοι προς άντληση ισχυρισμών διαδίκων."
+        ]
+      }
+    },
+    "analysis": {
+      "legalIssues": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dominantIssue": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "findings": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "holding": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "ratioDecidendi": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalPrincipleSummary": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "secondaryPrinciples": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "obiterDicta": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalTestsAndStandards": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "burdenAndStandardOfProof": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "credibilityFindings": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dissentOrConcurrence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "authorities": {
+      "legislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "primaryLegislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "secondaryLegislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "authorities": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "outcome": {
+      "overallOutcome": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "scope": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dispositionText": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "components": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "orders": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "remedies": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "sentence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "monetaryAwards": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "costs": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "remittalInstructions": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "taxonomy": {
+      "issueTags": [],
+      "offenceTags": [],
+      "keywords": [],
+      "aliases": [],
+      "topicGroups": [],
+      "principleGroups": [],
+      "evidenceGroups": [],
+      "procedureGroups": [],
+      "publicLawGroups": []
+    },
+    "allEvidence": [],
+    "conflicts": [
+      {
+        "code": "CASE_NAME_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.caseName",
+        "message": "The present judgment's formal case name is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "DECISION_DATE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.decisionDate",
+        "message": "The judgment date is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "COURT_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.court",
+        "message": "The deciding court is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "CASE_REFERENCE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity",
+        "message": "No case number, docket, citation or ECLI is evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "JUDGES_UNVERIFIED",
+        "severity": "material",
+        "fieldPath": "identity.judges",
+        "message": "The judicial panel is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "FACTS_UNVERIFIED",
+        "severity": "material",
+        "fieldPath": "facts.summary",
+        "message": "The material facts summary is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "LEGAL_ISSUES_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.legalIssues",
+        "message": "The issues determined by the present court are not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "HOLDING_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.holding",
+        "message": "The present court's holding is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "LEGAL_PRINCIPLE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.legalPrincipleSummary",
+        "message": "No evidence-grounded legal principle or ratio decidendi was extracted.",
+        "evidenceIds": []
+      },
+      {
+        "code": "OUTCOME_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "outcome.overallOutcome",
+        "message": "The final outcome is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "DISPOSITION_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "outcome.dispositionText",
+        "message": "The operative final order is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "material",
+        "fieldPath": "identity.language",
+        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: identity.language:evidence_from_wrong_section",
+        "evidenceIds": []
+      }
+    ],
+    "reviewFlags": [
+      "identity.language:available_field_not_grounded",
+      "identity.language:evidence_from_wrong_section",
+      "CASE_NAME_UNVERIFIED",
+      "DECISION_DATE_UNVERIFIED",
+      "COURT_UNVERIFIED",
+      "CASE_REFERENCE_UNVERIFIED",
+      "JUDGES_UNVERIFIED",
+      "FACTS_UNVERIFIED",
+      "LEGAL_ISSUES_UNVERIFIED",
+      "HOLDING_UNVERIFIED",
+      "LEGAL_PRINCIPLE_UNVERIFIED",
+      "OUTCOME_UNVERIFIED",
+      "DISPOSITION_UNVERIFIED",
+      "ATTRIBUTION_VALIDATION_FAILED"
+    ],
+    "readinessScore": 0,
+    "strictReady": false,
+    "humanReviewRequired": true,
+    "stages": [
+      {
+        "stage": "source-preparation",
+        "status": "completed",
+        "model": "deterministic",
+        "responseId": "",
+        "startedAt": "2026-08-05T06:04:24.079Z",
+        "completedAt": "2026-08-05T06:04:24.087Z",
+        "elapsedMs": 8,
+        "inputCharacters": 7038,
+        "outputCharacters": 7038,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-1",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_026555c2ca923e66016a72d26827c0819399b0949bcf2b3014",
+        "startedAt": "2026-08-05T06:04:24.087Z",
+        "completedAt": "2026-08-05T06:04:29.151Z",
+        "elapsedMs": 3261,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-2",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_0098c98ce270e2e7016a72d26823cc8193bc81519109f24665",
+        "startedAt": "2026-08-05T06:04:24.087Z",
+        "completedAt": "2026-08-05T06:04:29.151Z",
+        "elapsedMs": 5063,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-3",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_06583f9f3d185a80016a72d26824b48197bf69a3a16f1696f2",
+        "startedAt": "2026-08-05T06:04:24.087Z",
+        "completedAt": "2026-08-05T06:04:29.151Z",
+        "elapsedMs": 3732,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-4",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_078fba8e0d628a74016a72d26824b881969384228823741865",
+        "startedAt": "2026-08-05T06:04:24.087Z",
+        "completedAt": "2026-08-05T06:04:29.151Z",
+        "elapsedMs": 4401,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "identity-classification",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_07875deed92caecf016a72d26d53c88193976ff5c4593b898a",
+        "startedAt": "2026-08-05T06:04:29.151Z",
+        "completedAt": "2026-08-05T06:04:35.601Z",
+        "elapsedMs": 6450,
+        "inputCharacters": 8348,
+        "outputCharacters": 2724,
+        "errorCode": ""
+      },
+      {
+        "stage": "facts-procedure",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_0e4ca2fa0ff65cd1016a72d26d42308193819659ffc007fe42",
+        "startedAt": "2026-08-05T06:04:29.151Z",
+        "completedAt": "2026-08-05T06:04:43.918Z",
+        "elapsedMs": 14766,
+        "inputCharacters": 431,
+        "outputCharacters": 2226,
+        "errorCode": ""
+      },
+      {
+        "stage": "judicial-analysis",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_0ebefda9af2cbeeb016a72d26d436c8194aa6acc905cfde6a9",
+        "startedAt": "2026-08-05T06:04:29.151Z",
+        "completedAt": "2026-08-05T06:04:33.569Z",
+        "elapsedMs": 4417,
+        "inputCharacters": 424,
+        "outputCharacters": 1199,
+        "errorCode": ""
+      },
+      {
+        "stage": "legislation-authorities",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_012e62d188b01db9016a72d26d58e881959b418579c73236b6",
+        "startedAt": "2026-08-05T06:04:29.151Z",
+        "completedAt": "2026-08-05T06:04:31.267Z",
+        "elapsedMs": 2116,
+        "inputCharacters": 427,
+        "outputCharacters": 409,
+        "errorCode": ""
+      },
+      {
+        "stage": "outcome-orders",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_0ddf3674e504547e016a72d26d46f481938c593c04864a5c65",
+        "startedAt": "2026-08-05T06:04:29.151Z",
+        "completedAt": "2026-08-05T06:04:32.528Z",
+        "elapsedMs": 3376,
+        "inputCharacters": 423,
+        "outputCharacters": 955,
+        "errorCode": ""
+      },
+      {
+        "stage": "independent-review",
+        "status": "skipped",
+        "model": "",
+        "responseId": "",
+        "startedAt": "2026-08-05T06:04:43.919Z",
+        "completedAt": "2026-08-05T06:04:43.919Z",
+        "elapsedMs": 0,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      }
+    ],
+    "createdAt": "2026-08-05T06:04:24.079Z",
+    "updatedAt": "2026-08-05T06:04:43.919Z"
+  },
+  "reviewer": {
+    "publishRecommendation": "review",
+    "conflicts": [],
+    "sectionCorrections": [],
+    "qualitySummary": "Independent review skipped by the economy profile: the record is below the publishable-readiness threshold and remains human-review-first."
+  }
+}

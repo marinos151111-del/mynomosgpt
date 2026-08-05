@@ -1,0 +1,1468 @@
+{
+  "mode": "full",
+  "record": {
+    "schemaVersion": "nomologies-v2.0.0",
+    "runId": "7db07837-b44f-4842-bb4c-b33036dd27e8",
+    "pipelineProfile": "economy",
+    "source": {
+      "sourceId": "src_646add5d0a7cf438104a5758",
+      "sourceHash": "646add5d0a7cf438104a57580fd96b41daadc99564849045446b01d313c8debc",
+      "sourceUrl": "https://www.cylaw.org/about.html",
+      "sourceTitle": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+      "sourceDatabase": "cylaw",
+      "retrievedAt": "2026-08-05T06:04:10.109Z",
+      "charset": "windows-1253",
+      "languageHint": "el",
+      "originalHtml": "[omitted: 5383 characters]",
+      "cleanText": "[omitted: 3521 characters]",
+      "characterCount": 3521,
+      "paragraphs": [
+        {
+          "id": "P000001",
+          "ordinal": 1,
+          "text": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "startOffset": 0,
+          "endOffset": 78,
+          "relativePosition": 0,
+          "parentBlockId": "B00001",
+          "sourceLineStart": 1,
+          "sourceLineEnd": 1,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.152,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000002",
+          "ordinal": 2,
+          "text": "ΠΑΓΚΥΠΡΙΟΣ ΔΙΚΗΓΟΡΙΚΟΣ ΣΥΛΛΟΓΟΣ",
+          "startOffset": 84,
+          "endOffset": 115,
+          "relativePosition": 0.03125,
+          "parentBlockId": "B00002",
+          "sourceLineStart": 4,
+          "sourceLineEnd": 4,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000003",
+          "ordinal": 3,
+          "text": "Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "startOffset": 122,
+          "endOffset": 158,
+          "relativePosition": 0.0625,
+          "parentBlockId": "B00003",
+          "sourceLineStart": 7,
+          "sourceLineEnd": 7,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.156,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000004",
+          "ordinal": 4,
+          "text": "• CyLaw",
+          "startOffset": 167,
+          "endOffset": 174,
+          "relativePosition": 0.09375,
+          "parentBlockId": "B00004",
+          "sourceLineStart": 10,
+          "sourceLineEnd": 10,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.4,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000005",
+          "ordinal": 5,
+          "text": "• |",
+          "startOffset": 183,
+          "endOffset": 186,
+          "relativePosition": 0.125,
+          "parentBlockId": "B00005",
+          "sourceLineStart": 13,
+          "sourceLineEnd": 13,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000006",
+          "ordinal": 6,
+          "text": "• Αναφορικά μ'εμάς",
+          "startOffset": 195,
+          "endOffset": 213,
+          "relativePosition": 0.15625,
+          "parentBlockId": "B00006",
+          "sourceLineStart": 16,
+          "sourceLineEnd": 16,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.071,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000007",
+          "ordinal": 7,
+          "text": "• |",
+          "startOffset": 222,
+          "endOffset": 225,
+          "relativePosition": 0.1875,
+          "parentBlockId": "B00007",
+          "sourceLineStart": 19,
+          "sourceLineEnd": 19,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000008",
+          "ordinal": 8,
+          "text": "• \">Επικοινωνία",
+          "startOffset": 234,
+          "endOffset": 249,
+          "relativePosition": 0.21875,
+          "parentBlockId": "B00008",
+          "sourceLineStart": 22,
+          "sourceLineEnd": 22,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.091,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000009",
+          "ordinal": 9,
+          "text": "• |",
+          "startOffset": 258,
+          "endOffset": 261,
+          "relativePosition": 0.25,
+          "parentBlockId": "B00009",
+          "sourceLineStart": 25,
+          "sourceLineEnd": 25,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000010",
+          "ordinal": 10,
+          "text": "• Όροι χρήσης",
+          "startOffset": 270,
+          "endOffset": 283,
+          "relativePosition": 0.28125,
+          "parentBlockId": "B00010",
+          "sourceLineStart": 28,
+          "sourceLineEnd": 28,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000011",
+          "ordinal": 11,
+          "text": "Αναφορικά με το Cylaw",
+          "startOffset": 288,
+          "endOffset": 309,
+          "relativePosition": 0.3125,
+          "parentBlockId": "B00011",
+          "sourceLineStart": 31,
+          "sourceLineEnd": 31,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000012",
+          "ordinal": 12,
+          "text": "Το CyLaw είναι η διαδικτυακή υπηρεσία του Κυπριακού Ινστιτούτου Νομικής Πληροφόρησης (ΚΙΝΟΠ/CyLII) η οποία προσφέρει ελεύθερη και μη κερδοσκοπική πρόσβαση στις κυπριακές και σε διεθνείς πηγές δικαίου.",
+          "startOffset": 312,
+          "endOffset": 512,
+          "relativePosition": 0.34375,
+          "parentBlockId": "B00012",
+          "sourceLineStart": 34,
+          "sourceLineEnd": 34,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.094,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000013",
+          "ordinal": 13,
+          "text": "Τα έξοδα ανάπτυξης και λειτουργίας του CyLaw καλύπτονται από τους δικηγόρους μέσω του Παγκύπριου Δικηγορικού Συλλόγου.",
+          "startOffset": 515,
+          "endOffset": 633,
+          "relativePosition": 0.375,
+          "parentBlockId": "B00013",
+          "sourceLineStart": 37,
+          "sourceLineEnd": 37,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.059,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000014",
+          "ordinal": 14,
+          "text": "Οι βάσεις δεδομένων του CyLaw περιλαμβάνουν όλη τη νομολογία του Ανωτάτου Δικαστηρίου, την ενοποιημένη και αριθμημένη νομοθεσία καθώς και τους θεσμούς πολιτικής δικονομίας, μέρος της δευτερογενούς νομοθεσίας και αποφάσεων διαιτητικών οργάνων",
+          "startOffset": 636,
+          "endOffset": 877,
+          "relativePosition": 0.40625,
+          "parentBlockId": "B00014",
+          "sourceLineStart": 40,
+          "sourceLineEnd": 40,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.024,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000015",
+          "ordinal": 15,
+          "text": "Το Cylaw είναι μέλος του Διεθνούς Κινήματος για την Ελεύθερη Πρόσβαση στο Νόμο από το 2004 και έχει στενή συνεργασία με αντίστοιχους οργανισμούς άλλων χωρών. Το Cylaw συνεργάζεται με άλλες διεθνείς διαδικτυακές υπηρεσίες νομικής πληροφόρησης όπως την ενιαία μηχανή αναζήτησης του Δικτύου των Προέδρων των Ανωτάτων Δικαστηρίων της Ευρωπαϊκής Ένωσης, το WorldLii και το CommonLii ενώ συμμετέχει στην πρωτοβουλία για τη δημιουργία μιας πανευρωπαϊκής υπηρεσίας νομικής πληροφόρησης EuroLii.",
+          "startOffset": 879,
+          "endOffset": 1365,
+          "relativePosition": 0.4375,
+          "parentBlockId": "B00015",
+          "sourceLineStart": 42,
+          "sourceLineEnd": 42,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.049,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000016",
+          "ordinal": 16,
+          "text": "Ιστορικό",
+          "startOffset": 1368,
+          "endOffset": 1376,
+          "relativePosition": 0.46875,
+          "parentBlockId": "B00016",
+          "sourceLineStart": 45,
+          "sourceLineEnd": 45,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.125,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000017",
+          "ordinal": 17,
+          "text": "To Cylaw ιδρύθηκε τον Ιανουάριο 2002 ως μια προσωπική πρωτοβουλία από τον δικηγόρο Λάρη Βραχίμη και καθιερώθηκε ως η κύρια πηγή ελεύθερης νομικής πληροφόρησης στην Κύπρο.",
+          "startOffset": 1379,
+          "endOffset": 1549,
+          "relativePosition": 0.5,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 48,
+          "sourceLineEnd": 48,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.043,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000018",
+          "ordinal": 18,
+          "text": "Το 2011 η υπηρεσία παραχωρήθηκε δωρεάν, προς όφελος των δικηγόρων, στο Κυπριακό Ινστιτούτο Νομικής Πληροφόρησης το οποίο ανέλαβε τη συνέχιση της λειτουργίας της και παράλληλα την αναβάθμιση των παρεχομένων υπηρεσιών και επέκταση των βάσης δεδομένων της ώστε αυτές να περιλάβουν όλες τις πρωτογενείς πηγές του Κυπριακού δικαίου.",
+          "startOffset": 1550,
+          "endOffset": 1877,
+          "relativePosition": 0.53125,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 48,
+          "sourceLineEnd": 48,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.022,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000019",
+          "ordinal": 19,
+          "text": "Στα πλαίσια αυτά το ΚΙΝΟΠ ανέλαβε το έργο της επεξεργασίας και ενοποίησης της Κυπριακής Νομοθεσίας ώστε αυτή να ενσωματωθεί στις βάσεις δεδομένων του CyLaw.",
+          "startOffset": 1880,
+          "endOffset": 2036,
+          "relativePosition": 0.5625,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 50,
+          "sourceLineEnd": 50,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.076,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000020",
+          "ordinal": 20,
+          "text": "Η υλοποίηση του έργου κατέστη δυνατή λόγω της δωρεάς που έγινε προς του Σύλλογο από τον δικηγόρο Νόντα Κορακίδη της δεκαπεντάτομης συλλογής Ενοποιημένης Κυπριακής Νομοθεσίας την οποία είχε εκδώσει τα έτη 1999-2000.",
+          "startOffset": 2037,
+          "endOffset": 2251,
+          "relativePosition": 0.59375,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 50,
+          "sourceLineEnd": 50,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.04,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000021",
+          "ordinal": 21,
+          "text": "Το Διοικητικό Συμβούλιο του ΚΙΝΟΠ/CyLii",
+          "startOffset": 2253,
+          "endOffset": 2292,
+          "relativePosition": 0.625,
+          "parentBlockId": "B00019",
+          "sourceLineStart": 52,
+          "sourceLineEnd": 52,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.294,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000022",
+          "ordinal": 22,
+          "text": "Το Κυπριακό Ινστιτούτο Νομικής Πληροφόρησης είναι εγγεγραμμένο ως μη κερδοσκοπική εταιρεία χωρίς μετοχικό κεφάλαιο.",
+          "startOffset": 2295,
+          "endOffset": 2410,
+          "relativePosition": 0.65625,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 55,
+          "sourceLineEnd": 55,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.05,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000023",
+          "ordinal": 23,
+          "text": "Η διεθνής ονομασία του Ινστιτούτου είναι Cyprus Legal Information Institute (CyLii).",
+          "startOffset": 2411,
+          "endOffset": 2495,
+          "relativePosition": 0.6875,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 55,
+          "sourceLineEnd": 55,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.113,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000024",
+          "ordinal": 24,
+          "text": "Από τα επτά μέλη του, τα πέντε διορίζονται από τον Παγκύπριο Δικηγορικό Σύλλογο και τα άλλα δυο από το Κυπριακό Ερευνητικό Ινστιτούτο Νομικής Πληροφόρησης που είναι η ερευνητική πτέρυγα του Cylaw. Τα μέλη του Διοικητικού Συμβουλίου του ΚΙΝΟΠ/CyLii είναι:",
+          "startOffset": 2496,
+          "endOffset": 2750,
+          "relativePosition": 0.71875,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 55,
+          "sourceLineEnd": 55,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.094,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000025",
+          "ordinal": 25,
+          "text": "Δώρος Ιωαννίδης, δικηγόρος και τέως Πρόεδρος του Παγκύπριου Δικηγορικού Σύλλογου, Πρόεδρος",
+          "startOffset": 2753,
+          "endOffset": 2843,
+          "relativePosition": 0.75,
+          "parentBlockId": "B00021",
+          "sourceLineStart": 58,
+          "sourceLineEnd": 58,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.09,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000026",
+          "ordinal": 26,
+          "text": "Andrew Mowbray, Καθηγητής, Διευθυντής του Australasian Legal Information Institute (Austlii)",
+          "startOffset": 2845,
+          "endOffset": 2937,
+          "relativePosition": 0.78125,
+          "parentBlockId": "B00022",
+          "sourceLineStart": 60,
+          "sourceLineEnd": 60,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.114,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000027",
+          "ordinal": 27,
+          "text": "Λάρης Βραχίμης, Δικηγόρος",
+          "startOffset": 2939,
+          "endOffset": 2964,
+          "relativePosition": 0.8125,
+          "parentBlockId": "B00023",
+          "sourceLineStart": 62,
+          "sourceLineEnd": 62,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.136,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000028",
+          "ordinal": 28,
+          "text": "Κυριάκος Θεοδωρίδης, Δικηγόρος",
+          "startOffset": 2966,
+          "endOffset": 2996,
+          "relativePosition": 0.84375,
+          "parentBlockId": "B00024",
+          "sourceLineStart": 64,
+          "sourceLineEnd": 64,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000029",
+          "ordinal": 29,
+          "text": "Διομήδης Καλλής, Δικηγόρος",
+          "startOffset": 2998,
+          "endOffset": 3024,
+          "relativePosition": 0.875,
+          "parentBlockId": "B00025",
+          "sourceLineStart": 66,
+          "sourceLineEnd": 66,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.13,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000030",
+          "ordinal": 30,
+          "text": "Χριστόφορος Χριστοφή, Δικηγόρος",
+          "startOffset": 3026,
+          "endOffset": 3057,
+          "relativePosition": 0.90625,
+          "parentBlockId": "B00026",
+          "sourceLineStart": 68,
+          "sourceLineEnd": 68,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.107,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000031",
+          "ordinal": 31,
+          "text": "Νικόλας Κουκούνης, Δικηγόρος\nΓραμματέας του Ινστιτούτου είναι η Κούλια Βάκη, Νομικός, Εκτελεστική Διευθύντρια του Παγκυπρίου Δικηγορικού Συλλόγου",
+          "startOffset": 3059,
+          "endOffset": 3204,
+          "relativePosition": 0.9375,
+          "parentBlockId": "B00027",
+          "sourceLineStart": 70,
+          "sourceLineEnd": 71,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.103,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000032",
+          "ordinal": 32,
+          "text": "Το Κυπριακό Ερευνητικό Ινστιντούτο Νομικής Πληροφόρησης περιλαμβάνει επίσης στο Διοικητικό Συμβούλιο του τους Philip Chung, Εκτελεστικό Διευθυντή του Austlii και τον Νικήτα Χατζημιχαήλ, Επίκουρο Καθηγητή Νομικής του Πανεπιστημίου Κύπρου.",
+          "startOffset": 3207,
+          "endOffset": 3444,
+          "relativePosition": 0.96875,
+          "parentBlockId": "B00028",
+          "sourceLineStart": 74,
+          "sourceLineEnd": 74,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.097,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000033",
+          "ordinal": 33,
+          "text": "Cylaw.org: από το ΚΙΝΟΠ/CyLII για τον Παγκύπριο Δικηγορικό Σύλλογο.",
+          "startOffset": 3454,
+          "endOffset": 3521,
+          "relativePosition": 1,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 77,
+          "sourceLineEnd": 77,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.236,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        }
+      ]
+    },
+    "sectionMap": {
+      "version": "nomologies-v2.0.0:sections-v1",
+      "paragraphCount": 33,
+      "spans": [
+        {
+          "id": "S00001",
+          "startParagraphId": "P000001",
+          "endParagraphId": "P000003",
+          "sectionType": "caption",
+          "speakerRole": "unknown",
+          "heading": "CyLaw / Παγκύπριος Δικηγορικός Σύλλογος",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000001",
+            "P000003"
+          ],
+          "rationale": "Περιέχει μόνο τον τίτλο και το όνομα της πηγής."
+        },
+        {
+          "id": "S00002",
+          "startParagraphId": "P000004",
+          "endParagraphId": "P000033",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "Μενού ιστότοπου",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.9815,
+          "boundaryEvidenceParagraphIds": [
+            "P000004",
+            "P000010",
+            "P000011",
+            "P000020",
+            "P000021",
+            "P000023",
+            "P000022",
+            "P000032",
+            "P000033"
+          ],
+          "rationale": "Περιέχει τις πληροφορίες για το ίδρυμα και τα μέλη του διοικητικού συμβουλίου."
+        }
+      ],
+      "coverageComplete": true,
+      "overlapFree": true,
+      "reviewFlags": []
+    },
+    "identity": {
+      "caseName": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "shortName": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "citation": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "ecli": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "docket": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "caseNumber": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "joinedCaseNumbers": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "decisionDate": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "court": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "jurisdiction": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "language": {
+        "status": "indeterminate",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "era": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "judges": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "authoringJudges": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "parties": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "appearances": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "classification": {
+      "caseFamily": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalAreas": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "primaryLegalArea": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "proceedingType": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "proceduralPosture": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "caseTypeLabels": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "applicationTypes": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "writsRequested": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "subjectMatter": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "facts": {
+      "summary": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "materialFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "chronology": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "witnessesAndEvidence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "undisputedFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "disputedFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "procedure": {
+      "proceduralHistory": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "originatingProceeding": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "lowerCourtDecision": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "groundsOrIssues": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "reliefSought": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "submissionsByParty": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "analysis": {
+      "legalIssues": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dominantIssue": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "findings": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "holding": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "ratioDecidendi": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalPrincipleSummary": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "secondaryPrinciples": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "obiterDicta": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalTestsAndStandards": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "burdenAndStandardOfProof": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "credibilityFindings": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dissentOrConcurrence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "authorities": {
+      "legislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "primaryLegislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "secondaryLegislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "authorities": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "outcome": {
+      "overallOutcome": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "scope": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dispositionText": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "components": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "orders": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "remedies": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "sentence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "monetaryAwards": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "costs": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "remittalInstructions": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "taxonomy": {
+      "issueTags": [],
+      "offenceTags": [],
+      "keywords": [],
+      "aliases": [],
+      "topicGroups": [],
+      "principleGroups": [],
+      "evidenceGroups": [],
+      "procedureGroups": [],
+      "publicLawGroups": []
+    },
+    "allEvidence": [],
+    "conflicts": [
+      {
+        "code": "CASE_NAME_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.caseName",
+        "message": "The present judgment's formal case name is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "DECISION_DATE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.decisionDate",
+        "message": "The judgment date is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "COURT_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.court",
+        "message": "The deciding court is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "CASE_REFERENCE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity",
+        "message": "No case number, docket, citation or ECLI is evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "JUDGES_UNVERIFIED",
+        "severity": "material",
+        "fieldPath": "identity.judges",
+        "message": "The judicial panel is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "FACTS_UNVERIFIED",
+        "severity": "material",
+        "fieldPath": "facts.summary",
+        "message": "The material facts summary is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "LEGAL_ISSUES_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.legalIssues",
+        "message": "The issues determined by the present court are not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "HOLDING_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.holding",
+        "message": "The present court's holding is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "LEGAL_PRINCIPLE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.legalPrincipleSummary",
+        "message": "No evidence-grounded legal principle or ratio decidendi was extracted.",
+        "evidenceIds": []
+      },
+      {
+        "code": "OUTCOME_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "outcome.overallOutcome",
+        "message": "The final outcome is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "DISPOSITION_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "outcome.dispositionText",
+        "message": "The operative final order is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "material",
+        "fieldPath": "identity.language",
+        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: identity.language:evidence_from_wrong_section",
+        "evidenceIds": []
+      }
+    ],
+    "reviewFlags": [
+      "identity.language:available_field_not_grounded",
+      "identity.language:evidence_from_wrong_section",
+      "CASE_NAME_UNVERIFIED",
+      "DECISION_DATE_UNVERIFIED",
+      "COURT_UNVERIFIED",
+      "CASE_REFERENCE_UNVERIFIED",
+      "JUDGES_UNVERIFIED",
+      "FACTS_UNVERIFIED",
+      "LEGAL_ISSUES_UNVERIFIED",
+      "HOLDING_UNVERIFIED",
+      "LEGAL_PRINCIPLE_UNVERIFIED",
+      "OUTCOME_UNVERIFIED",
+      "DISPOSITION_UNVERIFIED",
+      "ATTRIBUTION_VALIDATION_FAILED"
+    ],
+    "readinessScore": 0,
+    "strictReady": false,
+    "humanReviewRequired": true,
+    "stages": [
+      {
+        "stage": "source-preparation",
+        "status": "completed",
+        "model": "deterministic",
+        "responseId": "",
+        "startedAt": "2026-08-05T06:04:10.089Z",
+        "completedAt": "2026-08-05T06:04:10.109Z",
+        "elapsedMs": 20,
+        "inputCharacters": 3521,
+        "outputCharacters": 3521,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-1",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_07f6a73d0e01c389016a72d25ac68c8193b85cffb74a714d3d",
+        "startedAt": "2026-08-05T06:04:10.109Z",
+        "completedAt": "2026-08-05T06:04:15.479Z",
+        "elapsedMs": 4494,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-2",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_08d85b3e1021f408016a72d25ac748819390f891c88c4b513e",
+        "startedAt": "2026-08-05T06:04:10.109Z",
+        "completedAt": "2026-08-05T06:04:15.479Z",
+        "elapsedMs": 5367,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "identity-classification",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_01badbe2699efe53016a72d2600ab88190a2809fce580224d1",
+        "startedAt": "2026-08-05T06:04:15.480Z",
+        "completedAt": "2026-08-05T06:04:24.034Z",
+        "elapsedMs": 8158,
+        "inputCharacters": 5563,
+        "outputCharacters": 2734,
+        "errorCode": ""
+      },
+      {
+        "stage": "facts-procedure",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_016d53f54d26f00e016a72d25ff7608197b27063e35722a2b6",
+        "startedAt": "2026-08-05T06:04:15.480Z",
+        "completedAt": "2026-08-05T06:04:21.562Z",
+        "elapsedMs": 5695,
+        "inputCharacters": 432,
+        "outputCharacters": 1200,
+        "errorCode": ""
+      },
+      {
+        "stage": "judicial-analysis",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_0f9f78a0ad50054e016a72d25ff7e88194a1c8fb27db7bc310",
+        "startedAt": "2026-08-05T06:04:15.480Z",
+        "completedAt": "2026-08-05T06:04:20.643Z",
+        "elapsedMs": 4787,
+        "inputCharacters": 425,
+        "outputCharacters": 1199,
+        "errorCode": ""
+      },
+      {
+        "stage": "legislation-authorities",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_04b9f5d98125a6d1016a72d25f93348194b89ab70aeb820541",
+        "startedAt": "2026-08-05T06:04:15.480Z",
+        "completedAt": "2026-08-05T06:04:18.018Z",
+        "elapsedMs": 2538,
+        "inputCharacters": 428,
+        "outputCharacters": 409,
+        "errorCode": ""
+      },
+      {
+        "stage": "outcome-orders",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_08d612a72c2e9197016a72d25fe9848190ae9a140e958ee01c",
+        "startedAt": "2026-08-05T06:04:15.481Z",
+        "completedAt": "2026-08-05T06:04:19.069Z",
+        "elapsedMs": 3244,
+        "inputCharacters": 424,
+        "outputCharacters": 955,
+        "errorCode": ""
+      },
+      {
+        "stage": "independent-review",
+        "status": "skipped",
+        "model": "",
+        "responseId": "",
+        "startedAt": "2026-08-05T06:04:24.034Z",
+        "completedAt": "2026-08-05T06:04:24.034Z",
+        "elapsedMs": 0,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      }
+    ],
+    "createdAt": "2026-08-05T06:04:10.089Z",
+    "updatedAt": "2026-08-05T06:04:24.034Z"
+  },
+  "reviewer": {
+    "publishRecommendation": "review",
+    "conflicts": [],
+    "sectionCorrections": [],
+    "qualitySummary": "Independent review skipped by the economy profile: the record is below the publishable-readiness threshold and remains human-review-first."
+  }
+}

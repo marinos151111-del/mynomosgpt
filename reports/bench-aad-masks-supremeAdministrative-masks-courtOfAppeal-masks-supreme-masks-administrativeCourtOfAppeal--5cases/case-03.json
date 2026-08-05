@@ -1,0 +1,2144 @@
+{
+  "mode": "full",
+  "record": {
+    "schemaVersion": "nomologies-v2.0.0",
+    "runId": "37a600c7-d3b5-4668-b7d1-298a4261abfa",
+    "pipelineProfile": "economy",
+    "source": {
+      "sourceId": "src_dc06fcb36be808ffe8ddb601",
+      "sourceHash": "dc06fcb36be808ffe8ddb6018d620dc06ec9657aa7fcaff3ef4dd1b86fb19d58",
+      "sourceUrl": "https://www.cylaw.org/advanced.html",
+      "sourceTitle": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+      "sourceDatabase": "cylaw",
+      "retrievedAt": "2026-08-05T06:04:23.576Z",
+      "charset": "windows-1253",
+      "languageHint": "el",
+      "originalHtml": "[omitted: 11664 characters]",
+      "cleanText": "[omitted: 2982 characters]",
+      "characterCount": 2982,
+      "paragraphs": [
+        {
+          "id": "P000001",
+          "ordinal": 1,
+          "text": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "startOffset": 0,
+          "endOffset": 78,
+          "relativePosition": 0,
+          "parentBlockId": "B00001",
+          "sourceLineStart": 1,
+          "sourceLineEnd": 1,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.152,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000002",
+          "ordinal": 2,
+          "text": "ΠΑΓΚΥΠΡΙΟΣ ΔΙΚΗΓΟΡΙΚΟΣ ΣΥΛΛΟΓΟΣ",
+          "startOffset": 85,
+          "endOffset": 116,
+          "relativePosition": 0.015385,
+          "parentBlockId": "B00002",
+          "sourceLineStart": 4,
+          "sourceLineEnd": 4,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000003",
+          "ordinal": 3,
+          "text": "Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "startOffset": 124,
+          "endOffset": 160,
+          "relativePosition": 0.030769,
+          "parentBlockId": "B00003",
+          "sourceLineStart": 7,
+          "sourceLineEnd": 7,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.156,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000004",
+          "ordinal": 4,
+          "text": "• CyLaw",
+          "startOffset": 170,
+          "endOffset": 177,
+          "relativePosition": 0.046154,
+          "parentBlockId": "B00004",
+          "sourceLineStart": 10,
+          "sourceLineEnd": 10,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.4,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000005",
+          "ordinal": 5,
+          "text": "• |",
+          "startOffset": 187,
+          "endOffset": 190,
+          "relativePosition": 0.061538,
+          "parentBlockId": "B00005",
+          "sourceLineStart": 13,
+          "sourceLineEnd": 13,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000006",
+          "ordinal": 6,
+          "text": "• Αναφορικά μ'εμάς",
+          "startOffset": 200,
+          "endOffset": 218,
+          "relativePosition": 0.076923,
+          "parentBlockId": "B00006",
+          "sourceLineStart": 16,
+          "sourceLineEnd": 16,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.071,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000007",
+          "ordinal": 7,
+          "text": "• |",
+          "startOffset": 228,
+          "endOffset": 231,
+          "relativePosition": 0.092308,
+          "parentBlockId": "B00007",
+          "sourceLineStart": 19,
+          "sourceLineEnd": 19,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000008",
+          "ordinal": 8,
+          "text": "• \">Επικοινωνία",
+          "startOffset": 241,
+          "endOffset": 256,
+          "relativePosition": 0.107692,
+          "parentBlockId": "B00008",
+          "sourceLineStart": 22,
+          "sourceLineEnd": 22,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.091,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000009",
+          "ordinal": 9,
+          "text": "• |",
+          "startOffset": 266,
+          "endOffset": 269,
+          "relativePosition": 0.123077,
+          "parentBlockId": "B00009",
+          "sourceLineStart": 25,
+          "sourceLineEnd": 25,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000010",
+          "ordinal": 10,
+          "text": "• Όροι χρήσης",
+          "startOffset": 279,
+          "endOffset": 292,
+          "relativePosition": 0.138462,
+          "parentBlockId": "B00010",
+          "sourceLineStart": 28,
+          "sourceLineEnd": 28,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000011",
+          "ordinal": 11,
+          "text": "Προχωρημένη Έρευνα",
+          "startOffset": 299,
+          "endOffset": 317,
+          "relativePosition": 0.153846,
+          "parentBlockId": "B00011",
+          "sourceLineStart": 31,
+          "sourceLineEnd": 31,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.059,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000012",
+          "ordinal": 12,
+          "text": "Βρες τα κείμενα που περιέχουν:",
+          "startOffset": 330,
+          "endOffset": 360,
+          "relativePosition": 0.169231,
+          "parentBlockId": "B00012",
+          "sourceLineStart": 34,
+          "sourceLineEnd": 34,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.04,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000013",
+          "ordinal": 13,
+          "text": "όλες τις πιο κάτω λέξεις οποιαδήποτε από τις λέξεις την πιο κάτω φράση τη σύνθετη έρευνα (Boolean) την ακόλουθη αναφορά (citation) την ακόλουθη αναφορά (ECLI)",
+          "startOffset": 360,
+          "endOffset": 518,
+          "relativePosition": 0.184615,
+          "parentBlockId": "B00013",
+          "sourceLineStart": 34,
+          "sourceLineEnd": 41,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.039,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000014",
+          "ordinal": 14,
+          "text": "Τίτλος/Αριθμός:",
+          "startOffset": 600,
+          "endOffset": 615,
+          "relativePosition": 0.2,
+          "parentBlockId": "B00014",
+          "sourceLineStart": 45,
+          "sourceLineEnd": 45,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.154,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000015",
+          "ordinal": 15,
+          "text": "Ημερομηνία από:",
+          "startOffset": 628,
+          "endOffset": 643,
+          "relativePosition": 0.215385,
+          "parentBlockId": "B00015",
+          "sourceLineStart": 48,
+          "sourceLineEnd": 48,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.077,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000016",
+          "ordinal": 16,
+          "text": "Ημερομηνία μέχρι:",
+          "startOffset": 656,
+          "endOffset": 673,
+          "relativePosition": 0.230769,
+          "parentBlockId": "B00016",
+          "sourceLineStart": 51,
+          "sourceLineEnd": 51,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.067,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000017",
+          "ordinal": 17,
+          "text": "Η έρευνα να περιλαμβάνει τα μετα-δεδομένα ECLI:",
+          "startOffset": 686,
+          "endOffset": 733,
+          "relativePosition": 0.246154,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 54,
+          "sourceLineEnd": 54,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.128,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000018",
+          "ordinal": 18,
+          "text": "Δικαστήριο",
+          "startOffset": 747,
+          "endOffset": 757,
+          "relativePosition": 0.261538,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 57,
+          "sourceLineEnd": 57,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000019",
+          "ordinal": 19,
+          "text": "Κάλυψη",
+          "startOffset": 769,
+          "endOffset": 775,
+          "relativePosition": 0.276923,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 58,
+          "sourceLineEnd": 58,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.167,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000020",
+          "ordinal": 20,
+          "text": "Ημερομηνία υπόθεσης",
+          "startOffset": 787,
+          "endOffset": 806,
+          "relativePosition": 0.292308,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 59,
+          "sourceLineEnd": 59,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.056,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000021",
+          "ordinal": 21,
+          "text": "Γλώσσα",
+          "startOffset": 818,
+          "endOffset": 824,
+          "relativePosition": 0.307692,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 60,
+          "sourceLineEnd": 60,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.167,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000022",
+          "ordinal": 22,
+          "text": "Εκδότης",
+          "startOffset": 836,
+          "endOffset": 843,
+          "relativePosition": 0.323077,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 61,
+          "sourceLineEnd": 61,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.143,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000023",
+          "ordinal": 23,
+          "text": "Δικαιώματα πρόσβασης",
+          "startOffset": 855,
+          "endOffset": 875,
+          "relativePosition": 0.338462,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 62,
+          "sourceLineEnd": 62,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.053,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000024",
+          "ordinal": 24,
+          "text": "Τύπος",
+          "startOffset": 887,
+          "endOffset": 892,
+          "relativePosition": 0.353846,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 63,
+          "sourceLineEnd": 63,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.2,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000025",
+          "ordinal": 25,
+          "text": "Υπό τύπος",
+          "startOffset": 904,
+          "endOffset": 913,
+          "relativePosition": 0.369231,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 64,
+          "sourceLineEnd": 64,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.125,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000026",
+          "ordinal": 26,
+          "text": "Τίτλος",
+          "startOffset": 925,
+          "endOffset": 931,
+          "relativePosition": 0.384615,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 65,
+          "sourceLineEnd": 65,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.167,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000027",
+          "ordinal": 27,
+          "text": "Θέμα",
+          "startOffset": 943,
+          "endOffset": 947,
+          "relativePosition": 0.4,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 66,
+          "sourceLineEnd": 66,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.25,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000028",
+          "ordinal": 28,
+          "text": "Δικαιοδοσία",
+          "startOffset": 959,
+          "endOffset": 970,
+          "relativePosition": 0.415385,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 67,
+          "sourceLineEnd": 67,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.091,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000029",
+          "ordinal": 29,
+          "text": "Κείμενο περίληψης",
+          "startOffset": 982,
+          "endOffset": 999,
+          "relativePosition": 0.430769,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 68,
+          "sourceLineEnd": 68,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.063,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000030",
+          "ordinal": 30,
+          "text": "Λέξεις κλειδιά",
+          "startOffset": 1011,
+          "endOffset": 1025,
+          "relativePosition": 0.446154,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 69,
+          "sourceLineEnd": 69,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.077,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000031",
+          "ordinal": 31,
+          "text": "Συνεισφέρων",
+          "startOffset": 1037,
+          "endOffset": 1048,
+          "relativePosition": 0.461538,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 70,
+          "sourceLineEnd": 70,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.091,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000032",
+          "ordinal": 32,
+          "text": "Ημερομηνία έκδοσης",
+          "startOffset": 1060,
+          "endOffset": 1078,
+          "relativePosition": 0.476923,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 71,
+          "sourceLineEnd": 71,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.059,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000033",
+          "ordinal": 33,
+          "text": "Παραπομπή",
+          "startOffset": 1090,
+          "endOffset": 1099,
+          "relativePosition": 0.492308,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 72,
+          "sourceLineEnd": 72,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000034",
+          "ordinal": 34,
+          "text": "Η έρευνα να πραγματοποιηθεί:",
+          "startOffset": 1112,
+          "endOffset": 1140,
+          "relativePosition": 0.507692,
+          "parentBlockId": "B00019",
+          "sourceLineStart": 75,
+          "sourceLineEnd": 75,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.042,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000035",
+          "ordinal": 35,
+          "text": "Σε όλες τις βάσεις δεδομένων",
+          "startOffset": 1154,
+          "endOffset": 1182,
+          "relativePosition": 0.523077,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 78,
+          "sourceLineEnd": 78,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.042,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000036",
+          "ordinal": 36,
+          "text": "Σε όλες τις Αποφάσεις του Ανωτάτου Δικαστηρίου (1883-2023)",
+          "startOffset": 1194,
+          "endOffset": 1252,
+          "relativePosition": 0.538462,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 79,
+          "sourceLineEnd": 79,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000037",
+          "ordinal": 37,
+          "text": ".... στο Μέρος 1 των Αποφάσεων",
+          "startOffset": 1264,
+          "endOffset": 1294,
+          "relativePosition": 0.553846,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 80,
+          "sourceLineEnd": 80,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000038",
+          "ordinal": 38,
+          "text": ".... στο Μέρος 2 των Αποφάσεων",
+          "startOffset": 1306,
+          "endOffset": 1336,
+          "relativePosition": 0.569231,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 81,
+          "sourceLineEnd": 81,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000039",
+          "ordinal": 39,
+          "text": ".... στο Μέρος 3 των Αποφάσεων",
+          "startOffset": 1348,
+          "endOffset": 1378,
+          "relativePosition": 0.584615,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 82,
+          "sourceLineEnd": 82,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000040",
+          "ordinal": 40,
+          "text": ".... στο Μέρος 4 των Αποφάσεων",
+          "startOffset": 1390,
+          "endOffset": 1420,
+          "relativePosition": 0.6,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 83,
+          "sourceLineEnd": 83,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000041",
+          "ordinal": 41,
+          "text": "Στις Αποφάσεις Νέου Ανωτάτου Δικαστηρίου",
+          "startOffset": 1432,
+          "endOffset": 1472,
+          "relativePosition": 0.615385,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 84,
+          "sourceLineEnd": 84,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.139,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000042",
+          "ordinal": 42,
+          "text": "Στις Αποφάσεις Νέου Ανωτάτου Συνταγματικού Δικαστηρίου",
+          "startOffset": 1484,
+          "endOffset": 1538,
+          "relativePosition": 0.630769,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 85,
+          "sourceLineEnd": 85,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.122,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000043",
+          "ordinal": 43,
+          "text": "Στις Αποφάσεις Ανωτάτου Συνταγματικού Δικαστηρίου (1960-1963)",
+          "startOffset": 1550,
+          "endOffset": 1611,
+          "relativePosition": 0.646154,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 86,
+          "sourceLineEnd": 86,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000044",
+          "ordinal": 44,
+          "text": "Στις Αποφάσεις Εφετείου",
+          "startOffset": 1623,
+          "endOffset": 1646,
+          "relativePosition": 0.661538,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 87,
+          "sourceLineEnd": 87,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.143,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000045",
+          "ordinal": 45,
+          "text": "Στις Αποφάσεις Διοικητικού Εφετείου",
+          "startOffset": 1691,
+          "endOffset": 1726,
+          "relativePosition": 0.676923,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 88,
+          "sourceLineEnd": 88,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.125,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000046",
+          "ordinal": 46,
+          "text": "Στις Πρωτόδικες Αποφάσεις",
+          "startOffset": 1738,
+          "endOffset": 1763,
+          "relativePosition": 0.692308,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 89,
+          "sourceLineEnd": 89,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.13,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000047",
+          "ordinal": 47,
+          "text": "Στις Αποφάσεις Δικαστηρίου Παίδων",
+          "startOffset": 1775,
+          "endOffset": 1808,
+          "relativePosition": 0.707692,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 90,
+          "sourceLineEnd": 90,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.133,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000048",
+          "ordinal": 48,
+          "text": "Στην Αριθμημένη Νομοθεσία",
+          "startOffset": 1820,
+          "endOffset": 1845,
+          "relativePosition": 0.723077,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 91,
+          "sourceLineEnd": 91,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.13,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000049",
+          "ordinal": 49,
+          "text": "Στην Ενοποιημένη Νομοθεσία",
+          "startOffset": 1857,
+          "endOffset": 1883,
+          "relativePosition": 0.738462,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 92,
+          "sourceLineEnd": 92,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.125,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000050",
+          "ordinal": 50,
+          "text": "Στους Θεσμούς Πολιτικής Δικονομίας",
+          "startOffset": 1895,
+          "endOffset": 1929,
+          "relativePosition": 0.753846,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 93,
+          "sourceLineEnd": 93,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.129,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000051",
+          "ordinal": 51,
+          "text": "Στους Νέους Κανονισμούς Πολιτικής Δικονομίας",
+          "startOffset": 1941,
+          "endOffset": 1985,
+          "relativePosition": 0.769231,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 94,
+          "sourceLineEnd": 94,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.125,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000052",
+          "ordinal": 52,
+          "text": "Στις Κανονιστικές Διοικητικές Πράξεις",
+          "startOffset": 1997,
+          "endOffset": 2034,
+          "relativePosition": 0.784615,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 95,
+          "sourceLineEnd": 95,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.118,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000053",
+          "ordinal": 53,
+          "text": "Στις Αποφάσεις της Επιτροπής Ανταγωνισμού",
+          "startOffset": 2046,
+          "endOffset": 2087,
+          "relativePosition": 0.8,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 96,
+          "sourceLineEnd": 96,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.108,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000054",
+          "ordinal": 54,
+          "text": "Στις Αποφάσεις Αναθεωρητικής Αρχής Προσφορών",
+          "startOffset": 2099,
+          "endOffset": 2143,
+          "relativePosition": 0.815385,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 97,
+          "sourceLineEnd": 97,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.125,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000055",
+          "ordinal": 55,
+          "text": "Στις Αποφάσεις των Δικαστηρίων των Ευρωπαϊκών Κοινοτήτων (Cellar)",
+          "startOffset": 2155,
+          "endOffset": 2220,
+          "relativePosition": 0.830769,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 98,
+          "sourceLineEnd": 98,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.107,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000056",
+          "ordinal": 56,
+          "text": "Στους Αριθμημένους Διαδικαστικούς Κανονισμούς",
+          "startOffset": 2232,
+          "endOffset": 2277,
+          "relativePosition": 0.846154,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 99,
+          "sourceLineEnd": 99,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.095,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000057",
+          "ordinal": 57,
+          "text": "Στις Αποφάσεις Διοικητικού Δικαστηρίου",
+          "startOffset": 2289,
+          "endOffset": 2327,
+          "relativePosition": 0.861538,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 100,
+          "sourceLineEnd": 100,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.114,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000058",
+          "ordinal": 58,
+          "text": "Στις Αποφάσεις Διοικητικού Δικαστηρίου Διεθνούς Προστασίας",
+          "startOffset": 2339,
+          "endOffset": 2397,
+          "relativePosition": 0.876923,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 101,
+          "sourceLineEnd": 101,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.113,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000059",
+          "ordinal": 59,
+          "text": "Στις Αποφάσεις Judgments of the Supreme Court",
+          "startOffset": 2409,
+          "endOffset": 2454,
+          "relativePosition": 0.892308,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 102,
+          "sourceLineEnd": 102,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.128,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000060",
+          "ordinal": 60,
+          "text": "Στις Αποφάσεις Αρείου Πάγου",
+          "startOffset": 2466,
+          "endOffset": 2493,
+          "relativePosition": 0.907692,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 103,
+          "sourceLineEnd": 103,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.167,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000061",
+          "ordinal": 61,
+          "text": "Σημείωση: Μπορείτε να επιλέξετε περισσότερες από μια βάση δεδομένων πατώντας το πλήκτρο Ctrl και επιλέγοντας με το ποντίκι κάθε μια απο τις βάσεις δεδομένων στην οποία θέλετε να πραγματοποιηθεί η έρευνα.",
+          "startOffset": 2505,
+          "endOffset": 2708,
+          "relativePosition": 0.923077,
+          "parentBlockId": "B00021",
+          "sourceLineStart": 105,
+          "sourceLineEnd": 105,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.018,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000062",
+          "ordinal": 62,
+          "text": "Να παρουσιαστούν:",
+          "startOffset": 2721,
+          "endOffset": 2738,
+          "relativePosition": 0.938462,
+          "parentBlockId": "B00022",
+          "sourceLineStart": 108,
+          "sourceLineEnd": 108,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.067,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000063",
+          "ordinal": 63,
+          "text": "10\n\t\t\t\t\t\t\t\t\t\t20\n\t\t\t\t\t\t\t\t\t\t50\n\t\t\t\t\t\t\t\t\t\t100\n\t\t\t\t\t\t\t\t\t\t200",
+          "startOffset": 2750,
+          "endOffset": 2806,
+          "relativePosition": 0.953846,
+          "parentBlockId": "B00023",
+          "sourceLineStart": 110,
+          "sourceLineEnd": 114,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000064",
+          "ordinal": 64,
+          "text": "αποτελέσματα κάθε φορά.",
+          "startOffset": 2818,
+          "endOffset": 2841,
+          "relativePosition": 0.969231,
+          "parentBlockId": "B00024",
+          "sourceLineStart": 116,
+          "sourceLineEnd": 116,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000065",
+          "ordinal": 65,
+          "text": "Συνηθισμένη Έρευνα |\n\t\t\t\t\t\t\t\t\t\t\tΣυμβουλές Αναζήτησης",
+          "startOffset": 2855,
+          "endOffset": 2907,
+          "relativePosition": 0.984615,
+          "parentBlockId": "B00025",
+          "sourceLineStart": 119,
+          "sourceLineEnd": 120,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.083,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000066",
+          "ordinal": 66,
+          "text": "Cylaw.org: από το ΚΙΝΟΠ/CyLII για τον Παγκύπριο Δικηγορικό Σύλλογο.",
+          "startOffset": 2915,
+          "endOffset": 2982,
+          "relativePosition": 1,
+          "parentBlockId": "B00026",
+          "sourceLineStart": 123,
+          "sourceLineEnd": 123,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.236,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        }
+      ]
+    },
+    "sectionMap": {
+      "version": "nomologies-v2.0.0:sections-v1",
+      "paragraphCount": 66,
+      "spans": [
+        {
+          "id": "S00001",
+          "startParagraphId": "P000001",
+          "endParagraphId": "P000066",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "CyLaw advanced search page",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 1,
+          "boundaryEvidenceParagraphIds": [
+            "P000001",
+            "P000038",
+            "P000033",
+            "P000065",
+            "P000061",
+            "P000066"
+          ],
+          "rationale": "Τα παραγράφοι 61-66 είναι υλικό διεπαφής και υποσέλιδου του ιστότοπου, όχι τμήμα δικαστικής απόφασης."
+        }
+      ],
+      "coverageComplete": true,
+      "overlapFree": true,
+      "reviewFlags": []
+    },
+    "identity": {
+      "caseName": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "shortName": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "citation": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "ecli": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "docket": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "caseNumber": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "joinedCaseNumbers": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "decisionDate": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "court": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "jurisdiction": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "language": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "era": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "judges": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "authoringJudges": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "parties": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "appearances": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "classification": {
+      "caseFamily": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalAreas": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "primaryLegalArea": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "proceedingType": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "proceduralPosture": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "caseTypeLabels": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "applicationTypes": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "writsRequested": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "subjectMatter": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "facts": {
+      "summary": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "materialFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "chronology": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "witnessesAndEvidence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "undisputedFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "disputedFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "procedure": {
+      "proceduralHistory": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "originatingProceeding": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "lowerCourtDecision": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "groundsOrIssues": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "reliefSought": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "submissionsByParty": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "analysis": {
+      "legalIssues": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dominantIssue": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "findings": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "holding": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "ratioDecidendi": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalPrincipleSummary": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "secondaryPrinciples": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "obiterDicta": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "legalTestsAndStandards": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "burdenAndStandardOfProof": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "credibilityFindings": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dissentOrConcurrence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 1,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "authorities": {
+      "legislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "primaryLegislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "secondaryLegislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "authorities": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "outcome": {
+      "overallOutcome": {
+        "status": "unavailable",
+        "value": "unknown",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "scope": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dispositionText": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "components": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "orders": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "remedies": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "sentence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "monetaryAwards": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "costs": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "remittalInstructions": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "taxonomy": {
+      "issueTags": [],
+      "offenceTags": [],
+      "keywords": [],
+      "aliases": [],
+      "topicGroups": [],
+      "principleGroups": [],
+      "evidenceGroups": [],
+      "procedureGroups": [],
+      "publicLawGroups": []
+    },
+    "allEvidence": [],
+    "conflicts": [
+      {
+        "code": "CASE_NAME_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.caseName",
+        "message": "The present judgment's formal case name is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "DECISION_DATE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.decisionDate",
+        "message": "The judgment date is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "COURT_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity.court",
+        "message": "The deciding court is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "CASE_REFERENCE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "identity",
+        "message": "No case number, docket, citation or ECLI is evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "JUDGES_UNVERIFIED",
+        "severity": "material",
+        "fieldPath": "identity.judges",
+        "message": "The judicial panel is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "FACTS_UNVERIFIED",
+        "severity": "material",
+        "fieldPath": "facts.summary",
+        "message": "The material facts summary is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "LEGAL_ISSUES_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.legalIssues",
+        "message": "The issues determined by the present court are not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "HOLDING_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.holding",
+        "message": "The present court's holding is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "LEGAL_PRINCIPLE_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "analysis.legalPrincipleSummary",
+        "message": "No evidence-grounded legal principle or ratio decidendi was extracted.",
+        "evidenceIds": []
+      },
+      {
+        "code": "OUTCOME_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "outcome.overallOutcome",
+        "message": "The final outcome is not evidence-grounded.",
+        "evidenceIds": []
+      },
+      {
+        "code": "DISPOSITION_UNVERIFIED",
+        "severity": "critical",
+        "fieldPath": "outcome.dispositionText",
+        "message": "The operative final order is not evidence-grounded.",
+        "evidenceIds": []
+      }
+    ],
+    "reviewFlags": [
+      "CASE_NAME_UNVERIFIED",
+      "DECISION_DATE_UNVERIFIED",
+      "COURT_UNVERIFIED",
+      "CASE_REFERENCE_UNVERIFIED",
+      "JUDGES_UNVERIFIED",
+      "FACTS_UNVERIFIED",
+      "LEGAL_ISSUES_UNVERIFIED",
+      "HOLDING_UNVERIFIED",
+      "LEGAL_PRINCIPLE_UNVERIFIED",
+      "OUTCOME_UNVERIFIED",
+      "DISPOSITION_UNVERIFIED"
+    ],
+    "readinessScore": 0,
+    "strictReady": false,
+    "humanReviewRequired": true,
+    "stages": [
+      {
+        "stage": "source-preparation",
+        "status": "completed",
+        "model": "deterministic",
+        "responseId": "",
+        "startedAt": "2026-08-05T06:04:23.573Z",
+        "completedAt": "2026-08-05T06:04:23.576Z",
+        "elapsedMs": 3,
+        "inputCharacters": 2982,
+        "outputCharacters": 2982,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-1",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_06c0ca0893f988bf016a72d267a17081969b3728d135c0059d",
+        "startedAt": "2026-08-05T06:04:23.576Z",
+        "completedAt": "2026-08-05T06:04:25.806Z",
+        "elapsedMs": 1317,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-2",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_0c5bcb44593471bc016a72d267a3c08194a047128ed7641ae0",
+        "startedAt": "2026-08-05T06:04:23.576Z",
+        "completedAt": "2026-08-05T06:04:25.806Z",
+        "elapsedMs": 2230,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-3",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_04f3ac017dc8263d016a72d267a1f4819498afce0a8973474c",
+        "startedAt": "2026-08-05T06:04:23.576Z",
+        "completedAt": "2026-08-05T06:04:25.806Z",
+        "elapsedMs": 2115,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "identity-classification",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_0c0e30b88eacd61e016a72d269fee8819094ce508dcdf1b3a0",
+        "startedAt": "2026-08-05T06:04:25.806Z",
+        "completedAt": "2026-08-05T06:04:33.032Z",
+        "elapsedMs": 7225,
+        "inputCharacters": 4768,
+        "outputCharacters": 2617,
+        "errorCode": ""
+      },
+      {
+        "stage": "facts-procedure",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_00383dc278bdac57016a72d269ed848194b2a7ce81de1cdf1f",
+        "startedAt": "2026-08-05T06:04:25.806Z",
+        "completedAt": "2026-08-05T06:04:30.894Z",
+        "elapsedMs": 5087,
+        "inputCharacters": 435,
+        "outputCharacters": 1200,
+        "errorCode": ""
+      },
+      {
+        "stage": "judicial-analysis",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_0abe750135b59903016a72d269ec788196a2e964ae6ac1b0c9",
+        "startedAt": "2026-08-05T06:04:25.806Z",
+        "completedAt": "2026-08-05T06:04:29.546Z",
+        "elapsedMs": 3739,
+        "inputCharacters": 428,
+        "outputCharacters": 1199,
+        "errorCode": ""
+      },
+      {
+        "stage": "legislation-authorities",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_07f726a91186d58a016a72d269e41881979bc6eb5d0798f7be",
+        "startedAt": "2026-08-05T06:04:25.806Z",
+        "completedAt": "2026-08-05T06:04:27.535Z",
+        "elapsedMs": 1729,
+        "inputCharacters": 431,
+        "outputCharacters": 409,
+        "errorCode": ""
+      },
+      {
+        "stage": "outcome-orders",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_02de583b4e653a2c016a72d26a0e3c8195a7914e2fc2a8d49b",
+        "startedAt": "2026-08-05T06:04:25.807Z",
+        "completedAt": "2026-08-05T06:04:29.283Z",
+        "elapsedMs": 3475,
+        "inputCharacters": 427,
+        "outputCharacters": 955,
+        "errorCode": ""
+      },
+      {
+        "stage": "independent-review",
+        "status": "skipped",
+        "model": "",
+        "responseId": "",
+        "startedAt": "2026-08-05T06:04:33.032Z",
+        "completedAt": "2026-08-05T06:04:33.032Z",
+        "elapsedMs": 0,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      }
+    ],
+    "createdAt": "2026-08-05T06:04:23.573Z",
+    "updatedAt": "2026-08-05T06:04:33.032Z"
+  },
+  "reviewer": {
+    "publishRecommendation": "review",
+    "conflicts": [],
+    "sectionCorrections": [],
+    "qualitySummary": "Independent review skipped by the economy profile: the record is below the publishable-readiness threshold and remains human-review-first."
+  }
+}
