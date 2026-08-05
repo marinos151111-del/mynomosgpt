@@ -77,9 +77,31 @@ export async function extractJudgmentLinks(indexUrl: string, count: number): Pro
     }
   };
   // Preferred: open.pl judgment links (.html on modern databases, .htm on
-  // older ones). Fallback: direct judgment page links used by older indexes.
+  // older ones). Fallback: direct judgment page links used by older indexes —
+  // judgment files always live inside a year folder, which keeps site
+  // navigation (about/terms/help) out.
   collect(/href=["']([^"']*open\.pl\?file=[^"']+?\.html?)["']/gi);
-  if (!links.length) collect(/href=["']([^"'#?]+?\.html?)["']/gi);
+  if (!links.length) {
+    const yearFolder = /\/(?:19|20)\d{2}\//;
+    for (const match of html.matchAll(/href=["']([^"'#?]+?\.html?)["']/gi)) {
+      let absolute: string;
+      try {
+        absolute = new URL(match[1], indexUrl).toString();
+      } catch {
+        continue;
+      }
+      if (!isOfficialCyLawUrl(absolute) || seen.has(absolute)) continue;
+      const path = new URL(absolute).pathname;
+      if (path.toLowerCase().includes("index") || !yearFolder.test(path)) continue;
+      seen.add(absolute);
+      links.push(absolute);
+      if (links.length >= count) break;
+    }
+  }
+  if (!links.length) {
+    const sample = [...html.matchAll(/href=["']([^"']+)["']/gi)].slice(0, 30).map((m) => m[1]);
+    console.log(`DIAG no judgment links matched; first hrefs on page: ${JSON.stringify(sample)}`);
+  }
   return links;
 }
 
