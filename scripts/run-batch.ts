@@ -163,13 +163,28 @@ if (import.meta.main) {
   }
   console.log(`Found ${links.length} links.`);
 
-  const rows: CaseMetrics[] = [];
-  for (const [position, url] of links.entries()) {
-    const caseIndex = position + 1;
-    if (Date.now() - startedAt > budgetMs) {
-      console.log(`Time budget exhausted; skipping remaining ${links.length - position} cases.`);
-      break;
+  // Bounded parallelism: each case already fans out to ~10 concurrent model
+  // calls internally, so full parallelism would trip provider rate limits.
+  // A small pool cuts wall time roughly by the concurrency factor.
+  const concurrency = Math.max(1, Math.min(4, Number(env("CASE_CONCURRENCY") || 1)));
+  console.log(`Running up to ${concurrency} case(s) at a time.`);
+  const slots: Array<CaseMetrics | undefined> = new Array(links.length);
+  let cursor = 0;
+  let skipped = 0;
+  const worker = async (): Promise<void> => {
+    while (true) {
+      const position = cursor;
+      cursor += 1;
+      if (position >= links.length) return;
+      if (Date.now() - startedAt > budgetMs) {
+        skipped += 1;
+        continue;
+      }
+      slots[position] = await runCase(position + 1, links[position]);
     }
+  };
+
+  const runCase = async (caseIndex: number, url: string): Promise<CaseMetrics> => {
     const caseStarted = Date.now();
     console.log(`\n[${caseIndex}/${links.length}] ${url}`);
     try {
@@ -186,21 +201,21 @@ if (import.meta.main) {
       const elapsedMs = Date.now() - caseStarted;
       const resultRecord = result as unknown as JsonRecord;
       const metrics = metricsFrom(caseIndex, url, resultRecord, elapsedMs);
-      rows.push(metrics);
       await Deno.writeTextFile(
         `${OUTPUT_DIR}/case-${String(caseIndex).padStart(2, "0")}.json`,
         JSON.stringify(compactRecord(resultRecord), null, 2),
       );
       console.log(`  readiness=${metrics.readiness} strict=${metrics.strictReady} conflicts=${metrics.conflictsCritical}/${metrics.conflictsMaterial}/${metrics.conflictsMinor} sections=${metrics.sections} elapsed=${Math.round(elapsedMs / 1000)}s`);
+      return metrics;
     } catch (error) {
       const elapsedMs = Date.now() - caseStarted;
       const message = error instanceof Error ? error.message : String(error);
       console.error(`  FAILED: ${message}`);
       if (/429|RATE_LIMIT/i.test(message) && Date.now() - startedAt < budgetMs) {
-        console.log("  Rate limited; cooling down 90s before the next case.");
+        console.log("  Rate limited; cooling down 90s before this worker's next case.");
         await new Promise((resolve) => setTimeout(resolve, 90_000));
       }
-      rows.push({
+      return {
         index: caseIndex,
         url,
         title: "",
@@ -217,9 +232,13 @@ if (import.meta.main) {
         reviewFlagCount: 0,
         elapsedMs,
         error: message,
-      });
+      };
     }
-  }
+  };
+
+  await Promise.all(Array.from({ length: Math.min(concurrency, links.length) }, worker));
+  if (skipped) console.log(`Time budget exhausted; skipped ${skipped} case(s).`);
+  const rows = slots.filter((row): row is CaseMetrics => row !== undefined);
 
   const succeeded = rows.filter((row) => !row.error);
   const average = (select: (row: CaseMetrics) => number) =>

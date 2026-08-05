@@ -73,11 +73,12 @@ jobs:
           INDEX_URL: ${{ steps.request.outputs.index_url }}
           CASE_COUNT: ${{ steps.request.outputs.case_count }}
           BUDGET_MINUTES: "185"
+          CASE_CONCURRENCY: "2"
           NOMOLOGIES_V2_MODEL: ""
         run: |
           deno run \
             --allow-net=api.openai.com,cylaw.org,www.cylaw.org \
-            --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,INDEX_URL,CASE_COUNT,BUDGET_MINUTES,SOURCE_URL,PIPELINE_MODE \
+            --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,NOMOLOGIES_V2_PROFILE,NOMOLOGIES_V2_MINI_MODEL,INDEX_URL,CASE_COUNT,BUDGET_MINUTES,CASE_CONCURRENCY,SOURCE_URL,PIPELINE_MODE \
             --allow-read \
             --allow-write=artifacts \
             scripts/run-batch.ts
