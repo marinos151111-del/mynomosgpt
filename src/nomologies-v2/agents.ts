@@ -430,6 +430,73 @@ function cumulativeLowerCourtDecision(procedure: CaseProcedureV2): CaseProcedure
   };
 }
 
+// ECLI court codes are an EU-wide public standard, and «(YYYY) N Α.Α.Δ. p»
+// is the official Cyprus law-reports citation. Report-volume pages carry
+// these instead of a formal court caption, so when the model cannot ground
+// the deciding court, derive it deterministically from those verbatim lines.
+const ECLI_RE = /ECLI:CY:(AD|DOD|EDD|AAP):\d{4}:[A-Z]?\d+/i;
+const AAD_CITATION_RE = /\(\d{4}\)\s+\d\s+Α\.?Α\.?Δ\.?\s+\d+/u;
+
+function groundIdentityFromCitations(
+  identity: CaseIdentityV2,
+  source: JudgmentSourceV2,
+  context: EvidenceValidationContext,
+  flags: Set<string>,
+): void {
+  const head = source.paragraphs.slice(0, 40);
+  const anchorFor = (paragraph: JudgmentParagraphV2, quote: string, field: string): EvidenceAnchorV2 => {
+    const span = context.sectionByParagraphId.get(paragraph.id);
+    return {
+      id: `EV_${field}_citation_derived`,
+      paragraphIds: [paragraph.id],
+      quote,
+      sectionType: span?.sectionType || "case_metadata",
+      speakerRole: span?.speakerRole || "court",
+      supports: [field],
+      exactMatch: true,
+    };
+  };
+
+  const ecliParagraph = head.find((paragraph) => ECLI_RE.test(paragraph.text));
+  const ecliMatch = ecliParagraph?.text.match(ECLI_RE) || null;
+  const citationParagraph = head.find((paragraph) => AAD_CITATION_RE.test(paragraph.text));
+  const citationMatch = citationParagraph?.text.match(AAD_CITATION_RE) || null;
+
+  if (identity.court.status !== "available" && (ecliMatch || citationMatch)) {
+    const paragraph = (ecliMatch ? ecliParagraph : citationParagraph) as JudgmentParagraphV2;
+    const quote = (ecliMatch ? ecliMatch[0] : citationMatch![0]);
+    identity.court = {
+      status: "available",
+      value: "Ανώτατο Δικαστήριο",
+      confidence: 0.97,
+      evidence: [anchorFor(paragraph, quote, "identity.court")],
+      conflicts: [],
+    };
+    clearFieldFlags(flags, ["identity.court"]);
+    flags.add("identity.court:derived_from_official_citation");
+  }
+  if (identity.ecli.status !== "available" && ecliMatch && ecliParagraph) {
+    identity.ecli = {
+      status: "available",
+      value: ecliMatch[0],
+      confidence: 0.99,
+      evidence: [anchorFor(ecliParagraph, ecliMatch[0], "identity.ecli")],
+      conflicts: [],
+    };
+    clearFieldFlags(flags, ["identity.ecli"]);
+  }
+  if (identity.citation.status !== "available" && citationMatch && citationParagraph) {
+    identity.citation = {
+      status: "available",
+      value: citationMatch[0],
+      confidence: 0.98,
+      evidence: [anchorFor(citationParagraph, citationMatch[0], "identity.citation")],
+      conflicts: [],
+    };
+    clearFieldFlags(flags, ["identity.citation"]);
+  }
+}
+
 function reconcileSpecialistFields(input: {
   facts: CaseFactsV2;
   procedure: CaseProcedureV2;
@@ -568,6 +635,7 @@ export async function runSpecialistAgents(
   const authorities = validatedAuthorities(authorityResponse.data, context, flags);
   const outcome = validatedOutcome(outcomeResponse.data, context, flags);
 
+  groundIdentityFromCitations(identity.identity, source, context, flags);
   reconcileSpecialistFields({
     facts: factsProcedure.facts,
     procedure: factsProcedure.procedure,

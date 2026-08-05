@@ -99,7 +99,13 @@ jobs:
           # Require actual results; an empty artifacts directory from a failed
           # run must never overwrite previously published reports.
           if [ ! -f artifacts/nomologies-v2-benchmark/summary.md ]; then echo 'No benchmark output'; exit 0; fi
-          DEST="reports/branch-benchmark-${{ steps.request.outputs.case_count }}cases"
+          # One folder per index so consecutive benchmarks over different
+          # indexes never collide; -X theirs keeps this run's files if two
+          # runs of the same index race.
+          SLUG=$(basename "${{ steps.request.outputs.index_url }}")
+          SLUG="${SLUG%.html}"
+          SLUG=$(echo "$SLUG" | tr -c 'a-zA-Z0-9_-' '-')
+          DEST="reports/bench-${SLUG}-${{ steps.request.outputs.case_count }}cases"
           rm -rf "$DEST"
           mkdir -p "$DEST"
           cp -R artifacts/nomologies-v2-benchmark/. "$DEST/"
@@ -108,7 +114,7 @@ jobs:
           git add "$DEST"
           git diff --cached --quiet && { echo 'Nothing to commit'; exit 0; }
           git commit -m "Publish branch benchmark (run ${GITHUB_RUN_NUMBER})"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Upload benchmark artifact
