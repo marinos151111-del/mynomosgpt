@@ -1,0 +1,4921 @@
+{
+  "mode": "full",
+  "record": {
+    "schemaVersion": "nomologies-v2.0.0",
+    "runId": "8cd6c4d7-9bda-4b02-9bb5-96cea0a564dd",
+    "pipelineProfile": "economy",
+    "source": {
+      "sourceId": "src_bf921add8cf3e2ae11622869",
+      "sourceHash": "bf921add8cf3e2ae116228699bc9fa1996e3107ac2a7d0858498a2a08a4234b7",
+      "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2015/rep/2015_1_0025.htm",
+      "sourceTitle": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+      "sourceDatabase": "cylaw",
+      "retrievedAt": "2026-08-05T04:49:39.715Z",
+      "charset": "windows-1253",
+      "languageHint": "el",
+      "originalHtml": "[omitted: 24222 characters]",
+      "cleanText": "[omitted: 5685 characters]",
+      "characterCount": 5685,
+      "paragraphs": [
+        {
+          "id": "P000001",
+          "ordinal": 1,
+          "text": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+          "startOffset": 0,
+          "endOffset": 69,
+          "relativePosition": 0,
+          "parentBlockId": "B00001",
+          "sourceLineStart": 1,
+          "sourceLineEnd": 1,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.25,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000002",
+          "ordinal": 2,
+          "text": "ΠΑΓΚΥΠΡΙΟΣ ΔΙΚΗΓΟΡΙΚΟΣ ΣΥΛΛΟΓΟΣ",
+          "startOffset": 78,
+          "endOffset": 109,
+          "relativePosition": 0.022727,
+          "parentBlockId": "B00002",
+          "sourceLineStart": 4,
+          "sourceLineEnd": 4,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000003",
+          "ordinal": 3,
+          "text": "CyLaw |\n\t\t\t\t\t\t\tΑναφορικά μ'εμάς |\n\t\t\t\t\t\t\t\" target=\"_top\">Επικοινωνία |\n\t\t\t\t\t\t\tΌροι χρήσης",
+          "startOffset": 119,
+          "endOffset": 208,
+          "relativePosition": 0.045455,
+          "parentBlockId": "B00003",
+          "sourceLineStart": 7,
+          "sourceLineEnd": 10,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.082,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000004",
+          "ordinal": 4,
+          "text": "Έρευνα - Κατάλογος Αποφάσεων - Εμφάνιση Αναφορών (Noteup on) - Αφαίρεση Υπογραμμίσεων",
+          "startOffset": 215,
+          "endOffset": 300,
+          "relativePosition": 0.068182,
+          "parentBlockId": "B00004",
+          "sourceLineStart": 13,
+          "sourceLineEnd": 13,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.101,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000005",
+          "ordinal": 5,
+          "text": "ECLI:CY:AD:2015:A13",
+          "startOffset": 303,
+          "endOffset": 322,
+          "relativePosition": 0.090909,
+          "parentBlockId": "B00005",
+          "sourceLineStart": 16,
+          "sourceLineEnd": 16,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000006",
+          "ordinal": 6,
+          "text": "(2015) 1 ΑΑΔ 25",
+          "startOffset": 329,
+          "endOffset": 344,
+          "relativePosition": 0.113636,
+          "parentBlockId": "B00006",
+          "sourceLineStart": 19,
+          "sourceLineEnd": 19,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "2015",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000007",
+          "ordinal": 7,
+          "text": "15  Ιανουαρίου, 2015",
+          "startOffset": 347,
+          "endOffset": 367,
+          "relativePosition": 0.136364,
+          "parentBlockId": "B00007",
+          "sourceLineStart": 22,
+          "sourceLineEnd": 22,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000008",
+          "ordinal": 8,
+          "text": "[ΝΙΚΟΛΑΤΟΣ, Π., ΧΡΙΣΤΟΔΟΥΛΟΥ, ΛΙΑΤΣΟΣ, Δ/στές]",
+          "startOffset": 370,
+          "endOffset": 416,
+          "relativePosition": 0.159091,
+          "parentBlockId": "B00008",
+          "sourceLineStart": 25,
+          "sourceLineEnd": 25,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.882,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000009",
+          "ordinal": 9,
+          "text": "JULIE BIBBS,",
+          "startOffset": 419,
+          "endOffset": 431,
+          "relativePosition": 0.181818,
+          "parentBlockId": "B00009",
+          "sourceLineStart": 28,
+          "sourceLineEnd": 28,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000010",
+          "ordinal": 10,
+          "text": "Εφεσείουσα - Ενάγουσα,",
+          "startOffset": 434,
+          "endOffset": 456,
+          "relativePosition": 0.204545,
+          "parentBlockId": "B00010",
+          "sourceLineStart": 31,
+          "sourceLineEnd": 31,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000011",
+          "ordinal": 11,
+          "text": "ν.",
+          "startOffset": 459,
+          "endOffset": 461,
+          "relativePosition": 0.227273,
+          "parentBlockId": "B00011",
+          "sourceLineStart": 34,
+          "sourceLineEnd": 34,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000012",
+          "ordinal": 12,
+          "text": "1. P.P. DOLPHIN BOAT SAFARI LTD,",
+          "startOffset": 464,
+          "endOffset": 496,
+          "relativePosition": 0.25,
+          "parentBlockId": "B00012",
+          "sourceLineStart": 37,
+          "sourceLineEnd": 37,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": true,
+            "paragraphNumber": "1",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000013",
+          "ordinal": 13,
+          "text": "2. ΘΕΟΚΛΗΤΟΥ ΠΑΝΑΓΗ,",
+          "startOffset": 499,
+          "endOffset": 519,
+          "relativePosition": 0.272727,
+          "parentBlockId": "B00013",
+          "sourceLineStart": 40,
+          "sourceLineEnd": 40,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": true,
+            "paragraphNumber": "2",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000014",
+          "ordinal": 14,
+          "text": "Εφεσιβλήτων - Εναγομένων.",
+          "startOffset": 522,
+          "endOffset": 547,
+          "relativePosition": 0.295455,
+          "parentBlockId": "B00014",
+          "sourceLineStart": 43,
+          "sourceLineEnd": 43,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.095,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000015",
+          "ordinal": 15,
+          "text": "(Πολιτική Έφεση Αρ. 111/2014)",
+          "startOffset": 550,
+          "endOffset": 579,
+          "relativePosition": 0.318182,
+          "parentBlockId": "B00015",
+          "sourceLineStart": 46,
+          "sourceLineEnd": 46,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.133,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000016",
+          "ordinal": 16,
+          "text": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+          "startOffset": 582,
+          "endOffset": 994,
+          "relativePosition": 0.340909,
+          "parentBlockId": "B00016",
+          "sourceLineStart": 49,
+          "sourceLineEnd": 49,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.033,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000017",
+          "ordinal": 17,
+          "text": "Πολιτική  Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ― Δεν δικαιολογείται η έκδοση  διατάγματος παροχής ασφάλειας εξόδων εναντίον ενάγοντα ή εφεσείοντα, ο οποίος  έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+          "startOffset": 997,
+          "endOffset": 1236,
+          "relativePosition": 0.363636,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 52,
+          "sourceLineEnd": 52,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.036,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000018",
+          "ordinal": 18,
+          "text": "[Πέραν  των ως άνω αναφερομένων τίτλων, η απόφαση διαβάζεται στο σύνολο της.]",
+          "startOffset": 1239,
+          "endOffset": 1316,
+          "relativePosition": 0.386364,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 55,
+          "sourceLineEnd": 55,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.016,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000019",
+          "ordinal": 19,
+          "text": "Η αίτηση  απορρίφθηκε με έξοδα.",
+          "startOffset": 1319,
+          "endOffset": 1350,
+          "relativePosition": 0.409091,
+          "parentBlockId": "B00019",
+          "sourceLineStart": 58,
+          "sourceLineEnd": 58,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.04,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000020",
+          "ordinal": 20,
+          "text": "Αναφερόμενη Υπόθεση:",
+          "startOffset": 1353,
+          "endOffset": 1373,
+          "relativePosition": 0.431818,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 61,
+          "sourceLineEnd": 61,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000021",
+          "ordinal": 21,
+          "text": "Rashid v.  Παπόρη (2012) 1 Α.Α.Δ. 2710,",
+          "startOffset": 1376,
+          "endOffset": 1415,
+          "relativePosition": 0.454545,
+          "parentBlockId": "B00021",
+          "sourceLineStart": 64,
+          "sourceLineEnd": 64,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.313,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000022",
+          "ordinal": 22,
+          "text": "Έφεση -Αίτηση.",
+          "startOffset": 1418,
+          "endOffset": 1432,
+          "relativePosition": 0.477273,
+          "parentBlockId": "B00022",
+          "sourceLineStart": 67,
+          "sourceLineEnd": 67,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.091,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000023",
+          "ordinal": 23,
+          "text": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+          "startOffset": 1435,
+          "endOffset": 1657,
+          "relativePosition": 0.5,
+          "parentBlockId": "B00023",
+          "sourceLineStart": 70,
+          "sourceLineEnd": 70,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.073,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000024",
+          "ordinal": 24,
+          "text": "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία, για τους  Εφεσίβλητους-Αιτητές.",
+          "startOffset": 1660,
+          "endOffset": 1735,
+          "relativePosition": 0.522727,
+          "parentBlockId": "B00024",
+          "sourceLineStart": 73,
+          "sourceLineEnd": 73,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.148,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000025",
+          "ordinal": 25,
+          "text": "Μ.  Κυριακίδης για Μ. Ι. Κυριακίδη ΔΕΠΕ, για την Εφεσείουσα-Καθ' ης η αίτηση.",
+          "startOffset": 1738,
+          "endOffset": 1815,
+          "relativePosition": 0.545455,
+          "parentBlockId": "B00025",
+          "sourceLineStart": 76,
+          "sourceLineEnd": 76,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.193,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000026",
+          "ordinal": 26,
+          "text": "Cur. adv. vult.",
+          "startOffset": 1818,
+          "endOffset": 1833,
+          "relativePosition": 0.568182,
+          "parentBlockId": "B00026",
+          "sourceLineStart": 79,
+          "sourceLineEnd": 79,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.1,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000027",
+          "ordinal": 27,
+          "text": "ΔΙΚΑΣΤΗΡΙΟ:  Την ομόφωνη απόφαση του Δικαστηρίου θα δώσει ο Νικολάτος,  Π..",
+          "startOffset": 1836,
+          "endOffset": 1911,
+          "relativePosition": 0.590909,
+          "parentBlockId": "B00027",
+          "sourceLineStart": 82,
+          "sourceLineEnd": 82,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.237,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000028",
+          "ordinal": 28,
+          "text": "ΝΙΚΟΛΑΤΟΣ,  Π.: Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν  διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να  καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το  Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή  εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως  επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+          "startOffset": 1914,
+          "endOffset": 2337,
+          "relativePosition": 0.613636,
+          "parentBlockId": "B00028",
+          "sourceLineStart": 85,
+          "sourceLineEnd": 85,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.057,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000029",
+          "ordinal": 29,
+          "text": "Η αίτηση βασίζεται  στους θεσμούς πολιτικής δικονομίας, Δ.60, θθ1 και 5, Δ.48, θθ1-3 και 9 και στις  συμφυείς εξουσίες του Δικαστηρίου.",
+          "startOffset": 2340,
+          "endOffset": 2475,
+          "relativePosition": 0.636364,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 88,
+          "sourceLineEnd": 88,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.042,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000030",
+          "ordinal": 30,
+          "text": "Η αίτηση υποστηρίζεται από ένορκη δήλωση του  κ.",
+          "startOffset": 2476,
+          "endOffset": 2524,
+          "relativePosition": 0.659091,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 88,
+          "sourceLineEnd": 88,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.026,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000031",
+          "ordinal": 31,
+          "text": "Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2, ο οποίος είναι και διευθυντής της Εφεσίβλητης  αρ. 1 εταιρείας.",
+          "startOffset": 2525,
+          "endOffset": 2625,
+          "relativePosition": 0.681818,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 88,
+          "sourceLineEnd": 88,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.051,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000032",
+          "ordinal": 32,
+          "text": "Στην ένορκη δήλωσή του ο κ.",
+          "startOffset": 2628,
+          "endOffset": 2655,
+          "relativePosition": 0.704545,
+          "parentBlockId": "B00030",
+          "sourceLineStart": 91,
+          "sourceLineEnd": 91,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.048,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000033",
+          "ordinal": 33,
+          "text": "Παναγή  αναφέρει, μεταξύ άλλων, ότι η Εφεσείουσα, σύμφωνα με τα όσα λέχθηκαν στην  πρωτόδικη διαδικασία, και υποστηρίζονται και από την, αναφερόμενη στον τίτλο  της αγωγής, διεύθυνσή της, είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+          "startOffset": 2656,
+          "endOffset": 2885,
+          "relativePosition": 0.727273,
+          "parentBlockId": "B00030",
+          "sourceLineStart": 91,
+          "sourceLineEnd": 91,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.021,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000034",
+          "ordinal": 34,
+          "text": "Στην ειδοποίηση  έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale  Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+          "startOffset": 2888,
+          "endOffset": 3031,
+          "relativePosition": 0.75,
+          "parentBlockId": "B00031",
+          "sourceLineStart": 94,
+          "sourceLineEnd": 94,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.117,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000035",
+          "ordinal": 35,
+          "text": "Στην ένσταση που  καταχώρησε η Εφεσείουσα/Καθ' ης η αίτηση, αναγράφεται, μεταξύ άλλων, ότι  σύμφωνα με τη Διαταγή 60, όπως τροποποιήθηκε, το Δικαστήριο δεν έχει εξουσία να  διατάξει την παροχή ασφάλειας εξόδων, εκκρεμούσης δικαστικής διαδικασίας,  εναντίον προσώπου που έχει τη διαμονή του σε χώρα μέλος της Ευρωπαϊκής Ένωσης.",
+          "startOffset": 3034,
+          "endOffset": 3360,
+          "relativePosition": 0.772727,
+          "parentBlockId": "B00032",
+          "sourceLineStart": 97,
+          "sourceLineEnd": 97,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.023,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000036",
+          "ordinal": 36,
+          "text": "Στην προκείμενη περίπτωση η Εφεσείουσα έχει τη διαμονή της στη Βόρειο Ιρλανδία  και, επομένως, στην επικράτεια του Ηνωμένου Βασιλείου, που είναι κράτος  μέλος της Ευρωπαϊκής Ένωσης.",
+          "startOffset": 3362,
+          "endOffset": 3543,
+          "relativePosition": 0.795455,
+          "parentBlockId": "B00032",
+          "sourceLineStart": 97,
+          "sourceLineEnd": 97,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.047,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000037",
+          "ordinal": 37,
+          "text": "Μελετήσαμε όλα τα  ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία  στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων,  τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της  Ευρωπαϊκής Ένωσης.",
+          "startOffset": 3546,
+          "endOffset": 3819,
+          "relativePosition": 0.818182,
+          "parentBlockId": "B00033",
+          "sourceLineStart": 100,
+          "sourceLineEnd": 100,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.023,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000038",
+          "ordinal": 38,
+          "text": "Στην υπόθεση Rashid v. Παπόρη (2012) 1(Γ)  Α.Α.Δ. 2710, το Εφετείο  εξέτασε παρόμοιο ζήτημα και επιβεβαίωσε ότι δεν δικαιολογείται η έκδοση  διατάγματος παροχής ασφάλειας εξόδων εναντίον ενάγοντα ή εφεσείοντα, ο οποίος  έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης. Στην υπόθεση εκείνη, ο Εφεσείων ισχυριζόταν ότι είχε τη διαμονή του στο Ηνωμένο  Βασίλειο, κράτος μέλος της Ευρωπαϊκής Ένωσης, όπως και στην προκείμενη  περίπτωση. Το Εφετείο παρατήρησε, συναφώς, τα εξής:",
+          "startOffset": 3819,
+          "endOffset": 4322,
+          "relativePosition": 0.840909,
+          "parentBlockId": "B00034",
+          "sourceLineStart": 100,
+          "sourceLineEnd": 103,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.043,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000039",
+          "ordinal": 39,
+          "text": "«Αν ο  εφεσίβλητος-αιτητής, αμφισβητεί τον τόπο διαμονής του εφεσείοντα, ο ίδιος έχει  το βάρος απόδειξης του τόπου διαμονής του εφεσείοντα, εκτός Κύπρου και εκτός  Ευρωπαϊκής Ένωσης. Κάτι τέτοιο δεν ισχυρίστηκε, ούτε και απέδειξε ο  Εφεσίβλητος. (Δέστε: Κυριάκου v. Μιχαήλ (2007) 1 Α.Α.Δ. 933 και  Annual Practice, 1958, σελ. 1885).»",
+          "startOffset": 4330,
+          "endOffset": 4664,
+          "relativePosition": 0.863636,
+          "parentBlockId": "B00035",
+          "sourceLineStart": 106,
+          "sourceLineEnd": 106,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.053,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000040",
+          "ordinal": 40,
+          "text": "Τα όσα αναφέρθηκαν  στην υπόθεση Rashid  (ανωτέρω), ισχύουν και στην παρούσα υπόθεση και τα υιοθετούμε.",
+          "startOffset": 4667,
+          "endOffset": 4770,
+          "relativePosition": 0.886364,
+          "parentBlockId": "B00036",
+          "sourceLineStart": 109,
+          "sourceLineEnd": 109,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.024,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000041",
+          "ordinal": 41,
+          "text": "Για τους  προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων  εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος  μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε  αποτυχία.",
+          "startOffset": 4773,
+          "endOffset": 5029,
+          "relativePosition": 0.909091,
+          "parentBlockId": "B00037",
+          "sourceLineStart": 112,
+          "sourceLineEnd": 112,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.014,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000042",
+          "ordinal": 42,
+          "text": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+          "startOffset": 5030,
+          "endOffset": 5237,
+          "relativePosition": 0.931818,
+          "parentBlockId": "B00037",
+          "sourceLineStart": 112,
+          "sourceLineEnd": 112,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.035,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000043",
+          "ordinal": 43,
+          "text": "Συμπληρωματικά, αναφέρουμε μόνο ότι αν οι Εφεσίβλητοι θεωρούν ότι η Εφεσείουσα,  η οποία έχει καταδικαστεί στα πρωτόδικα έξοδα, και δεν τα έχει καταβάλει, ενώ  έχει καταχωρήσει την παρούσα έφεση, καταχράται τη δικαστική διαδικασία, θα  πρέπει να εξετάσουν ποιες διαζευκτικές θεραπείες έχουν προς αντιμετώπιση του  θέματος αυτού.",
+          "startOffset": 5239,
+          "endOffset": 5567,
+          "relativePosition": 0.954545,
+          "parentBlockId": "B00037",
+          "sourceLineStart": 112,
+          "sourceLineEnd": 112,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.011,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000044",
+          "ordinal": 44,
+          "text": "Η αίτηση  απορρίπτεται με έξοδα.",
+          "startOffset": 5570,
+          "endOffset": 5602,
+          "relativePosition": 0.977273,
+          "parentBlockId": "B00038",
+          "sourceLineStart": 115,
+          "sourceLineEnd": 115,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.038,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000045",
+          "ordinal": 45,
+          "text": "cylaw.org: Από το ΚΙΝOΠ/CyLii για τον Παγκύπριο Δικηγορικό Σύλλογο",
+          "startOffset": 5619,
+          "endOffset": 5685,
+          "relativePosition": 1,
+          "parentBlockId": "B00039",
+          "sourceLineStart": 118,
+          "sourceLineEnd": 118,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.2,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        }
+      ]
+    },
+    "sectionMap": {
+      "version": "nomologies-v2.0.0:sections-v1",
+      "paragraphCount": 45,
+      "spans": [
+        {
+          "id": "S00001",
+          "startParagraphId": "P000001",
+          "endParagraphId": "P000001",
+          "sectionType": "caption",
+          "speakerRole": "unknown",
+          "heading": "Τίτλος υπόθεσης",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.97,
+          "boundaryEvidenceParagraphIds": [
+            "P000001"
+          ],
+          "rationale": "Περιέχει μόνο τον τίτλο της υπόθεσης."
+        },
+        {
+          "id": "S00002",
+          "startParagraphId": "P000002",
+          "endParagraphId": "P000004",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "Κεφαλίδα ιστοσελίδας",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.87,
+          "boundaryEvidenceParagraphIds": [
+            "P000002",
+            "P000004"
+          ],
+          "rationale": "Πρόκειται για υλικό πλοήγησης και κεφαλίδα του ιστότοπου."
+        },
+        {
+          "id": "S00003",
+          "startParagraphId": "P000005",
+          "endParagraphId": "P000008",
+          "sectionType": "court_header",
+          "speakerRole": "court",
+          "heading": "Δικαστήριο, ECLI, ημερομηνία και σύνθεση",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000005",
+            "P000008"
+          ],
+          "rationale": "Δίνει τον κωδικό ECLI, την ημερομηνία και τη σύνθεση του Δικαστηρίου."
+        },
+        {
+          "id": "S00004",
+          "startParagraphId": "P000009",
+          "endParagraphId": "P000015",
+          "sectionType": "caption",
+          "speakerRole": "unknown",
+          "heading": "Ονομασία διαδίκων και αριθμός έφεσης",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.9929,
+          "boundaryEvidenceParagraphIds": [
+            "P000009",
+            "P000015"
+          ],
+          "rationale": "Αναγράφονται οι διάδικοι και ο αριθμός της πολιτικής έφεσης."
+        },
+        {
+          "id": "S00005",
+          "startParagraphId": "P000016",
+          "endParagraphId": "P000017",
+          "sectionType": "legal_framework",
+          "speakerRole": "court",
+          "heading": "Νομική αρχή για ασφάλεια εξόδων",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.95,
+          "boundaryEvidenceParagraphIds": [
+            "P000016",
+            "P000017"
+          ],
+          "rationale": "Διατυπώνεται ο γενικός κανόνας για την ασφάλεια εξόδων."
+        },
+        {
+          "id": "S00006",
+          "startParagraphId": "P000018",
+          "endParagraphId": "P000018",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "Σημείωση ανάγνωσης",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.98,
+          "boundaryEvidenceParagraphIds": [
+            "P000018"
+          ],
+          "rationale": "Είναι σημείωση ότι η απόφαση διαβάζεται στο σύνολό της."
+        },
+        {
+          "id": "S00007",
+          "startParagraphId": "P000019",
+          "endParagraphId": "P000019",
+          "sectionType": "disposition",
+          "speakerRole": "court",
+          "heading": "Απόρριψη αίτησης με έξοδα",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000019"
+          ],
+          "rationale": "Δηλώνεται το αποτέλεσμα της αίτησης και η επιδίκαση εξόδων."
+        },
+        {
+          "id": "S00008",
+          "startParagraphId": "P000020",
+          "endParagraphId": "P000023",
+          "sectionType": "case_metadata",
+          "speakerRole": "court",
+          "heading": "Αναφερόμενη υπόθεση και περιγραφή διαδικασίας",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.9075,
+          "boundaryEvidenceParagraphIds": [
+            "P000020",
+            "P000023"
+          ],
+          "rationale": "Πρόκειται για τον τίτλο και το είδος της αίτησης, όχι για τις διάδικες ή το σώμα της απόφασης."
+        },
+        {
+          "id": "S00009",
+          "startParagraphId": "P000024",
+          "endParagraphId": "P000025",
+          "sectionType": "appearances",
+          "speakerRole": "unknown",
+          "heading": "Εμφανίσεις δικηγόρων",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000024",
+            "P000025"
+          ],
+          "rationale": "Αναγράφονται μόνο οι δικηγόροι και οι διάδικοι που εκπροσωπούν."
+        },
+        {
+          "id": "S00010",
+          "startParagraphId": "P000026",
+          "endParagraphId": "P000027",
+          "sectionType": "case_metadata",
+          "speakerRole": "authoring_judge",
+          "heading": "Cur. adv. vult. και ανάθεση απόφασης",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.97,
+          "boundaryEvidenceParagraphIds": [
+            "P000026",
+            "P000027"
+          ],
+          "rationale": "Περιέχει τη σημείωση Cur. adv. vult. και την ανακοίνωση του ομιλούντος δικαστή."
+        },
+        {
+          "id": "S00011",
+          "startParagraphId": "P000028",
+          "endParagraphId": "P000029",
+          "sectionType": "procedural_history",
+          "speakerRole": "authoring_judge",
+          "heading": "Το αίτημα και η νομική βάση του",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.77,
+          "boundaryEvidenceParagraphIds": [
+            "P000028",
+            "P000029"
+          ],
+          "rationale": "Παρουσιάζεται το αίτημα και οι κανονιστικές διατάξεις στις οποίες βασίζεται."
+        },
+        {
+          "id": "S00012",
+          "startParagraphId": "P000030",
+          "endParagraphId": "P000034",
+          "sectionType": "facts",
+          "speakerRole": "authoring_judge",
+          "heading": "Στοιχεία της ένορκης δήλωσης και της ειδοποίησης έφεσης",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.906,
+          "boundaryEvidenceParagraphIds": [
+            "P000030",
+            "P000034"
+          ],
+          "rationale": "Παρατίθενται ουδέτερα τα σχετικά στοιχεία της ένορκης δήλωσης και της διεύθυνσης στην ειδοποίηση έφεσης."
+        },
+        {
+          "id": "S00013",
+          "startParagraphId": "P000035",
+          "endParagraphId": "P000036",
+          "sectionType": "respondent_submissions",
+          "speakerRole": "respondent",
+          "heading": "Ένσταση της Εφεσείουσας/Καθ' ης η αίτηση",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.94,
+          "boundaryEvidenceParagraphIds": [
+            "P000035",
+            "P000036"
+          ],
+          "rationale": "Αποδίδεται ο ισχυρισμός της Εφεσείουσας ότι δεν υπάρχει εξουσία για ασφάλεια εξόδων λόγω διαμονής σε κράτος μέλος της ΕΕ."
+        },
+        {
+          "id": "S00014",
+          "startParagraphId": "P000037",
+          "endParagraphId": "P000037",
+          "sectionType": "court_analysis",
+          "speakerRole": "authoring_judge",
+          "heading": "Πρώτη αξιολόγηση του Δικαστηρίου",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.95,
+          "boundaryEvidenceParagraphIds": [
+            "P000037"
+          ],
+          "rationale": "Το Δικαστήριο δηλώνει ότι μελέτησε τα στοιχεία και διατυπώνει τη δική του παρατήρηση για τη Δ.60 θ1."
+        },
+        {
+          "id": "S00015",
+          "startParagraphId": "P000038",
+          "endParagraphId": "P000039",
+          "sectionType": "quoted_authority",
+          "speakerRole": "quoted_court",
+          "heading": "Παράθεση της υπόθεσης Rashid v. Παπόρη",
+          "isQuotedMaterial": true,
+          "quotedSourceType": "case",
+          "confidence": 0.95,
+          "boundaryEvidenceParagraphIds": [
+            "P000038",
+            "P000039"
+          ],
+          "rationale": "Το απόσπασμα αποδίδεται ρητά σε άλλη υπόθεση και παρατίθεται αυτούσιο."
+        },
+        {
+          "id": "S00016",
+          "startParagraphId": "P000040",
+          "endParagraphId": "P000040",
+          "sectionType": "court_analysis",
+          "speakerRole": "authoring_judge",
+          "heading": "Υιοθέτηση της προηγούμενης νομολογίας",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.96,
+          "boundaryEvidenceParagraphIds": [
+            "P000040"
+          ],
+          "rationale": "Το δικαστήριο δηλώνει ότι τα όσα αναφέρθηκαν στην άλλη υπόθεση ισχύουν και υιοθετούνται."
+        },
+        {
+          "id": "S00017",
+          "startParagraphId": "P000041",
+          "endParagraphId": "P000041",
+          "sectionType": "holding",
+          "speakerRole": "authoring_judge",
+          "heading": "Αποτυχία της αίτησης",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.95,
+          "boundaryEvidenceParagraphIds": [
+            "P000041"
+          ],
+          "rationale": "Διατυπώνεται το συμπέρασμα ότι η αίτηση δεν μπορεί να επιτύχει."
+        },
+        {
+          "id": "S00018",
+          "startParagraphId": "P000042",
+          "endParagraphId": "P000042",
+          "sectionType": "disposition",
+          "speakerRole": "authoring_judge",
+          "heading": "Απόρριψη με έξοδα",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000042"
+          ],
+          "rationale": "Πρόκειται για την τελική διατακτική απόρριψη με επιδίκαση εξόδων."
+        },
+        {
+          "id": "S00019",
+          "startParagraphId": "P000043",
+          "endParagraphId": "P000043",
+          "sectionType": "obiter_dictum",
+          "speakerRole": "authoring_judge",
+          "heading": "Συμπληρωματική παρατήρηση για τυχόν κατάχρηση διαδικασίας",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.9,
+          "boundaryEvidenceParagraphIds": [
+            "P000043"
+          ],
+          "rationale": "Η φράση είναι συμπληρωματική παρατήρηση και όχι δεσμευτική διαταγή."
+        },
+        {
+          "id": "S00020",
+          "startParagraphId": "P000044",
+          "endParagraphId": "P000044",
+          "sectionType": "disposition",
+          "speakerRole": "authoring_judge",
+          "heading": "Σύντομη διατακτική απόρριψη",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.98,
+          "boundaryEvidenceParagraphIds": [
+            "P000044"
+          ],
+          "rationale": "Περιέχει αυτοτελή σύντομη τελική απόρριψη με έξοδα."
+        },
+        {
+          "id": "S00021",
+          "startParagraphId": "P000045",
+          "endParagraphId": "P000045",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "Υποσέλιδο πηγής",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 1,
+          "boundaryEvidenceParagraphIds": [
+            "P000045"
+          ],
+          "rationale": "Πρόκειται για στοιχείο ιστοσελίδας και όχι για δικαστικό κείμενο."
+        }
+      ],
+      "coverageComplete": true,
+      "overlapFree": true,
+      "reviewFlags": [
+        "section_boundary_ambiguous_P000026",
+        "section_boundary_ambiguous_P000027",
+        "section_boundary_ambiguous_P000040"
+      ]
+    },
+    "identity": {
+      "caseName": {
+        "status": "available",
+        "value": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "id": "EV_identity_caseName_1",
+            "paragraphIds": [
+              "P000001"
+            ],
+            "quote": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "caseName"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "shortName": {
+        "status": "available",
+        "value": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_identity_shortName_1",
+            "paragraphIds": [
+              "P000001"
+            ],
+            "quote": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "shortName"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "citation": {
+        "status": "available",
+        "value": "(2015) 1 ΑΑΔ 25",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_citation_1",
+            "paragraphIds": [
+              "P000006"
+            ],
+            "quote": "(2015) 1 ΑΑΔ 25",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "citation"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "ecli": {
+        "status": "available",
+        "value": "ECLI:CY:AD:2015:A13",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_ecli_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ECLI:CY:AD:2015:A13",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "ecli"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "docket": {
+        "status": "available",
+        "value": "Πολιτική Έφεση Αρ. 111/2014",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_docket_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "(Πολιτική Έφεση Αρ. 111/2014)",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "docket"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "caseNumber": {
+        "status": "available",
+        "value": "111/2014",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_identity_caseNumber_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "(Πολιτική Έφεση Αρ. 111/2014)",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "caseNumber"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "joinedCaseNumbers": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "conflicts": []
+      },
+      "decisionDate": {
+        "status": "available",
+        "value": "15 Ιανουαρίου, 2015",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_decisionDate_1",
+            "paragraphIds": [
+              "P000007"
+            ],
+            "quote": "15  Ιανουαρίου, 2015",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "decisionDate"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "court": {
+        "status": "available",
+        "value": "Ανώτατο Δικαστήριο Κύπρου",
+        "confidence": 0.85,
+        "evidence": [
+          {
+            "id": "EV_identity_court_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ECLI:CY:AD:2015:A13",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "court"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "available",
+        "value": "supreme_court",
+        "confidence": 0.85,
+        "evidence": [
+          {
+            "id": "EV_identity_courtLevel_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ECLI:CY:AD:2015:A13",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "courtLevel"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "jurisdiction": {
+        "status": "available",
+        "value": "Κύπρος",
+        "confidence": 0.85,
+        "evidence": [
+          {
+            "id": "EV_identity_jurisdiction_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ECLI:CY:AD:2015:A13",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "jurisdiction"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "language": {
+        "status": "available",
+        "value": "el",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_language_1",
+            "paragraphIds": [
+              "P000010"
+            ],
+            "quote": "Εφεσείουσα - Ενάγουσα,",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "language"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "era": {
+        "status": "available",
+        "value": "modern",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_era_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ECLI:CY:AD:2015:A13",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "era"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_era_2",
+            "paragraphIds": [
+              "P000007"
+            ],
+            "quote": "15  Ιανουαρίου, 2015",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "era"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "judges": {
+        "status": "available",
+        "value": [
+          {
+            "name": "ΝΙΚΟΛΑΤΟΣ",
+            "role": "presiding",
+            "honorific": "Π."
+          },
+          {
+            "name": "ΧΡΙΣΤΟΔΟΥΛΟΥ",
+            "role": "panel",
+            "honorific": "Δ/στής"
+          },
+          {
+            "name": "ΛΙΑΤΣΟΣ",
+            "role": "panel",
+            "honorific": "Δ/στής"
+          }
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_identity_judges_1",
+            "paragraphIds": [
+              "P000008"
+            ],
+            "quote": "[ΝΙΚΟΛΑΤΟΣ, Π., ΧΡΙΣΤΟΔΟΥΛΟΥ, ΛΙΑΤΣΟΣ, Δ/στές]",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "judges"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "authoringJudges": {
+        "status": "available",
+        "value": [
+          "Νικολάτος, Π."
+        ],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_authoringJudges_1",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "ΔΙΚΑΣΤΗΡΙΟ:  Την ομόφωνη απόφαση του Δικαστηρίου θα δώσει ο Νικολάτος,  Π..",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "authoringJudges"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "parties": {
+        "status": "available",
+        "value": [
+          {
+            "name": "JULIE BIBBS",
+            "role": "appellant",
+            "ordinal": "",
+            "representedBy": [
+              "Μ.  Κυριακίδης για Μ. Ι. Κυριακίδη ΔΕΠΕ"
+            ]
+          },
+          {
+            "name": "P.P. DOLPHIN BOAT SAFARI LTD",
+            "role": "respondent",
+            "ordinal": "1",
+            "representedBy": [
+              "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία"
+            ]
+          },
+          {
+            "name": "ΘΕΟΚΛΗΤΟΥ ΠΑΝΑΓΗ",
+            "role": "respondent",
+            "ordinal": "2",
+            "representedBy": [
+              "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία"
+            ]
+          }
+        ],
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "id": "EV_identity_parties_1",
+            "paragraphIds": [
+              "P000009",
+              "P000010",
+              "P000011",
+              "P000012",
+              "P000013",
+              "P000014"
+            ],
+            "quote": "JULIE BIBBS,\nΕφεσείουσα - Ενάγουσα,\nν.\n1. P.P. DOLPHIN BOAT SAFARI LTD,\n2. ΘΕΟΚΛΗΤΟΥ ΠΑΝΑΓΗ,\nΕφεσιβλήτων - Εναγομένων.",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "parties"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_parties_2",
+            "paragraphIds": [
+              "P000024"
+            ],
+            "quote": "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία, για τους  Εφεσίβλητους-Αιτητές.",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "parties"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_parties_3",
+            "paragraphIds": [
+              "P000025"
+            ],
+            "quote": "Μ.  Κυριακίδης για Μ. Ι. Κυριακίδη ΔΕΠΕ, για την Εφεσείουσα-Καθ' ης η αίτηση.",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "parties"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "appearances": {
+        "status": "available",
+        "value": [
+          {
+            "advocate": "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία",
+            "partyRole": "Εφεσίβλητους-Αιτητές",
+            "partyName": ""
+          },
+          {
+            "advocate": "Μ.  Κυριακίδης για Μ. Ι. Κυριακίδη ΔΕΠΕ",
+            "partyRole": "Εφεσείουσα-Καθ' ης η αίτηση",
+            "partyName": ""
+          }
+        ],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_appearances_1",
+            "paragraphIds": [
+              "P000024"
+            ],
+            "quote": "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία, για τους  Εφεσίβλητους-Αιτητές.",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "appearances"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_appearances_2",
+            "paragraphIds": [
+              "P000025"
+            ],
+            "quote": "Μ.  Κυριακίδης για Μ. Ι. Κυριακίδη ΔΕΠΕ, για την Εφεσείουσα-Καθ' ης η αίτηση.",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "appearances"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      }
+    },
+    "classification": {
+      "caseFamily": {
+        "status": "available",
+        "value": "private_law",
+        "confidence": 0.86,
+        "evidence": [
+          {
+            "id": "EV_classification_caseFamily_1",
+            "paragraphIds": [
+              "P000023"
+            ],
+            "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+            "sectionType": "case_metadata",
+            "speakerRole": "court",
+            "supports": [
+              "caseFamily"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "legalAreas": {
+        "status": "available",
+        "value": [
+          "civil_procedure"
+        ],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_classification_legalAreas_1",
+            "paragraphIds": [
+              "P000016"
+            ],
+            "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+            "sectionType": "legal_framework",
+            "speakerRole": "court",
+            "supports": [
+              "legalAreas"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_legalAreas_2",
+            "paragraphIds": [
+              "P000029"
+            ],
+            "quote": "Η αίτηση βασίζεται  στους θεσμούς πολιτικής δικονομίας, Δ.60, θθ1 και 5, Δ.48, θθ1-3 και 9 και στις  συμφυείς εξουσίες του Δικαστηρίου.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "legalAreas"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "primaryLegalArea": {
+        "status": "available",
+        "value": "civil_procedure",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_classification_primaryLegalArea_1",
+            "paragraphIds": [
+              "P000016"
+            ],
+            "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+            "sectionType": "legal_framework",
+            "speakerRole": "court",
+            "supports": [
+              "primaryLegalArea"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "proceedingType": {
+        "status": "available",
+        "value": "interim_application",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_classification_proceedingType_1",
+            "paragraphIds": [
+              "P000022"
+            ],
+            "quote": "Έφεση -Αίτηση.",
+            "sectionType": "case_metadata",
+            "speakerRole": "court",
+            "supports": [
+              "proceedingType"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_proceedingType_2",
+            "paragraphIds": [
+              "P000023"
+            ],
+            "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+            "sectionType": "case_metadata",
+            "speakerRole": "court",
+            "supports": [
+              "proceedingType"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "proceduralPosture": {
+        "status": "available",
+        "value": "interim_stage",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_classification_proceduralPosture_1",
+            "paragraphIds": [
+              "P000023"
+            ],
+            "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+            "sectionType": "case_metadata",
+            "speakerRole": "court",
+            "supports": [
+              "proceduralPosture"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_proceduralPosture_2",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "ΝΙΚΟΛΑΤΟΣ,  Π.: Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν  διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να  καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το  Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή  εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως  επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "proceduralPosture"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "courtLevel": {
+        "status": "available",
+        "value": "supreme_court",
+        "confidence": 0.85,
+        "evidence": [
+          {
+            "id": "EV_classification_courtLevel_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ECLI:CY:AD:2015:A13",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "courtLevel"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "caseTypeLabels": {
+        "status": "available",
+        "value": [
+          "Πολιτική Έφεση",
+          "Έφεση -Αίτηση",
+          "Αίτηση για παροχή ασφάλειας εξόδων"
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_classification_caseTypeLabels_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "(Πολιτική Έφεση Αρ. 111/2014)",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "caseTypeLabels"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_caseTypeLabels_2",
+            "paragraphIds": [
+              "P000022"
+            ],
+            "quote": "Έφεση -Αίτηση.",
+            "sectionType": "case_metadata",
+            "speakerRole": "court",
+            "supports": [
+              "caseTypeLabels"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_caseTypeLabels_3",
+            "paragraphIds": [
+              "P000023"
+            ],
+            "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+            "sectionType": "case_metadata",
+            "speakerRole": "court",
+            "supports": [
+              "caseTypeLabels"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "applicationTypes": {
+        "status": "available",
+        "value": [
+          "Αίτηση για παροχή ασφάλειας εξόδων"
+        ],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_classification_applicationTypes_1",
+            "paragraphIds": [
+              "P000023"
+            ],
+            "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+            "sectionType": "case_metadata",
+            "speakerRole": "court",
+            "supports": [
+              "applicationTypes"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "writsRequested": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "conflicts": []
+      },
+      "subjectMatter": {
+        "status": "available",
+        "value": [
+          "ασφάλεια εξόδων",
+          "Διαταγή 60",
+          "συνήθης διαμονή σε κράτος μέλος της Ευρωπαϊκής Ένωσης"
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_classification_subjectMatter_1",
+            "paragraphIds": [
+              "P000016"
+            ],
+            "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+            "sectionType": "legal_framework",
+            "speakerRole": "court",
+            "supports": [
+              "subjectMatter"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      }
+    },
+    "facts": {
+      "summary": {
+        "status": "available",
+        "value": "Η υπόθεση αφορά παρεμπίπτουσα αίτηση των Εφεσιβλήτων/Αιτητών σε εκκρεμή έφεση, με την οποία ζητήθηκε από την Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει ποσό ως ασφάλεια εξόδων. Το πραγματικό υπόβαθρο που προκύπτει είναι ότι η Εφεσείουσα αναφερόταν ως κάτοικος/διαμένουσα στη Βόρειο Ιρλανδία, με διεύθυνση που καταγράφηκε στην ειδοποίηση έφεσης.",
+        "confidence": 0.86,
+        "evidence": [
+          {
+            "id": "EV_facts_summary_1",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Το αίτημα ήταν παροχή ασφάλειας εξόδων σε σχέση με πρωτόδικη διαδικασία και έφεση."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_summary_2",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Η ειδοποίηση έφεσης κατέγραφε διεύθυνση της Εφεσείουσας στη Northern Ireland."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "materialFacts": {
+        "status": "available",
+        "value": [
+          {
+            "fact": "Οι Εφεσίβλητοι/Αιτητές ζήτησαν διάταγμα ώστε η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει €12.000 ή άλλο εύλογο ποσό στον Πρωτοκολλητή ως ασφάλεια εξόδων.",
+            "significance": "Αποτελεί το αντικείμενο της παρούσας παρεμπίπτουσας αίτησης."
+          },
+          {
+            "fact": "Η αίτηση κάλυπτε έξοδα που είχαν δημιουργηθεί πρωτοδίκως και έξοδα που θα δημιουργούνταν κατ' έφεση.",
+            "significance": "Προσδιορίζει την έκταση της ζητούμενης ασφάλειας."
+          },
+          {
+            "fact": "Η αίτηση υποστηρίχθηκε από ένορκη δήλωση του Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2 και διευθυντή της Εφεσίβλητης αρ. 1 εταιρείας.",
+            "significance": "Προσδιορίζει το αποδεικτικό υλικό και τη σχέση του δηλούντος με τους αιτητές."
+          },
+          {
+            "fact": "Στην ένορκη δήλωση αναφέρθηκε ότι η Εφεσείουσα είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+            "significance": "Το ζήτημα διαμονής ήταν κρίσιμο για την αίτηση ασφάλειας εξόδων."
+          },
+          {
+            "fact": "Στην ειδοποίηση έφεσης η διεύθυνση της Εφεσείουσας αναγραφόταν ως «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+            "significance": "Αποτελεί έγγραφο στοιχείο ως προς τη διεύθυνση της Εφεσείουσας."
+          },
+          {
+            "fact": "Η Εφεσείουσα/Καθ' ης η αίτηση πρόβαλε ότι διαμένει στη Βόρειο Ιρλανδία, δηλαδή στην επικράτεια του Ηνωμένου Βασιλείου, κράτους μέλους της Ευρωπαϊκής Ένωσης.",
+            "significance": "Συνδέεται με την ένσταση περί έλλειψης εξουσίας για διάταγμα ασφάλειας εξόδων."
+          }
+        ],
+        "confidence": 0.88,
+        "evidence": [
+          {
+            "id": "EV_facts_materialFacts_1",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Ζητήθηκε κατάθεση €12.000 ή άλλου εύλογου ποσού ως ασφάλεια εξόδων πρωτοδίκως και κατ' έφεση."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_materialFacts_2",
+            "paragraphIds": [
+              "P000030",
+              "P000031"
+            ],
+            "quote": "Η αίτηση υποστηρίζεται από ένορκη δήλωση του κ. Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2, ο οποίος είναι και διευθυντής της Εφεσίβλητης αρ. 1 εταιρείας.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Η αίτηση στηρίχθηκε σε ένορκη δήλωση του Θεόκλητου Παναγή και καταγράφεται η ιδιότητά του."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_materialFacts_3",
+            "paragraphIds": [
+              "P000033"
+            ],
+            "quote": "Παναγή αναφέρει, μεταξύ άλλων, ότι η Εφεσείουσα, σύμφωνα με τα όσα λέχθηκαν στην πρωτόδικη διαδικασία, και υποστηρίζονται και από την, αναφερόμενη στον τίτλο της αγωγής, διεύθυνσή της, είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Η ένορκη δήλωση ανέφερε μόνιμη κατοικία της Εφεσείουσας στη Βόρειο Ιρλανδία."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_materialFacts_4",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Η ειδοποίηση έφεσης περιείχε διεύθυνση στη Northern Ireland."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "chronology": {
+        "status": "available",
+        "value": [
+          {
+            "date": "μη διαθέσιμη",
+            "event": "Οι Εφεσίβλητοι/Αιτητές καταχώρησαν αίτηση ζητώντας κατάθεση €12.000 ή άλλου εύλογου ποσού ως ασφάλεια εξόδων.",
+            "actors": [
+              "Εφεσίβλητοι/Αιτητές",
+              "Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση"
+            ]
+          },
+          {
+            "date": "μη διαθέσιμη",
+            "event": "Η αίτηση βασίστηκε στη Δ.60, θθ1 και 5, στη Δ.48, θθ1-3 και 9 και στις συμφυείς εξουσίες του Δικαστηρίου.",
+            "actors": [
+              "Εφεσίβλητοι/Αιτητές"
+            ]
+          },
+          {
+            "date": "μη διαθέσιμη",
+            "event": "Η αίτηση υποστηρίχθηκε από ένορκη δήλωση του Θεόκλητου Παναγή.",
+            "actors": [
+              "Θεόκλητος Παναγή",
+              "Εφεσίβλητοι/Αιτητές"
+            ]
+          },
+          {
+            "date": "μη διαθέσιμη",
+            "event": "Στην ειδοποίηση έφεσης καταγράφηκε διεύθυνση της Εφεσείουσας στη Northern Ireland.",
+            "actors": [
+              "Εφεσείουσα"
+            ]
+          },
+          {
+            "date": "μη διαθέσιμη",
+            "event": "Η Εφεσείουσα/Καθ' ης η αίτηση καταχώρησε ένσταση υποστηρίζοντας ότι δεν υπάρχει εξουσία για ασφάλεια εξόδων εναντίον προσώπου που διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "actors": [
+              "Εφεσείουσα/Καθ' ης η αίτηση"
+            ]
+          }
+        ],
+        "confidence": 0.82,
+        "evidence": [
+          {
+            "id": "EV_facts_chronology_1",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Καταχώρηση/ύπαρξη αίτησης για ασφάλεια εξόδων."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_chronology_2",
+            "paragraphIds": [
+              "P000029"
+            ],
+            "quote": "Η αίτηση βασίζεται στους θεσμούς πολιτικής δικονομίας, Δ.60, θθ1 και 5, Δ.48, θθ1-3 και 9 και στις συμφυείς εξουσίες του Δικαστηρίου.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Νομική βάση της αίτησης."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_chronology_3",
+            "paragraphIds": [
+              "P000030",
+              "P000031"
+            ],
+            "quote": "Η αίτηση υποστηρίζεται από ένορκη δήλωση του κ. Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2, ο οποίος είναι και διευθυντής της Εφεσίβλητης αρ. 1 εταιρείας.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Υποστηρικτική ένορκη δήλωση."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_chronology_4",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Περιεχόμενο ειδοποίησης έφεσης ως προς διεύθυνση."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "witnessesAndEvidence": {
+        "status": "available",
+        "value": [
+          {
+            "name": "Θεόκλητος Παναγή",
+            "type": "witness",
+            "summary": "Εφεσίβλητος αρ. 2 και διευθυντής της Εφεσίβλητης αρ. 1 εταιρείας· υπέβαλε ένορκη δήλωση προς υποστήριξη της αίτησης, αναφέροντας μεταξύ άλλων ότι η Εφεσείουσα είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+            "treatmentByCourt": "Το Δικαστήριο ανέφερε ότι μελέτησε όλα τα ενώπιόν του στοιχεία· δεν παρατίθεται χωριστή αξιολόγηση αξιοπιστίας του δηλούντος."
+          },
+          {
+            "name": "Ειδοποίηση έφεσης",
+            "type": "document",
+            "summary": "Κατέγραφε ως διεύθυνση της Εφεσείουσας: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+            "treatmentByCourt": "Χρησιμοποιήθηκε στο πλαίσιο των ενώπιον στοιχείων για τη διαμονή/διεύθυνση της Εφεσείουσας· δεν υπάρχει χωριστή διατύπωση αμφισβήτησης του εγγράφου."
+          },
+          {
+            "name": "Ένσταση της Εφεσείουσας/Καθ' ης η αίτηση",
+            "type": "document",
+            "summary": "Πρόβαλε ότι, λόγω διαμονής της Εφεσείουσας στη Βόρειο Ιρλανδία/Ηνωμένο Βασίλειο, το Δικαστήριο δεν έχει εξουσία να διατάξει ασφάλεια εξόδων εναντίον της.",
+            "treatmentByCourt": "Το Δικαστήριο ανέφερε ότι μελέτησε όλα τα ενώπιον στοιχεία και εξέτασε τη Δ.60 θ.1."
+          }
+        ],
+        "confidence": 0.86,
+        "evidence": [
+          {
+            "id": "EV_facts_witnessesAndEvidence_1",
+            "paragraphIds": [
+              "P000030",
+              "P000031"
+            ],
+            "quote": "Η αίτηση υποστηρίζεται από ένορκη δήλωση του κ. Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2, ο οποίος είναι και διευθυντής της Εφεσίβλητης αρ. 1 εταιρείας.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Ταυτοποίηση του ενόρκως δηλούντος και της ιδιότητάς του."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_witnessesAndEvidence_2",
+            "paragraphIds": [
+              "P000033"
+            ],
+            "quote": "Παναγή αναφέρει, μεταξύ άλλων, ότι η Εφεσείουσα, σύμφωνα με τα όσα λέχθηκαν στην πρωτόδικη διαδικασία, και υποστηρίζονται και από την, αναφερόμενη στον τίτλο της αγωγής, διεύθυνσή της, είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Περιεχόμενο της ένορκης δήλωσης."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_witnessesAndEvidence_3",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Περιεχόμενο της ειδοποίησης έφεσης."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_witnessesAndEvidence_5",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Το Δικαστήριο δήλωσε ότι μελέτησε τα ενώπιόν του στοιχεία."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "undisputedFacts": {
+        "status": "available",
+        "value": [
+          "Η Εφεσείουσα συνδεόταν με διεύθυνση στη Northern Ireland, όπως αναγραφόταν στην ειδοποίηση έφεσης.",
+          "Η θέση ότι η Εφεσείουσα διαμένει στη Βόρειο Ιρλανδία εμφανίζεται τόσο στο υλικό των αιτητών όσο και στην ένσταση της Εφεσείουσας.",
+          "Η αίτηση ζητούσε ασφάλεια εξόδων για έξοδα πρωτοδίκως και κατ' έφεση."
+        ],
+        "confidence": 0.78,
+        "evidence": [
+          {
+            "id": "EV_facts_undisputedFacts_1",
+            "paragraphIds": [
+              "P000033"
+            ],
+            "quote": "Παναγή αναφέρει, μεταξύ άλλων, ότι η Εφεσείουσα, σύμφωνα με τα όσα λέχθηκαν στην πρωτόδικη διαδικασία, και υποστηρίζονται και από την, αναφερόμενη στον τίτλο της αγωγής, διεύθυνσή της, είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Οι αιτητές επικαλέστηκαν κατοικία στη Βόρειο Ιρλανδία."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_undisputedFacts_3",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Το περιεχόμενο του αιτήματος ως προς τα έξοδα."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "disputedFacts": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "procedure": {
+      "proceduralHistory": {
+        "status": "available",
+        "value": "Η διαδικασία ενώπιον του Δικαστηρίου ήταν παρεμπίπτουσα αίτηση των Εφεσιβλήτων/Αιτητών σε πλαίσιο έφεσης, με αίτημα ασφάλεια εξόδων για έξοδα που είχαν δημιουργηθεί πρωτοδίκως και για έξοδα που θα δημιουργούνταν κατ' έφεση. Η αίτηση βασίστηκε στη Δ.60, θθ1 και 5, στη Δ.48, θθ1-3 και 9 και στις συμφυείς εξουσίες του Δικαστηρίου. Η Εφεσείουσα/Καθ' ης η αίτηση καταχώρησε ένσταση. Το κείμενο δεν εκθέτει το περιεχόμενο ή το αποτέλεσμα της πρωτόδικης απόφασης στην κύρια αγωγή/έφεση.",
+        "confidence": 0.84,
+        "evidence": [
+          {
+            "id": "EV_procedure_proceduralHistory_1",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Παρεμπίπτουσα αίτηση για ασφάλεια εξόδων στο πλαίσιο πρωτόδικων και εφετειακών εξόδων."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_procedure_proceduralHistory_2",
+            "paragraphIds": [
+              "P000029"
+            ],
+            "quote": "Η αίτηση βασίζεται στους θεσμούς πολιτικής δικονομίας, Δ.60, θθ1 και 5, Δ.48, θθ1-3 και 9 και στις συμφυείς εξουσίες του Δικαστηρίου.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Νομική βάση της αίτησης."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "originatingProceeding": {
+        "status": "available",
+        "value": "Η παρούσα παρεμπίπτουσα διαδικασία άρχισε με αίτηση των Εφεσιβλήτων/Αιτητών για διάταγμα κατάθεσης ποσού ως ασφάλεια εξόδων από την Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση.",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_procedure_originatingProceeding_1",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Ταυτοποίηση της αίτησης που κίνησε την παρούσα διαδικασία."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "lowerCourtDecision": {
+        "status": "unavailable",
+        "value": "",
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "groundsOrIssues": {
+        "status": "available",
+        "value": [
+          {
+            "number": "μη αριθμημένο",
+            "title": "Εξουσία έκδοσης διατάγματος ασφάλειας εξόδων κατά διαμένοντος σε κράτος μέλος της Ευρωπαϊκής Ένωσης",
+            "description": "Το κεντρικό ζήτημα ήταν αν, βάσει της Δ.60 όπως τροποποιήθηκε, το Δικαστήριο είχε εξουσία να διατάξει ασφάλεια εξόδων εναντίον της Εφεσείουσας, η οποία προβαλλόταν ότι διαμένει στη Βόρειο Ιρλανδία/Ηνωμένο Βασίλειο.",
+            "raisedBy": "Εφεσείουσα/Καθ' ης η αίτηση ως ένσταση στο αίτημα των Εφεσιβλήτων/Αιτητών",
+            "result": "succeeded"
+          },
+          {
+            "number": "μη αριθμημένο",
+            "title": "Αίτημα παροχής ασφάλειας εξόδων",
+            "description": "Οι Εφεσίβλητοι/Αιτητές ζήτησαν κατάθεση €12.000 ή άλλου εύλογου ποσού για κάλυψη/εξασφάλιση εξόδων πρωτοδίκως και κατ' έφεση.",
+            "raisedBy": "Εφεσίβλητοι/Αιτητές",
+            "result": "failed"
+          }
+        ],
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_procedure_groundsOrIssues_2",
+            "paragraphIds": [
+              "P000035"
+            ],
+            "quote": "Στην ένσταση που καταχώρησε η Εφεσείουσα/Καθ' ης η αίτηση, αναγράφεται, μεταξύ άλλων, ότι σύμφωνα με τη Διαταγή 60, όπως τροποποιήθηκε, το Δικαστήριο δεν έχει εξουσία να διατάξει την παροχή ασφάλειας εξόδων, εκκρεμούσης δικαστικής διαδικασίας, εναντίον προσώπου που έχει τη διαμονή του σε χώρα μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "respondent_submissions",
+            "speakerRole": "respondent",
+            "supports": [
+              "Η ένσταση περί έλλειψης εξουσίας."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_procedure_groundsOrIssues_3",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Το αποτέλεσμα των ζητημάτων: η ένσταση επιτυγχάνει και το αίτημα ασφάλειας εξόδων αποτυγχάνει."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "reliefSought": {
+        "status": "available",
+        "value": [
+          {
+            "requestedBy": "Εφεσίβλητοι/Αιτητές",
+            "relief": "Διάταγμα ώστε η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο κρίνει εύλογο, προς κάλυψη/εξασφάλιση/ασφάλεια εξόδων πρωτοδίκως και κατ' έφεση.",
+            "status": "refused"
+          }
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "id": "EV_procedure_reliefSought_1",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Το ζητούμενο διάταγμα και ποσό."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "submissionsByParty": {
+        "status": "available",
+        "value": [
+          {
+            "party": "Εφεσίβλητοι/Αιτητές",
+            "summary": "Ζήτησαν διάταγμα κατάθεσης €12.000 ή άλλου εύλογου ποσού ως ασφάλεια εξόδων που δημιουργήθηκαν πρωτοδίκως και θα δημιουργηθούν κατ' έφεση. Η αίτηση στηρίχθηκε στη Δ.60, θθ1 και 5, στη Δ.48, θθ1-3 και 9 και στις συμφυείς εξουσίες του Δικαστηρίου. Μέσω της ένορκης δήλωσης Παναγή αναφέρθηκε ότι η Εφεσείουσα είναι μόνιμος κάτοικος Βορείου Ιρλανδίας."
+          },
+          {
+            "party": "Εφεσείουσα/Καθ' ης η αίτηση",
+            "summary": "Με την ένστασή της υποστήριξε ότι, κατά τη Δ.60 όπως τροποποιήθηκε, το Δικαστήριο δεν έχει εξουσία να διατάξει ασφάλεια εξόδων εκκρεμούσης διαδικασίας εναντίον προσώπου που διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης. Πρόβαλε ότι διαμένει στη Βόρειο Ιρλανδία, στην επικράτεια του Ηνωμένου Βασιλείου, κράτους μέλους της Ευρωπαϊκής Ένωσης."
+          }
+        ],
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_procedure_submissionsByParty_4",
+            "paragraphIds": [
+              "P000035"
+            ],
+            "quote": "Στην ένσταση που καταχώρησε η Εφεσείουσα/Καθ' ης η αίτηση, αναγράφεται, μεταξύ άλλων, ότι σύμφωνα με τη Διαταγή 60, όπως τροποποιήθηκε, το Δικαστήριο δεν έχει εξουσία να διατάξει την παροχή ασφάλειας εξόδων, εκκρεμούσης δικαστικής διαδικασίας, εναντίον προσώπου που έχει τη διαμονή του σε χώρα μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "respondent_submissions",
+            "speakerRole": "respondent",
+            "supports": [
+              "Νομική θέση της Εφεσείουσας/Καθ' ης η αίτηση."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_procedure_submissionsByParty_5",
+            "paragraphIds": [
+              "P000036"
+            ],
+            "quote": "Στην προκείμενη περίπτωση η Εφεσείουσα έχει τη διαμονή της στη Βόρειο Ιρλανδία και, επομένως, στην επικράτεια του Ηνωμένου Βασιλείου, που είναι κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "respondent_submissions",
+            "speakerRole": "respondent",
+            "supports": [
+              "Πραγματική βάση της ένστασης της Εφεσείουσας."
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      }
+    },
+    "analysis": {
+      "legalIssues": {
+        "status": "available",
+        "value": [
+          {
+            "issue": "Κατά πόσο μπορούσε να εκδοθεί διάταγμα παροχής ασφάλειας εξόδων εναντίον εφεσείουσας που είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "centrality": "primary",
+            "determination": "Το Δικαστήριο έκρινε ότι η αίτηση δεν μπορούσε να επιτύχει και ήταν καταδικασμένη σε αποτυχία."
+          }
+        ],
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "id": "EV_analysis_legalIssues_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Νομικό ζήτημα: εξουσία έκδοσης διατάγματος ασφάλειας εξόδων υπό τη Δ.60 θ1"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_legalIssues_2",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Καθορισμός ότι η αίτηση αποτυγχάνει λόγω διαμονής σε κράτος μέλος της Ευρωπαϊκής Ένωσης"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "dominantIssue": {
+        "status": "available",
+        "value": "Η έκταση της εξουσίας του Δικαστηρίου, υπό τη Δ.60 θ1, να διατάξει ασφάλεια εξόδων εναντίον εφεσείοντα που έχει συνήθη διαμονή στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "id": "EV_analysis_dominantIssue_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Κεντρική νομική ανάλυση για το πεδίο εφαρμογής της Δ.60 θ1"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "findings": {
+        "status": "available",
+        "value": [
+          {
+            "finding": "Η Δ.60 θ1 παρέχει εξουσία για διάταγμα ασφάλειας εξόδων μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "type": "law"
+          },
+          {
+            "finding": "Η Εφεσείουσα είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "type": "fact"
+          },
+          {
+            "finding": "Τα αναφερθέντα στην υπόθεση Rashid εφαρμόζονται και υιοθετούνται στην παρούσα υπόθεση.",
+            "type": "law"
+          }
+        ],
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_analysis_findings_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Νομικό εύρημα για την έκταση της εξουσίας υπό τη Δ.60 θ1"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_findings_2",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Πραγματικό εύρημα για την ιδιότητα και διαμονή της Εφεσείουσας",
+              "Συμπέρασμα επί της αίτησης"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_findings_3",
+            "paragraphIds": [
+              "P000040"
+            ],
+            "quote": "Τα όσα αναφέρθηκαν στην υπόθεση Rashid (ανωτέρω), ισχύουν και στην παρούσα υπόθεση και τα υιοθετούμε.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Υιοθέτηση προηγούμενης νομολογίας ως μέρος της παρούσας νομικής κρίσης"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "holding": {
+        "status": "available",
+        "value": "Η αίτηση των Εφεσιβλήτων/Εναγομένων/Αιτητών για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας απορρίφθηκε, επειδή η Εφεσείουσα είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, οπότε η αίτηση δεν μπορούσε να επιτύχει. Τα έξοδα επιδικάστηκαν εις βάρος των Εφεσιβλήτων/Εναγομένων/Αιτητών.",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_analysis_holding_1",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Ουσιαστική απόρριψη της αίτησης για ασφάλεια εξόδων"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "ratioDecidendi": {
+        "status": "available",
+        "value": [
+          {
+            "principle": "Υπό τη Δ.60 θ1, το Δικαστήριο μπορεί να διατάξει παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "type": "ratio",
+            "conditions": [
+              "Ζητείται διάταγμα παροχής ασφάλειας εξόδων υπό τη Δ.60 θ1.",
+              "Το πρόσωπο εναντίον του οποίου ζητείται το διάταγμα δεν έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης."
+            ],
+            "exceptions": [],
+            "applicationToFacts": "Εφόσον η Εφεσείουσα ήταν ευρωπαία πολίτις και διέμενε σε κράτος μέλος της Ευρωπαϊκής Ένωσης, η αίτηση για ασφάλεια εξόδων εναντίον της δεν μπορούσε να επιτύχει."
+          }
+        ],
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "id": "EV_analysis_ratioDecidendi_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Γενική αναγκαία νομική αρχή της απόφασης"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_ratioDecidendi_2",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Εφαρμογή της αρχής στα πραγματικά δεδομένα"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "legalPrincipleSummary": {
+        "status": "available",
+        "value": "Διάταγμα ασφάλειας εξόδων υπό τη Δ.60 θ1 δεν δικαιολογείται εναντίον διαδίκου που έχει συνήθη διαμονή στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης· η αίτηση αποτυγχάνει όταν ο καθ’ ου είναι ευρωπαίος πολίτης και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "id": "EV_analysis_legalPrincipleSummary_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Σύνοψη νομικής αρχής"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_legalPrincipleSummary_2",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Σύνοψη εφαρμογής της αρχής"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "secondaryPrinciples": {
+        "status": "available",
+        "value": [
+          {
+            "principle": "Αν ο αιτητής αμφισβητεί τον τόπο διαμονής του καθ’ ου η αίτηση, ο αιτητής φέρει το βάρος απόδειξης ότι ο καθ’ ου διαμένει εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+            "type": "evidence",
+            "conditions": [
+              "Ο αιτητής αμφισβητεί τον τόπο διαμονής του καθ’ ου η αίτηση.",
+              "Η διαμονή είναι κρίσιμη για αίτηση ασφάλειας εξόδων."
+            ],
+            "exceptions": [],
+            "applicationToFacts": "Το Δικαστήριο απέρριψε την αίτηση αφού δέχθηκε ότι η Εφεσείουσα είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης."
+          }
+        ],
+        "confidence": 0.78,
+        "evidence": [
+          {
+            "id": "EV_analysis_secondaryPrinciples_1",
+            "paragraphIds": [
+              "P000016"
+            ],
+            "quote": "Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+            "sectionType": "legal_framework",
+            "speakerRole": "court",
+            "supports": [
+              "Δευτερεύουσα αρχή για το βάρος απόδειξης του τόπου διαμονής"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_secondaryPrinciples_2",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Εφαρμογή στο αποτέλεσμα της αίτησης"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "obiterDicta": {
+        "status": "available",
+        "value": [
+          "Το Δικαστήριο συμπληρωματικά υπέδειξε ότι, αν οι Εφεσίβλητοι θεωρούν πως η μη καταβολή των πρωτόδικων εξόδων και η καταχώριση της έφεσης συνιστούν κατάχρηση διαδικασίας, θα πρέπει να εξετάσουν άλλες διαθέσιμες θεραπείες."
+        ],
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "id": "EV_analysis_obiterDicta_1",
+            "paragraphIds": [
+              "P000043"
+            ],
+            "quote": "Συμπληρωματικά, αναφέρουμε μόνο ότι αν οι Εφεσίβλητοι θεωρούν ότι η Εφεσείουσα, η οποία έχει καταδικαστεί στα πρωτόδικα έξοδα, και δεν τα έχει καταβάλει, ενώ έχει καταχωρήσει την παρούσα έφεση, καταχράται τη δικαστική διαδικασία, θα πρέπει να εξετάσουν ποιες διαζευκτικές θεραπείες έχουν προς αντιμετώπιση του θέματος αυτού.",
+            "sectionType": "obiter_dictum",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Συμπληρωματική παρατήρηση μη αναγκαία για την απόρριψη της αίτησης ασφάλειας εξόδων"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "legalTestsAndStandards": {
+        "status": "available",
+        "value": [
+          "Κριτήριο υπό τη Δ.60 θ1: ασφάλεια εξόδων μπορεί να διαταχθεί μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης."
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "id": "EV_analysis_legalTestsAndStandards_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Διατυπωμένο νομικό κριτήριο για ασφάλεια εξόδων"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "burdenAndStandardOfProof": {
+        "status": "available",
+        "value": [
+          "Όταν ο αιτητής αμφισβητεί τον τόπο διαμονής του καθ’ ου η αίτηση, ο αιτητής έχει το βάρος να αποδείξει ότι ο καθ’ ου διαμένει εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης."
+        ],
+        "confidence": 0.8,
+        "evidence": [
+          {
+            "id": "EV_analysis_burdenAndStandardOfProof_1",
+            "paragraphIds": [
+              "P000016"
+            ],
+            "quote": "Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+            "sectionType": "legal_framework",
+            "speakerRole": "court",
+            "supports": [
+              "Βάρος απόδειξης ως προς τον τόπο διαμονής"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "credibilityFindings": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "conflicts": []
+      },
+      "dissentOrConcurrence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "authorities": {
+      "legislation": {
+        "status": "available",
+        "value": [
+          {
+            "lawId": "Δ.60",
+            "lawLabel": "Διαταγή 60",
+            "instrumentName": "Διαταγή 60",
+            "instrumentType": "rule",
+            "role": "procedural",
+            "primary": true,
+            "provisions": [
+              {
+                "display": "Δ.60 θ1",
+                "article": "θ1",
+                "paragraph": "",
+                "subparagraph": "",
+                "part": "Δ.60",
+                "normalized": "Δ.60 θ1",
+                "application": "applied"
+              }
+            ],
+            "proposition": "Η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης."
+          }
+        ],
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "id": "EV_authorities_legislation_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "lawId",
+              "lawLabel",
+              "instrumentName",
+              "instrumentType",
+              "role",
+              "primary",
+              "provisions",
+              "proposition"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_authorities_legislation_2",
+            "paragraphIds": [
+              "P000016"
+            ],
+            "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+            "sectionType": "legal_framework",
+            "speakerRole": "court",
+            "supports": [
+              "lawId",
+              "lawLabel",
+              "instrumentName",
+              "instrumentType",
+              "role",
+              "primary",
+              "provisions",
+              "proposition"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_authorities_legislation_3",
+            "paragraphIds": [
+              "P000017"
+            ],
+            "quote": "Πολιτική  Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ― Δεν δικαιολογείται η έκδοση  διατάγματος παροχής ασφάλειας εξόδων εναντίον ενάγοντα ή εφεσείοντα, ο οποίος  έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "legal_framework",
+            "speakerRole": "court",
+            "supports": [
+              "lawId",
+              "lawLabel",
+              "instrumentName",
+              "instrumentType",
+              "role",
+              "primary",
+              "provisions",
+              "proposition"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "primaryLegislation": {
+        "status": "available",
+        "value": [
+          {
+            "lawId": "Δ.60",
+            "lawLabel": "Διαταγή 60",
+            "instrumentName": "Διαταγή 60",
+            "instrumentType": "rule",
+            "role": "procedural",
+            "primary": true,
+            "provisions": [
+              {
+                "display": "Δ.60 θ1",
+                "article": "θ1",
+                "paragraph": "",
+                "subparagraph": "",
+                "part": "Δ.60",
+                "normalized": "Δ.60 θ1",
+                "application": "applied"
+              }
+            ],
+            "proposition": "Η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης."
+          }
+        ],
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "id": "EV_authorities_primaryLegislation_1",
+            "paragraphIds": [
+              "P000037"
+            ],
+            "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "lawId",
+              "lawLabel",
+              "instrumentName",
+              "instrumentType",
+              "role",
+              "primary",
+              "provisions",
+              "proposition"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_authorities_primaryLegislation_2",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους  προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων  εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος  μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε  αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "proposition",
+              "application"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "secondaryLegislation": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0.92,
+        "evidence": [],
+        "conflicts": []
+      },
+      "authorities": {
+        "status": "available",
+        "value": [
+          {
+            "name": "Rashid v. Παπόρη",
+            "citation": "(2012) 1(Γ) Α.Α.Δ. 2710",
+            "ecli": "",
+            "court": "Εφετείο",
+            "year": 2012,
+            "treatment": "adopted",
+            "legalPoint": "Επιβεβαιώθηκε ότι δεν δικαιολογείται διάταγμα παροχής ασφάλειας εξόδων εναντίον ενάγοντα ή εφεσείοντα που έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης, και ότι όταν αμφισβητείται ο τόπος διαμονής, το βάρος απόδειξης φέρει ο αιτητής.",
+            "quoted": true
+          }
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "id": "EV_authorities_authorities_1",
+            "paragraphIds": [
+              "P000038"
+            ],
+            "quote": "Στην υπόθεση Rashid v. Παπόρη (2012) 1(Γ) Α.Α.Δ. 2710, το Εφετείο εξέτασε παρόμοιο ζήτημα και επιβεβαίωσε ότι δεν δικαιολογείται η έκδοση διατάγματος παροχής ασφάλειας εξόδων εναντίον ενάγοντα ή εφεσείοντα, ο οποίος έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης. Στην υπόθεση εκείνη, ο Εφεσείων ισχυριζόταν ότι είχε τη διαμονή του στο Ηνωμένο Βασίλειο, κράτος μέλος της Ευρωπαϊκής Ένωσης, όπως και στην προκείμενη περίπτωση. Το Εφετείο παρατήρησε, συναφώς, τα εξής:",
+            "sectionType": "quoted_authority",
+            "speakerRole": "quoted_court",
+            "supports": [
+              "name",
+              "citation",
+              "court",
+              "year",
+              "quoted",
+              "legalPoint"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_authorities_authorities_2",
+            "paragraphIds": [
+              "P000039"
+            ],
+            "quote": "«Αν ο  εφεσίβλητος-αιτητής, αμφισβητεί τον τόπο διαμονής του εφεσείοντα, ο ίδιος έχει  το βάρος απόδειξης του τόπου διαμονής του εφεσείοντα, εκτός Κύπρου και εκτός  Ευρωπαϊκής Ένωσης. Κάτι τέτοιο δεν ισχυρίστηκε, ούτε και απέδειξε ο  Εφεσίβλητος. (Δέστε: Κυριάκου v. Μιχαήλ (2007) 1 Α.Α.Δ. 933 και  Annual Practice, 1958, σελ. 1885).»",
+            "sectionType": "quoted_authority",
+            "speakerRole": "quoted_court",
+            "supports": [
+              "legalPoint",
+              "quoted"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_authorities_authorities_3",
+            "paragraphIds": [
+              "P000040"
+            ],
+            "quote": "Τα όσα αναφέρθηκαν  στην υπόθεση Rashid  (ανωτέρω), ισχύουν και στην παρούσα υπόθεση και τα υιοθετούμε.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "treatment",
+              "legalPoint"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      }
+    },
+    "outcome": {
+      "overallOutcome": {
+        "status": "available",
+        "value": "application_dismissed",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_outcome_overallOutcome_1",
+            "paragraphIds": [
+              "P000042"
+            ],
+            "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+            "sectionType": "disposition",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "application_dismissed"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_outcome_overallOutcome_2",
+            "paragraphIds": [
+              "P000044"
+            ],
+            "quote": "Η αίτηση  απορρίπτεται με έξοδα.",
+            "sectionType": "disposition",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "application_dismissed"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "scope": {
+        "status": "available",
+        "value": "αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_outcome_scope_1",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους  προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων  εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος  μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε  αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "scope"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "dispositionText": {
+        "status": "available",
+        "value": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_outcome_dispositionText_1",
+            "paragraphIds": [
+              "P000042"
+            ],
+            "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+            "sectionType": "disposition",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "dispositionText",
+              "application_dismissed",
+              "costs"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "components": {
+        "status": "available",
+        "value": [
+          {
+            "target": "αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας",
+            "groundOrIssue": "παροχή ασφάλειας εξόδων",
+            "result": "application_dismissed",
+            "remedy": "απόρριψη αίτησης με έξοδα",
+            "orderText": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος."
+          }
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_components_1",
+            "paragraphIds": [
+              "P000041"
+            ],
+            "quote": "Για τους  προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων  εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος  μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε  αποτυχία.",
+            "sectionType": "holding",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "target",
+              "groundOrIssue",
+              "application_dismissed"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_outcome_components_2",
+            "paragraphIds": [
+              "P000042"
+            ],
+            "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+            "sectionType": "disposition",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "orderText",
+              "application_dismissed",
+              "costs"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "orders": {
+        "status": "available",
+        "value": [
+          "Η αίτηση απορρίπτεται.",
+          "Τα έξοδα επιδικάζονται εις βάρος των Εφεσιβλήτων/Εναγομένων/Αιτητών, να υπολογιστούν από τον αρμόδιο Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος."
+        ],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_outcome_orders_1",
+            "paragraphIds": [
+              "P000042"
+            ],
+            "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+            "sectionType": "disposition",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "application_dismissed",
+              "costs_order"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "remedies": {
+        "status": "available",
+        "value": [
+          "Απόρριψη της αίτησης για παροχή ασφάλειας εξόδων.",
+          "Έξοδα εις βάρος των Εφεσιβλήτων/Εναγομένων/Αιτητών."
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_remedies_1",
+            "paragraphIds": [
+              "P000042"
+            ],
+            "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+            "sectionType": "disposition",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "remedies"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "sentence": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "monetaryAwards": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      },
+      "costs": {
+        "status": "available",
+        "value": [
+          {
+            "type": "costs",
+            "amount": "",
+            "currency": "",
+            "payer": "Εφεσιβλήτων/Εναγομένων/Αιτητών",
+            "payee": "",
+            "vatIncluded": false,
+            "interest": "να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος"
+          }
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_costs_1",
+            "paragraphIds": [
+              "P000042"
+            ],
+            "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+            "sectionType": "disposition",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "costs",
+              "payer",
+              "calculation"
+            ],
+            "exactMatch": true
+          }
+        ],
+        "conflicts": []
+      },
+      "remittalInstructions": {
+        "status": "unavailable",
+        "value": [],
+        "confidence": 0,
+        "evidence": [],
+        "conflicts": []
+      }
+    },
+    "taxonomy": {
+      "issueTags": [
+        "Η έκταση της εξουσίας του Δικαστηρίου, υπό τη Δ.60 θ1, να διατάξει ασφάλεια εξόδων εναντίον εφεσείοντα που έχει συνήθη διαμονή στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Κατά πόσο μπορούσε να εκδοθεί διάταγμα παροχής ασφάλειας εξόδων εναντίον εφεσείουσας που είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Εξουσία έκδοσης διατάγματος ασφάλειας εξόδων κατά διαμένοντος σε κράτος μέλος της Ευρωπαϊκής Ένωσης",
+        "Το κεντρικό ζήτημα ήταν αν, βάσει της Δ.60 όπως τροποποιήθηκε, το Δικαστήριο είχε εξουσία να διατάξει ασφάλεια εξόδων εναντίον της Εφεσείουσας, η οποία προβαλλόταν ότι διαμένει στη Βόρειο Ιρλανδία/Ηνωμένο Βασίλειο.",
+        "Αίτημα παροχής ασφάλειας εξόδων",
+        "Οι Εφεσίβλητοι/Αιτητές ζήτησαν κατάθεση €12.000 ή άλλου εύλογου ποσού για κάλυψη/εξασφάλιση εξόδων πρωτοδίκως και κατ' έφεση."
+      ],
+      "offenceTags": [],
+      "keywords": [
+        "ασφάλεια εξόδων",
+        "Διαταγή 60",
+        "συνήθης διαμονή σε κράτος μέλος της Ευρωπαϊκής Ένωσης",
+        "civil_procedure",
+        "Η έκταση της εξουσίας του Δικαστηρίου, υπό τη Δ.60 θ1, να διατάξει ασφάλεια εξόδων εναντίον εφεσείοντα που έχει συνήθη διαμονή στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Κατά πόσο μπορούσε να εκδοθεί διάταγμα παροχής ασφάλειας εξόδων εναντίον εφεσείουσας που είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Εξουσία έκδοσης διατάγματος ασφάλειας εξόδων κατά διαμένοντος σε κράτος μέλος της Ευρωπαϊκής Ένωσης",
+        "Το κεντρικό ζήτημα ήταν αν, βάσει της Δ.60 όπως τροποποιήθηκε, το Δικαστήριο είχε εξουσία να διατάξει ασφάλεια εξόδων εναντίον της Εφεσείουσας, η οποία προβαλλόταν ότι διαμένει στη Βόρειο Ιρλανδία/Ηνωμένο Βασίλειο.",
+        "Αίτημα παροχής ασφάλειας εξόδων",
+        "Οι Εφεσίβλητοι/Αιτητές ζήτησαν κατάθεση €12.000 ή άλλου εύλογου ποσού για κάλυψη/εξασφάλιση εξόδων πρωτοδίκως και κατ' έφεση.",
+        "Διάταγμα ασφάλειας εξόδων υπό τη Δ.60 θ1 δεν δικαιολογείται εναντίον διαδίκου που έχει συνήθη διαμονή στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης· η αίτηση αποτυγχάνει όταν ο καθ’ ου είναι ευρωπαίος πολίτης και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Υπό τη Δ.60 θ1, το Δικαστήριο μπορεί να διατάξει παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Αν ο αιτητής αμφισβητεί τον τόπο διαμονής του καθ’ ου η αίτηση, ο αιτητής φέρει το βάρος απόδειξης ότι ο καθ’ ου διαμένει εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "Κριτήριο υπό τη Δ.60 θ1: ασφάλεια εξόδων μπορεί να διαταχθεί μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης."
+      ],
+      "aliases": [
+        "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+        "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου",
+        "(2015) 1 ΑΑΔ 25",
+        "ECLI:CY:AD:2015:A13",
+        "111/2014",
+        "Πολιτική Έφεση Αρ. 111/2014"
+      ],
+      "topicGroups": [
+        "ασφάλεια εξόδων",
+        "Διαταγή 60",
+        "συνήθης διαμονή σε κράτος μέλος της Ευρωπαϊκής Ένωσης",
+        "civil_procedure"
+      ],
+      "principleGroups": [
+        "Διάταγμα ασφάλειας εξόδων υπό τη Δ.60 θ1 δεν δικαιολογείται εναντίον διαδίκου που έχει συνήθη διαμονή στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης· η αίτηση αποτυγχάνει όταν ο καθ’ ου είναι ευρωπαίος πολίτης και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Υπό τη Δ.60 θ1, το Δικαστήριο μπορεί να διατάξει παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Αν ο αιτητής αμφισβητεί τον τόπο διαμονής του καθ’ ου η αίτηση, ο αιτητής φέρει το βάρος απόδειξης ότι ο καθ’ ου διαμένει εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "Κριτήριο υπό τη Δ.60 θ1: ασφάλεια εξόδων μπορεί να διαταχθεί μόνο εναντίον προσώπων που δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης."
+      ],
+      "evidenceGroups": [
+        "Αν ο αιτητής αμφισβητεί τον τόπο διαμονής του καθ’ ου η αίτηση, ο αιτητής φέρει το βάρος απόδειξης ότι ο καθ’ ου διαμένει εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης."
+      ],
+      "procedureGroups": [
+        "civil_procedure",
+        "Οι Εφεσίβλητοι/Αιτητές ζήτησαν κατάθεση €12.000 ή άλλου εύλογου ποσού για κάλυψη/εξασφάλιση εξόδων πρωτοδίκως και κατ' έφεση.",
+        "Διάταγμα ασφάλειας εξόδων υπό τη Δ.60 θ1 δεν δικαιολογείται εναντίον διαδίκου που έχει συνήθη διαμονή στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης· η αίτηση αποτυγχάνει όταν ο καθ’ ου είναι ευρωπαίος πολίτης και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "Αν ο αιτητής αμφισβητεί τον τόπο διαμονής του καθ’ ου η αίτηση, ο αιτητής φέρει το βάρος απόδειξης ότι ο καθ’ ου διαμένει εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης."
+      ],
+      "publicLawGroups": []
+    },
+    "allEvidence": [
+      {
+        "id": "EV_identity_caseName_1",
+        "paragraphIds": [
+          "P000001"
+        ],
+        "quote": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "caseName"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_shortName_1",
+        "paragraphIds": [
+          "P000001"
+        ],
+        "quote": "Bibbs Julie ν. P.P. Dolphin Boat Safari Ltd και Άλλου (2015) 1 ΑΑΔ 25",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "shortName"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_citation_1",
+        "paragraphIds": [
+          "P000006"
+        ],
+        "quote": "(2015) 1 ΑΑΔ 25",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "citation"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_ecli_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ECLI:CY:AD:2015:A13",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "ecli"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_docket_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "(Πολιτική Έφεση Αρ. 111/2014)",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "docket"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_caseNumber_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "(Πολιτική Έφεση Αρ. 111/2014)",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "caseNumber"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_decisionDate_1",
+        "paragraphIds": [
+          "P000007"
+        ],
+        "quote": "15  Ιανουαρίου, 2015",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "decisionDate"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_court_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ECLI:CY:AD:2015:A13",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "court"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_courtLevel_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ECLI:CY:AD:2015:A13",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "courtLevel"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_jurisdiction_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ECLI:CY:AD:2015:A13",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "jurisdiction"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_language_1",
+        "paragraphIds": [
+          "P000010"
+        ],
+        "quote": "Εφεσείουσα - Ενάγουσα,",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "language"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_era_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ECLI:CY:AD:2015:A13",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "era"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_era_2",
+        "paragraphIds": [
+          "P000007"
+        ],
+        "quote": "15  Ιανουαρίου, 2015",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "era"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_judges_1",
+        "paragraphIds": [
+          "P000008"
+        ],
+        "quote": "[ΝΙΚΟΛΑΤΟΣ, Π., ΧΡΙΣΤΟΔΟΥΛΟΥ, ΛΙΑΤΣΟΣ, Δ/στές]",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "judges"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_authoringJudges_1",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "ΔΙΚΑΣΤΗΡΙΟ:  Την ομόφωνη απόφαση του Δικαστηρίου θα δώσει ο Νικολάτος,  Π..",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "authoringJudges"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_parties_1",
+        "paragraphIds": [
+          "P000009",
+          "P000010",
+          "P000011",
+          "P000012",
+          "P000013",
+          "P000014"
+        ],
+        "quote": "JULIE BIBBS,\nΕφεσείουσα - Ενάγουσα,\nν.\n1. P.P. DOLPHIN BOAT SAFARI LTD,\n2. ΘΕΟΚΛΗΤΟΥ ΠΑΝΑΓΗ,\nΕφεσιβλήτων - Εναγομένων.",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "parties"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_parties_2",
+        "paragraphIds": [
+          "P000024"
+        ],
+        "quote": "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία, για τους  Εφεσίβλητους-Αιτητές.",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "parties"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_parties_3",
+        "paragraphIds": [
+          "P000025"
+        ],
+        "quote": "Μ.  Κυριακίδης για Μ. Ι. Κυριακίδη ΔΕΠΕ, για την Εφεσείουσα-Καθ' ης η αίτηση.",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "parties"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_appearances_1",
+        "paragraphIds": [
+          "P000024"
+        ],
+        "quote": "Π. Ζαχαριάδου (κα) για Π. Δ. Πετρίδη & Σία, για τους  Εφεσίβλητους-Αιτητές.",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "appearances"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_appearances_2",
+        "paragraphIds": [
+          "P000025"
+        ],
+        "quote": "Μ.  Κυριακίδης για Μ. Ι. Κυριακίδη ΔΕΠΕ, για την Εφεσείουσα-Καθ' ης η αίτηση.",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "appearances"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseFamily_1",
+        "paragraphIds": [
+          "P000023"
+        ],
+        "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+        "sectionType": "case_metadata",
+        "speakerRole": "court",
+        "supports": [
+          "caseFamily"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_legalAreas_1",
+        "paragraphIds": [
+          "P000016"
+        ],
+        "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "sectionType": "legal_framework",
+        "speakerRole": "court",
+        "supports": [
+          "legalAreas"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_legalAreas_2",
+        "paragraphIds": [
+          "P000029"
+        ],
+        "quote": "Η αίτηση βασίζεται  στους θεσμούς πολιτικής δικονομίας, Δ.60, θθ1 και 5, Δ.48, θθ1-3 και 9 και στις  συμφυείς εξουσίες του Δικαστηρίου.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "legalAreas"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_primaryLegalArea_1",
+        "paragraphIds": [
+          "P000016"
+        ],
+        "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "sectionType": "legal_framework",
+        "speakerRole": "court",
+        "supports": [
+          "primaryLegalArea"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceedingType_1",
+        "paragraphIds": [
+          "P000022"
+        ],
+        "quote": "Έφεση -Αίτηση.",
+        "sectionType": "case_metadata",
+        "speakerRole": "court",
+        "supports": [
+          "proceedingType"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceedingType_2",
+        "paragraphIds": [
+          "P000023"
+        ],
+        "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+        "sectionType": "case_metadata",
+        "speakerRole": "court",
+        "supports": [
+          "proceedingType"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceduralPosture_1",
+        "paragraphIds": [
+          "P000023"
+        ],
+        "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+        "sectionType": "case_metadata",
+        "speakerRole": "court",
+        "supports": [
+          "proceduralPosture"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceduralPosture_2",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "ΝΙΚΟΛΑΤΟΣ,  Π.: Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν  διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να  καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το  Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή  εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως  επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "proceduralPosture"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_courtLevel_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ECLI:CY:AD:2015:A13",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "courtLevel"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseTypeLabels_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "(Πολιτική Έφεση Αρ. 111/2014)",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "caseTypeLabels"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseTypeLabels_2",
+        "paragraphIds": [
+          "P000022"
+        ],
+        "quote": "Έφεση -Αίτηση.",
+        "sectionType": "case_metadata",
+        "speakerRole": "court",
+        "supports": [
+          "caseTypeLabels"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseTypeLabels_3",
+        "paragraphIds": [
+          "P000023"
+        ],
+        "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+        "sectionType": "case_metadata",
+        "speakerRole": "court",
+        "supports": [
+          "caseTypeLabels"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_applicationTypes_1",
+        "paragraphIds": [
+          "P000023"
+        ],
+        "quote": "Αίτηση για παροχή ασφάλειας εξόδων από τους Εφεσίβλητους  στα πλαίσια της Έφεσης από την Ενάγουσα εναντίον της απόφασης του Επαρχιακού  Δικαστηρίου Αμμοχώστου (Μαλαχτός, Π.Ε.Δ.), (Αγωγή Αρ.  232/08), ημερομηνίας 11/4/2014.",
+        "sectionType": "case_metadata",
+        "speakerRole": "court",
+        "supports": [
+          "applicationTypes"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_subjectMatter_1",
+        "paragraphIds": [
+          "P000016"
+        ],
+        "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "sectionType": "legal_framework",
+        "speakerRole": "court",
+        "supports": [
+          "subjectMatter"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_summary_1",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Το αίτημα ήταν παροχή ασφάλειας εξόδων σε σχέση με πρωτόδικη διαδικασία και έφεση."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_summary_2",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Η ειδοποίηση έφεσης κατέγραφε διεύθυνση της Εφεσείουσας στη Northern Ireland."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_materialFacts_1",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Ζητήθηκε κατάθεση €12.000 ή άλλου εύλογου ποσού ως ασφάλεια εξόδων πρωτοδίκως και κατ' έφεση."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_materialFacts_2",
+        "paragraphIds": [
+          "P000030",
+          "P000031"
+        ],
+        "quote": "Η αίτηση υποστηρίζεται από ένορκη δήλωση του κ. Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2, ο οποίος είναι και διευθυντής της Εφεσίβλητης αρ. 1 εταιρείας.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Η αίτηση στηρίχθηκε σε ένορκη δήλωση του Θεόκλητου Παναγή και καταγράφεται η ιδιότητά του."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_materialFacts_3",
+        "paragraphIds": [
+          "P000033"
+        ],
+        "quote": "Παναγή αναφέρει, μεταξύ άλλων, ότι η Εφεσείουσα, σύμφωνα με τα όσα λέχθηκαν στην πρωτόδικη διαδικασία, και υποστηρίζονται και από την, αναφερόμενη στον τίτλο της αγωγής, διεύθυνσή της, είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Η ένορκη δήλωση ανέφερε μόνιμη κατοικία της Εφεσείουσας στη Βόρειο Ιρλανδία."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_materialFacts_4",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Η ειδοποίηση έφεσης περιείχε διεύθυνση στη Northern Ireland."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_chronology_1",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Καταχώρηση/ύπαρξη αίτησης για ασφάλεια εξόδων."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_chronology_2",
+        "paragraphIds": [
+          "P000029"
+        ],
+        "quote": "Η αίτηση βασίζεται στους θεσμούς πολιτικής δικονομίας, Δ.60, θθ1 και 5, Δ.48, θθ1-3 και 9 και στις συμφυείς εξουσίες του Δικαστηρίου.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Νομική βάση της αίτησης."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_chronology_3",
+        "paragraphIds": [
+          "P000030",
+          "P000031"
+        ],
+        "quote": "Η αίτηση υποστηρίζεται από ένορκη δήλωση του κ. Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2, ο οποίος είναι και διευθυντής της Εφεσίβλητης αρ. 1 εταιρείας.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Υποστηρικτική ένορκη δήλωση."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_chronology_4",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Περιεχόμενο ειδοποίησης έφεσης ως προς διεύθυνση."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_witnessesAndEvidence_1",
+        "paragraphIds": [
+          "P000030",
+          "P000031"
+        ],
+        "quote": "Η αίτηση υποστηρίζεται από ένορκη δήλωση του κ. Θεόκλητου Παναγή, Εφεσίβλητου αρ. 2, ο οποίος είναι και διευθυντής της Εφεσίβλητης αρ. 1 εταιρείας.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Ταυτοποίηση του ενόρκως δηλούντος και της ιδιότητάς του."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_witnessesAndEvidence_2",
+        "paragraphIds": [
+          "P000033"
+        ],
+        "quote": "Παναγή αναφέρει, μεταξύ άλλων, ότι η Εφεσείουσα, σύμφωνα με τα όσα λέχθηκαν στην πρωτόδικη διαδικασία, και υποστηρίζονται και από την, αναφερόμενη στον τίτλο της αγωγής, διεύθυνσή της, είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Περιεχόμενο της ένορκης δήλωσης."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_witnessesAndEvidence_3",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Στην ειδοποίηση έφεσης αναγράφεται ως διεύθυνση της Εφεσείουσας η εξής: «3 Ferndale Lurgan, Graigavon Co Armagh BT 66 8LQ, Northern Ireland».",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Περιεχόμενο της ειδοποίησης έφεσης."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_witnessesAndEvidence_5",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Το Δικαστήριο δήλωσε ότι μελέτησε τα ενώπιόν του στοιχεία."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_undisputedFacts_1",
+        "paragraphIds": [
+          "P000033"
+        ],
+        "quote": "Παναγή αναφέρει, μεταξύ άλλων, ότι η Εφεσείουσα, σύμφωνα με τα όσα λέχθηκαν στην πρωτόδικη διαδικασία, και υποστηρίζονται και από την, αναφερόμενη στον τίτλο της αγωγής, διεύθυνσή της, είναι μόνιμος κάτοικος Βορείου Ιρλανδίας.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Οι αιτητές επικαλέστηκαν κατοικία στη Βόρειο Ιρλανδία."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_undisputedFacts_3",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Το περιεχόμενο του αιτήματος ως προς τα έξοδα."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_proceduralHistory_1",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Παρεμπίπτουσα αίτηση για ασφάλεια εξόδων στο πλαίσιο πρωτόδικων και εφετειακών εξόδων."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_proceduralHistory_2",
+        "paragraphIds": [
+          "P000029"
+        ],
+        "quote": "Η αίτηση βασίζεται στους θεσμούς πολιτικής δικονομίας, Δ.60, θθ1 και 5, Δ.48, θθ1-3 και 9 και στις συμφυείς εξουσίες του Δικαστηρίου.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Νομική βάση της αίτησης."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_originatingProceeding_1",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Ταυτοποίηση της αίτησης που κίνησε την παρούσα διαδικασία."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_groundsOrIssues_2",
+        "paragraphIds": [
+          "P000035"
+        ],
+        "quote": "Στην ένσταση που καταχώρησε η Εφεσείουσα/Καθ' ης η αίτηση, αναγράφεται, μεταξύ άλλων, ότι σύμφωνα με τη Διαταγή 60, όπως τροποποιήθηκε, το Δικαστήριο δεν έχει εξουσία να διατάξει την παροχή ασφάλειας εξόδων, εκκρεμούσης δικαστικής διαδικασίας, εναντίον προσώπου που έχει τη διαμονή του σε χώρα μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "respondent_submissions",
+        "speakerRole": "respondent",
+        "supports": [
+          "Η ένσταση περί έλλειψης εξουσίας."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_groundsOrIssues_3",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Το αποτέλεσμα των ζητημάτων: η ένσταση επιτυγχάνει και το αίτημα ασφάλειας εξόδων αποτυγχάνει."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_reliefSought_1",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Με την αίτησή τους οι Εφεσίβλητοι/Αιτητές ζητούν διάταγμα του Δικαστηρίου, με το οποίο η Εφεσείουσα/Ενάγουσα/Καθ' ης η αίτηση να καταθέσει στον Πρωτοκολλητή το ποσό των €12.000 και/ή οποιοδήποτε ποσό το Δικαστήριο ήθελε κρίνει εύλογο υπό τις περιστάσεις, προς κάλυψη και/ή εξασφάλιση και/ή ασφάλεια των εξόδων που έχουν δημιουργηθεί πρωτοδίκως, ως επίσης και των εξόδων που θα δημιουργηθούν κατ' έφεση.",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Το ζητούμενο διάταγμα και ποσό."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_submissionsByParty_4",
+        "paragraphIds": [
+          "P000035"
+        ],
+        "quote": "Στην ένσταση που καταχώρησε η Εφεσείουσα/Καθ' ης η αίτηση, αναγράφεται, μεταξύ άλλων, ότι σύμφωνα με τη Διαταγή 60, όπως τροποποιήθηκε, το Δικαστήριο δεν έχει εξουσία να διατάξει την παροχή ασφάλειας εξόδων, εκκρεμούσης δικαστικής διαδικασίας, εναντίον προσώπου που έχει τη διαμονή του σε χώρα μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "respondent_submissions",
+        "speakerRole": "respondent",
+        "supports": [
+          "Νομική θέση της Εφεσείουσας/Καθ' ης η αίτηση."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_submissionsByParty_5",
+        "paragraphIds": [
+          "P000036"
+        ],
+        "quote": "Στην προκείμενη περίπτωση η Εφεσείουσα έχει τη διαμονή της στη Βόρειο Ιρλανδία και, επομένως, στην επικράτεια του Ηνωμένου Βασιλείου, που είναι κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "respondent_submissions",
+        "speakerRole": "respondent",
+        "supports": [
+          "Πραγματική βάση της ένστασης της Εφεσείουσας."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalIssues_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Νομικό ζήτημα: εξουσία έκδοσης διατάγματος ασφάλειας εξόδων υπό τη Δ.60 θ1"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalIssues_2",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Καθορισμός ότι η αίτηση αποτυγχάνει λόγω διαμονής σε κράτος μέλος της Ευρωπαϊκής Ένωσης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_dominantIssue_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Κεντρική νομική ανάλυση για το πεδίο εφαρμογής της Δ.60 θ1"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_findings_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Νομικό εύρημα για την έκταση της εξουσίας υπό τη Δ.60 θ1"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_findings_2",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Πραγματικό εύρημα για την ιδιότητα και διαμονή της Εφεσείουσας",
+          "Συμπέρασμα επί της αίτησης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_findings_3",
+        "paragraphIds": [
+          "P000040"
+        ],
+        "quote": "Τα όσα αναφέρθηκαν στην υπόθεση Rashid (ανωτέρω), ισχύουν και στην παρούσα υπόθεση και τα υιοθετούμε.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Υιοθέτηση προηγούμενης νομολογίας ως μέρος της παρούσας νομικής κρίσης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_holding_1",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Ουσιαστική απόρριψη της αίτησης για ασφάλεια εξόδων"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_ratioDecidendi_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Γενική αναγκαία νομική αρχή της απόφασης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_ratioDecidendi_2",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Εφαρμογή της αρχής στα πραγματικά δεδομένα"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalPrincipleSummary_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Σύνοψη νομικής αρχής"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalPrincipleSummary_2",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Σύνοψη εφαρμογής της αρχής"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_secondaryPrinciples_1",
+        "paragraphIds": [
+          "P000016"
+        ],
+        "quote": "Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "sectionType": "legal_framework",
+        "speakerRole": "court",
+        "supports": [
+          "Δευτερεύουσα αρχή για το βάρος απόδειξης του τόπου διαμονής"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_secondaryPrinciples_2",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Εφαρμογή στο αποτέλεσμα της αίτησης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_obiterDicta_1",
+        "paragraphIds": [
+          "P000043"
+        ],
+        "quote": "Συμπληρωματικά, αναφέρουμε μόνο ότι αν οι Εφεσίβλητοι θεωρούν ότι η Εφεσείουσα, η οποία έχει καταδικαστεί στα πρωτόδικα έξοδα, και δεν τα έχει καταβάλει, ενώ έχει καταχωρήσει την παρούσα έφεση, καταχράται τη δικαστική διαδικασία, θα πρέπει να εξετάσουν ποιες διαζευκτικές θεραπείες έχουν προς αντιμετώπιση του θέματος αυτού.",
+        "sectionType": "obiter_dictum",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Συμπληρωματική παρατήρηση μη αναγκαία για την απόρριψη της αίτησης ασφάλειας εξόδων"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalTestsAndStandards_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Διατυπωμένο νομικό κριτήριο για ασφάλεια εξόδων"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_burdenAndStandardOfProof_1",
+        "paragraphIds": [
+          "P000016"
+        ],
+        "quote": "Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "sectionType": "legal_framework",
+        "speakerRole": "court",
+        "supports": [
+          "Βάρος απόδειξης ως προς τον τόπο διαμονής"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_legislation_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "lawId",
+          "lawLabel",
+          "instrumentName",
+          "instrumentType",
+          "role",
+          "primary",
+          "provisions",
+          "proposition"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_legislation_2",
+        "paragraphIds": [
+          "P000016"
+        ],
+        "quote": "Πολιτική Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ―  Αίτηση για παροχή ασφάλειας εξόδων εναντίον της Εφεσείουσας, η οποία είναι  ευρωπαία πολίτις και διαμένει σε κράτος μέλος της Ευρωπαϊκής Ένωσης ― Εκρίθη  ότι δεν μπορούσε να επιτύχει ― Αν ο αιτητής, αμφισβητεί τον τόπο διαμονής του  καθ'ου η αίτηση, ο ίδιος έχει το βάρος απόδειξης του τόπου διαμονής του  τελευταίου, εκτός Κύπρου και εκτός Ευρωπαϊκής Ένωσης.",
+        "sectionType": "legal_framework",
+        "speakerRole": "court",
+        "supports": [
+          "lawId",
+          "lawLabel",
+          "instrumentName",
+          "instrumentType",
+          "role",
+          "primary",
+          "provisions",
+          "proposition"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_legislation_3",
+        "paragraphIds": [
+          "P000017"
+        ],
+        "quote": "Πολιτική  Δικονομία ― Ασφάλεια εξόδων ― Διαταγή 60 ― Δεν δικαιολογείται η έκδοση  διατάγματος παροχής ασφάλειας εξόδων εναντίον ενάγοντα ή εφεσείοντα, ο οποίος  έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "legal_framework",
+        "speakerRole": "court",
+        "supports": [
+          "lawId",
+          "lawLabel",
+          "instrumentName",
+          "instrumentType",
+          "role",
+          "primary",
+          "provisions",
+          "proposition"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_primaryLegislation_1",
+        "paragraphIds": [
+          "P000037"
+        ],
+        "quote": "Μελετήσαμε όλα τα ενώπιόν μας στοιχεία, και παρατηρούμε ότι, πράγματι, η Δ.60 θ1 παρέχει εξουσία στο Δικαστήριο να διατάξει την παροχή ασφάλειας εξόδων μόνο εναντίον προσώπων, τα οποία δεν έχουν τη συνήθη διαμονή τους στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "lawId",
+          "lawLabel",
+          "instrumentName",
+          "instrumentType",
+          "role",
+          "primary",
+          "provisions",
+          "proposition"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_primaryLegislation_2",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους  προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων  εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος  μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε  αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "proposition",
+          "application"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_authorities_1",
+        "paragraphIds": [
+          "P000038"
+        ],
+        "quote": "Στην υπόθεση Rashid v. Παπόρη (2012) 1(Γ) Α.Α.Δ. 2710, το Εφετείο εξέτασε παρόμοιο ζήτημα και επιβεβαίωσε ότι δεν δικαιολογείται η έκδοση διατάγματος παροχής ασφάλειας εξόδων εναντίον ενάγοντα ή εφεσείοντα, ο οποίος έχει τη συνήθη διαμονή του στην Κύπρο ή σε κράτος μέλος της Ευρωπαϊκής Ένωσης. Στην υπόθεση εκείνη, ο Εφεσείων ισχυριζόταν ότι είχε τη διαμονή του στο Ηνωμένο Βασίλειο, κράτος μέλος της Ευρωπαϊκής Ένωσης, όπως και στην προκείμενη περίπτωση. Το Εφετείο παρατήρησε, συναφώς, τα εξής:",
+        "sectionType": "quoted_authority",
+        "speakerRole": "quoted_court",
+        "supports": [
+          "name",
+          "citation",
+          "court",
+          "year",
+          "quoted",
+          "legalPoint"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_authorities_2",
+        "paragraphIds": [
+          "P000039"
+        ],
+        "quote": "«Αν ο  εφεσίβλητος-αιτητής, αμφισβητεί τον τόπο διαμονής του εφεσείοντα, ο ίδιος έχει  το βάρος απόδειξης του τόπου διαμονής του εφεσείοντα, εκτός Κύπρου και εκτός  Ευρωπαϊκής Ένωσης. Κάτι τέτοιο δεν ισχυρίστηκε, ούτε και απέδειξε ο  Εφεσίβλητος. (Δέστε: Κυριάκου v. Μιχαήλ (2007) 1 Α.Α.Δ. 933 και  Annual Practice, 1958, σελ. 1885).»",
+        "sectionType": "quoted_authority",
+        "speakerRole": "quoted_court",
+        "supports": [
+          "legalPoint",
+          "quoted"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_authorities_3",
+        "paragraphIds": [
+          "P000040"
+        ],
+        "quote": "Τα όσα αναφέρθηκαν  στην υπόθεση Rashid  (ανωτέρω), ισχύουν και στην παρούσα υπόθεση και τα υιοθετούμε.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "treatment",
+          "legalPoint"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_overallOutcome_1",
+        "paragraphIds": [
+          "P000042"
+        ],
+        "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+        "sectionType": "disposition",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "application_dismissed"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_overallOutcome_2",
+        "paragraphIds": [
+          "P000044"
+        ],
+        "quote": "Η αίτηση  απορρίπτεται με έξοδα.",
+        "sectionType": "disposition",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "application_dismissed"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_scope_1",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους  προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων  εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος  μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε  αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "scope"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_dispositionText_1",
+        "paragraphIds": [
+          "P000042"
+        ],
+        "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+        "sectionType": "disposition",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "dispositionText",
+          "application_dismissed",
+          "costs"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_components_1",
+        "paragraphIds": [
+          "P000041"
+        ],
+        "quote": "Για τους  προαναφερόμενους λόγους, θεωρούμε ότι η αίτηση για παροχή ασφάλειας εξόδων  εναντίον της Εφεσείουσας, η οποία είναι ευρωπαία πολίτις και διαμένει σε κράτος  μέλος της Ευρωπαϊκής Ένωσης, δεν μπορεί να επιτύχει και είναι καταδικασμένη σε  αποτυχία.",
+        "sectionType": "holding",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "target",
+          "groundOrIssue",
+          "application_dismissed"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_components_2",
+        "paragraphIds": [
+          "P000042"
+        ],
+        "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+        "sectionType": "disposition",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "orderText",
+          "application_dismissed",
+          "costs"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_orders_1",
+        "paragraphIds": [
+          "P000042"
+        ],
+        "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+        "sectionType": "disposition",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "application_dismissed",
+          "costs_order"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_remedies_1",
+        "paragraphIds": [
+          "P000042"
+        ],
+        "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+        "sectionType": "disposition",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "remedies"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_costs_1",
+        "paragraphIds": [
+          "P000042"
+        ],
+        "quote": "Κατά συνέπεια, η αίτηση απορρίπτεται με έξοδα εις βάρος των  Εφεσιβλήτων/Εναγομένων/Αιτητών, τα οποία να υπολογιστούν από τον αρμόδιο  Πρωτοκολλητή και να υποβληθούν για έγκριση από το Δικαστήριο, στο τέλος.",
+        "sectionType": "disposition",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "costs",
+          "payer",
+          "calculation"
+        ],
+        "exactMatch": true
+      }
+    ],
+    "conflicts": [
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "analysis.holding",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: analysis.holding:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "facts.chronology",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: facts.chronology:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "facts.materialFacts",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: facts.materialFacts:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "facts.undisputedFacts",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: facts.undisputedFacts:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "facts.witnessesAndEvidence",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: facts.witnessesAndEvidence:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "procedure.groundsOrIssues",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: procedure.groundsOrIssues:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "procedure.reliefSought",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: procedure.reliefSought:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "procedure.submissionsByParty",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: procedure.submissionsByParty:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "UNSUPPORTED_HOLDING_EXPANSION",
+        "severity": "material",
+        "fieldPath": "holding.value",
+        "message": "Το πεδίο holding συνδυάζει την ουσιαστική κρίση της απόρριψης με το σκέλος των εξόδων. Το P000041 τεκμηριώνει μόνο ότι «η αίτηση ... δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία», ενώ η επιδίκαση εξόδων εμφανίζεται στα P000042 και P000044.",
+        "evidenceIds": []
+      },
+      {
+        "code": "SECTION_BOUNDARY_EDITORIAL_SUMMARY",
+        "severity": "minor",
+        "fieldPath": "sectionMap.spans[S00007].sectionType",
+        "message": "Το P000019 («Η αίτηση απορρίφθηκε με έξοδα.») φαίνεται να είναι σύντομη συνοπτική γραμμή του ιστότοπου/κεφαλίδας και όχι η κύρια δικαστική διατακτική. Η πραγματική διατακτική βρίσκεται στα P000042 και P000044, άρα το span S00007 δεν πρέπει να σταθεί ως αυτοτελές disposition.",
+        "evidenceIds": []
+      }
+    ],
+    "reviewFlags": [
+      "analysis.holding:evidence_from_wrong_section",
+      "facts.chronology:evidence_from_wrong_section",
+      "facts.materialFacts:evidence_from_wrong_section",
+      "facts.undisputedFacts:evidence_from_wrong_section",
+      "facts.witnessesAndEvidence:evidence_from_wrong_section",
+      "procedure.groundsOrIssues:evidence_from_wrong_section",
+      "procedure.reliefSought:evidence_from_wrong_section",
+      "procedure.submissionsByParty:evidence_from_wrong_section",
+      "section_boundary_ambiguous_P000026",
+      "section_boundary_ambiguous_P000027",
+      "section_boundary_ambiguous_P000040",
+      "ATTRIBUTION_VALIDATION_FAILED",
+      "UNSUPPORTED_HOLDING_EXPANSION",
+      "SECTION_BOUNDARY_EDITORIAL_SUMMARY",
+      "review_section_correction:S00007"
+    ],
+    "readinessScore": 94,
+    "strictReady": true,
+    "humanReviewRequired": false,
+    "stages": [
+      {
+        "stage": "source-preparation",
+        "status": "completed",
+        "model": "deterministic",
+        "responseId": "",
+        "startedAt": "2026-08-05T04:49:39.709Z",
+        "completedAt": "2026-08-05T04:49:39.715Z",
+        "elapsedMs": 6,
+        "inputCharacters": 5685,
+        "outputCharacters": 5685,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-1",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_04bec344b3b7180e016a72c0e3d6108199af7e3f3ab510f7e5",
+        "startedAt": "2026-08-05T04:49:39.715Z",
+        "completedAt": "2026-08-05T04:49:47.476Z",
+        "elapsedMs": 7533,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-2",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_05ad4e1dcd4529e1016a72c0e3c22081989ffb7460aea84098",
+        "startedAt": "2026-08-05T04:49:39.715Z",
+        "completedAt": "2026-08-05T04:49:47.476Z",
+        "elapsedMs": 7761,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "sections-3",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_07da83abaa96716f016a72c0e3d84c819a9ade8a929e0554ae",
+        "startedAt": "2026-08-05T04:49:39.715Z",
+        "completedAt": "2026-08-05T04:49:47.476Z",
+        "elapsedMs": 6686,
+        "inputCharacters": 0,
+        "outputCharacters": 0,
+        "errorCode": ""
+      },
+      {
+        "stage": "identity-classification",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_00523775f132b260016a72c0eba460819b99a0ac4c3fc13d9b",
+        "startedAt": "2026-08-05T04:49:47.476Z",
+        "completedAt": "2026-08-05T04:50:41.138Z",
+        "elapsedMs": 53661,
+        "inputCharacters": 9610,
+        "outputCharacters": 10085,
+        "errorCode": ""
+      },
+      {
+        "stage": "facts-procedure",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_07ff5788364907d2016a72c0eb9844819abe2fa467195fef01",
+        "startedAt": "2026-08-05T04:49:47.476Z",
+        "completedAt": "2026-08-05T04:53:28.690Z",
+        "elapsedMs": 221213,
+        "inputCharacters": 5608,
+        "outputCharacters": 20195,
+        "errorCode": ""
+      },
+      {
+        "stage": "judicial-analysis",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_02e09e85fa9e1bd0016a72c0ebb32c8198a661cba8187f02c6",
+        "startedAt": "2026-08-05T04:49:47.476Z",
+        "completedAt": "2026-08-05T04:51:25.104Z",
+        "elapsedMs": 97627,
+        "inputCharacters": 5474,
+        "outputCharacters": 10363,
+        "errorCode": ""
+      },
+      {
+        "stage": "legislation-authorities",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_04f5d7cf22f61ec1016a72c0ebcb7c819a8bc660c85f38e6d8",
+        "startedAt": "2026-08-05T04:49:47.476Z",
+        "completedAt": "2026-08-05T04:52:34.053Z",
+        "elapsedMs": 166577,
+        "inputCharacters": 5636,
+        "outputCharacters": 5122,
+        "errorCode": ""
+      },
+      {
+        "stage": "outcome-orders",
+        "status": "completed",
+        "model": "gpt-5.5-2026-04-23",
+        "responseId": "resp_037dac3fede783a8016a72c0ebb350819896a1a220c9326063",
+        "startedAt": "2026-08-05T04:49:47.477Z",
+        "completedAt": "2026-08-05T04:50:24.822Z",
+        "elapsedMs": 37345,
+        "inputCharacters": 2063,
+        "outputCharacters": 4718,
+        "errorCode": ""
+      },
+      {
+        "stage": "independent-review",
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_04c66cf4891f5956016a72c1c8e5bc819a8fe539c7bcf9fcf9",
+        "startedAt": "2026-08-05T04:53:28.694Z",
+        "completedAt": "2026-08-05T04:54:09.735Z",
+        "elapsedMs": 41040,
+        "inputCharacters": 78985,
+        "outputCharacters": 1498,
+        "errorCode": ""
+      }
+    ],
+    "createdAt": "2026-08-05T04:49:39.709Z",
+    "updatedAt": "2026-08-05T04:54:09.736Z"
+  },
+  "reviewer": {
+    "conflicts": [
+      {
+        "code": "UNSUPPORTED_HOLDING_EXPANSION",
+        "severity": "material",
+        "fieldPath": "holding.value",
+        "message": "Το πεδίο holding συνδυάζει την ουσιαστική κρίση της απόρριψης με το σκέλος των εξόδων. Το P000041 τεκμηριώνει μόνο ότι «η αίτηση ... δεν μπορεί να επιτύχει και είναι καταδικασμένη σε αποτυχία», ενώ η επιδίκαση εξόδων εμφανίζεται στα P000042 και P000044.",
+        "evidenceIds": [
+          "P000041",
+          "P000042",
+          "P000044"
+        ]
+      },
+      {
+        "code": "SECTION_BOUNDARY_EDITORIAL_SUMMARY",
+        "severity": "minor",
+        "fieldPath": "sectionMap.spans[S00007].sectionType",
+        "message": "Το P000019 («Η αίτηση απορρίφθηκε με έξοδα.») φαίνεται να είναι σύντομη συνοπτική γραμμή του ιστότοπου/κεφαλίδας και όχι η κύρια δικαστική διατακτική. Η πραγματική διατακτική βρίσκεται στα P000042 και P000044, άρα το span S00007 δεν πρέπει να σταθεί ως αυτοτελές disposition.",
+        "evidenceIds": [
+          "P000019",
+          "P000042",
+          "P000044"
+        ]
+      }
+    ],
+    "sectionCorrections": [
+      {
+        "spanId": "S00007",
+        "proposedSectionType": "other",
+        "reason": "Το P000019 είναι σύντομη συνοπτική γραμμή και όχι η τελική δικαστική διατακτική· η διατακτική αποτυπώνεται στα P000042 και P000044."
+      }
+    ],
+    "publishRecommendation": "review",
+    "qualitySummary": "Η ταυτότητα της υπόθεσης, η νομική βάση της αίτησης και το τελικό αποτέλεσμα είναι σε γενικές γραμμές έγκυρα και evidence-grounded. Ωστόσο, υπάρχει υβριδική/υπερεκτεταμένη διατύπωση στο holding ως προς τα έξοδα και μία μικρή boundary αστοχία στο P000019 ως disposition. Δεν εντοπίζεται κρίσιμη σύγκρουση, αλλά απαιτείται στοχευμένος έλεγχος πριν από δημοσίευση."
+  }
+}
