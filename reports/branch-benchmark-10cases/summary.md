@@ -1,22 +1,22 @@
 # Nomologies V2 branch benchmark
 
-- Index: https://www.cylaw.org/supreme/index_2024.html
+- Index: https://www.cylaw.org/apofaseis/aad/index_2020.html
 - Cases attempted: 10 · succeeded: 10 · failed: 0
-- Average readiness: 77/100
+- Average readiness: 80/100
 - Strict-ready: 8/10
-- Average sections: 31 · average time: 422s
+- Average sections: 32 · average time: 445s
 
 | # | Case | Readiness | Strict | Conflicts (C/M/m) | Sections | Outcome | Time |
 |---|------|-----------|--------|-------------------|----------|---------|------|
-| 1 | [ΚΑMBΑLDA LTD v. ANDREA JANE CORBETT κ.α., Πολιτική Έφεση Αρ.](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-108-15PolEf.html) | 84/100 | ✅ | 0/4/4 | 24 | appeal_dismissed | 425s |
-| 2 | [ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΤΗΣ ΟΝΕΧΙΜ GROUP MANAGEMENT LIMITED ](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-116-15PolEf.html) | 88/100 | ✅ | 0/3/5 | 24 | appeal_dismissed | 424s |
-| 3 | [HASAN ABUL HASHEM v. ΓΕΝΙΚΟΥ ΕΙΣΑΓΓΕΛΕΑ ΤΗΣ ΔΗΜΟΚΡΑΤΙΑΣ, Πολ](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-130-15PolEf.html) | 36/100 | — | 3/0/6 | 24 | unknown | 227s |
-| 4 | [SAVVAS VASILI TELEMACHOU v. ΣΥΝΕΡΓΑΤΙΚΗΣ ΕΤΑΙΡΕΙΑΣ ΔΙΑΧΕΙΡΙΣ](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-250-15PolEf.html) | 82/100 | ✅ | 0/2/8 | 43 | appeal_dismissed | 503s |
-| 5 | [WATERWORLD HOLDINGS LTD v. ΝΙΚΟΥ ΠΕΡΙΚΛΕΟΥΣ κ.α., Πολιτική Έ](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-284-15PolEf.html) | 47/100 | — | 2/1/4 | 31 | appeal_dismissed | 412s |
-| 6 | [KANIKA HOTELS PLC v. ΕΛΕΝΗΣ (ΝΙΤΣΑΣ) ΧΡΥΣΑΝΘΟΥ κ.α., Πολιτικ](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-309-15PolEf.html) | 91/100 | ✅ | 0/2/4 | 29 | dismissed | 455s |
-| 7 | [ΜΑΡΚΟΣ ΦΟΡΟΥ v. ΕΠΙΤΡΟΠΗΣ ΚΕΦΑΛΑΙΑΓΟΡΑΣ ΚΥΠΡΟΥ](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-E219-16PolEf.html) | 85/100 | ✅ | 0/3/3 | 40 | application_dismissed | 533s |
-| 8 | [Β. Π. Α. Ο. v. Α. Ο., Πολιτική Έφεση Αρ. E229/2016, 17/1/202](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-E229-16PolEf.html) | 84/100 | ✅ | 0/3/3 | 26 | appeal_allowed | 466s |
-| 9 | [MUKHTAR MOHAMED AL NWILI v. MAREMONTE INVESTEMENTS LTD, Πολι](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-E205-17PolEf.html) | 88/100 | ✅ | 0/1/6 | 28 | appeal_allowed | 324s |
-| 10 | [ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΤΗΣ N.K., Πολιτική Έφεση Αρ. 28/2022](https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2024/202401-28-22PolEf.html) | 86/100 | ✅ | 0/2/2 | 42 | dismissed | 446s |
+| 1 | [ΚΑΤΣΗ κ.α. ν. Α.Μ.C. HOTELS LTD κ.α.](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-315-12PolEf.htm) | 75/100 | ✅ | 0/10/7 | 18 | application_dismissed | 304s |
+| 2 | [TOTAL PACK (CYPRUS) LTD ν. SIVA PLUS DETERGENTS LTD](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-318-12PolEf.htm) | 51/100 | — | 2/0/7 | 59 | unknown | 482s |
+| 3 | [FREETRADE SAL ν. TLAIS TRADING COMPANY LIMITED κ.α.](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-408-12PolEfAnony.htm) | 91/100 | ✅ | 0/2/7 | 24 | appeal_dismissed | 426s |
+| 4 | [BUNKERNET LTD ν. PNO SHIPMANAGEMENT LTD κ.α.](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-9-13marineAit230718.htm) | 82/100 | ✅ | 0/5/10 | 28 | application_dismissed | 468s |
+| 5 | [ΙΩΑΝΝΙΔΗ, ΣΑΝ ΔΙΑΧΕΙΡΙΣΤΗΣ PENDENTE LITE ΤΗΣ ΠΕΡΙΟΥΣΙΑΣ ΤΟΥ ](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-80-13PolEfAnony.htm) | 91/100 | ✅ | 0/2/6 | 37 | appeal_dismissed | 418s |
+| 6 | [ΣΩΤΗΡΙΟΥ, ΕΚ ΛΕΜΕΣΟΥ ΩΣ ΔΙΑΧΕΙΡΙΣΤΡΙΑ ΤΗΣ ΠΕΡΙΟΥΣΙΑΣ ΤΟΥ ΑΠΟ](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-177-13PolEf.htm) | 84/100 | ✅ | 0/3/7 | 24 | appeal_dismissed | 448s |
+| 7 | [TH. PERICLEOUS ν. ΔΙΑΧΕΙΡΙΣΤΙΚΗΣ ΕΠΙΤΡΟΠΗΣ PISSOURI BEACH AP](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-175-14PolEf.htm) | 65/100 | — | 0/5/1 | 28 | appeal_dismissed | 566s |
+| 8 | [ΚΩΝΣΤΑΝΤΙΝΟΥ ν. ΞΙΟΥΡΟΥ](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-4-15fam.htm) | 91/100 | ✅ | 0/2/4 | 45 | appeal_allowed | 448s |
+| 9 | [ΧΑΤΖΗΙΩΑΝΝΟΥ ν. ELLINAS FINANCE PUBLIC COMPANY LTD](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-86-15PolEfAit180219.htm) | 78/100 | ✅ | 0/7/7 | 29 | application_allowed | 446s |
+| 10 | [ΧΑΡΑΛΑΜΠΟΥΣ ν. ΕΥΓΕΝΙΟΥ](https://www.cylaw.org/cgi-bin/open.pl?file=/apofaseis/aad/meros_1/2020/1-202001-6-17fam.htm) | 93/100 | ✅ | 0/1/3 | 24 | appeal_partly_allowed | 440s |
 
-Generated: 2026-08-04T21:30:44.610Z
+Generated: 2026-08-05T04:36:56.625Z
