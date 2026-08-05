@@ -2,27 +2,27 @@
   "mode": "full",
   "record": {
     "schemaVersion": "nomologies-v2.0.0",
-    "runId": "4517c984-30ef-4a51-ad56-892f64882ed6",
+    "runId": "53283e0b-6385-42bb-ba94-e58f7c454930",
     "pipelineProfile": "economy",
     "source": {
-      "sourceId": "src_e9e73925ca8b3f774bc70e7c",
-      "sourceHash": "e9e73925ca8b3f774bc70e7ce63046bf13ebb4b719c261846fad0324ad91bbe6",
-      "sourceUrl": "https://www.cylaw.org/terms.html",
-      "sourceTitle": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
-      "sourceDatabase": "cylaw",
-      "retrievedAt": "2026-08-05T06:04:10.140Z",
+      "sourceId": "src_6f8c8e0f6854ae9a7c199788",
+      "sourceHash": "6f8c8e0f6854ae9a7c199788deb1e1386fb3412c950c27031f7b7cbec8cecb88",
+      "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=supreme%2F2026%2F202607-156-26PolAit.html",
+      "sourceTitle": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI, Πολιτική Aίτηση Αρ. 152/2026, 29/7/2026",
+      "sourceDatabase": "supreme_court",
+      "retrievedAt": "2026-08-05T06:09:31.099Z",
       "charset": "windows-1253",
       "languageHint": "el",
-      "originalHtml": "[omitted: 8261 characters]",
-      "cleanText": "[omitted: 6496 characters]",
-      "characterCount": 6496,
+      "originalHtml": "[omitted: 16987 characters]",
+      "cleanText": "[omitted: 3945 characters]",
+      "characterCount": 3945,
       "paragraphs": [
         {
           "id": "P000001",
           "ordinal": 1,
-          "text": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "text": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI, Πολιτική Aίτηση Αρ. 152/2026, 29/7/2026",
           "startOffset": 0,
-          "endOffset": 78,
+          "endOffset": 151,
           "relativePosition": 0,
           "parentBlockId": "B00001",
           "sourceLineStart": 1,
@@ -31,8 +31,8 @@
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.152,
-            "headingCandidate": false,
+            "uppercaseRatio": 0.869,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -42,8 +42,8 @@
           "id": "P000002",
           "ordinal": 2,
           "text": "ΠΑΓΚΥΠΡΙΟΣ ΔΙΚΗΓΟΡΙΚΟΣ ΣΥΛΛΟΓΟΣ",
-          "startOffset": 84,
-          "endOffset": 115,
+          "startOffset": 160,
+          "endOffset": 191,
           "relativePosition": 0.027027,
           "parentBlockId": "B00002",
           "sourceLineStart": 4,
@@ -62,18 +62,18 @@
         {
           "id": "P000003",
           "ordinal": 3,
-          "text": "Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
-          "startOffset": 122,
-          "endOffset": 158,
+          "text": "CyLaw |\n\t\t\t\t\t\t\tΑναφορικά μ'εμάς |\n\t\t\t\t\t\t\t\" target=\"_top\">Επικοινωνία |\n\t\t\t\t\t\t\tΌροι χρήσης",
+          "startOffset": 201,
+          "endOffset": 290,
           "relativePosition": 0.054054,
           "parentBlockId": "B00003",
           "sourceLineStart": 7,
-          "sourceLineEnd": 7,
+          "sourceLineEnd": 10,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.156,
+            "uppercaseRatio": 0.082,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -83,20 +83,20 @@
         {
           "id": "P000004",
           "ordinal": 4,
-          "text": "• CyLaw",
-          "startOffset": 167,
-          "endOffset": 174,
+          "text": "Έρευνα - Κατάλογος Αποφάσεων Νέου Ανωτάτου Δικαστηρίου - Εμφάνιση Αναφορών (Noteup on) - Αφαίρεση Υπογραμμίσεων",
+          "startOffset": 297,
+          "endOffset": 408,
           "relativePosition": 0.081081,
           "parentBlockId": "B00004",
-          "sourceLineStart": 10,
-          "sourceLineEnd": 10,
+          "sourceLineStart": 13,
+          "sourceLineEnd": 13,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.4,
+            "uppercaseRatio": 0.109,
             "headingCandidate": false,
-            "listCandidate": true,
+            "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
           }
@@ -104,20 +104,20 @@
         {
           "id": "P000005",
           "ordinal": 5,
-          "text": "• |",
-          "startOffset": 183,
-          "endOffset": 186,
+          "text": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+          "startOffset": 411,
+          "endOffset": 436,
           "relativePosition": 0.108108,
           "parentBlockId": "B00005",
-          "sourceLineStart": 13,
-          "sourceLineEnd": 13,
+          "sourceLineStart": 16,
+          "sourceLineEnd": 16,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0,
-            "headingCandidate": false,
-            "listCandidate": true,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
           }
@@ -125,20 +125,20 @@
         {
           "id": "P000006",
           "ordinal": 6,
-          "text": "• Αναφορικά μ'εμάς",
-          "startOffset": 195,
-          "endOffset": 213,
+          "text": "ΠΡΩΤΟΒΑΘΜΙΑ ΔΙΚΑΙΟΔΟΣΙΑ",
+          "startOffset": 439,
+          "endOffset": 462,
           "relativePosition": 0.135135,
           "parentBlockId": "B00006",
-          "sourceLineStart": 16,
-          "sourceLineEnd": 16,
+          "sourceLineStart": 19,
+          "sourceLineEnd": 19,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.071,
-            "headingCandidate": false,
-            "listCandidate": true,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
           }
@@ -146,20 +146,20 @@
         {
           "id": "P000007",
           "ordinal": 7,
-          "text": "• |",
-          "startOffset": 222,
-          "endOffset": 225,
+          "text": "(Πολιτική Aίτηση Αρ. 152/2026)",
+          "startOffset": 465,
+          "endOffset": 495,
           "relativePosition": 0.162162,
           "parentBlockId": "B00007",
-          "sourceLineStart": 19,
-          "sourceLineEnd": 19,
+          "sourceLineStart": 22,
+          "sourceLineEnd": 22,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0,
+            "uppercaseRatio": 0.188,
             "headingCandidate": false,
-            "listCandidate": true,
+            "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
           }
@@ -167,76 +167,13 @@
         {
           "id": "P000008",
           "ordinal": 8,
-          "text": "• \">Επικοινωνία",
-          "startOffset": 234,
-          "endOffset": 249,
+          "text": "(i-Justice)",
+          "startOffset": 498,
+          "endOffset": 509,
           "relativePosition": 0.189189,
           "parentBlockId": "B00008",
-          "sourceLineStart": 22,
-          "sourceLineEnd": 22,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.091,
-            "headingCandidate": false,
-            "listCandidate": true,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000009",
-          "ordinal": 9,
-          "text": "• |",
-          "startOffset": 258,
-          "endOffset": 261,
-          "relativePosition": 0.216216,
-          "parentBlockId": "B00009",
           "sourceLineStart": 25,
           "sourceLineEnd": 25,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0,
-            "headingCandidate": false,
-            "listCandidate": true,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000010",
-          "ordinal": 10,
-          "text": "• Όροι χρήσης",
-          "startOffset": 270,
-          "endOffset": 283,
-          "relativePosition": 0.243243,
-          "parentBlockId": "B00010",
-          "sourceLineStart": 28,
-          "sourceLineEnd": 28,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0,
-            "headingCandidate": false,
-            "listCandidate": true,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000011",
-          "ordinal": 11,
-          "text": "Όροι/Συμφωνία Χρήσης Ιστοτόπου Cylaw",
-          "startOffset": 288,
-          "endOffset": 324,
-          "relativePosition": 0.27027,
-          "parentBlockId": "B00011",
-          "sourceLineStart": 31,
-          "sourceLineEnd": 31,
           "formatting": {
             "bold": false,
             "italic": false,
@@ -249,21 +186,84 @@
           }
         },
         {
-          "id": "P000012",
-          "ordinal": 12,
-          "text": "To Cylaw είναι μια μη κερδοσκοπική υπηρεσία που παρέχει δωρεάν πρόσβαση σε ιδιώτες χρήστες του περιεχομένου του, ώστε να τους επιτρέπει να διαβάσουν, τυπώσουν και αντιγράψουν υλικό για προσωπική χρήση, καθώς και κάθε άλλη χρήση που επιτρέπεται από την νομοθεσία που αφορά στην πνευματική ιδιοκτησία.",
-          "startOffset": 327,
-          "endOffset": 626,
-          "relativePosition": 0.297297,
-          "parentBlockId": "B00012",
+          "id": "P000009",
+          "ordinal": 9,
+          "text": "29 Ιουλίου, 2026",
+          "startOffset": 512,
+          "endOffset": 528,
+          "relativePosition": 0.216216,
+          "parentBlockId": "B00009",
+          "sourceLineStart": 28,
+          "sourceLineEnd": 28,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.143,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000010",
+          "ordinal": 10,
+          "text": "[ΙΩΑΝΝΙΔΗΣ, Δ]",
+          "startOffset": 531,
+          "endOffset": 545,
+          "relativePosition": 0.243243,
+          "parentBlockId": "B00010",
+          "sourceLineStart": 31,
+          "sourceLineEnd": 31,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000011",
+          "ordinal": 11,
+          "text": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΟ ΑΡΘΡΟ 155.4 ΤΟΥ ΣΥΝΤΑΓΜΑΤΟΣ ΚΑΙ ΤΑ  ΑΡΘΡΑ 3 ΚΑΙ 9 ΤΟΥ ΠΕΡΙ ΑΠΟΝΟΜΗΣ ΤΗΣ ΔΙΚΑΙΟΣΥΝΗΣ (ΠΟΙΚΙΛΑΙ ΔΙΑΤΑΞΕΙΣ) ΝΟΜΟΥ ΤΟΥ  1964",
+          "startOffset": 548,
+          "endOffset": 684,
+          "relativePosition": 0.27027,
+          "parentBlockId": "B00011",
           "sourceLineStart": 34,
           "sourceLineEnd": 34,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.008,
-            "headingCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000012",
+          "ordinal": 12,
+          "text": "ΚΑΙ",
+          "startOffset": 687,
+          "endOffset": 690,
+          "relativePosition": 0.297297,
+          "parentBlockId": "B00012",
+          "sourceLineStart": 37,
+          "sourceLineEnd": 37,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -272,19 +272,19 @@
         {
           "id": "P000013",
           "ordinal": 13,
-          "text": "Το Cylaw δεν είναι μια πηγή άντλησης των σχετικών κειμένων, υπό την έννοια ότι δεν προσφέρει υπηρεσία σε εκδότες υλικού ή σε άλλες υπηρεσίες που κάνουν χρήση του πρωτογενούς και δευτερογενούς υλικού που περιλαμβάνεται στη βάση δεδομένων του για να λάβουν το περιεχόμενο του Cylaw για δική τους χρήση. Οι εκδότες αυτοί και οι διαχειριστές τέτοιων υπηρεσιών θα πρέπει να λάβουν τα κείμενα από την αρχική πηγή τους ή με άλλους κατάλληλους εγκεκριμένους τρόπους.",
-          "startOffset": 629,
-          "endOffset": 1087,
+          "text": "ANAΦΟΡΙΚΑ ΜΕ ΤΟΝ ΠΕΡΙ ΑΝΩΤΑΤΟΥ ΔΙΚΑΣΤΗΡΙΟΥ (ΔΙΚΑΙΟΔΟΣΙΑ ΕΚΔΟΣΗΣ  ΕΝΤΑΛΜΑΤΩΝ ΠΡΟΝΟΜΙΑΚΗΣ ΦΥΣΕΩΣ) ΔΙΑΔΙΚΑΣΤΙΚΟ ΚΑΝΟΝΙΣΜΟ ΤΟΥ 2018",
+          "startOffset": 693,
+          "endOffset": 820,
           "relativePosition": 0.324324,
           "parentBlockId": "B00013",
-          "sourceLineStart": 37,
-          "sourceLineEnd": 37,
+          "sourceLineStart": 40,
+          "sourceLineEnd": 40,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.01,
-            "headingCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -293,19 +293,19 @@
         {
           "id": "P000014",
           "ordinal": 14,
-          "text": "Ειδικά σε σχέση με τη νομολογία που περιλαμβάνεται στις βάσεις δεδομένων του, το Cylaw θέτει περιορισμούς στους τρόπους που μπορεί να γίνει χρήση, πρόσβαση και επεξεργασία στα κείμενα αυτά μέσω του Robots Exclusion Standard. Το Cylaw τηρεί την ίδια πολιτική που τηρούν ουσιαστικά όλοι οι ανάλογοι οργανισμοί διεθνώς.",
-          "startOffset": 1090,
-          "endOffset": 1406,
+          "text": "ΚΑΙ",
+          "startOffset": 823,
+          "endOffset": 826,
           "relativePosition": 0.351351,
           "parentBlockId": "B00014",
-          "sourceLineStart": 40,
-          "sourceLineEnd": 40,
+          "sourceLineStart": 43,
+          "sourceLineEnd": 43,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.026,
-            "headingCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -314,19 +314,19 @@
         {
           "id": "P000015",
           "ordinal": 15,
-          "text": "Οι περιορισμοί αυτοί επιβάλλονται μεταξύ άλλων και για να υπάρξει εξισορρόπηση μεταξύ της ιδιωτικής ζωής από τη μια και της ελεύθερης πρόσβασης του κοινού στις πρωτογενείς πηγές δικαίου από την άλλη.",
-          "startOffset": 1407,
-          "endOffset": 1606,
+          "text": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+          "startOffset": 829,
+          "endOffset": 940,
           "relativePosition": 0.378378,
-          "parentBlockId": "B00014",
-          "sourceLineStart": 40,
-          "sourceLineEnd": 40,
+          "parentBlockId": "B00015",
+          "sourceLineStart": 46,
+          "sourceLineEnd": 46,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.006,
-            "headingCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -335,19 +335,19 @@
         {
           "id": "P000016",
           "ordinal": 16,
-          "text": "Κάθε πρόσωπο το οποίο λαμβάνει πρόσβαση στον ιστότοπο CyLaw.org (ο Ιστότοπος, όρος που περιλαμβάνει όλες τις υποσελίδες και περιεχόμενο αυτού από καιρού εις καιρό) συγκατατίθεται ως χρήστης και συμφωνεί με τους όρους χρήσης που προνοούνται κατωτέρω, περιλαμβανομένου του δικαιώματος του Κυπριακού Ινστιτούτου Νομικής Πληροφόρησης, ΗΕ 297030 (το ΚΙΝΟΠ) να τροποποιεί μονομερώς τους παρόντες όρους από καιρού εις καιρό χωρίς προειδοποίηση.",
-          "startOffset": 1609,
-          "endOffset": 2046,
+          "text": "KAI",
+          "startOffset": 943,
+          "endOffset": 946,
           "relativePosition": 0.405405,
-          "parentBlockId": "B00015",
-          "sourceLineStart": 43,
-          "sourceLineEnd": 43,
+          "parentBlockId": "B00016",
+          "sourceLineStart": 49,
+          "sourceLineEnd": 49,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.041,
-            "headingCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -356,19 +356,19 @@
         {
           "id": "P000017",
           "ordinal": 17,
-          "text": "Αναπαραγωγή & Πνευματικά Δικαιώματα",
-          "startOffset": 2049,
-          "endOffset": 2084,
+          "text": "ANAΦΟΡΙΚΑ ΜΕ ΤΟ ΕΝΤΑΛΜΑ ΣΥΛΛΗΨΗΣ ΗΜΕΡΟΜΗΝΙΑΣ 04.05.2026, ΤΟ  ΟΠΟΙΟ ΕΞΕΔΟΘΗ ΑΠΟ ΤΟ ΕΠΑΡΧΙΑΚΟ ΔΙΚΑΣΤΗΡΙΟ ΛΕΜΕΣΟΥ, ΣΤΗ ΒΑΣΗ ΤΗΣ ΕΝΟΡΚΗΣ ΔΗΛΩΣΗΣ  ΤΟΥ ΑΣΤ.",
+          "startOffset": 949,
+          "endOffset": 1099,
           "relativePosition": 0.432432,
-          "parentBlockId": "B00016",
-          "sourceLineStart": 46,
-          "sourceLineEnd": 46,
+          "parentBlockId": "B00017",
+          "sourceLineStart": 52,
+          "sourceLineEnd": 52,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.097,
-            "headingCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -377,19 +377,19 @@
         {
           "id": "P000018",
           "ordinal": 18,
-          "text": "Το ΚΙΝΟΠ επιφυλάσσει όλα τα πνευματικά δικαιώματά του αναφορικά με τα γραφικά του Ιστοτόπου, την πλοήγηση, τη μηχανή αναζήτησής του και τον εκάστοτε κώδικα προγραμματισμού του.",
-          "startOffset": 2087,
-          "endOffset": 2263,
+          "text": "1300 ΣΤ.",
+          "startOffset": 1100,
+          "endOffset": 1108,
           "relativePosition": 0.459459,
           "parentBlockId": "B00017",
-          "sourceLineStart": 49,
-          "sourceLineEnd": 49,
+          "sourceLineStart": 52,
+          "sourceLineEnd": 52,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.047,
-            "headingCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
             "listCandidate": false,
             "paragraphNumber": "",
             "htmlPath": ""
@@ -398,13 +398,181 @@
         {
           "id": "P000019",
           "ordinal": 19,
-          "text": "Τηρουμένης της αμέσως επόμενης παραγράφου και των πιο κάτω αναφερόμενων προϋποθέσεων που αφορούν τις απαγορευμένες χρήσεις του Ιστοτόπου, υλικό και περιεχόμενο που δημοσιεύεται στον Ιστότοπο, περιλαμβανομένων νομοθεσιών, κανονισμών και αποφάσεων Δικαστηρίου ή άλλων οργάνων, καθώς και τυχών συντακτικών βελτιώσεων ή προσθηκών που εισάγονται σε έγγραφα ή αρχεία από ή εκ μέρους του ΚΙΝΟΠ, όπως υπερσύνδεσμους (hyperlinks) και πληροφορίες σε κεφαλίδες και υποσέλιδα (header and footers), μπορούν να αντιγραφούν, τυπωθούν και χρησιμοποιηθούν από τους χρήστες ατελώς και χωρίς οποιαδήποτε άλλη εξουσιοδότηση από το ΚΙΝΟΠ, νοουμένου ότι στα υπό αναφορά έγγραφα ταυτοποιείται και αναφέρεται ο Ιστότοπος ως η πηγή προέλευσής τους.",
-          "startOffset": 2266,
-          "endOffset": 2989,
+          "text": "ΛΕΩΝΙΔΟΥ, ΔΥΝΑΜΕΙ ΤΟΥ ΠΕΡΙ ΠΟΙΝΙΚΗΣ ΔΙΚΟΝΟΜΙΑΣ ΝΟΜΟΥ,  ΚΕΦΑΛΑΙΟ 155, ΑΡΘΡΑ 18 ΚΑΙ 44",
+          "startOffset": 1109,
+          "endOffset": 1193,
           "relativePosition": 0.486486,
-          "parentBlockId": "B00018",
+          "parentBlockId": "B00017",
           "sourceLineStart": 52,
           "sourceLineEnd": 52,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000020",
+          "ordinal": 20,
+          "text": "_________________",
+          "startOffset": 1196,
+          "endOffset": 1213,
+          "relativePosition": 0.513514,
+          "parentBlockId": "B00018",
+          "sourceLineStart": 55,
+          "sourceLineEnd": 55,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000021",
+          "ordinal": 21,
+          "text": "Χ. Γεωργίου, για Πελεκάνος & Πελεκάνου Δ.Ε.Π.Ε., για τον Αιτητή",
+          "startOffset": 1216,
+          "endOffset": 1279,
+          "relativePosition": 0.540541,
+          "parentBlockId": "B00019",
+          "sourceLineStart": 58,
+          "sourceLineEnd": 58,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.196,
+            "headingCandidate": false,
+            "listCandidate": true,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000022",
+          "ordinal": 22,
+          "text": "E. Κωνσταντίνου (κα), Δημόσιος  Κατήγορος,  για τον Γενικό Εισαγγελέα",
+          "startOffset": 1282,
+          "endOffset": 1351,
+          "relativePosition": 0.567568,
+          "parentBlockId": "B00020",
+          "sourceLineStart": 61,
+          "sourceLineEnd": 61,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000023",
+          "ordinal": 23,
+          "text": "_________________",
+          "startOffset": 1354,
+          "endOffset": 1371,
+          "relativePosition": 0.594595,
+          "parentBlockId": "B00021",
+          "sourceLineStart": 64,
+          "sourceLineEnd": 64,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000024",
+          "ordinal": 24,
+          "text": "Α Π Ο Φ Α Σ Η",
+          "startOffset": 1374,
+          "endOffset": 1387,
+          "relativePosition": 0.621622,
+          "parentBlockId": "B00022",
+          "sourceLineStart": 67,
+          "sourceLineEnd": 67,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000025",
+          "ordinal": 25,
+          "text": "(Ex tempore)",
+          "startOffset": 1390,
+          "endOffset": 1402,
+          "relativePosition": 0.648649,
+          "parentBlockId": "B00023",
+          "sourceLineStart": 70,
+          "sourceLineEnd": 70,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.111,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000026",
+          "ordinal": 26,
+          "text": "ΙΩΑΝΝΙΔΗΣ, Δ.:-  Στις  6.7.2026, στο πλαίσιο της Πολ.",
+          "startOffset": 1405,
+          "endOffset": 1458,
+          "relativePosition": 0.675676,
+          "parentBlockId": "B00024",
+          "sourceLineStart": 73,
+          "sourceLineEnd": 73,
+          "formatting": {
+            "bold": false,
+            "italic": false,
+            "centered": false,
+            "uppercaseRatio": 0.4,
+            "headingCandidate": false,
+            "listCandidate": false,
+            "paragraphNumber": "",
+            "htmlPath": ""
+          }
+        },
+        {
+          "id": "P000027",
+          "ordinal": 27,
+          "text": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+          "startOffset": 1459,
+          "endOffset": 1784,
+          "relativePosition": 0.702703,
+          "parentBlockId": "B00024",
+          "sourceLineStart": 73,
+          "sourceLineEnd": 73,
           "formatting": {
             "bold": false,
             "italic": false,
@@ -417,188 +585,20 @@
           }
         },
         {
-          "id": "P000020",
-          "ordinal": 20,
-          "text": "Χρήση υλικού που δημοσιεύεται στον Ιστότοπο ενδεχομένως να τελεί υπό επιπρόσθετες προϋποθέσεις που καθορίζονται από την πηγή προέλευσής του.",
-          "startOffset": 2992,
-          "endOffset": 3132,
-          "relativePosition": 0.513514,
-          "parentBlockId": "B00019",
-          "sourceLineStart": 55,
-          "sourceLineEnd": 55,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.017,
-            "headingCandidate": false,
-            "listCandidate": false,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000021",
-          "ordinal": 21,
-          "text": "Απαγορευμένες χρήσεις",
-          "startOffset": 3134,
-          "endOffset": 3155,
-          "relativePosition": 0.540541,
-          "parentBlockId": "B00020",
-          "sourceLineStart": 57,
-          "sourceLineEnd": 57,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.05,
-            "headingCandidate": false,
-            "listCandidate": false,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000022",
-          "ordinal": 22,
-          "text": "Ανεξαρτήτως των δικαιωμάτων αναπαραγωγής που προνοούνται στην αμέσως προηγούμενη ενότητα, οι ακόλουθες χρήσεις του Ιστοτόπου απαγορεύονται, εκτός κατόπιν εκ των προτέρων γραπτής συναίνεσης του ΚΙΝΟΠ:",
-          "startOffset": 3158,
-          "endOffset": 3357,
-          "relativePosition": 0.567568,
-          "parentBlockId": "B00021",
-          "sourceLineStart": 60,
-          "sourceLineEnd": 60,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.041,
-            "headingCandidate": false,
-            "listCandidate": false,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000023",
-          "ordinal": 23,
-          "text": "-    Ενσωμάτωση σε άλλο ιστότοπο ή εφαρμογή (application) αρχείων ή εγγράφων που δημοσιεύονται στον Ιστότοπο, αποκρύπτοντας με οποιοδήποτε τρόπο την προέλευση ή πηγή τους, περιλαμβανομένου μέσω πλαισίωσης (framing), επαναχρησιμοποίησης αποτελεσμάτων ή διαδικασιών έρευνας, ή μέσω οποιουδήποτε άλλου τρόπου έτσι ώστε να δημιουργείται σύγχυση ή παραπλάνηση αναφορικά με το γεγονός ότι τα έγγραφα προέρχονται από τον Ιστότοπο και προσφέρονται από το Cylaw  μέσω της δική του διαδικτυακής υπηρεσίας και δεν αποτελούν μέρος ή προσφέρονται από άλλη υπηρεσία.",
-          "startOffset": 3360,
-          "endOffset": 3912,
-          "relativePosition": 0.594595,
-          "parentBlockId": "B00022",
-          "sourceLineStart": 63,
-          "sourceLineEnd": 63,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.009,
-            "headingCandidate": false,
-            "listCandidate": true,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000024",
-          "ordinal": 24,
-          "text": "-    Δημιουργία εξωτερικού ευρετηρίου (external indexing) αρχείων ή εγγράφων που δημοσιεύονται στον Ιστότοπο από διαδικτυακά ρομπότ (web robots).",
-          "startOffset": 3915,
-          "endOffset": 4060,
-          "relativePosition": 0.621622,
-          "parentBlockId": "B00023",
-          "sourceLineStart": 66,
-          "sourceLineEnd": 66,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.017,
-            "headingCandidate": false,
-            "listCandidate": true,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000025",
-          "ordinal": 25,
-          "text": "-    Μαζικό ή συστηματικό κατέβασμα αρχείων ή εγγράφων με οποιοδήποτε τρόπο, περιλαμβανομένου δια μέσου αυτοματοποιημένης επεξεργασίας, μέσων προγραμματισμού ή κατεβάσματος αρχείων/εγγράφων μέσω ανθρώπινης επεξεργασίας.",
-          "startOffset": 4063,
-          "endOffset": 4282,
-          "relativePosition": 0.648649,
-          "parentBlockId": "B00024",
-          "sourceLineStart": 69,
-          "sourceLineEnd": 69,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.005,
-            "headingCandidate": false,
-            "listCandidate": true,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000026",
-          "ordinal": 26,
-          "text": "Το ΚΙΝΟΠ επιφυλάσσει το δικαίωμα του να αποκλείσει κατά την κρίση του και χωρίς προειδοποίηση την πρόσβαση οποιουδήποτε χρήστη στον Ιστότοπο σε περίπτωση που ο χρήστης κακομεταχειρίζεται τον Ιστότοπο ή τον χρησιμοποιεί για παράνομους σκοπούς.",
-          "startOffset": 4285,
-          "endOffset": 4527,
-          "relativePosition": 0.675676,
-          "parentBlockId": "B00025",
-          "sourceLineStart": 72,
-          "sourceLineEnd": 72,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.039,
-            "headingCandidate": false,
-            "listCandidate": false,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
-          "id": "P000027",
-          "ordinal": 27,
-          "text": "Αποποίηση Εγγύησης",
-          "startOffset": 4530,
-          "endOffset": 4548,
-          "relativePosition": 0.702703,
-          "parentBlockId": "B00026",
-          "sourceLineStart": 75,
-          "sourceLineEnd": 75,
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "centered": false,
-            "uppercaseRatio": 0.118,
-            "headingCandidate": false,
-            "listCandidate": false,
-            "paragraphNumber": "",
-            "htmlPath": ""
-          }
-        },
-        {
           "id": "P000028",
           "ordinal": 28,
-          "text": "Το ΚΙΝΟΠ καταβάλλει σημαντική προσπάθεια για συντήρηση της ιστοσελίδας του, συνεχή ποιοτική βελτίωση και εμπλουτισμό των εγγράφων που δημοσιεύει.",
-          "startOffset": 4551,
-          "endOffset": 4696,
+          "text": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026, στην οικία του, στη Γερμασόγεια της Επαρχίας Λεμεσού,  όπου διαμένει με την οικογένεια του. Οι περιστάσεις κάτω από τις οποίες εξεδόθη  το προσβαλλόμενο ένταλμα σύλληψης, εκτίθενται στην απόφαση ημερ. 6.7.2026 και  δεν χρειάζεται να επαναληφθούν στην παρούσα απόφαση.",
+          "startOffset": 1785,
+          "endOffset": 2132,
           "relativePosition": 0.72973,
-          "parentBlockId": "B00027",
-          "sourceLineStart": 78,
-          "sourceLineEnd": 78,
+          "parentBlockId": "B00024",
+          "sourceLineStart": 73,
+          "sourceLineEnd": 73,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.048,
+            "uppercaseRatio": 0.018,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -608,18 +608,18 @@
         {
           "id": "P000029",
           "ordinal": 29,
-          "text": "Ωστόσο, το ΚΙΝΟΠ δεν παρέχει οποιαδήποτε εγγύηση ή διαβεβαίωση, δεν αναλαμβάνει οποιαδήποτε ευθύνη και ούτε προβαίνει σε οποιαδήποτε παράσταση αναφορικά με την αξιοπιστία, ακρίβεια ή ακεραιότητα του περιεχομένου του Ιστοτόπου ή τη λειτουργία του.",
-          "startOffset": 4697,
-          "endOffset": 4943,
+          "text": "Ουδεμία εκ των πιο πάνω  περιστάσεων έχει διαφοροποιηθεί, αφού όχι μόνο δεν έχει τεθεί ενώπιον του  Δικαστηρίου άλλη εκδοχή αλλά η ευπαίδευτη δικηγόρος που εκπροσώπησε σήμερα τον  Γενικό Εισαγγελέα δήλωσε πως μετά από μελέτη του μαρτυρικού υλικού που είχε  τεθεί ενώπιον του κατώτερου Δικαστηρίου, αποφάσισαν όπως μη ενστούν στην έκδοση  του αιτούμενου Προνομιακού Εντάλματος.",
+          "startOffset": 2135,
+          "endOffset": 2511,
           "relativePosition": 0.756757,
-          "parentBlockId": "B00027",
-          "sourceLineStart": 78,
-          "sourceLineEnd": 78,
+          "parentBlockId": "B00025",
+          "sourceLineStart": 76,
+          "sourceLineEnd": 76,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.033,
+            "uppercaseRatio": 0.022,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -629,18 +629,18 @@
         {
           "id": "P000030",
           "ordinal": 30,
-          "text": "Ο κάθε χρήστης λαμβάνει πρόσβαση και χρησιμοποιεί τον Ιστότοπο με δική του ευθύνη, πάντα σύμφωνα με τους παρόντες όρους χρήσης.",
-          "startOffset": 4944,
-          "endOffset": 5071,
+          "text": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+          "startOffset": 2514,
+          "endOffset": 2765,
           "relativePosition": 0.783784,
-          "parentBlockId": "B00027",
-          "sourceLineStart": 78,
-          "sourceLineEnd": 78,
+          "parentBlockId": "B00026",
+          "sourceLineStart": 79,
+          "sourceLineEnd": 79,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.019,
+            "uppercaseRatio": 0.005,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -650,18 +650,18 @@
         {
           "id": "P000031",
           "ordinal": 31,
-          "text": "Αποποίηση ευθύνης",
-          "startOffset": 5074,
-          "endOffset": 5091,
+          "text": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+          "startOffset": 2766,
+          "endOffset": 3037,
           "relativePosition": 0.810811,
-          "parentBlockId": "B00028",
-          "sourceLineStart": 81,
-          "sourceLineEnd": 81,
+          "parentBlockId": "B00026",
+          "sourceLineStart": 79,
+          "sourceLineEnd": 79,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.063,
+            "uppercaseRatio": 0.082,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -671,18 +671,18 @@
         {
           "id": "P000032",
           "ordinal": 32,
-          "text": "Τα έγγραφα που δημοσιεύονται στον Ιστότοπο αποσκοπούν διατίθενται αποκλειστικά για ενημερωτικούς σκοπούς? δεν αποτελούν σε καμία περίπτωση νομική συμβουλή.",
-          "startOffset": 5094,
-          "endOffset": 5249,
+          "text": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+          "startOffset": 3040,
+          "endOffset": 3178,
           "relativePosition": 0.837838,
-          "parentBlockId": "B00029",
-          "sourceLineStart": 84,
-          "sourceLineEnd": 84,
+          "parentBlockId": "B00027",
+          "sourceLineStart": 82,
+          "sourceLineEnd": 82,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.015,
+            "uppercaseRatio": 0.017,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -692,18 +692,18 @@
         {
           "id": "P000033",
           "ordinal": 33,
-          "text": "Τίποτα στον Ιστότοπο δεν πρέπει να ερμηνεύεται και ούτε δύναται να θεωρηθεί ότι αποτελεί νομική συμβουλή, γνωμάτευση ή σύσταση για το πώς να ενεργήσετε, ή άλλως πως απάντηση αναφορικά με οποιαδήποτε συγκεκριμένη κατάσταση.",
-          "startOffset": 5250,
-          "endOffset": 5472,
+          "text": "Τουναντίον, εκείνο που προκύπτει από το  μαρτυρικό υλικό που είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου, είναι πως η  Αστυνομία επεδίωξε και εξασφάλισε το προσβαλλόμενο ένταλμα σύλληψης, 24 περίπου  ημέρες μετά που έλαβε την καταγγελία χωρίς να δίδεται εξήγηση γι΄ αυτή την  αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του, όπου τον είχε  αναζητήσει.",
+          "startOffset": 3179,
+          "endOffset": 3539,
           "relativePosition": 0.864865,
-          "parentBlockId": "B00029",
-          "sourceLineStart": 84,
-          "sourceLineEnd": 84,
+          "parentBlockId": "B00027",
+          "sourceLineStart": 82,
+          "sourceLineEnd": 82,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.011,
+            "uppercaseRatio": 0.01,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -713,18 +713,18 @@
         {
           "id": "P000034",
           "ordinal": 34,
-          "text": "Παρά τη φροντίδα που δόθηκε κατά την προετοιμασία και τη συντήρηση του Ιστοτόπου, το ΚΙΝΟΠ και οι εκάστοτε διευθυντές, μέλη, υπάλληλοι και άλλα στελέχη του ή και πρόσωπα που ενεργούν για αυτό δεν αναλαμβάνουν, δεν υπέχουν και ούτε δύνανται να έχουν οποιαδήποτε ευθύνη έναντι οποιουδήποτε προσώπου για οποιοδήποτε λόγο, περιλαμβανομένου για οποιεσδήποτε ζημιές τυχόν προκληθούν άμεσα ή έμμεσα από τη χρήση του Ιστότοπου ή από τη μη διαθεσιμότητά του, από την οποία σε κάθε περίπτωση εξαιρούνται εξ ολοκλήρου.",
-          "startOffset": 5473,
-          "endOffset": 5980,
+          "text": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+          "startOffset": 3542,
+          "endOffset": 3716,
           "relativePosition": 0.891892,
-          "parentBlockId": "B00029",
-          "sourceLineStart": 84,
-          "sourceLineEnd": 84,
+          "parentBlockId": "B00028",
+          "sourceLineStart": 85,
+          "sourceLineEnd": 85,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.019,
+            "uppercaseRatio": 0.044,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -734,18 +734,18 @@
         {
           "id": "P000035",
           "ordinal": 35,
-          "text": "Εφαρμοστέο Δίκαιο",
-          "startOffset": 5983,
-          "endOffset": 6000,
+          "text": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν.",
+          "startOffset": 3719,
+          "endOffset": 3766,
           "relativePosition": 0.918919,
-          "parentBlockId": "B00030",
-          "sourceLineStart": 87,
-          "sourceLineEnd": 87,
+          "parentBlockId": "B00029",
+          "sourceLineStart": 88,
+          "sourceLineEnd": 88,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.125,
+            "uppercaseRatio": 0.026,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -755,20 +755,20 @@
         {
           "id": "P000036",
           "ordinal": 36,
-          "text": "Η χρήση του Ιστοτόπου διέπεται από τους νόμους της Κυπριακής Δημοκρατίας.",
-          "startOffset": 6003,
-          "endOffset": 6076,
+          "text": "Ι.  ΙΩΑΝΝΙΔΗΣ, Δ.",
+          "startOffset": 3832,
+          "endOffset": 3849,
           "relativePosition": 0.945946,
-          "parentBlockId": "B00031",
-          "sourceLineStart": 90,
-          "sourceLineEnd": 90,
+          "parentBlockId": "B00030",
+          "sourceLineStart": 91,
+          "sourceLineEnd": 91,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.065,
-            "headingCandidate": false,
-            "listCandidate": false,
+            "uppercaseRatio": 1,
+            "headingCandidate": true,
+            "listCandidate": true,
             "paragraphNumber": "",
             "htmlPath": ""
           }
@@ -776,18 +776,18 @@
         {
           "id": "P000037",
           "ordinal": 37,
-          "text": "Τα Δικαστήρια της Κυπριακής Δημοκρατίας έχουν αποκλειστική δικαιοδοσία να εκδικάσουν οποιαδήποτε διαφορά προκύψει σχετικά με τον Ιστότοπο, τη χρήση ή περιεχόμενο του, την ερμηνεία οποιουδήποτε όρου που αναφέρεται ανωτέρω, καθώς και για οποιαδήποτε μη συμβατική αιτία αγωγής ή αδικοπραξία που αφορά τον Ιστότοπο, το περιεχόμενο ή τη χρήση του.",
-          "startOffset": 6077,
-          "endOffset": 6419,
+          "text": "/ΣΓεωργίου",
+          "startOffset": 3852,
+          "endOffset": 3862,
           "relativePosition": 0.972973,
           "parentBlockId": "B00031",
-          "sourceLineStart": 90,
-          "sourceLineEnd": 90,
+          "sourceLineStart": 94,
+          "sourceLineEnd": 94,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.021,
+            "uppercaseRatio": 0.222,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -797,18 +797,18 @@
         {
           "id": "P000038",
           "ordinal": 38,
-          "text": "Cylaw.org: από το ΚΙΝΟΠ/CyLII για τον Παγκύπριο Δικηγορικό Σύλλογο.",
-          "startOffset": 6429,
-          "endOffset": 6496,
+          "text": "cylaw.org: Από το ΚΙΝOΠ/CyLii για τον Παγκύπριο Δικηγορικό Σύλλογο",
+          "startOffset": 3879,
+          "endOffset": 3945,
           "relativePosition": 1,
           "parentBlockId": "B00032",
-          "sourceLineStart": 93,
-          "sourceLineEnd": 93,
+          "sourceLineStart": 97,
+          "sourceLineEnd": 97,
           "formatting": {
             "bold": false,
             "italic": false,
             "centered": false,
-            "uppercaseRatio": 0.236,
+            "uppercaseRatio": 0.2,
             "headingCandidate": false,
             "listCandidate": false,
             "paragraphNumber": "",
@@ -824,50 +824,304 @@
         {
           "id": "S00001",
           "startParagraphId": "P000001",
+          "endParagraphId": "P000001",
+          "sectionType": "caption",
+          "speakerRole": "unknown",
+          "heading": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O.",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000001"
+          ],
+          "rationale": "Πρόκειται για τον τίτλο της υπόθεσης."
+        },
+        {
+          "id": "S00002",
+          "startParagraphId": "P000002",
+          "endParagraphId": "P000004",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "ΠΑΓΚΥΠΡΙΟΣ ΔΙΚΗΓΟΡΙΚΟΣ ΣΥΛΛΟΓΟΣ",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.84,
+          "boundaryEvidenceParagraphIds": [
+            "P000002",
+            "P000003",
+            "P000004"
+          ],
+          "rationale": "Πρόκειται για στοιχείο της σελίδας που δεν ανήκει σε δομικό τμήμα της απόφασης."
+        },
+        {
+          "id": "S00003",
+          "startParagraphId": "P000005",
+          "endParagraphId": "P000009",
+          "sectionType": "court_header",
+          "speakerRole": "court",
+          "heading": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.996,
+          "boundaryEvidenceParagraphIds": [
+            "P000005",
+            "P000009"
+          ],
+          "rationale": "Πρόκειται για το δικαστικό επικεφαλής με δικαιοδοσία και ημερομηνία."
+        },
+        {
+          "id": "S00004",
+          "startParagraphId": "P000010",
+          "endParagraphId": "P000019",
+          "sectionType": "case_metadata",
+          "speakerRole": "authoring_judge",
+          "heading": "[ΙΩΑΝΝΙΔΗΣ, Δ]",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.967,
+          "boundaryEvidenceParagraphIds": [
+            "P000010",
+            "P000011",
+            "P000019"
+          ],
+          "rationale": "Πρόκειται για τις επικεφαλίδες του νομικού πλαισίου και της αίτησης."
+        },
+        {
+          "id": "S00005",
+          "startParagraphId": "P000020",
+          "endParagraphId": "P000020",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "_________________",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000020"
+          ],
+          "rationale": "Πρόκειται για διαχωριστική γραμμή."
+        },
+        {
+          "id": "S00006",
+          "startParagraphId": "P000021",
+          "endParagraphId": "P000022",
+          "sectionType": "appearances",
+          "speakerRole": "unknown",
+          "heading": "Χ. Γεωργίου ... για τον Αιτητή",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000021",
+            "P000022"
+          ],
+          "rationale": "Πρόκειται για τις παραστάσεις των δικηγόρων."
+        },
+        {
+          "id": "S00007",
+          "startParagraphId": "P000023",
+          "endParagraphId": "P000023",
+          "sectionType": "other",
+          "speakerRole": "unknown",
+          "heading": "_________________",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000023"
+          ],
+          "rationale": "Πρόκειται για διαχωριστική γραμμή."
+        },
+        {
+          "id": "S00008",
+          "startParagraphId": "P000024",
+          "endParagraphId": "P000025",
+          "sectionType": "case_metadata",
+          "speakerRole": "authoring_judge",
+          "heading": "Α Π Ο Φ Α Σ Η",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.99,
+          "boundaryEvidenceParagraphIds": [
+            "P000024",
+            "P000025"
+          ],
+          "rationale": "Πρόκειται για την έναρξη της απόφασης με τη σημείωση ex tempore."
+        },
+        {
+          "id": "S00009",
+          "startParagraphId": "P000026",
+          "endParagraphId": "P000027",
+          "sectionType": "procedural_history",
+          "speakerRole": "authoring_judge",
+          "heading": "ΙΩΑΝΝΙΔΗΣ, Δ.:-",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.97,
+          "boundaryEvidenceParagraphIds": [
+            "P000026",
+            "P000027"
+          ],
+          "rationale": "Πρόκειται για το δικονομικό ιστορικό της άδειας και της αίτησης."
+        },
+        {
+          "id": "S00010",
+          "startParagraphId": "P000028",
+          "endParagraphId": "P000028",
+          "sectionType": "facts",
+          "speakerRole": "authoring_judge",
+          "heading": "Ο αιτητής συνελήφθη",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.97,
+          "boundaryEvidenceParagraphIds": [
+            "P000028"
+          ],
+          "rationale": "Πρόκειται για ουδέτερη περιγραφή των γεγονότων της σύλληψης."
+        },
+        {
+          "id": "S00011",
+          "startParagraphId": "P000029",
+          "endParagraphId": "P000029",
+          "sectionType": "respondent_public_body_submissions",
+          "speakerRole": "public_body",
+          "heading": "Θέση του Γενικού Εισαγγελέα",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.92,
+          "boundaryEvidenceParagraphIds": [
+            "P000029"
+          ],
+          "rationale": "Το απόσπασμα αποδίδει ρητά τη θέση της εκπροσώπου του Γενικού Εισαγγελέα ότι δεν θα ενστούν."
+        },
+        {
+          "id": "S00012",
+          "startParagraphId": "P000030",
+          "endParagraphId": "P000031",
+          "sectionType": "legal_framework",
+          "speakerRole": "authoring_judge",
+          "heading": "Προϋποθέσεις έκδοσης εντάλματος σύλληψης",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.94,
+          "boundaryEvidenceParagraphIds": [
+            "P000030",
+            "P000031"
+          ],
+          "rationale": "Διατυπώνεται ο γενικός κανόνας για το πότε εκδίδεται ένταλμα σύλληψης και το σχετικό κριτήριο αναγκαιότητας."
+        },
+        {
+          "id": "S00013",
+          "startParagraphId": "P000032",
+          "endParagraphId": "P000033",
+          "sectionType": "court_analysis",
+          "speakerRole": "authoring_judge",
+          "heading": "Εφαρμογή στα πραγματικά περιστατικά",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.96,
+          "boundaryEvidenceParagraphIds": [
+            "P000032",
+            "P000033"
+          ],
+          "rationale": "Το Δικαστήριο αξιολογεί το αποδεικτικό υλικό και καταλήγει ότι δεν ικανοποιεί τη δεύτερη προϋπόθεση."
+        },
+        {
+          "id": "S00014",
+          "startParagraphId": "P000034",
+          "endParagraphId": "P000035",
+          "sectionType": "disposition",
+          "speakerRole": "court",
+          "heading": "Έκδοση προνομιακού εντάλματος και έξοδα",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 0.98,
+          "boundaryEvidenceParagraphIds": [
+            "P000034",
+            "P000035"
+          ],
+          "rationale": "Περιέχεται η τελική διατακτική απόφαση επί της αίτησης και η ρύθμιση για τα έξοδα."
+        },
+        {
+          "id": "S00015",
+          "startParagraphId": "P000036",
+          "endParagraphId": "P000037",
+          "sectionType": "signature",
+          "speakerRole": "authoring_judge",
+          "heading": "Υπογραφή Δικαστή",
+          "isQuotedMaterial": false,
+          "quotedSourceType": "none",
+          "confidence": 1,
+          "boundaryEvidenceParagraphIds": [
+            "P000036",
+            "P000037"
+          ],
+          "rationale": "Πρόκειται για το όνομα του δικαστή και τη χειρόγραφη μονογραφή/υπογραφή."
+        },
+        {
+          "id": "S00016",
+          "startParagraphId": "P000038",
           "endParagraphId": "P000038",
           "sectionType": "other",
           "speakerRole": "unknown",
-          "heading": "CyLaw - Παγκύπριος Δικηγορικός Σύλλογος - Η Κυπριακή Πηγή Νομικής Πληροφόρησης",
+          "heading": "Υποσέλιδο ιστοσελίδας",
           "isQuotedMaterial": false,
           "quotedSourceType": "none",
-          "confidence": 0.9874,
+          "confidence": 1,
           "boundaryEvidenceParagraphIds": [
-            "P000001",
-            "P000020",
-            "P000019",
-            "P000021",
-            "P000026",
-            "P000027",
-            "P000030",
-            "P000031",
-            "P000033",
-            "P000032",
-            "P000034",
-            "P000035",
-            "P000036",
-            "P000037",
             "P000038"
           ],
-          "rationale": "Η επικεφαλίδα και τα επόμενα σημεία περιέχουν γενική αποποίηση ευθύνης και νομικής συμβουλής."
+          "rationale": "Το απόσπασμα είναι footer της ιστοσελίδας και όχι μέρος του δικαστικού λόγου."
         }
       ],
       "coverageComplete": true,
       "overlapFree": true,
-      "reviewFlags": []
+      "reviewFlags": [
+        "section_boundary_ambiguous_P000027",
+        "section_boundary_ambiguous_P000028"
+      ]
     },
     "identity": {
       "caseName": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "id": "EV_identity_caseName_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "caseName"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "shortName": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Αίτηση του J. O. για ένταλμα Certiorari",
+        "confidence": 0.82,
+        "evidence": [
+          {
+            "id": "EV_identity_shortName_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "shortName"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "citation": {
@@ -878,24 +1132,79 @@
         "conflicts": []
       },
       "ecli": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "ECLI:CY:AD:2021:A257",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity.ecli_citation_derived",
+            "paragraphIds": [
+              "P000031"
+            ],
+            "quote": "ECLI:CY:AD:2021:A257",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "identity.ecli"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "docket": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Πολιτική Aίτηση Αρ. 152/2026",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_docket_1",
+            "paragraphIds": [
+              "P000007"
+            ],
+            "quote": "(Πολιτική Aίτηση Αρ. 152/2026)",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "docket"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_docket_2",
+            "paragraphIds": [
+              "P000001"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI, Πολιτική Aίτηση Αρ. 152/2026, 29/7/2026",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "docket"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "caseNumber": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "152/2026",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_caseNumber_1",
+            "paragraphIds": [
+              "P000007"
+            ],
+            "quote": "(Πολιτική Aίτηση Αρ. 152/2026)",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "caseNumber"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "joinedCaseNumbers": {
@@ -906,186 +1215,884 @@
         "conflicts": []
       },
       "decisionDate": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "29 Ιουλίου, 2026",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_decisionDate_1",
+            "paragraphIds": [
+              "P000009"
+            ],
+            "quote": "29 Ιουλίου, 2026",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "decisionDate"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "court": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_court_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "court"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "courtLevel": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "supreme_court",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_courtLevel_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "courtLevel"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_courtLevel_2",
+            "paragraphIds": [
+              "P000006"
+            ],
+            "quote": "ΠΡΩΤΟΒΑΘΜΙΑ ΔΙΚΑΙΟΔΟΣΙΑ",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "courtLevel"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "jurisdiction": {
-        "status": "indeterminate",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Κύπρος",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_identity_jurisdiction_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "jurisdiction"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "language": {
-        "status": "indeterminate",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "el",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_language_1",
+            "paragraphIds": [
+              "P000024"
+            ],
+            "quote": "Α Π Ο Φ Α Σ Η",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "language"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "era": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "modern",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_identity_era_1",
+            "paragraphIds": [
+              "P000009"
+            ],
+            "quote": "29 Ιουλίου, 2026",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "era"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "judges": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "name": "ΙΩΑΝΝΙΔΗΣ",
+            "role": "authoring",
+            "honorific": "Δ"
+          }
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_identity_judges_1",
+            "paragraphIds": [
+              "P000010"
+            ],
+            "quote": "[ΙΩΑΝΝΙΔΗΣ, Δ]",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "judges"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_judges_2",
+            "paragraphIds": [
+              "P000036"
+            ],
+            "quote": "Ι.  ΙΩΑΝΝΙΔΗΣ, Δ.",
+            "sectionType": "signature",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "judges"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "authoringJudges": {
-        "status": "unavailable",
+        "status": "indeterminate",
         "value": [],
         "confidence": 0,
         "evidence": [],
         "conflicts": []
       },
       "parties": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "name": "J. O.",
+            "role": "applicant",
+            "ordinal": "",
+            "representedBy": [
+              "Χ. Γεωργίου, για Πελεκάνος & Πελεκάνου Δ.Ε.Π.Ε."
+            ]
+          },
+          {
+            "name": "Γενικός Εισαγγελέας",
+            "role": "other",
+            "ordinal": "",
+            "representedBy": [
+              "E. Κωνσταντίνου (κα), Δημόσιος  Κατήγορος"
+            ]
+          }
+        ],
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "id": "EV_identity_parties_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "parties"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_parties_2",
+            "paragraphIds": [
+              "P000021"
+            ],
+            "quote": "Χ. Γεωργίου, για Πελεκάνος & Πελεκάνου Δ.Ε.Π.Ε., για τον Αιτητή",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "parties"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_parties_3",
+            "paragraphIds": [
+              "P000022"
+            ],
+            "quote": "E. Κωνσταντίνου (κα), Δημόσιος  Κατήγορος,  για τον Γενικό Εισαγγελέα",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "parties"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "appearances": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "advocate": "Χ. Γεωργίου, για Πελεκάνος & Πελεκάνου Δ.Ε.Π.Ε.",
+            "partyRole": "Αιτητής",
+            "partyName": "J. O."
+          },
+          {
+            "advocate": "E. Κωνσταντίνου (κα), Δημόσιος  Κατήγορος",
+            "partyRole": "Γενικός Εισαγγελέας",
+            "partyName": "Γενικός Εισαγγελέας"
+          }
+        ],
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "id": "EV_identity_appearances_1",
+            "paragraphIds": [
+              "P000021"
+            ],
+            "quote": "Χ. Γεωργίου, για Πελεκάνος & Πελεκάνου Δ.Ε.Π.Ε., για τον Αιτητή",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "appearances"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_identity_appearances_2",
+            "paragraphIds": [
+              "P000022"
+            ],
+            "quote": "E. Κωνσταντίνου (κα), Δημόσιος  Κατήγορος,  για τον Γενικό Εισαγγελέα",
+            "sectionType": "appearances",
+            "speakerRole": "unknown",
+            "supports": [
+              "appearances"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       }
     },
     "classification": {
       "caseFamily": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "public_law",
+        "confidence": 0.88,
+        "evidence": [
+          {
+            "id": "EV_classification_caseFamily_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "caseFamily"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_caseFamily_2",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "caseFamily"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "legalAreas": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "prerogative_writs",
+          "criminal_procedure"
+        ],
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "id": "EV_classification_legalAreas_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "legalAreas"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "primaryLegalArea": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "prerogative_writs",
+        "confidence": 0.93,
+        "evidence": [
+          {
+            "id": "EV_classification_primaryLegalArea_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "primaryLegalArea"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_primaryLegalArea_2",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "primaryLegalArea"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "proceedingType": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "certiorari",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_classification_proceedingType_1",
+            "paragraphIds": [
+              "P000001"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI, Πολιτική Aίτηση Αρ. 152/2026, 29/7/2026",
+            "sectionType": "caption",
+            "speakerRole": "unknown",
+            "supports": [
+              "proceedingType"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_proceedingType_2",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "proceedingType"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "proceduralPosture": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "substantive_writ_hearing",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_classification_proceduralPosture_1",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "proceduralPosture"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_proceduralPosture_2",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "proceduralPosture"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "courtLevel": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "supreme_court",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_classification_courtLevel_1",
+            "paragraphIds": [
+              "P000005"
+            ],
+            "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "courtLevel"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_courtLevel_2",
+            "paragraphIds": [
+              "P000006"
+            ],
+            "quote": "ΠΡΩΤΟΒΑΘΜΙΑ ΔΙΚΑΙΟΔΟΣΙΑ",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "courtLevel"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "caseTypeLabels": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "Πολιτική Αίτηση",
+          "Προνομιακό Ένταλμα Certiorari",
+          "Πρωτοβάθμια Δικαιοδοσία"
+        ],
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "id": "EV_classification_caseTypeLabels_1",
+            "paragraphIds": [
+              "P000006"
+            ],
+            "quote": "ΠΡΩΤΟΒΑΘΜΙΑ ΔΙΚΑΙΟΔΟΣΙΑ",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "caseTypeLabels"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_caseTypeLabels_2",
+            "paragraphIds": [
+              "P000007"
+            ],
+            "quote": "(Πολιτική Aίτηση Αρ. 152/2026)",
+            "sectionType": "court_header",
+            "speakerRole": "court",
+            "supports": [
+              "caseTypeLabels"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_caseTypeLabels_3",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "caseTypeLabels"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "applicationTypes": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "Αίτηση διά κλήσεως για έκδοση προνομιακού εντάλματος Certiorari"
+        ],
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "id": "EV_classification_applicationTypes_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "applicationTypes"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_classification_applicationTypes_2",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "applicationTypes"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "writsRequested": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "Certiorari"
+        ],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "id": "EV_classification_writsRequested_1",
+            "paragraphIds": [
+              "P000015"
+            ],
+            "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+            "sectionType": "case_metadata",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "writsRequested"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "subjectMatter": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "ακύρωση εντάλματος σύλληψης",
+          "διερεύνηση πλημμελήματος κακόβουλης ζημιάς σε περιουσία"
+        ],
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_classification_subjectMatter_1",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "subjectMatter"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       }
     },
     "facts": {
       "summary": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Η υπόθεση αφορά ένταλμα σύλληψης που εκδόθηκε εναντίον του αιτητή στις 4.5.2026 για διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία, δυνάμει του άρθρου 324(1) του περί Ποινικού Κώδικα Νόμου, Κεφ. 154. Ο αιτητής συνελήφθη στις 20.5.2026 στην οικία του στη Γερμασόγεια, όπου διαμένει με την οικογένειά του. Από το μαρτυρικό υλικό ενώπιον του κατώτερου Δικαστηρίου προέκυπτε ότι η Αστυνομία εξασφάλισε το ένταλμα περίπου 24 ημέρες μετά την καταγγελία, χωρίς εξήγηση για την αδράνεια, επειδή δεν είχε εντοπίσει τον αιτητή στην οικία του.",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_facts_summary_1",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Έκδοση εντάλματος σύλληψης στις 4.5.2026 και αντικείμενο διερεύνησης"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_summary_2",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026, στην οικία του, στη Γερμασόγεια της Επαρχίας Λεμεσού,  όπου διαμένει με την οικογένεια του.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Σύλληψη του αιτητή στις 20.5.2026 στον τόπο κατοικίας του"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "materialFacts": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "fact": "Στις 4.5.2026 εκδόθηκε ένταλμα σύλληψης εναντίον του αιτητή για διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία, με αναφορά στο άρθρο 324(1) του περί Ποινικού Κώδικα Νόμου, Κεφ. 154.",
+            "significance": "Προσδιορίζει το προσβαλλόμενο μέτρο και το αντικείμενο της αστυνομικής διερεύνησης."
+          },
+          {
+            "fact": "Ο αιτητής συνελήφθη στις 20.5.2026, στην οικία του στη Γερμασόγεια της Επαρχίας Λεμεσού, όπου διαμένει με την οικογένειά του.",
+            "significance": "Αποτελεί το πραγματικό γεγονός εκτέλεσης του εντάλματος."
+          },
+          {
+            "fact": "Οι λεπτομερείς περιστάσεις έκδοσης του εντάλματος είχαν εκτεθεί στην απόφαση της 6.7.2026 και δεν επαναλήφθηκαν στην παρούσα απόφαση.",
+            "significance": "Δείχνει ότι η παρούσα απόφαση παραπέμπει σε προηγούμενη απόφαση για μέρος του πραγματικού υπόβαθρου."
+          },
+          {
+            "fact": "Δεν τέθηκε ενώπιον του Δικαστηρίου άλλη εκδοχή των περιστάσεων και ο Γενικός Εισαγγελέας δήλωσε ότι δεν θα ενστεί στην έκδοση του αιτούμενου προνομιακού εντάλματος.",
+            "significance": "Καταγράφει τη δικονομική στάση της καθ’ ης πλευράς και την απουσία αντίθετης εκδοχής στην παρούσα διαδικασία."
+          },
+          {
+            "fact": "Η Αστυνομία επιδίωξε και εξασφάλισε το ένταλμα περίπου 24 ημέρες μετά τη λήψη της καταγγελίας, χωρίς να δοθεί εξήγηση για την αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του.",
+            "significance": "Κρίσιμο πραγματικό στοιχείο που λήφθηκε υπόψη ως προς τις προϋποθέσεις έκδοσης του εντάλματος."
+          }
+        ],
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_facts_materialFacts_1",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Έκδοση εντάλματος και διερευνώμενο αδίκημα"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_materialFacts_2",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026, στην οικία του, στη Γερμασόγεια της Επαρχίας Λεμεσού,  όπου διαμένει με την οικογένεια του.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Χρόνος και τόπος σύλληψης"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_materialFacts_3",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Οι περιστάσεις κάτω από τις οποίες εξεδόθη  το προσβαλλόμενο ένταλμα σύλληψης, εκτίθενται στην απόφαση ημερ. 6.7.2026 και  δεν χρειάζεται να επαναληφθούν στην παρούσα απόφαση.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Παραπομπή σε προηγούμενη απόφαση για περιστάσεις έκδοσης"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "chronology": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "date": "24 περίπου ημέρες πριν από την εξασφάλιση του προσβαλλόμενου εντάλματος",
+            "event": "Η Αστυνομία έλαβε την καταγγελία.",
+            "actors": [
+              "Αστυνομία"
+            ]
+          },
+          {
+            "date": "4.5.2026",
+            "event": "Εκδόθηκε ένταλμα σύλληψης εναντίον του αιτητή για διερεύνηση πλημμελήματος κακόβουλης ζημιάς σε περιουσία.",
+            "actors": [
+              "κατώτερο Δικαστήριο",
+              "αιτητής"
+            ]
+          },
+          {
+            "date": "20.5.2026",
+            "event": "Ο αιτητής συνελήφθη δυνάμει του εντάλματος στην οικία του στη Γερμασόγεια.",
+            "actors": [
+              "αιτητής",
+              "Αστυνομία"
+            ]
+          },
+          {
+            "date": "6.7.2026",
+            "event": "Στο πλαίσιο της Πολ. Αίτησης υπ’ αριθμόν 144/2026 χορηγήθηκε άδεια στον αιτητή να καταχωρίσει Αίτηση διά κλήσεως για ακύρωση του εντάλματος σύλληψης.",
+            "actors": [
+              "αιτητής",
+              "Δικαστήριο"
+            ]
+          },
+          {
+            "date": "σήμερα, κατά την ακρόαση που περιγράφεται στην απόφαση",
+            "event": "Η δικηγόρος που εκπροσώπησε τον Γενικό Εισαγγελέα δήλωσε ότι, μετά από μελέτη του μαρτυρικού υλικού, αποφασίστηκε να μη υπάρξει ένσταση στην έκδοση του αιτούμενου Προνομιακού Εντάλματος.",
+            "actors": [
+              "Γενικός Εισαγγελέας",
+              "δικηγόρος Γενικού Εισαγγελέα"
+            ]
+          }
+        ],
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_facts_chronology_3",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026, στην οικία του, στη Γερμασόγεια της Επαρχίας Λεμεσού,  όπου διαμένει με την οικογένεια του.",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Σύλληψη στις 20.5.2026"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_chronology_4",
+            "paragraphIds": [
+              "P000026",
+              "P000027"
+            ],
+            "quote": "ΙΩΑΝΝΙΔΗΣ, Δ.:-  Στις  6.7.2026, στο πλαίσιο της Πολ. Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Άδεια στις 6.7.2026 στην Πολ. Αίτηση 144/2026"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "witnessesAndEvidence": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "name": "Μαρτυρικό υλικό ενώπιον του κατώτερου Δικαστηρίου",
+            "type": "other",
+            "summary": "Το μαρτυρικό υλικό μελετήθηκε από την πλευρά του Γενικού Εισαγγελέα και, κατά το Δικαστήριο, έδειχνε ότι η Αστυνομία εξασφάλισε το ένταλμα περίπου 24 ημέρες μετά την καταγγελία, χωρίς εξήγηση για την αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του.",
+            "treatmentByCourt": "Το Δικαστήριο το χρησιμοποίησε ως βάση για το συμπέρασμα ότι δεν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου υλικό που να ικανοποιεί τη δεύτερη προϋπόθεση."
+          },
+          {
+            "name": "Προσβαλλόμενο ένταλμα σύλληψης",
+            "type": "document",
+            "summary": "Ένταλμα σύλληψης που εκδόθηκε εναντίον του αιτητή στις 4.5.2026 και δυνάμει του οποίου συνελήφθη στις 20.5.2026.",
+            "treatmentByCourt": "Αποτελούσε το αντικείμενο της αίτησης για Certiorari."
+          },
+          {
+            "name": "Καταγγελία προς την Αστυνομία",
+            "type": "other",
+            "summary": "Η Αστυνομία είχε λάβει καταγγελία περίπου 24 ημέρες πριν επιδιώξει και εξασφαλίσει το ένταλμα σύλληψης.",
+            "treatmentByCourt": "Το Δικαστήριο σημείωσε την καθυστέρηση μετά την καταγγελία και την απουσία εξήγησης για την αδράνεια."
+          }
+        ],
+        "confidence": 0.88,
+        "evidence": [
+          {
+            "id": "EV_facts_witnessesAndEvidence_2",
+            "paragraphIds": [
+              "P000032"
+            ],
+            "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Τρόπος αξιολόγησης του υλικού από το Δικαστήριο"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_witnessesAndEvidence_4",
+            "paragraphIds": [
+              "P000028"
+            ],
+            "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026",
+            "sectionType": "facts",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Εκτέλεση του εντάλματος"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_facts_witnessesAndEvidence_5",
+            "paragraphIds": [
+              "P000033"
+            ],
+            "quote": "η  Αστυνομία επεδίωξε και εξασφάλισε το προσβαλλόμενο ένταλμα σύλληψης, 24 περίπου  ημέρες μετά που έλαβε την καταγγελία χωρίς να δίδεται εξήγηση γι΄ αυτή την  αδράνεια",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Ύπαρξη καταγγελίας και χρονική καθυστέρηση"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "undisputedFacts": {
-        "status": "unavailable",
+        "status": "indeterminate",
         "value": [],
         "confidence": 0,
         "evidence": [],
         "conflicts": []
       },
       "disputedFacts": {
-        "status": "unavailable",
+        "status": "indeterminate",
         "value": [],
         "confidence": 0,
         "evidence": [],
@@ -1094,130 +2101,473 @@
     },
     "procedure": {
       "proceduralHistory": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Στις 6.7.2026, στο πλαίσιο της Πολ. Αίτησης υπ’ αριθμόν 144/2026, χορηγήθηκε άδεια στον αιτητή να καταχωρίσει την παρούσα Αίτηση διά κλήσεως για ακύρωση του εντάλματος σύλληψης που είχε εκδοθεί εναντίον του στις 4.5.2026. Η παρούσα αίτηση εκδικάστηκε μετά τη χορήγηση της άδειας, με τη θέση του Γενικού Εισαγγελέα ότι δεν θα ενστεί στην έκδοση του αιτούμενου Προνομιακού Εντάλματος.",
+        "confidence": 0.93,
+        "evidence": [
+          {
+            "id": "EV_procedure_proceduralHistory_1",
+            "paragraphIds": [
+              "P000026",
+              "P000027"
+            ],
+            "quote": "ΙΩΑΝΝΙΔΗΣ, Δ.:-  Στις  6.7.2026, στο πλαίσιο της Πολ. Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Προγενέστερη άδεια και αντικείμενο παρούσας αίτησης"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "originatingProceeding": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Η διαδικασία που οδήγησε στην παρούσα κρίση ήταν η Αίτηση διά κλήσεως, η οποία καταχωρίστηκε κατόπιν άδειας, για ακύρωση του εντάλματος σύλληψης που εκδόθηκε εναντίον του αιτητή στις 4.5.2026.",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_procedure_originatingProceeding_1",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Ταυτοποίηση της αρχικής αίτησης διά κλήσεως και του αντικειμένου της"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "lowerCourtDecision": {
-        "status": "unavailable",
+        "status": "indeterminate",
         "value": "",
         "confidence": 0,
         "evidence": [],
         "conflicts": []
       },
       "groundsOrIssues": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "number": "μη αριθμημένο",
+            "title": "Ακύρωση εντάλματος σύλληψης με Προνομιακό Ένταλμα Certiorari",
+            "description": "Το ζήτημα ήταν κατά πόσο έπρεπε να ακυρωθεί το ένταλμα σύλληψης που εκδόθηκε στις 4.5.2026. Στο πλαίσιο της εξέτασης, το Δικαστήριο αναφέρθηκε στο αν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου υλικό που να ικανοποιεί τη δεύτερη προϋπόθεση.",
+            "raisedBy": "αιτητής",
+            "result": "succeeded"
+          }
+        ],
+        "confidence": 0.82,
+        "evidence": [
+          {
+            "id": "EV_procedure_groundsOrIssues_2",
+            "paragraphIds": [
+              "P000032"
+            ],
+            "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Κρίση επί προϋπόθεσης που αφορούσε το ένταλμα"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "reliefSought": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "requestedBy": "αιτητής",
+            "relief": "Έκδοση Προνομιακού Εντάλματος Certiorari για ακύρωση του εντάλματος σύλληψης που εκδόθηκε στις 4.5.2026.",
+            "status": "granted"
+          }
+        ],
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_procedure_reliefSought_1",
+            "paragraphIds": [
+              "P000027"
+            ],
+            "quote": "χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+            "sectionType": "procedural_history",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "Αιτούμενη ακύρωση εντάλματος"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "submissionsByParty": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "party": "Γενικός Εισαγγελέας",
+            "summary": "Η δικηγόρος που εκπροσώπησε τον Γενικό Εισαγγελέα δήλωσε ότι, μετά από μελέτη του μαρτυρικού υλικού ενώπιον του κατώτερου Δικαστηρίου, αποφασίστηκε να μη ενστεί η πλευρά του Γενικού Εισαγγελέα στην έκδοση του αιτούμενου Προνομιακού Εντάλματος."
+          }
+        ],
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_procedure_submissionsByParty_1",
+            "paragraphIds": [
+              "P000029"
+            ],
+            "quote": "η ευπαίδευτη δικηγόρος που εκπροσώπησε σήμερα τον  Γενικό Εισαγγελέα δήλωσε πως μετά από μελέτη του μαρτυρικού υλικού που είχε  τεθεί ενώπιον του κατώτερου Δικαστηρίου, αποφάσισαν όπως μη ενστούν στην έκδοση  του αιτούμενου Προνομιακού Εντάλματος.",
+            "sectionType": "respondent_public_body_submissions",
+            "speakerRole": "public_body",
+            "supports": [
+              "Υποβολή/δήλωση πλευράς Γενικού Εισαγγελέα"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       }
     },
     "analysis": {
       "legalIssues": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "issue": "Κατά πόσο το ένταλμα σύλληψης που εκδόθηκε από το κατώτερο Δικαστήριο έπρεπε να ακυρωθεί με Certiorari λόγω μη ικανοποίησης της προϋπόθεσης αναγκαιότητας έκδοσης εντάλματος σύλληψης.",
+            "centrality": "primary",
+            "determination": "Το Δικαστήριο έκρινε ότι δεν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου υλικό που να ικανοποιεί τη δεύτερη προϋπόθεση, και ενέκρινε την αίτηση ακυρώνοντας το ένταλμα σύλληψης."
+          }
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "id": "EV_analysis_legalIssues_1",
+            "paragraphIds": [
+              "P000032"
+            ],
+            "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "issue",
+              "determination"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "dominantIssue": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": "Η νομιμότητα της έκδοσης εντάλματος σύλληψης υπό το πρίσμα της αναγκαιότητάς του, πέραν της ύπαρξης εύλογων υπονοιών.",
+        "confidence": 0.93,
+        "evidence": [
+          {
+            "id": "EV_analysis_dominantIssue_1",
+            "paragraphIds": [
+              "P000030"
+            ],
+            "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "dominantIssue"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_dominantIssue_2",
+            "paragraphIds": [
+              "P000031"
+            ],
+            "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "dominantIssue"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "findings": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "finding": "Ο αιτητής συνελήφθη στις 20.5.2026 στην οικία του στη Γερμασόγεια δυνάμει του προσβαλλόμενου εντάλματος σύλληψης.",
+            "type": "fact"
+          },
+          {
+            "finding": "Δεν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου οτιδήποτε που να ικανοποιεί τη δεύτερη προϋπόθεση για έκδοση εντάλματος σύλληψης.",
+            "type": "law"
+          },
+          {
+            "finding": "Η Αστυνομία εξασφάλισε το ένταλμα περίπου 24 ημέρες μετά την καταγγελία, χωρίς εξήγηση για την αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του.",
+            "type": "fact"
+          }
+        ],
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_analysis_findings_2",
+            "paragraphIds": [
+              "P000032"
+            ],
+            "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "finding"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_findings_3",
+            "paragraphIds": [
+              "P000033"
+            ],
+            "quote": "Τουναντίον, εκείνο που προκύπτει από το  μαρτυρικό υλικό που είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου, είναι πως η  Αστυνομία επεδίωξε και εξασφάλισε το προσβαλλόμενο ένταλμα σύλληψης, 24 περίπου  ημέρες μετά που έλαβε την καταγγελία χωρίς να δίδεται εξήγηση γι΄ αυτή την  αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του, όπου τον είχε  αναζητήσει.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "finding"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "holding": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": "Η αίτηση εγκρίθηκε και εκδόθηκε Προνομιακό Ένταλμα Certiorari ακυρώνοντας το ένταλμα σύλληψης της 4.5.2026, επειδή δεν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου υλικό που να ικανοποιεί την αναγκαιότητα έκδοσης του εντάλματος.",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "id": "EV_analysis_holding_1",
+            "paragraphIds": [
+              "P000032"
+            ],
+            "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "holding"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "ratioDecidendi": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "principle": "Η έκδοση εντάλματος σύλληψης δεν δικαιολογείται μόνο από την ύπαρξη εύλογων υπονοιών· το Δικαστήριο πρέπει επίσης να ικανοποιείται λογικά ότι τα ιδιαίτερα περιστατικά της υπόθεσης καθιστούν αναγκαία την έκδοσή του.",
+            "type": "ratio",
+            "conditions": [
+              "Να προκύπτουν εύλογες υπόνοιες από το μαρτυρικό υλικό.",
+              "Να ικανοποιείται λογικά το Δικαστήριο ότι τα ιδιαίτερα περιστατικά και γεγονότα καθιστούν αναγκαία την έκδοση του εντάλματος."
+            ],
+            "exceptions": [],
+            "applicationToFacts": "Στην παρούσα υπόθεση η δεύτερη προϋπόθεση δεν ικανοποιήθηκε, αφού δεν τέθηκε σχετικό υλικό ενώπιον του κατώτερου Δικαστηρίου και η Αστυνομία ζήτησε το ένταλμα περίπου 24 ημέρες μετά την καταγγελία χωρίς εξήγηση για την αδράνεια."
+          }
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "id": "EV_analysis_ratioDecidendi_1",
+            "paragraphIds": [
+              "P000030"
+            ],
+            "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "principle",
+              "conditions"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_ratioDecidendi_2",
+            "paragraphIds": [
+              "P000031"
+            ],
+            "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "principle",
+              "conditions"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_ratioDecidendi_3",
+            "paragraphIds": [
+              "P000032"
+            ],
+            "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "applicationToFacts"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_ratioDecidendi_4",
+            "paragraphIds": [
+              "P000033"
+            ],
+            "quote": "Τουναντίον, εκείνο που προκύπτει από το  μαρτυρικό υλικό που είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου, είναι πως η  Αστυνομία επεδίωξε και εξασφάλισε το προσβαλλόμενο ένταλμα σύλληψης, 24 περίπου  ημέρες μετά που έλαβε την καταγγελία χωρίς να δίδεται εξήγηση γι΄ αυτή την  αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του, όπου τον είχε  αναζητήσει.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "applicationToFacts"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "legalPrincipleSummary": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": "Για την έκδοση εντάλματος σύλληψης απαιτείται όχι μόνο μαρτυρικό υλικό που δημιουργεί εύλογες υπόνοιες, αλλά και λογική ικανοποίηση του Δικαστηρίου ότι τα συγκεκριμένα περιστατικά καθιστούν το ένταλμα αναγκαίο. Η απουσία υλικού ως προς την αναγκαιότητα οδηγεί σε ακύρωση του εντάλματος με Certiorari.",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_analysis_legalPrincipleSummary_1",
+            "paragraphIds": [
+              "P000030"
+            ],
+            "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "legalPrincipleSummary"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_legalPrincipleSummary_2",
+            "paragraphIds": [
+              "P000031"
+            ],
+            "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "legalPrincipleSummary"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_legalPrincipleSummary_3",
+            "paragraphIds": [
+              "P000032"
+            ],
+            "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+            "sectionType": "court_analysis",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "legalPrincipleSummary"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "secondaryPrinciples": {
         "status": "unavailable",
         "value": [],
-        "confidence": 1,
+        "confidence": 0.9,
         "evidence": [],
         "conflicts": []
       },
       "obiterDicta": {
         "status": "unavailable",
         "value": [],
-        "confidence": 1,
+        "confidence": 0.9,
         "evidence": [],
         "conflicts": []
       },
       "legalTestsAndStandards": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "Για έκδοση εντάλματος σύλληψης απαιτείται λογική ικανοποίηση του Δικαστηρίου ότι τα ιδιαίτερα περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του αιτούμενου εντάλματος· η ύπαρξη εύλογων υπονοιών δεν αρκεί από μόνη της."
+        ],
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "id": "EV_analysis_legalTestsAndStandards_1",
+            "paragraphIds": [
+              "P000030"
+            ],
+            "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "legalTestsAndStandards"
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_analysis_legalTestsAndStandards_2",
+            "paragraphIds": [
+              "P000031"
+            ],
+            "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "legalTestsAndStandards"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "burdenAndStandardOfProof": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 1,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "Το Δικαστήριο πρέπει να «ικανοποιείται λογικά» για την αναγκαιότητα έκδοσης του εντάλματος σύλληψης, βάσει των ιδιαίτερων περιστατικών και γεγονότων της υπόθεσης."
+        ],
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "id": "EV_analysis_burdenAndStandardOfProof_1",
+            "paragraphIds": [
+              "P000031"
+            ],
+            "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "burdenAndStandardOfProof"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "credibilityFindings": {
         "status": "unavailable",
         "value": [],
-        "confidence": 1,
+        "confidence": 0.95,
         "evidence": [],
         "conflicts": []
       },
       "dissentOrConcurrence": {
         "status": "unavailable",
         "value": [],
-        "confidence": 1,
+        "confidence": 0.95,
         "evidence": [],
         "conflicts": []
       }
@@ -1226,91 +2576,263 @@
       "legislation": {
         "status": "unavailable",
         "value": [],
-        "confidence": 0,
+        "confidence": 0.99,
         "evidence": [],
         "conflicts": []
       },
       "primaryLegislation": {
         "status": "unavailable",
         "value": [],
-        "confidence": 0,
+        "confidence": 0.99,
         "evidence": [],
         "conflicts": []
       },
       "secondaryLegislation": {
         "status": "unavailable",
         "value": [],
-        "confidence": 0,
+        "confidence": 0.99,
         "evidence": [],
         "conflicts": []
       },
       "authorities": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "name": "Κυριάκου ν. Κυπριακής Δημοκρατίας",
+            "citation": "Πολ. Έφ. Αρ. 355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257",
+            "ecli": "CY:AD:2021:A257",
+            "court": "Πολ. Έφ.",
+            "year": 2021,
+            "treatment": "cited",
+            "legalPoint": "Ότι το Δικαστήριο πρέπει να ικανοποιείται λογικά κατά πόσο τα ιδιαίτερα περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του αιτούμενου εντάλματος.",
+            "quoted": true
+          }
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_authorities_authorities_1",
+            "paragraphIds": [
+              "P000031"
+            ],
+            "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+            "sectionType": "legal_framework",
+            "speakerRole": "authoring_judge",
+            "supports": [
+              "treatment",
+              "legalPoint",
+              "citation"
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       }
     },
     "outcome": {
       "overallOutcome": {
-        "status": "unavailable",
-        "value": "unknown",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "application_allowed",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_overallOutcome_1",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Η αίτηση εγκρίθηκε και εκδόθηκε το αιτούμενο προνομιακό ένταλμα Certiorari."
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "scope": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Αίτηση δια κλήσεως για έκδοση προνομιακού εντάλματος Certiorari προς ακύρωση εντάλματος σύλληψης που εκδόθηκε από το κατώτερο Δικαστήριο στις 4.5.2026.",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "id": "EV_outcome_scope_1",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Το αντικείμενο της τελικής διαταγής ήταν η έκδοση Certiorari για ακύρωση του εντάλματος σύλληψης."
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "dispositionText": {
-        "status": "unavailable",
-        "value": "",
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": "Η Αίτηση εγκρίνεται. Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις 4.5.2026. Ουδεμία διαταγή για έξοδα, αφού δεν αξιώθηκαν.",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_dispositionText_1",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Τελική διάταξη επί της αίτησης και του εντάλματος Certiorari."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_outcome_dispositionText_2",
+            "paragraphIds": [
+              "P000035"
+            ],
+            "quote": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Τελική διάταξη ως προς τα έξοδα."
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "components": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          {
+            "target": "Αίτηση δια κλήσεως του J. O. για έκδοση προνομιακού εντάλματος Certiorari",
+            "groundOrIssue": "Έκδοση προνομιακού εντάλματος Certiorari για ακύρωση εντάλματος σύλληψης του κατώτερου Δικαστηρίου ημερομηνίας 4.5.2026",
+            "result": "application_allowed",
+            "remedy": "Εκδίδεται Προνομιακό Ένταλμα Certiorari και ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις 4.5.2026.",
+            "orderText": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026."
+          },
+          {
+            "target": "Έξοδα",
+            "groundOrIssue": "Έξοδα της αίτησης",
+            "result": "other",
+            "remedy": "Ουδεμία διαταγή για έξοδα.",
+            "orderText": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν."
+          }
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_components_1",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Αποτέλεσμα αίτησης και χορηγηθέν θεραπευτικό μέτρο."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_outcome_components_2",
+            "paragraphIds": [
+              "P000035"
+            ],
+            "quote": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Αποτέλεσμα ως προς τα έξοδα."
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "orders": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari.",
+          "Ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις 4.5.2026.",
+          "Ουδεμία διαταγή για έξοδα, αφού δεν αξιώθηκαν."
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_orders_1",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Διαταγή έκδοσης Certiorari και ακύρωσης εντάλματος σύλληψης."
+            ],
+            "exactMatch": true
+          },
+          {
+            "id": "EV_outcome_orders_2",
+            "paragraphIds": [
+              "P000035"
+            ],
+            "quote": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Διαταγή ως προς τα έξοδα."
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "remedies": {
-        "status": "unavailable",
-        "value": [],
-        "confidence": 0,
-        "evidence": [],
+        "status": "available",
+        "value": [
+          "Προνομιακό Ένταλμα Certiorari",
+          "Ακύρωση του εντάλματος σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις 4.5.2026"
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "id": "EV_outcome_remedies_1",
+            "paragraphIds": [
+              "P000034"
+            ],
+            "quote": "Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+            "sectionType": "disposition",
+            "speakerRole": "court",
+            "supports": [
+              "Θεραπεία που χορηγήθηκε."
+            ],
+            "exactMatch": true
+          }
+        ],
         "conflicts": []
       },
       "sentence": {
         "status": "unavailable",
         "value": [],
-        "confidence": 0,
+        "confidence": 0.99,
         "evidence": [],
         "conflicts": []
       },
       "monetaryAwards": {
         "status": "unavailable",
         "value": [],
-        "confidence": 0,
+        "confidence": 0.99,
         "evidence": [],
         "conflicts": []
       },
       "costs": {
-        "status": "unavailable",
+        "status": "indeterminate",
         "value": [],
         "confidence": 0,
         "evidence": [],
@@ -1319,158 +2841,1266 @@
       "remittalInstructions": {
         "status": "unavailable",
         "value": [],
-        "confidence": 0,
+        "confidence": 0.99,
         "evidence": [],
         "conflicts": []
       }
     },
     "taxonomy": {
-      "issueTags": [],
+      "issueTags": [
+        "Η νομιμότητα της έκδοσης εντάλματος σύλληψης υπό το πρίσμα της αναγκαιότητάς του, πέραν της ύπαρξης εύλογων υπονοιών.",
+        "Κατά πόσο το ένταλμα σύλληψης που εκδόθηκε από το κατώτερο Δικαστήριο έπρεπε να ακυρωθεί με Certiorari λόγω μη ικανοποίησης της προϋπόθεσης αναγκαιότητας έκδοσης εντάλματος σύλληψης.",
+        "Ακύρωση εντάλματος σύλληψης με Προνομιακό Ένταλμα Certiorari",
+        "Το ζήτημα ήταν κατά πόσο έπρεπε να ακυρωθεί το ένταλμα σύλληψης που εκδόθηκε στις 4.5.2026. Στο πλαίσιο της εξέτασης, το Δικαστήριο αναφέρθηκε στο αν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου υλικό που να ικανοποιεί τη δεύτερη προϋπόθεση."
+      ],
       "offenceTags": [],
-      "keywords": [],
-      "aliases": [],
-      "topicGroups": [],
-      "principleGroups": [],
-      "evidenceGroups": [],
-      "procedureGroups": [],
+      "keywords": [
+        "ακύρωση εντάλματος σύλληψης",
+        "διερεύνηση πλημμελήματος κακόβουλης ζημιάς σε περιουσία",
+        "prerogative_writs",
+        "criminal_procedure",
+        "Η νομιμότητα της έκδοσης εντάλματος σύλληψης υπό το πρίσμα της αναγκαιότητάς του, πέραν της ύπαρξης εύλογων υπονοιών.",
+        "Κατά πόσο το ένταλμα σύλληψης που εκδόθηκε από το κατώτερο Δικαστήριο έπρεπε να ακυρωθεί με Certiorari λόγω μη ικανοποίησης της προϋπόθεσης αναγκαιότητας έκδοσης εντάλματος σύλληψης.",
+        "Ακύρωση εντάλματος σύλληψης με Προνομιακό Ένταλμα Certiorari",
+        "Το ζήτημα ήταν κατά πόσο έπρεπε να ακυρωθεί το ένταλμα σύλληψης που εκδόθηκε στις 4.5.2026. Στο πλαίσιο της εξέτασης, το Δικαστήριο αναφέρθηκε στο αν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου υλικό που να ικανοποιεί τη δεύτερη προϋπόθεση.",
+        "Για την έκδοση εντάλματος σύλληψης απαιτείται όχι μόνο μαρτυρικό υλικό που δημιουργεί εύλογες υπόνοιες, αλλά και λογική ικανοποίηση του Δικαστηρίου ότι τα συγκεκριμένα περιστατικά καθιστούν το ένταλμα αναγκαίο. Η απουσία υλικού ως προς την αναγκαιότητα οδηγεί σε ακύρωση του εντάλματος με Certiorari.",
+        "Η έκδοση εντάλματος σύλληψης δεν δικαιολογείται μόνο από την ύπαρξη εύλογων υπονοιών· το Δικαστήριο πρέπει επίσης να ικανοποιείται λογικά ότι τα ιδιαίτερα περιστατικά της υπόθεσης καθιστούν αναγκαία την έκδοσή του.",
+        "Για έκδοση εντάλματος σύλληψης απαιτείται λογική ικανοποίηση του Δικαστηρίου ότι τα ιδιαίτερα περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του αιτούμενου εντάλματος· η ύπαρξη εύλογων υπονοιών δεν αρκεί από μόνη της."
+      ],
+      "aliases": [
+        "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "Αίτηση του J. O. για ένταλμα Certiorari",
+        "ECLI:CY:AD:2021:A257",
+        "152/2026",
+        "Πολιτική Aίτηση Αρ. 152/2026"
+      ],
+      "topicGroups": [
+        "ακύρωση εντάλματος σύλληψης",
+        "διερεύνηση πλημμελήματος κακόβουλης ζημιάς σε περιουσία",
+        "prerogative_writs",
+        "criminal_procedure"
+      ],
+      "principleGroups": [
+        "Για την έκδοση εντάλματος σύλληψης απαιτείται όχι μόνο μαρτυρικό υλικό που δημιουργεί εύλογες υπόνοιες, αλλά και λογική ικανοποίηση του Δικαστηρίου ότι τα συγκεκριμένα περιστατικά καθιστούν το ένταλμα αναγκαίο. Η απουσία υλικού ως προς την αναγκαιότητα οδηγεί σε ακύρωση του εντάλματος με Certiorari.",
+        "Η έκδοση εντάλματος σύλληψης δεν δικαιολογείται μόνο από την ύπαρξη εύλογων υπονοιών· το Δικαστήριο πρέπει επίσης να ικανοποιείται λογικά ότι τα ιδιαίτερα περιστατικά της υπόθεσης καθιστούν αναγκαία την έκδοσή του.",
+        "Για έκδοση εντάλματος σύλληψης απαιτείται λογική ικανοποίηση του Δικαστηρίου ότι τα ιδιαίτερα περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του αιτούμενου εντάλματος· η ύπαρξη εύλογων υπονοιών δεν αρκεί από μόνη της."
+      ],
+      "evidenceGroups": [
+        "Για την έκδοση εντάλματος σύλληψης απαιτείται όχι μόνο μαρτυρικό υλικό που δημιουργεί εύλογες υπόνοιες, αλλά και λογική ικανοποίηση του Δικαστηρίου ότι τα συγκεκριμένα περιστατικά καθιστούν το ένταλμα αναγκαίο. Η απουσία υλικού ως προς την αναγκαιότητα οδηγεί σε ακύρωση του εντάλματος με Certiorari."
+      ],
+      "procedureGroups": [
+        "criminal_procedure",
+        "Κατά πόσο το ένταλμα σύλληψης που εκδόθηκε από το κατώτερο Δικαστήριο έπρεπε να ακυρωθεί με Certiorari λόγω μη ικανοποίησης της προϋπόθεσης αναγκαιότητας έκδοσης εντάλματος σύλληψης.",
+        "Ακύρωση εντάλματος σύλληψης με Προνομιακό Ένταλμα Certiorari",
+        "Για την έκδοση εντάλματος σύλληψης απαιτείται όχι μόνο μαρτυρικό υλικό που δημιουργεί εύλογες υπόνοιες, αλλά και λογική ικανοποίηση του Δικαστηρίου ότι τα συγκεκριμένα περιστατικά καθιστούν το ένταλμα αναγκαίο. Η απουσία υλικού ως προς την αναγκαιότητα οδηγεί σε ακύρωση του εντάλματος με Certiorari."
+      ],
       "publicLawGroups": []
     },
-    "allEvidence": [],
+    "allEvidence": [
+      {
+        "id": "EV_identity_caseName_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "caseName"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_shortName_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "shortName"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity.ecli_citation_derived",
+        "paragraphIds": [
+          "P000031"
+        ],
+        "quote": "ECLI:CY:AD:2021:A257",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "identity.ecli"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_docket_1",
+        "paragraphIds": [
+          "P000007"
+        ],
+        "quote": "(Πολιτική Aίτηση Αρ. 152/2026)",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "docket"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_docket_2",
+        "paragraphIds": [
+          "P000001"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI, Πολιτική Aίτηση Αρ. 152/2026, 29/7/2026",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "docket"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_caseNumber_1",
+        "paragraphIds": [
+          "P000007"
+        ],
+        "quote": "(Πολιτική Aίτηση Αρ. 152/2026)",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "caseNumber"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_decisionDate_1",
+        "paragraphIds": [
+          "P000009"
+        ],
+        "quote": "29 Ιουλίου, 2026",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "decisionDate"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_court_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "court"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_courtLevel_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "courtLevel"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_courtLevel_2",
+        "paragraphIds": [
+          "P000006"
+        ],
+        "quote": "ΠΡΩΤΟΒΑΘΜΙΑ ΔΙΚΑΙΟΔΟΣΙΑ",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "courtLevel"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_jurisdiction_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "jurisdiction"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_language_1",
+        "paragraphIds": [
+          "P000024"
+        ],
+        "quote": "Α Π Ο Φ Α Σ Η",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "language"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_era_1",
+        "paragraphIds": [
+          "P000009"
+        ],
+        "quote": "29 Ιουλίου, 2026",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "era"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_judges_1",
+        "paragraphIds": [
+          "P000010"
+        ],
+        "quote": "[ΙΩΑΝΝΙΔΗΣ, Δ]",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "judges"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_judges_2",
+        "paragraphIds": [
+          "P000036"
+        ],
+        "quote": "Ι.  ΙΩΑΝΝΙΔΗΣ, Δ.",
+        "sectionType": "signature",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "judges"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_parties_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "parties"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_parties_2",
+        "paragraphIds": [
+          "P000021"
+        ],
+        "quote": "Χ. Γεωργίου, για Πελεκάνος & Πελεκάνου Δ.Ε.Π.Ε., για τον Αιτητή",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "parties"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_parties_3",
+        "paragraphIds": [
+          "P000022"
+        ],
+        "quote": "E. Κωνσταντίνου (κα), Δημόσιος  Κατήγορος,  για τον Γενικό Εισαγγελέα",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "parties"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_appearances_1",
+        "paragraphIds": [
+          "P000021"
+        ],
+        "quote": "Χ. Γεωργίου, για Πελεκάνος & Πελεκάνου Δ.Ε.Π.Ε., για τον Αιτητή",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "appearances"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_identity_appearances_2",
+        "paragraphIds": [
+          "P000022"
+        ],
+        "quote": "E. Κωνσταντίνου (κα), Δημόσιος  Κατήγορος,  για τον Γενικό Εισαγγελέα",
+        "sectionType": "appearances",
+        "speakerRole": "unknown",
+        "supports": [
+          "appearances"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseFamily_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "caseFamily"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseFamily_2",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "caseFamily"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_legalAreas_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "legalAreas"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_primaryLegalArea_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "primaryLegalArea"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_primaryLegalArea_2",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "primaryLegalArea"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceedingType_1",
+        "paragraphIds": [
+          "P000001"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ ΕΝΤΑΛΜΑΤΟΣ CERTIORARI, Πολιτική Aίτηση Αρ. 152/2026, 29/7/2026",
+        "sectionType": "caption",
+        "speakerRole": "unknown",
+        "supports": [
+          "proceedingType"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceedingType_2",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "proceedingType"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceduralPosture_1",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "proceduralPosture"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_proceduralPosture_2",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "proceduralPosture"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_courtLevel_1",
+        "paragraphIds": [
+          "P000005"
+        ],
+        "quote": "ΑΝΩΤΑΤΟ ΔΙΚΑΣΤΗΡΙΟ ΚΥΠΡΟΥ",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "courtLevel"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_courtLevel_2",
+        "paragraphIds": [
+          "P000006"
+        ],
+        "quote": "ΠΡΩΤΟΒΑΘΜΙΑ ΔΙΚΑΙΟΔΟΣΙΑ",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "courtLevel"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseTypeLabels_1",
+        "paragraphIds": [
+          "P000006"
+        ],
+        "quote": "ΠΡΩΤΟΒΑΘΜΙΑ ΔΙΚΑΙΟΔΟΣΙΑ",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "caseTypeLabels"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseTypeLabels_2",
+        "paragraphIds": [
+          "P000007"
+        ],
+        "quote": "(Πολιτική Aίτηση Αρ. 152/2026)",
+        "sectionType": "court_header",
+        "speakerRole": "court",
+        "supports": [
+          "caseTypeLabels"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_caseTypeLabels_3",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "caseTypeLabels"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_applicationTypes_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "applicationTypes"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_applicationTypes_2",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "applicationTypes"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_writsRequested_1",
+        "paragraphIds": [
+          "P000015"
+        ],
+        "quote": "ΑΝΑΦΟΡΙΚΑ ΜΕ ΤΗΝ ΑΙΤΗΣΗ ΔΙΑ ΚΛΗΣΕΩΣ ΤΟΥ J. O., ΜΕ Α.Δ.Τ. [ ], ΓΙΑ ΤΗΝ ΕΚΔΟΣΗ ΠΡΟΝΟΜΙΑΚΟΥ  ΕΝΤΑΛΜΑΤΟΣ CERTIORARI",
+        "sectionType": "case_metadata",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "writsRequested"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_classification_subjectMatter_1",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "subjectMatter"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_summary_1",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Έκδοση εντάλματος σύλληψης στις 4.5.2026 και αντικείμενο διερεύνησης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_summary_2",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026, στην οικία του, στη Γερμασόγεια της Επαρχίας Λεμεσού,  όπου διαμένει με την οικογένεια του.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Σύλληψη του αιτητή στις 20.5.2026 στον τόπο κατοικίας του"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_materialFacts_1",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026 για τη  διερεύνηση του πλημμελήματος της κακόβουλης ζημιάς σε περιουσία (άρθρο  324(1) του περί Ποινικού Κώδικα  Νόμου, Κεφ. 154).",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Έκδοση εντάλματος και διερευνώμενο αδίκημα"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_materialFacts_2",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026, στην οικία του, στη Γερμασόγεια της Επαρχίας Λεμεσού,  όπου διαμένει με την οικογένεια του.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Χρόνος και τόπος σύλληψης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_materialFacts_3",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Οι περιστάσεις κάτω από τις οποίες εξεδόθη  το προσβαλλόμενο ένταλμα σύλληψης, εκτίθενται στην απόφαση ημερ. 6.7.2026 και  δεν χρειάζεται να επαναληφθούν στην παρούσα απόφαση.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Παραπομπή σε προηγούμενη απόφαση για περιστάσεις έκδοσης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_chronology_3",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026, στην οικία του, στη Γερμασόγεια της Επαρχίας Λεμεσού,  όπου διαμένει με την οικογένεια του.",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Σύλληψη στις 20.5.2026"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_chronology_4",
+        "paragraphIds": [
+          "P000026",
+          "P000027"
+        ],
+        "quote": "ΙΩΑΝΝΙΔΗΣ, Δ.:-  Στις  6.7.2026, στο πλαίσιο της Πολ. Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Άδεια στις 6.7.2026 στην Πολ. Αίτηση 144/2026"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_witnessesAndEvidence_2",
+        "paragraphIds": [
+          "P000032"
+        ],
+        "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Τρόπος αξιολόγησης του υλικού από το Δικαστήριο"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_witnessesAndEvidence_4",
+        "paragraphIds": [
+          "P000028"
+        ],
+        "quote": "Ο αιτητής συνελήφθη δυνάμει του εκδοθέντος εντάλματος  σύλληψης στις 20.5.2026",
+        "sectionType": "facts",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Εκτέλεση του εντάλματος"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_facts_witnessesAndEvidence_5",
+        "paragraphIds": [
+          "P000033"
+        ],
+        "quote": "η  Αστυνομία επεδίωξε και εξασφάλισε το προσβαλλόμενο ένταλμα σύλληψης, 24 περίπου  ημέρες μετά που έλαβε την καταγγελία χωρίς να δίδεται εξήγηση γι΄ αυτή την  αδράνεια",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Ύπαρξη καταγγελίας και χρονική καθυστέρηση"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_proceduralHistory_1",
+        "paragraphIds": [
+          "P000026",
+          "P000027"
+        ],
+        "quote": "ΙΩΑΝΝΙΔΗΣ, Δ.:-  Στις  6.7.2026, στο πλαίσιο της Πολ. Αίτησης υπ΄ αριθμόν 144/2026, χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Προγενέστερη άδεια και αντικείμενο παρούσας αίτησης"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_originatingProceeding_1",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Ταυτοποίηση της αρχικής αίτησης διά κλήσεως και του αντικειμένου της"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_groundsOrIssues_2",
+        "paragraphIds": [
+          "P000032"
+        ],
+        "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Κρίση επί προϋπόθεσης που αφορούσε το ένταλμα"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_reliefSought_1",
+        "paragraphIds": [
+          "P000027"
+        ],
+        "quote": "χορηγήθηκε άδεια  στον αιτητή για να καταχωρίσει την υπό εκδίκαση Αίτηση διά κλήσεως για την  ακύρωση του εντάλματος σύλληψης που εξεδόθη εναντίον του στις 4.5.2026",
+        "sectionType": "procedural_history",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "Αιτούμενη ακύρωση εντάλματος"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_procedure_submissionsByParty_1",
+        "paragraphIds": [
+          "P000029"
+        ],
+        "quote": "η ευπαίδευτη δικηγόρος που εκπροσώπησε σήμερα τον  Γενικό Εισαγγελέα δήλωσε πως μετά από μελέτη του μαρτυρικού υλικού που είχε  τεθεί ενώπιον του κατώτερου Δικαστηρίου, αποφάσισαν όπως μη ενστούν στην έκδοση  του αιτούμενου Προνομιακού Εντάλματος.",
+        "sectionType": "respondent_public_body_submissions",
+        "speakerRole": "public_body",
+        "supports": [
+          "Υποβολή/δήλωση πλευράς Γενικού Εισαγγελέα"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalIssues_1",
+        "paragraphIds": [
+          "P000032"
+        ],
+        "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "issue",
+          "determination"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_dominantIssue_1",
+        "paragraphIds": [
+          "P000030"
+        ],
+        "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "dominantIssue"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_dominantIssue_2",
+        "paragraphIds": [
+          "P000031"
+        ],
+        "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "dominantIssue"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_findings_2",
+        "paragraphIds": [
+          "P000032"
+        ],
+        "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "finding"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_findings_3",
+        "paragraphIds": [
+          "P000033"
+        ],
+        "quote": "Τουναντίον, εκείνο που προκύπτει από το  μαρτυρικό υλικό που είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου, είναι πως η  Αστυνομία επεδίωξε και εξασφάλισε το προσβαλλόμενο ένταλμα σύλληψης, 24 περίπου  ημέρες μετά που έλαβε την καταγγελία χωρίς να δίδεται εξήγηση γι΄ αυτή την  αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του, όπου τον είχε  αναζητήσει.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "finding"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_holding_1",
+        "paragraphIds": [
+          "P000032"
+        ],
+        "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "holding"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_ratioDecidendi_1",
+        "paragraphIds": [
+          "P000030"
+        ],
+        "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "principle",
+          "conditions"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_ratioDecidendi_2",
+        "paragraphIds": [
+          "P000031"
+        ],
+        "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "principle",
+          "conditions"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_ratioDecidendi_3",
+        "paragraphIds": [
+          "P000032"
+        ],
+        "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "applicationToFacts"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_ratioDecidendi_4",
+        "paragraphIds": [
+          "P000033"
+        ],
+        "quote": "Τουναντίον, εκείνο που προκύπτει από το  μαρτυρικό υλικό που είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου, είναι πως η  Αστυνομία επεδίωξε και εξασφάλισε το προσβαλλόμενο ένταλμα σύλληψης, 24 περίπου  ημέρες μετά που έλαβε την καταγγελία χωρίς να δίδεται εξήγηση γι΄ αυτή την  αδράνεια, επειδή δεν εντόπισε τον αιτητή στην οικία του, όπου τον είχε  αναζητήσει.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "applicationToFacts"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalPrincipleSummary_1",
+        "paragraphIds": [
+          "P000030"
+        ],
+        "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "legalPrincipleSummary"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalPrincipleSummary_2",
+        "paragraphIds": [
+          "P000031"
+        ],
+        "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "legalPrincipleSummary"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalPrincipleSummary_3",
+        "paragraphIds": [
+          "P000032"
+        ],
+        "quote": "Είναι φανερό ότι στην  προκείμενη περίπτωση ουδέν είχε τεθεί ενώπιον του κατώτερου Δικαστηρίου που να  ικανοποιούσε τη δεύτερη προϋπόθεση.",
+        "sectionType": "court_analysis",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "legalPrincipleSummary"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalTestsAndStandards_1",
+        "paragraphIds": [
+          "P000030"
+        ],
+        "quote": "Ως γνωστό, ένταλμα  σύλληψης δεν εκδίδεται μόνο επειδή από το μαρτυρικό υλικό προκύπτουν εύλογες  υπόνοιες ότι το πρόσωπο εναντίον του οποίου θα εκδοθεί το ένταλμα σύλληψης,  διέπραξε το υπό διερεύνηση έγκλημα, εν προκειμένω πλημμεληματικού χαρακτήρα.",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "legalTestsAndStandards"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_legalTestsAndStandards_2",
+        "paragraphIds": [
+          "P000031"
+        ],
+        "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "legalTestsAndStandards"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_analysis_burdenAndStandardOfProof_1",
+        "paragraphIds": [
+          "P000031"
+        ],
+        "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "burdenAndStandardOfProof"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_authorities_authorities_1",
+        "paragraphIds": [
+          "P000031"
+        ],
+        "quote": "Το  Δικαστήριο θα πρέπει να ικανοποιείται λογικά και κατά πόσο τα ιδιαίτερα  περιστατικά και γεγονότα της υπόθεσης καθιστούν αναγκαία την έκδοση του  αιτούμενου εντάλματος (Κυριάκου ν. Κυπριακής Δημοκρατίας, Πολ. Έφ. Αρ.  355/2019, ημερ. 16.6.2021, ECLI:CY:AD:2021:A257).",
+        "sectionType": "legal_framework",
+        "speakerRole": "authoring_judge",
+        "supports": [
+          "treatment",
+          "legalPoint",
+          "citation"
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_overallOutcome_1",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Η αίτηση εγκρίθηκε και εκδόθηκε το αιτούμενο προνομιακό ένταλμα Certiorari."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_scope_1",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Το αντικείμενο της τελικής διαταγής ήταν η έκδοση Certiorari για ακύρωση του εντάλματος σύλληψης."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_dispositionText_1",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Τελική διάταξη επί της αίτησης και του εντάλματος Certiorari."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_dispositionText_2",
+        "paragraphIds": [
+          "P000035"
+        ],
+        "quote": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Τελική διάταξη ως προς τα έξοδα."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_components_1",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Αποτέλεσμα αίτησης και χορηγηθέν θεραπευτικό μέτρο."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_components_2",
+        "paragraphIds": [
+          "P000035"
+        ],
+        "quote": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Αποτέλεσμα ως προς τα έξοδα."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_orders_1",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Η Αίτηση εγκρίνεται.  Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Διαταγή έκδοσης Certiorari και ακύρωσης εντάλματος σύλληψης."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_orders_2",
+        "paragraphIds": [
+          "P000035"
+        ],
+        "quote": "Ουδεμία διαταγή για  έξοδα, αφού δεν αξιώθηκαν.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Διαταγή ως προς τα έξοδα."
+        ],
+        "exactMatch": true
+      },
+      {
+        "id": "EV_outcome_remedies_1",
+        "paragraphIds": [
+          "P000034"
+        ],
+        "quote": "Εκδίδεται το αιτούμενο Προνομιακό Ένταλμα Certiorari, με το οποίο  ακυρώνεται το ένταλμα σύλληψης που εξεδόθη από το κατώτερο Δικαστήριο στις  4.5.2026.",
+        "sectionType": "disposition",
+        "speakerRole": "court",
+        "supports": [
+          "Θεραπεία που χορηγήθηκε."
+        ],
+        "exactMatch": true
+      }
+    ],
     "conflicts": [
       {
-        "code": "CASE_NAME_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "identity.caseName",
-        "message": "The present judgment's formal case name is not evidence-grounded.",
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "analysis.findings",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: analysis.findings:evidence_from_wrong_section",
         "evidenceIds": []
       },
       {
-        "code": "DECISION_DATE_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "identity.decisionDate",
-        "message": "The judgment date is not evidence-grounded.",
-        "evidenceIds": []
-      },
-      {
-        "code": "COURT_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "identity.court",
-        "message": "The deciding court is not evidence-grounded.",
-        "evidenceIds": []
-      },
-      {
-        "code": "CASE_REFERENCE_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "identity",
-        "message": "No case number, docket, citation or ECLI is evidence-grounded.",
-        "evidenceIds": []
-      },
-      {
-        "code": "JUDGES_UNVERIFIED",
-        "severity": "material",
-        "fieldPath": "identity.judges",
-        "message": "The judicial panel is not evidence-grounded.",
-        "evidenceIds": []
-      },
-      {
-        "code": "FACTS_UNVERIFIED",
-        "severity": "material",
-        "fieldPath": "facts.summary",
-        "message": "The material facts summary is not evidence-grounded.",
-        "evidenceIds": []
-      },
-      {
-        "code": "LEGAL_ISSUES_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "analysis.legalIssues",
-        "message": "The issues determined by the present court are not evidence-grounded.",
-        "evidenceIds": []
-      },
-      {
-        "code": "HOLDING_UNVERIFIED",
-        "severity": "critical",
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
         "fieldPath": "analysis.holding",
-        "message": "The present court's holding is not evidence-grounded.",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: analysis.holding:evidence_from_wrong_section",
         "evidenceIds": []
       },
       {
-        "code": "LEGAL_PRINCIPLE_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "analysis.legalPrincipleSummary",
-        "message": "No evidence-grounded legal principle or ratio decidendi was extracted.",
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "analysis.legalIssues",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: analysis.legalIssues:evidence_from_wrong_section",
         "evidenceIds": []
       },
       {
-        "code": "OUTCOME_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "outcome.overallOutcome",
-        "message": "The final outcome is not evidence-grounded.",
-        "evidenceIds": []
-      },
-      {
-        "code": "DISPOSITION_UNVERIFIED",
-        "severity": "critical",
-        "fieldPath": "outcome.dispositionText",
-        "message": "The operative final order is not evidence-grounded.",
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "facts.chronology",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: facts.chronology:evidence_from_wrong_section",
         "evidenceIds": []
       },
       {
         "code": "ATTRIBUTION_VALIDATION_FAILED",
         "severity": "material",
-        "fieldPath": "identity.jurisdiction",
-        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: identity.jurisdiction:evidence_from_wrong_section",
+        "fieldPath": "facts.disputedFacts",
+        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: facts.disputedFacts:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "facts.materialFacts",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: facts.materialFacts:evidence_from_wrong_section",
         "evidenceIds": []
       },
       {
         "code": "ATTRIBUTION_VALIDATION_FAILED",
         "severity": "material",
-        "fieldPath": "identity.language",
-        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: identity.language:evidence_from_wrong_section",
+        "fieldPath": "facts.undisputedFacts",
+        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: facts.undisputedFacts:evidence_from_wrong_section",
         "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "facts.witnessesAndEvidence",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: facts.witnessesAndEvidence:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "material",
+        "fieldPath": "identity.authoringJudges",
+        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: identity.authoringJudges:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "procedure.groundsOrIssues",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: procedure.groundsOrIssues:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "material",
+        "fieldPath": "procedure.lowerCourtDecision",
+        "message": "Discarded wrongly attributed evidence and the field is no longer grounded: procedure.lowerCourtDecision:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "ATTRIBUTION_VALIDATION_FAILED",
+        "severity": "minor",
+        "fieldPath": "procedure.reliefSought",
+        "message": "Discarded wrongly attributed evidence; the field remains grounded by valid evidence: procedure.reliefSought:evidence_from_wrong_section",
+        "evidenceIds": []
+      },
+      {
+        "code": "IDENTITY_ECLI_MISATTRIBUTED",
+        "severity": "material",
+        "fieldPath": "identity.ecli",
+        "message": "Το πεδίο αποδίδει ως ECLI της παρούσας υπόθεσης το «ECLI:CY:AD:2021:A257», αλλά το P000031 το εμφανίζει ρητά ως ECLI της παρατιθέμενης απόφασης «Κυριάκου ν. Κυπριακής Δημοκρατίας», όχι της παρούσας αίτησης του 2026.",
+        "evidenceIds": [
+          "EV_identity.ecli_citation_derived",
+          "EV_authorities_authorities_1"
+        ]
+      },
+      {
+        "code": "TAXONOMY_ALIAS_MISATTRIBUTED",
+        "severity": "material",
+        "fieldPath": "taxonomy.aliases",
+        "message": "Το ECLI της παρατιθέμενης authority χρησιμοποιείται ως alias της παρούσας υπόθεσης, ενώ στο P000031 αποδίδεται ρητά στην απόφαση «Κυριάκου ν. Κυπριακής Δημοκρατίας».",
+        "evidenceIds": [
+          "EV_authorities_authorities_1"
+        ]
+      },
+      {
+        "code": "COSTS_ORDER_MISSED",
+        "severity": "material",
+        "fieldPath": "outcome.costs",
+        "message": "Η απόφαση εκδίδει ρητά μηδενική διαταγή ως προς τα έξοδα («Ουδεμία διαταγή για έξοδα, αφού δεν αξιώθηκαν.»), άρα το πεδίο δεν πρέπει να παραμένει indeterminate.",
+        "evidenceIds": [
+          "EV_outcome_dispositionText_2",
+          "EV_outcome_orders_2"
+        ]
       }
     ],
     "reviewFlags": [
-      "identity.jurisdiction:available_field_not_grounded",
-      "identity.jurisdiction:evidence_from_wrong_section",
-      "identity.language:available_field_not_grounded",
-      "identity.language:evidence_from_wrong_section",
-      "CASE_NAME_UNVERIFIED",
-      "DECISION_DATE_UNVERIFIED",
-      "COURT_UNVERIFIED",
-      "CASE_REFERENCE_UNVERIFIED",
-      "JUDGES_UNVERIFIED",
-      "FACTS_UNVERIFIED",
-      "LEGAL_ISSUES_UNVERIFIED",
-      "HOLDING_UNVERIFIED",
-      "LEGAL_PRINCIPLE_UNVERIFIED",
-      "OUTCOME_UNVERIFIED",
-      "DISPOSITION_UNVERIFIED",
-      "ATTRIBUTION_VALIDATION_FAILED"
+      "analysis.findings:evidence_from_wrong_section",
+      "analysis.holding:evidence_from_wrong_section",
+      "analysis.legalIssues:evidence_from_wrong_section",
+      "classification.legalAreas:evidence_paragraphs_invalid_or_noncontiguous",
+      "facts.chronology:evidence_from_wrong_section",
+      "facts.chronology:evidence_quote_not_found",
+      "facts.disputedFacts:available_field_not_grounded",
+      "facts.disputedFacts:evidence_from_wrong_section",
+      "facts.materialFacts:evidence_from_wrong_section",
+      "facts.undisputedFacts:available_field_not_grounded",
+      "facts.undisputedFacts:evidence_from_wrong_section",
+      "facts.witnessesAndEvidence:evidence_from_wrong_section",
+      "facts.witnessesAndEvidence:evidence_quote_not_found",
+      "identity.authoringJudges:available_field_not_grounded",
+      "identity.authoringJudges:evidence_from_wrong_section",
+      "outcome.costs:available_field_not_grounded",
+      "procedure.groundsOrIssues:evidence_from_wrong_section",
+      "procedure.lowerCourtDecision:available_field_not_grounded",
+      "procedure.lowerCourtDecision:evidence_from_wrong_section",
+      "procedure.lowerCourtDecision:evidence_quote_not_found",
+      "procedure.reliefSought:evidence_from_wrong_section",
+      "section_boundary_ambiguous_P000027",
+      "section_boundary_ambiguous_P000028",
+      "ATTRIBUTION_VALIDATION_FAILED",
+      "IDENTITY_ECLI_MISATTRIBUTED",
+      "TAXONOMY_ALIAS_MISATTRIBUTED",
+      "COSTS_ORDER_MISSED",
+      "review_section_correction:S00004"
     ],
-    "readinessScore": 0,
-    "strictReady": false,
-    "humanReviewRequired": true,
+    "readinessScore": 81,
+    "strictReady": true,
+    "humanReviewRequired": false,
     "stages": [
       {
         "stage": "source-preparation",
         "status": "completed",
         "model": "deterministic",
         "responseId": "",
-        "startedAt": "2026-08-05T06:04:10.134Z",
-        "completedAt": "2026-08-05T06:04:10.140Z",
-        "elapsedMs": 6,
-        "inputCharacters": 6496,
-        "outputCharacters": 6496,
+        "startedAt": "2026-08-05T06:09:31.096Z",
+        "completedAt": "2026-08-05T06:09:31.099Z",
+        "elapsedMs": 3,
+        "inputCharacters": 3945,
+        "outputCharacters": 3945,
         "errorCode": ""
       },
       {
         "stage": "sections-1",
         "status": "completed",
         "model": "gpt-5.4-mini-2026-03-17",
-        "responseId": "resp_08f8e88c5a8e9db6016a72d25adc7081978d0ded49b0142545",
-        "startedAt": "2026-08-05T06:04:10.140Z",
-        "completedAt": "2026-08-05T06:04:15.904Z",
-        "elapsedMs": 4406,
+        "responseId": "resp_0bb9193f1d7331e8016a72d39bdc0481909cebc056e42bdefd",
+        "startedAt": "2026-08-05T06:09:31.099Z",
+        "completedAt": "2026-08-05T06:09:42.689Z",
+        "elapsedMs": 11588,
         "inputCharacters": 0,
         "outputCharacters": 0,
         "errorCode": ""
@@ -1479,22 +4109,10 @@
         "stage": "sections-2",
         "status": "completed",
         "model": "gpt-5.4-mini-2026-03-17",
-        "responseId": "resp_0e06e7e0dfdfd52a016a72d25b09f08190b99a10b30c74fbd9",
-        "startedAt": "2026-08-05T06:04:10.140Z",
-        "completedAt": "2026-08-05T06:04:15.904Z",
-        "elapsedMs": 5763,
-        "inputCharacters": 0,
-        "outputCharacters": 0,
-        "errorCode": ""
-      },
-      {
-        "stage": "sections-3",
-        "status": "completed",
-        "model": "gpt-5.4-mini-2026-03-17",
-        "responseId": "resp_0fae527fc022d84b016a72d25ace50819486a3f366161a92d1",
-        "startedAt": "2026-08-05T06:04:10.140Z",
-        "completedAt": "2026-08-05T06:04:15.904Z",
-        "elapsedMs": 4677,
+        "responseId": "resp_03fe1d1864848bf7016a72d39be7788193b972490094127655",
+        "startedAt": "2026-08-05T06:09:31.099Z",
+        "completedAt": "2026-08-05T06:09:42.689Z",
+        "elapsedMs": 7422,
         "inputCharacters": 0,
         "outputCharacters": 0,
         "errorCode": ""
@@ -1503,82 +4121,118 @@
         "stage": "identity-classification",
         "status": "completed",
         "model": "gpt-5.5-2026-04-23",
-        "responseId": "resp_074b2f8a97cd210f016a72d2601414819090a984dce4dc17f5",
-        "startedAt": "2026-08-05T06:04:15.904Z",
-        "completedAt": "2026-08-05T06:04:23.522Z",
-        "elapsedMs": 7617,
-        "inputCharacters": 8512,
-        "outputCharacters": 2878,
+        "responseId": "resp_00a9b4144cca25f3016a72d3a7367c8190a9661c6a68647299",
+        "startedAt": "2026-08-05T06:09:42.690Z",
+        "completedAt": "2026-08-05T06:10:37.923Z",
+        "elapsedMs": 54890,
+        "inputCharacters": 7362,
+        "outputCharacters": 10188,
         "errorCode": ""
       },
       {
         "stage": "facts-procedure",
         "status": "completed",
         "model": "gpt-5.5-2026-04-23",
-        "responseId": "resp_08d1417a2a12c6e1016a72d260089c8190a3e0b799ad1e891c",
-        "startedAt": "2026-08-05T06:04:15.904Z",
-        "completedAt": "2026-08-05T06:04:21.548Z",
-        "elapsedMs": 5643,
-        "inputCharacters": 432,
-        "outputCharacters": 1200,
+        "responseId": "resp_088b0b045f72f0d8016a72d3a730188197acc94d9d3ab29853",
+        "startedAt": "2026-08-05T06:09:42.691Z",
+        "completedAt": "2026-08-05T06:13:06.650Z",
+        "elapsedMs": 203632,
+        "inputCharacters": 3825,
+        "outputCharacters": 16570,
         "errorCode": ""
       },
       {
         "stage": "judicial-analysis",
         "status": "completed",
         "model": "gpt-5.5-2026-04-23",
-        "responseId": "resp_03a049579ea75b64016a72d26016488194b00224e2c60763ec",
-        "startedAt": "2026-08-05T06:04:15.904Z",
-        "completedAt": "2026-08-05T06:04:20.818Z",
-        "elapsedMs": 4913,
-        "inputCharacters": 425,
-        "outputCharacters": 1199,
+        "responseId": "resp_0d169ac06044aed1016a72d3a72b288193b8fcb11e61bd49e4",
+        "startedAt": "2026-08-05T06:09:42.691Z",
+        "completedAt": "2026-08-05T06:11:07.943Z",
+        "elapsedMs": 84932,
+        "inputCharacters": 3342,
+        "outputCharacters": 9520,
         "errorCode": ""
       },
       {
         "stage": "legislation-authorities",
         "status": "completed",
         "model": "gpt-5.4-mini-2026-03-17",
-        "responseId": "resp_0a41df0238e8c21f016a72d25ffd888195afe43d35a657247b",
-        "startedAt": "2026-08-05T06:04:15.904Z",
-        "completedAt": "2026-08-05T06:04:17.880Z",
-        "elapsedMs": 1976,
-        "inputCharacters": 428,
-        "outputCharacters": 409,
+        "responseId": "resp_043d444b240c1b02016a72d3a6ce18819399485413d455371f",
+        "startedAt": "2026-08-05T06:09:42.691Z",
+        "completedAt": "2026-08-05T06:09:49.503Z",
+        "elapsedMs": 6812,
+        "inputCharacters": 2765,
+        "outputCharacters": 1168,
         "errorCode": ""
       },
       {
         "stage": "outcome-orders",
         "status": "completed",
         "model": "gpt-5.5-2026-04-23",
-        "responseId": "resp_0ae2853fde6583b0016a72d260066c819783afc9ee39d03495",
-        "startedAt": "2026-08-05T06:04:15.905Z",
-        "completedAt": "2026-08-05T06:04:19.850Z",
-        "elapsedMs": 3945,
-        "inputCharacters": 424,
-        "outputCharacters": 955,
+        "responseId": "resp_046f86460c27d7d9016a72d3a729508190b3c7d14aff2ef1ad",
+        "startedAt": "2026-08-05T06:09:42.691Z",
+        "completedAt": "2026-08-05T06:10:20.484Z",
+        "elapsedMs": 37475,
+        "inputCharacters": 1139,
+        "outputCharacters": 4642,
         "errorCode": ""
       },
       {
         "stage": "independent-review",
-        "status": "skipped",
-        "model": "",
-        "responseId": "",
-        "startedAt": "2026-08-05T06:04:23.525Z",
-        "completedAt": "2026-08-05T06:04:23.525Z",
-        "elapsedMs": 0,
-        "inputCharacters": 0,
-        "outputCharacters": 0,
+        "status": "completed",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "responseId": "resp_0709360b4e85970c016a72d473004481938089066356607fb4",
+        "startedAt": "2026-08-05T06:13:06.660Z",
+        "completedAt": "2026-08-05T06:14:16.127Z",
+        "elapsedMs": 69466,
+        "inputCharacters": 63441,
+        "outputCharacters": 1748,
         "errorCode": ""
       }
     ],
-    "createdAt": "2026-08-05T06:04:10.134Z",
-    "updatedAt": "2026-08-05T06:04:23.525Z"
+    "createdAt": "2026-08-05T06:09:31.096Z",
+    "updatedAt": "2026-08-05T06:14:16.128Z"
   },
   "reviewer": {
+    "conflicts": [
+      {
+        "code": "IDENTITY_ECLI_MISATTRIBUTED",
+        "severity": "critical",
+        "fieldPath": "identity.ecli",
+        "message": "Το πεδίο αποδίδει ως ECLI της παρούσας υπόθεσης το «ECLI:CY:AD:2021:A257», αλλά το P000031 το εμφανίζει ρητά ως ECLI της παρατιθέμενης απόφασης «Κυριάκου ν. Κυπριακής Δημοκρατίας», όχι της παρούσας αίτησης του 2026.",
+        "evidenceIds": [
+          "EV_identity.ecli_citation_derived",
+          "EV_authorities_authorities_1"
+        ]
+      },
+      {
+        "code": "TAXONOMY_ALIAS_MISATTRIBUTED",
+        "severity": "material",
+        "fieldPath": "taxonomy.aliases",
+        "message": "Το ECLI της παρατιθέμενης authority χρησιμοποιείται ως alias της παρούσας υπόθεσης, ενώ στο P000031 αποδίδεται ρητά στην απόφαση «Κυριάκου ν. Κυπριακής Δημοκρατίας».",
+        "evidenceIds": [
+          "EV_authorities_authorities_1"
+        ]
+      },
+      {
+        "code": "COSTS_ORDER_MISSED",
+        "severity": "material",
+        "fieldPath": "outcome.costs",
+        "message": "Η απόφαση εκδίδει ρητά μηδενική διαταγή ως προς τα έξοδα («Ουδεμία διαταγή για έξοδα, αφού δεν αξιώθηκαν.»), άρα το πεδίο δεν πρέπει να παραμένει indeterminate.",
+        "evidenceIds": [
+          "EV_outcome_dispositionText_2",
+          "EV_outcome_orders_2"
+        ]
+      }
+    ],
+    "sectionCorrections": [
+      {
+        "spanId": "S00004",
+        "proposedSectionType": "caption",
+        "reason": "Το εύρος P000010-P000019 περιλαμβάνει τον δικαστή, συνταγματικές/νομοθετικές αναφορές και το κείμενο της αίτησης· πρόκειται για heading/caption block και όχι για καθαρό case_metadata."
+      }
+    ],
     "publishRecommendation": "review",
-    "conflicts": [],
-    "sectionCorrections": [],
-    "qualitySummary": "Independent review skipped by the economy profile: the record is below the publishable-readiness threshold and remains human-review-first."
+    "qualitySummary": "Το βασικό αποτέλεσμα της αίτησης για certiorari είναι σωστά αποτυπωμένο, όμως υπάρχει κρίσιμη λανθασμένη απόδοση του ECLI της παρατιθέμενης απόφασης ως στοιχείου της παρούσας υπόθεσης. Επίσης, η ρητή διαταγή ότι δεν επιδικάζονται έξοδα πρέπει να αποτυπωθεί ως διαθέσιμο αποτέλεσμα. Το μπλοκ P000010-P000019 φαίνεται περισσότερο ως caption/heading παρά ως case metadata. "
   }
 }
