@@ -1,0 +1,20 @@
+{
+  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=apofaseis/aad/meros_2/2015/rep/2015_2_0766.htm",
+  "sourceTitle": "Ζαρή Ευτυχία ν. Δημοκρατίας (Αρ. 2) (2015) 2 ΑΑΔ 766",
+  "charset": "windows-1253",
+  "htmlCharacters": 88677,
+  "fetchedTextCharacters": 49355,
+  "cleanTextCharacters": 49355,
+  "paragraphCount": 249,
+  "paragraphCharacters": 48702,
+  "paragraphLength": {
+    "minimum": 2,
+    "median": 180,
+    "p90": 391,
+    "p95": 477,
+    "p99": 633,
+    "maximum": 782
+  },
+  "paragraphsAtMaximumSplit": 0,
+  "generatedAt": "2026-08-05T14:34:55.610Z"
+}
