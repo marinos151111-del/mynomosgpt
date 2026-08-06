@@ -1,6 +1,12 @@
 import { fetchCyLawJudgment, isOfficialCyLawUrl } from "./src/nomologies-v2/cylaw.ts";
 import { runNomologiesPipelineV2 } from "./src/nomologies-v2/pipeline.ts";
 import { NomologiesOpenAIError } from "./src/nomologies-v2/openai-responses.ts";
+import {
+  DEFERRABLE_FACT_FIELDS,
+  extractDeferredFactField,
+  type DeferrableFactField,
+} from "./src/nomologies-v2/agents.ts";
+import type { JudgmentSourceV2, SectionMapV2 } from "./src/nomologies-v2/types.ts";
 
 const PORT = Number(Deno.env.get("PORT") || 8000);
 const MAX_BODY_BYTES = 2_500_000;
@@ -468,6 +474,67 @@ function getJobRequest(request: Request, jobId: string): Response {
   return json(jobView(job));
 }
 
+const fieldExpansionHistory = new Map<string, number[]>();
+let activeExpansions = 0;
+
+async function expandFieldRequest(request: Request, jobId: string): Promise<Response> {
+  const denied = checkAccess(request);
+  if (denied) return denied;
+
+  // Field expansions are one cheap model call; give them their own, more
+  // generous rate window than full extractions.
+  const id = clientId(request);
+  const now = Date.now();
+  const recent = (fieldExpansionHistory.get(id) || []).filter((at) => now - at < RATE_WINDOW_MS);
+  if (recent.length >= 60) {
+    return json({ ok: false, code: "RATE_LIMITED", message: "Too many field expansions this hour." }, 429, { "retry-after": "3600" });
+  }
+  recent.push(now);
+  fieldExpansionHistory.set(id, recent);
+
+  const job = jobs.get(jobId);
+  if (!job) return json({ ok: false, code: "JOB_NOT_FOUND", message: "This extraction job does not exist or has expired." }, 404);
+  if (job.status !== "completed" || job.mode !== "full") {
+    return json({ ok: false, code: "JOB_NOT_EXPANDABLE", message: "Field expansion needs a completed full extraction." }, 409);
+  }
+  const body = await readJsonBody(request);
+  const field = stringValue(body.field) as DeferrableFactField;
+  if (!(DEFERRABLE_FACT_FIELDS as readonly string[]).includes(field)) {
+    return json({ ok: false, code: "FIELD_NOT_DEFERRABLE", message: "This field cannot be generated on demand." }, 400);
+  }
+  const result = job.result as Record<string, unknown> | undefined;
+  const record = result && typeof result.record === "object" ? result.record as Record<string, unknown> : null;
+  const source = record?.source as JudgmentSourceV2 | undefined;
+  const sectionMap = record?.sectionMap as SectionMapV2 | undefined;
+  const facts = record?.facts as Record<string, unknown> | undefined;
+  if (!record || !source?.paragraphs?.length || !sectionMap || !facts) {
+    return json({ ok: false, code: "RECORD_INCOMPLETE", message: "The stored record does not contain the source needed for expansion." }, 409);
+  }
+  if (activeExpansions >= 2) {
+    return json({ ok: false, code: "LAB_BUSY", message: "Another field expansion is running. Try again shortly." }, 429, { "retry-after": "15" });
+  }
+
+  activeExpansions += 1;
+  try {
+    const extracted = await extractDeferredFactField(source, sectionMap, field, {
+      model: env("NOMOLOGIES_V2_MODEL") || undefined,
+    });
+    facts[field] = extracted.field;
+    if (Array.isArray(record.stages)) (record.stages as unknown[]).push(extracted.audit);
+    if (Array.isArray(record.reviewFlags)) {
+      record.reviewFlags = (record.reviewFlags as string[])
+        .filter((flag) => flag !== `facts.${field}:deferred_on_demand`)
+        .concat(extracted.reviewFlags);
+    }
+    return json({ ok: true, field, data: extracted.field });
+  } catch (error) {
+    const failure = publicError(error);
+    return json({ ok: false, code: failure.code, message: failure.message }, failure.status);
+  } finally {
+    activeExpansions = Math.max(0, activeExpansions - 1);
+  }
+}
+
 function cancelJobRequest(request: Request, jobId: string): Response {
   const denied = checkAccess(request);
   if (denied) return denied;
@@ -529,6 +596,10 @@ Deno.serve({ port: PORT }, async (request) => {
     }
     if (jobMatch && request.method === "DELETE") {
       return cancelJobRequest(request, jobMatch[1]);
+    }
+    const fieldMatch = url.pathname.match(/^\/api\/jobs\/([0-9a-f-]{36})\/field$/i);
+    if (fieldMatch && request.method === "POST") {
+      return await expandFieldRequest(request, fieldMatch[1]);
     }
     if (request.method === "GET" || request.method === "HEAD") {
       const response = await staticFile(url.pathname);

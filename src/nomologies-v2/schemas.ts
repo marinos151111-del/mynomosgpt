@@ -157,6 +157,32 @@ export const FACTS_PROCEDURE_SCHEMA = object({
   }),
 });
 
+// Economy profile defers chronology and witness extraction to an on-demand
+// call, so the bulk schema omits them entirely: the model neither reasons
+// about nor generates them.
+export const FACTS_PROCEDURE_LITE_SCHEMA = object({
+  facts: object({
+    summary: field(string()),
+    materialFacts: field(array(MATERIAL_FACT)),
+    undisputedFacts: field(array(string())),
+    disputedFacts: field(array(string())),
+  }),
+  procedure: object({
+    proceduralHistory: field(string()),
+    originatingProceeding: field(string()),
+    lowerCourtDecision: field(string()),
+    groundsOrIssues: field(array(GROUND_OR_ISSUE)),
+    reliefSought: field(array(RELIEF_REQUEST)),
+    submissionsByParty: field(array(object({ party: string(), summary: string() }))),
+  }),
+});
+
+// Single-field schemas for on-demand expansion of deferred fields.
+export const DEFERRED_FIELD_SCHEMAS = {
+  chronology: { name: "nomologies_v2_chronology", schema: object({ chronology: field(array(TIMELINE_EVENT)) }) },
+  witnessesAndEvidence: { name: "nomologies_v2_witnesses", schema: object({ witnessesAndEvidence: field(array(EVIDENCE_OR_WITNESS)) }) },
+} as const;
+
 const LEGAL_ISSUE = object({
   issue: string(),
   centrality: enumeration(["primary", "secondary", "ancillary"]),
@@ -294,6 +320,7 @@ export const NOMOLOGIES_SCHEMAS = {
   sections: { name: "nomologies_v2_sections", schema: SECTION_MAP_SCHEMA },
   identity: { name: "nomologies_v2_identity", schema: IDENTITY_CLASSIFICATION_SCHEMA },
   factsProcedure: { name: "nomologies_v2_facts_procedure", schema: FACTS_PROCEDURE_SCHEMA },
+  factsProcedureLite: { name: "nomologies_v2_facts_procedure_lite", schema: FACTS_PROCEDURE_LITE_SCHEMA },
   analysis: { name: "nomologies_v2_analysis", schema: ANALYSIS_SCHEMA },
   authorities: { name: "nomologies_v2_authorities", schema: AUTHORITIES_SCHEMA },
   outcome: { name: "nomologies_v2_outcome", schema: OUTCOME_SCHEMA },

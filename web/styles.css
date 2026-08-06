@@ -329,6 +329,9 @@ details.evidence-details summary { color: var(--brass-dark); font-size: 9px; fon
 .severity-critical { color: var(--red); }
 .severity-material { color: var(--amber); }
 .severity-minor { color: var(--muted); }
+.deferred-card { display: grid; gap: 10px; justify-items: start; padding: 16px; border: 1px dashed rgba(154,117,52,.4); border-radius: 12px; background: rgba(234,216,174,.14); }
+.deferred-card p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; max-width: 560px; }
+.deferred-generate { min-height: 36px; }
 .section-flow { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
 .flow-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(247,241,231,.75); color: var(--brass-dark); font-size: 8px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
 .flow-chip b { font-weight: 800; color: var(--ink-soft); }

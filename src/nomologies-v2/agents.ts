@@ -26,6 +26,7 @@ import type {
   CaseOutcomeV2,
   CaseProcedureV2,
   EvidenceAnchorV2,
+  ExtractedFieldV2,
   GroundOrIssueV2,
   OutcomeComponentV2,
   JudgmentParagraphV2,
@@ -35,6 +36,7 @@ import type {
   SectionSpanV2,
   SectionType,
 } from "./types.ts";
+import { DEFERRED_FIELD_SCHEMAS } from "./schemas.ts";
 
 type JsonRecord = Record<string, unknown>;
 
@@ -256,10 +258,20 @@ function validatedIdentity(
   };
 }
 
+// The two on-demand fact fields: skipped during bulk extraction in the
+// economy profile and generated later by extractDeferredFactField.
+export const DEFERRABLE_FACT_FIELDS = ["chronology", "witnessesAndEvidence"] as const;
+export type DeferrableFactField = typeof DEFERRABLE_FACT_FIELDS[number];
+
+function deferredField<T>(fallback: T): ExtractedFieldV2<T> {
+  return { status: "unavailable", value: fallback, confidence: 0, evidence: [], conflicts: [] };
+}
+
 function validatedFactsProcedure(
   raw: JsonRecord,
   context: EvidenceValidationContext,
   flags: Set<string>,
+  deferFactFields: boolean,
 ): { facts: CaseFactsV2; procedure: CaseProcedureV2 } {
   const factsRaw = obj(raw.facts);
   const procedureRaw = obj(raw.procedure);
@@ -268,12 +280,15 @@ function validatedFactsProcedure(
     result.reviewFlags.forEach((flag) => flags.add(flag));
     return result.field;
   };
+  if (deferFactFields) {
+    for (const field of DEFERRABLE_FACT_FIELDS) flags.add(`facts.${field}:deferred_on_demand`);
+  }
   return {
     facts: {
       summary: v(factsRaw.summary, "facts.summary", ""),
       materialFacts: v(factsRaw.materialFacts, "facts.materialFacts", []),
-      chronology: v(factsRaw.chronology, "facts.chronology", []),
-      witnessesAndEvidence: v(factsRaw.witnessesAndEvidence, "facts.witnessesAndEvidence", []),
+      chronology: deferFactFields ? deferredField([]) : v(factsRaw.chronology, "facts.chronology", []),
+      witnessesAndEvidence: deferFactFields ? deferredField([]) : v(factsRaw.witnessesAndEvidence, "facts.witnessesAndEvidence", []),
       undisputedFacts: v(factsRaw.undisputedFacts, "facts.undisputedFacts", [] as string[]),
       disputedFacts: v(factsRaw.disputedFacts, "facts.disputedFacts", [] as string[]),
     },
@@ -600,6 +615,38 @@ function reconcileSpecialistFields(input: {
   }
 }
 
+// On-demand extraction of one deferred fact field. Reuses the stored
+// paragraphs and section map from the record, so the only cost is a single
+// focused model call. The result passes the same evidence validation as
+// bulk extraction.
+export async function extractDeferredFactField(
+  source: JudgmentSourceV2,
+  sectionMap: SectionMapV2,
+  field: DeferrableFactField,
+  options: { signal?: AbortSignal; model?: string } = {},
+): Promise<{ field: ExtractedFieldV2<unknown>; audit: PipelineStageAuditV2; reviewFlags: string[] }> {
+  const context = buildEvidenceContext(source, sectionMap);
+  const schema = DEFERRED_FIELD_SCHEMAS[field];
+  const system = `${FACTS_PROCEDURE_SYSTEM_PROMPT}\n\nTHIS CALL\nExtract ONLY facts.${field}. Every other field is handled elsewhere.`;
+  const user = agentPayload(
+    source,
+    sectionMap,
+    sectionPayload(source, sectionMap, FACT_PROCEDURE_TYPES, "none"),
+    `nomologies.facts-deferred.${field}.v2`,
+  );
+  const response = await runAgent(
+    `deferred-${field}`,
+    { name: schema.name, schema: schema.schema as JsonRecord },
+    system,
+    user,
+    "medium",
+    options,
+    options.model || nomologiesMiniModel(),
+  );
+  const validated = validateExtractedField(obj(response.data)[field], `facts.${field}`, [], context);
+  return { field: validated.field, audit: response.audit, reviewFlags: validated.reviewFlags };
+}
+
 export async function runSpecialistAgents(
   source: JudgmentSourceV2,
   sectionMap: SectionMapV2,
@@ -624,7 +671,14 @@ export async function runSpecialistAgents(
 
   const [identityResponse, factsResponse, analysisResponse, authorityResponse, outcomeResponse] = await Promise.all([
     runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, lightEffort, options),
-    runAgent("facts-procedure", NOMOLOGIES_SCHEMAS.factsProcedure, FACTS_PROCEDURE_SYSTEM_PROMPT, factsUser, "medium", options),
+    runAgent(
+      "facts-procedure",
+      economy ? NOMOLOGIES_SCHEMAS.factsProcedureLite : NOMOLOGIES_SCHEMAS.factsProcedure,
+      FACTS_PROCEDURE_SYSTEM_PROMPT,
+      factsUser,
+      "medium",
+      options,
+    ),
     runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "medium", options),
     runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options, mini),
     runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, lightEffort, options),
@@ -632,7 +686,7 @@ export async function runSpecialistAgents(
 
   const flags = new Set<string>(sectionMap.reviewFlags);
   const identity = validatedIdentity(identityResponse.data, context, flags);
-  const factsProcedure = validatedFactsProcedure(factsResponse.data, context, flags);
+  const factsProcedure = validatedFactsProcedure(factsResponse.data, context, flags, economy);
   const analysis = validatedAnalysis(analysisResponse.data, context, flags);
   const authorities = validatedAuthorities(authorityResponse.data, context, flags);
   const outcome = validatedOutcome(outcomeResponse.data, context, flags);

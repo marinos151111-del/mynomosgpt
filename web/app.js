@@ -307,6 +307,17 @@ function fieldList(title, rawField, renderer, subtitle = "") {
   return resultSection(title, subtitle || `${row.status} · ${Math.round(Number(row.confidence || 0) * 100)}% confidence`, `${itemCards(Array.isArray(row.value) ? row.value : [], renderer)}${evidenceHtml(row)}`);
 }
 
+function deferredOrFieldList(title, rawField, fieldKey, renderer, reviewFlags) {
+  const row = field(rawField);
+  const deferred = row.status === "unavailable" &&
+    Array.isArray(reviewFlags) && reviewFlags.includes(`facts.${fieldKey}:deferred_on_demand`);
+  if (!deferred) return fieldList(title, rawField, renderer);
+  return resultSection(title, "not extracted yet · generated on demand", `<div class="deferred-card">
+    <p>Skipped during bulk extraction to keep it fast and cheap. One click runs a focused extraction with the same evidence verification.</p>
+    <button type="button" class="secondary-button deferred-generate" data-field="${h(fieldKey)}">⚡ Generate now</button>
+  </div>`);
+}
+
 function sectionFlowHtml(spans) {
   if (!spans.length) return "";
   const groups = [];
@@ -438,8 +449,8 @@ function renderFullResult(envelope, result) {
     resultSection("Identity and classification", "Case metadata", identityBody),
     resultSection("Facts and procedure", "Narrative separated from submissions and outcome", factsBody),
     fieldList("Material facts", facts.materialFacts, (item) => `<article class="list-card"><b>${h(item.fact || "")}</b><p>${h(item.significance || "")}</p></article>`),
-    fieldList("Chronology", facts.chronology, (item) => `<article class="list-card"><b>${h(item.date || "Date unavailable")}</b><p>${h(item.event || "")}</p><small>${h((item.actors || []).join(" · "))}</small></article>`),
-    fieldList("Witnesses and evidence", facts.witnessesAndEvidence, (item) => `<article class="list-card"><b>${h(item.name || item.type || "Evidence")}</b><p>${h(item.summary || "")}</p><small>Court treatment: ${h(item.treatmentByCourt || "—")}</small></article>`),
+    deferredOrFieldList("Chronology", facts.chronology, "chronology", (item) => `<article class="list-card"><b>${h(item.date || "Date unavailable")}</b><p>${h(item.event || "")}</p><small>${h((item.actors || []).join(" · "))}</small></article>`, record.reviewFlags),
+    deferredOrFieldList("Witnesses and evidence", facts.witnessesAndEvidence, "witnessesAndEvidence", (item) => `<article class="list-card"><b>${h(item.name || item.type || "Evidence")}</b><p>${h(item.summary || "")}</p><small>Court treatment: ${h(item.treatmentByCourt || "—")}</small></article>`, record.reviewFlags),
     fieldList("Grounds and issues", procedure.groundsOrIssues, (item) => `<article class="list-card"><b>${h(item.number ? `Ground ${item.number}: ${item.title || ""}` : item.title || "Issue")}</b><p>${h(item.description || "")}</p><small>Raised by ${h(item.raisedBy || "—")} · Result: ${h(item.result || "unknown")}</small></article>`),
     fieldList("Party submissions", procedure.submissionsByParty, (item) => `<article class="list-card"><b>${h(item.party || "Party")}</b><p>${h(item.summary || "")}</p></article>`),
     resultSection("Judicial analysis", "Present court only", analysisBody),
@@ -699,6 +710,40 @@ function downloadCurrentJson() {
   link.remove();
   URL.revokeObjectURL(url);
 }
+
+async function generateDeferredField(button) {
+  const fieldKey = button.dataset.field;
+  const jobId = state.envelope?.jobId;
+  const accessKey = elements.accessKey.value;
+  const record = state.envelope?.result?.record;
+  if (!fieldKey || !jobId || !record) return;
+  if (!accessKey) {
+    button.textContent = "Enter the lab password first";
+    return;
+  }
+  button.disabled = true;
+  button.textContent = "Extracting… ~30s";
+  try {
+    const response = await fetch(`./api/jobs/${encodeURIComponent(jobId)}/field`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-lab-key": accessKey },
+      body: JSON.stringify({ field: fieldKey }),
+    });
+    const payload = await responseJson(response);
+    if (!response.ok || !payload.ok) throw new Error(payload.message || `HTTP ${response.status}`);
+    record.facts[fieldKey] = payload.data;
+    record.reviewFlags = (record.reviewFlags || []).filter((flag) => flag !== `facts.${fieldKey}:deferred_on_demand`);
+    renderFullResult(state.envelope, state.envelope.result);
+  } catch (error) {
+    button.disabled = false;
+    button.textContent = `Failed (${error.message || "error"}) — retry`;
+  }
+}
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest?.(".deferred-generate");
+  if (button) generateDeferredField(button);
+});
 
 $$(".source-tab").forEach((tab) => tab.addEventListener("click", () => selectSource(tab.dataset.source)));
 $$('input[name="mode"]').forEach((input) => input.addEventListener("change", () => {
