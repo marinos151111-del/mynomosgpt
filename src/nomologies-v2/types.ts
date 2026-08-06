@@ -5,7 +5,7 @@
 // submissions, judicial analysis, legislation, authorities and disposition.
 // No material field is publishable without paragraph-linked evidence.
 
-export const NOMOLOGIES_V2_VERSION = "nomologies-v2.0.0" as const;
+export const NOMOLOGIES_V2_VERSION = "nomologies-v2.3.0" as const;
 
 export const SECTION_TYPES = [
   "caption",
@@ -26,6 +26,7 @@ export const SECTION_TYPES = [
   "legal_framework",
   "quoted_legislation",
   "quoted_authority",
+  "adopted_authority",
   "court_analysis",
   "findings_of_fact",
   "legal_findings",
@@ -153,6 +154,7 @@ export const PROCEEDING_TYPES = [
   "company_petition",
   "insolvency_petition",
   "interim_application",
+  "expedition_application",
   "leave_application",
   "extension_of_time_application",
   "legal_aid_application",
@@ -263,6 +265,14 @@ export const AUTHORITY_TREATMENTS = [
   "unknown",
 ] as const;
 export type AuthorityTreatmentV2 = typeof AUTHORITY_TREATMENTS[number];
+
+export const AUTHORITY_CITATION_CONTEXTS = [
+  "direct",
+  "adopted_quotation",
+  "nested_quotation",
+  "unknown",
+] as const;
+export type AuthorityCitationContextV2 = typeof AUTHORITY_CITATION_CONTEXTS[number];
 
 export const INSTRUMENT_ROLES = [
   "substantive",
@@ -481,6 +491,67 @@ export interface LegalPrincipleV2 {
   applicationToFacts: string;
 }
 
+export const PRINCIPLE_LAYERS = [
+  "issue",
+  "rule",
+  "test",
+  "condition",
+  "exception",
+  "application",
+  "holding",
+  "obiter",
+] as const;
+export type PrincipleLayerV2 = typeof PRINCIPLE_LAYERS[number];
+
+export const PRINCIPLE_RELATIONS = [
+  "frames",
+  "governs",
+  "operationalised_by",
+  "qualified_by",
+  "limited_by",
+  "applied_in",
+  "supports",
+  "resolved_by",
+  "contextualised_by",
+] as const;
+export type PrincipleRelationV2 = typeof PRINCIPLE_RELATIONS[number];
+
+/**
+ * Additive, evidence-bound representation of the judgment's legal reasoning.
+ * It is derived from canonical fields and may never overwrite them.
+ */
+export interface PrincipleNodeV2 {
+  id: string;
+  layer: PrincipleLayerV2;
+  text: string;
+  principleType: LegalPrincipleV2["type"] | "issue" | "application" | "obiter";
+  centrality: "primary" | "secondary" | "ancillary";
+  conceptIds: string[];
+  evidenceParagraphIds: string[];
+  sourceField: string;
+  confidence: number;
+  conditions: string[];
+  exceptions: string[];
+  applicationToFacts: string;
+}
+
+export interface PrincipleEdgeV2 {
+  fromNodeId: string;
+  toNodeId: string;
+  relation: PrincipleRelationV2;
+}
+
+export interface PrincipleArchitectureV2 {
+  version: string;
+  nodes: PrincipleNodeV2[];
+  edges: PrincipleEdgeV2[];
+  dominantIssueId: string;
+  dominantRuleId: string;
+  conceptIds: string[];
+  completenessScore: number;
+  warnings: string[];
+}
+
 export interface JudicialFindingV2 {
   finding: string;
   type: "fact" | "law" | "credibility" | "procedure" | "jurisdiction" | "other";
@@ -528,7 +599,9 @@ export interface AuthorityV2 {
   ecli: string;
   court: string;
   year: number | null;
+  sourceType: "decision" | "secondary_literature" | "other";
   treatment: AuthorityTreatmentV2;
+  citationContext: AuthorityCitationContextV2;
   legalPoint: string;
   quoted: boolean;
 }
@@ -550,11 +623,13 @@ export interface OutcomeComponentV2 {
 
 export interface MoneyAwardV2 {
   type: "damages" | "costs" | "fine" | "compensation" | "other";
+  stage: "first_instance" | "appellate" | "retrial" | "other";
   amount: string;
   currency: string;
   payer: string;
   payee: string;
   vatIncluded: boolean;
+  vatStatus: "included" | "plus_vat" | "plus_vat_if_applicable" | "not_stated";
   interest: string;
 }
 
@@ -577,6 +652,42 @@ export interface CaseOutcomeV2 {
   monetaryAwards: ExtractedFieldV2<MoneyAwardV2[]>;
   costs: ExtractedFieldV2<MoneyAwardV2[]>;
   remittalInstructions: ExtractedFieldV2<string[]>;
+  withdrawnOrAbandoned: ExtractedFieldV2<string[]>;
+}
+
+export interface ReadinessComponentV2 {
+  key: string;
+  label: string;
+  earned: number;
+  possible: number;
+  verified: boolean;
+}
+
+export interface ReadinessDeductionV2 {
+  severity: "critical" | "material" | "minor";
+  points: number;
+  codes: string[];
+}
+
+export interface ReadinessBreakdownV2 {
+  baseScore: number;
+  finalScore: number;
+  components: ReadinessComponentV2[];
+  deductions: ReadinessDeductionV2[];
+  blockers: PipelineConflictV2[];
+  recommendation: "approve" | "review" | "reject";
+}
+
+export interface PrecedentialWeightV2 {
+  score: number;
+  tier: "Landmark" | "Leading Authority" | "High" | "Medium" | "Low";
+  factors: {
+    courtLevel: number;
+    treatment: number;
+    novelty: number;
+    subsequentCitation: number;
+    doctrinalSignificance: number;
+  };
 }
 
 export interface SearchTaxonomyV2 {
@@ -615,7 +726,6 @@ export interface PipelineStageAuditV2 {
 export interface NomologiesCaseRecordV2 {
   schemaVersion: typeof NOMOLOGIES_V2_VERSION;
   runId: string;
-  pipelineProfile: string;
   source: JudgmentSourceV2;
   sectionMap: SectionMapV2;
   identity: CaseIdentityV2;
@@ -626,10 +736,14 @@ export interface NomologiesCaseRecordV2 {
   authorities: CaseAuthoritiesV2;
   outcome: CaseOutcomeV2;
   taxonomy: SearchTaxonomyV2;
+  principleArchitecture: PrincipleArchitectureV2;
   allEvidence: EvidenceAnchorV2[];
   conflicts: PipelineConflictV2[];
   reviewFlags: string[];
+  extractionConfidenceScore: number;
   readinessScore: number;
+  readinessBreakdown: ReadinessBreakdownV2;
+  precedentialWeight: PrecedentialWeightV2;
   strictReady: boolean;
   humanReviewRequired: boolean;
   stages: PipelineStageAuditV2[];

@@ -3,7 +3,7 @@
 
 const RESPONSES_ENDPOINT = "https://api.openai.com/v1/responses";
 const MODELS_ENDPOINT = "https://api.openai.com/v1/models";
-const DEFAULT_TIMEOUT_MS = 180_000;
+const DEFAULT_TIMEOUT_MS = 240_000;
 
 type JsonRecord = Record<string, unknown>;
 
@@ -62,22 +62,6 @@ function asArray(value: unknown): unknown[] {
 
 function str(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
-}
-
-// Cost profile. "economy" runs mechanical stages (sections, identity,
-// outcome, authorities) and the reviewer on the mini model, keeps the
-// flagship for facts and judicial analysis, and skips the reviewer for
-// records that cannot reach publishable readiness anyway. "quality" runs
-// everything on the resolved flagship model. An explicit NOMOLOGIES_V2_MODEL
-// pin always wins over profile tiering.
-export type NomologiesProfile = "economy" | "quality";
-
-export function nomologiesProfile(): NomologiesProfile {
-  return env("NOMOLOGIES_V2_PROFILE").toLowerCase() === "quality" ? "quality" : "economy";
-}
-
-export function nomologiesMiniModel(): string {
-  return env("NOMOLOGIES_V2_MINI_MODEL") || "gpt-5.4-mini";
 }
 
 let cachedModel = "";
@@ -189,6 +173,27 @@ function retryableStatus(status: number): boolean {
   return status === 408 || status === 409 || status === 429 || status >= 500;
 }
 
+async function providerErrorSummary(response: Response): Promise<{
+  code: string;
+  type: string;
+  requestId: string;
+}> {
+  let code = "";
+  let type = "";
+  try {
+    const payload = await response.json() as JsonRecord;
+    const detail = isRecord(payload.error) ? payload.error : {};
+    code = str(detail.code).slice(0, 120);
+    type = str(detail.type).slice(0, 120);
+  } catch {
+    // Provider response bodies stay private.
+  }
+  return {
+    code,
+    type,
+    requestId: str(response.headers.get("x-request-id")).slice(0, 160),
+  };
+}
 async function callResponses(
   apiKey: string,
   body: JsonRecord,
@@ -220,10 +225,7 @@ async function callResponses(
       );
     }
     if (last.ok || attempt === 2 || !retryableStatus(last.status)) return last;
-    // Rate limits deserve a real pause: respect the provider's retry-after
-    // for up to 60 seconds instead of hammering straight back.
-    const cap = last.status === 429 ? 60_000 : 2_000;
-    const retryAfter = Math.min(cap, Math.max(400, Number(last.headers.get("retry-after") || 0) * 1_000));
+    const retryAfter = Math.min(2_000, Math.max(400, Number(last.headers.get("retry-after") || 0) * 1_000));
     await new Promise((resolve) => setTimeout(resolve, retryAfter));
   }
   if (!last) {
@@ -232,11 +234,24 @@ async function callResponses(
   return last;
 }
 
+// Cost profile. "economy" keeps mechanical stages on the mini model while
+// facts and judicial analysis run on the flagship; "quality" runs everything
+// on the resolved flagship. An explicit NOMOLOGIES_V2_MODEL pin overrides all.
+export type NomologiesProfile = "economy" | "quality";
+
+export function nomologiesProfile(): NomologiesProfile {
+  return env("NOMOLOGIES_V2_PROFILE").toLowerCase() === "quality" ? "quality" : "economy";
+}
+
+export function nomologiesMiniModel(): string {
+  return env("NOMOLOGIES_V2_MINI_MODEL") || "gpt-5.4-mini";
+}
+
 // One transparent retry for retryable provider failures (timeouts, rate
-// limits, 5xx). A single slow OpenAI response must not kill a whole
-// multi-stage extraction. A timeout retries on the faster fallback model
-// when one is configured, because repeating the same slow call usually
-// times out again. User cancellation is never retried.
+// limits, 5xx). A single slow response must not kill a whole multi-stage
+// extraction. A timeout retries on the faster fallback model when one is
+// configured, because repeating the same slow call usually times out again.
+// User cancellation is never retried.
 export async function createStructuredResponseWithRetry<T extends JsonRecord = JsonRecord>(
   request: StructuredResponseRequest,
 ): Promise<StructuredResponseResult<T>> {
@@ -307,9 +322,18 @@ export async function createStructuredResponse<T extends JsonRecord = JsonRecord
 
     if (!response.ok) {
       const status = response.status;
+      const provider = await providerErrorSummary(response);
+      const providerRef = [provider.type, provider.code].filter(Boolean).join("/");
+      const requestRef = provider.requestId ? " · request " + provider.requestId : "";
+      const code = status === 429
+        ? "OPENAI_RATE_LIMIT"
+        : status === 403
+        ? "OPENAI_PERMISSION_DENIED"
+        : "OPENAI_HTTP_ERROR";
       throw new NomologiesOpenAIError(
-        status === 429 ? "OPENAI_RATE_LIMIT" : "OPENAI_HTTP_ERROR",
-        `OpenAI returned HTTP ${status} during ${request.stage}.`,
+        code,
+        "OpenAI returned HTTP " + status + " during " + request.stage +
+          (providerRef ? " (" + providerRef + ")" : "") + requestRef + ".",
         status === 429 ? 429 : 502,
         retryableStatus(status),
       );

@@ -1,1 +1,0 @@
-Run source diagnostics and section recognition after adaptive overlap patch.

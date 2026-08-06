@@ -36,6 +36,10 @@ type FieldPolicy = {
 const IDENTITY_SECTIONS = new Set<SectionType>([
   "caption", "court_header", "case_metadata", "appearances", "signature",
 ]);
+const CLASSIFICATION_SECTIONS = new Set<SectionType>([
+  "caption", "court_header", "case_metadata", "facts", "procedural_history",
+  "legal_framework", "court_analysis", "legal_findings", "holding",
+]);
 const FACT_SECTIONS = new Set<SectionType>([
   "facts", "witness_evidence", "documentary_evidence", "findings_of_fact",
   "procedural_history", "court_analysis",
@@ -48,7 +52,7 @@ const WITNESS_EVIDENCE_SECTIONS = new Set<SectionType>([
   "procedural_history", "court_analysis", "legal_findings",
 ]);
 const PROCEDURAL_HISTORY_SECTIONS = new Set<SectionType>([
-  "case_metadata", "facts", "procedural_history", "court_analysis", "legal_findings", "holding",
+  "caption", "case_metadata", "facts", "procedural_history", "court_analysis", "legal_findings", "holding",
 ]);
 const ORIGINATING_PROCEEDING_SECTIONS = new Set<SectionType>([
   "caption", "facts", "procedural_history",
@@ -83,15 +87,19 @@ const ANALYSIS_SECTIONS = new Set<SectionType>([
   "ratio_decidendi", "obiter_dictum", "dissent", "concurrence",
 ]);
 const LEGISLATION_SECTIONS = new Set<SectionType>([
-  "legal_framework", "quoted_legislation", "court_analysis", "legal_findings",
+  "case_metadata", "facts", "procedural_history", "documentary_evidence",
+  "appellant_submissions", "respondent_submissions", "applicant_submissions",
+  "respondent_public_body_submissions", "prosecution_submissions",
+  "defence_submissions", "other_party_submissions",
+  "legal_framework", "quoted_legislation", "adopted_authority", "court_analysis", "legal_findings",
   "holding", "ratio_decidendi", "disposition", "remedy", "sentence",
 ]);
 const AUTHORITY_SECTIONS = new Set<SectionType>([
-  "quoted_authority", "legal_framework", "court_analysis", "legal_findings",
+  "quoted_authority", "adopted_authority", "legal_framework", "court_analysis", "legal_findings",
   "holding", "ratio_decidendi", "obiter_dictum", "dissent", "concurrence",
 ]);
 const OUTCOME_SECTIONS = new Set<SectionType>([
-  "holding", "disposition", "remedy", "sentence", "damages", "costs",
+  "court_analysis", "legal_findings", "holding", "disposition", "remedy", "sentence", "damages", "costs",
 ]);
 
 const PARTY_SPEAKERS = new Set<SpeakerRole>([
@@ -132,6 +140,9 @@ function policyFor(fieldPath: string): FieldPolicy {
   const path = canonicalFieldPath(fieldPath);
   if (path.startsWith("identity.")) {
     return { allowedSections: IDENTITY_SECTIONS, titleAllowed: true, minimumQuoteLength: 2 };
+  }
+  if (path.startsWith("classification.")) {
+    return { allowedSections: CLASSIFICATION_SECTIONS, titleAllowed: true, allowQuotedMaterial: false, minimumQuoteLength: 2 };
   }
   if (["facts.summary", "facts.materialFacts", "facts.chronology", "facts.undisputedFacts", "facts.disputedFacts"].includes(path)) {
     return { allowedSections: FACT_NARRATIVE_SECTIONS, allowQuotedMaterial: false, minimumQuoteLength: 12 };
@@ -221,6 +232,50 @@ function contiguousParagraphs(
   return rows;
 }
 
+function policyAcceptsRows(
+  rows: JudgmentSourceV2["paragraphs"],
+  policy: FieldPolicy,
+  context: EvidenceValidationContext,
+): boolean {
+  const sections = rows.map((paragraph) => context.sectionByParagraphId.get(paragraph.id));
+  if (sections.some((section) => !section)) return false;
+  if (policy.allowedSections && sections.some((section) => !policy.allowedSections!.has(section!.sectionType))) return false;
+  if (policy.disallowedSpeakers && sections.some((section) => policy.disallowedSpeakers!.has(section!.speakerRole))) return false;
+  if (!policy.allowQuotedMaterial && sections.some((section) => section!.isQuotedMaterial)) return false;
+  return true;
+}
+
+/**
+ * A model can identify the correct verbatim quote but attach a neighbouring
+ * paragraph ID. Before downgrading the field, deterministically locate one
+ * unique exact occurrence in an attribution-safe span of up to four contiguous
+ * passages. No fuzzy or invented text is accepted.
+ */
+function recoverParagraphsForQuote(
+  quote: string,
+  fieldPath: string,
+  context: EvidenceValidationContext,
+): JudgmentSourceV2["paragraphs"] | null {
+  const needle = normalizeEvidenceText(quote);
+  if (!needle) return null;
+  const policy = policyFor(fieldPath);
+  const matches: JudgmentSourceV2["paragraphs"][] = [];
+  for (let start = 0; start < context.source.paragraphs.length; start += 1) {
+    for (let width = 1; width <= 4 && start + width <= context.source.paragraphs.length; width += 1) {
+      const rows = context.source.paragraphs.slice(start, start + width);
+      if (!normalizeEvidenceText(rows.map((row) => row.text).join(" ")).includes(needle)) continue;
+      if (!policyAcceptsRows(rows, policy, context)) continue;
+      matches.push(rows);
+    }
+  }
+  if (!matches.length) return null;
+  matches.sort((left, right) => left.length - right.length || left[0].ordinal - right[0].ordinal);
+  const shortest = matches[0];
+  const sameSpan = matches.filter((rows) => rows[0].id === shortest[0].id && rows.at(-1)?.id === shortest.at(-1)?.id);
+  const distinctStarts = new Set(matches.map((rows) => rows[0].id));
+  return distinctStarts.size === 1 || sameSpan.length === matches.length ? shortest : null;
+}
+
 function validateRawAnchor(
   raw: unknown,
   fieldPath: string,
@@ -257,11 +312,21 @@ function validateRawAnchor(
     };
   }
 
-  const rows = contiguousParagraphs(paragraphIds, context);
-  if (!rows) return { anchor: null, flags: [`${fieldPath}:evidence_paragraphs_invalid_or_noncontiguous`] };
-  const sourceText = normalizeEvidenceText(rows.map((paragraph) => paragraph.text).join(" "));
-  const exactMatch = sourceText.includes(normalizeEvidenceText(quote));
-  if (!exactMatch) return { anchor: null, flags: [`${fieldPath}:evidence_quote_not_found`] };
+  let rows = contiguousParagraphs(paragraphIds, context);
+  let sourceText = rows ? normalizeEvidenceText(rows.map((paragraph) => paragraph.text).join(" ")) : "";
+  let exactMatch = sourceText.includes(normalizeEvidenceText(quote));
+  if (!rows || !exactMatch) {
+    const recovered = recoverParagraphsForQuote(quote, fieldPath, context);
+    if (!recovered) {
+      return { anchor: null, flags: [rows
+        ? `${fieldPath}:evidence_quote_not_found`
+        : `${fieldPath}:evidence_paragraphs_invalid_or_noncontiguous`] };
+    }
+    rows = recovered;
+    sourceText = normalizeEvidenceText(rows.map((paragraph) => paragraph.text).join(" "));
+    exactMatch = sourceText.includes(normalizeEvidenceText(quote));
+    flags.push(`${fieldPath}:evidence_quote_recovered`);
+  }
 
   const sections = rows
     .map((paragraph) => context.sectionByParagraphId.get(paragraph.id))
@@ -330,23 +395,25 @@ export function validateExtractedField<T>(
   const evidence: EvidenceAnchorV2[] = [];
   const flags: string[] = [];
 
+  // Optional unavailable fields carry no publishable proposition. Ignore stray
+  // model evidence instead of manufacturing false attribution conflicts.
+  if (requestedStatus === "unavailable" || (requestedStatus === "indeterminate" && !meaningful(value))) {
+    return {
+      field: {
+        status: requestedStatus,
+        value: fallback,
+        confidence: clamp01(row.confidence),
+        evidence: [],
+        conflicts: rawConflicts,
+      },
+      reviewFlags: [],
+    };
+  }
+
   for (const [index, item] of asArray(row.evidence).entries()) {
     const validated = validateRawAnchor(item, fieldPath, index, context);
     flags.push(...validated.flags);
     if (validated.anchor) evidence.push(validated.anchor);
-  }
-
-  if (requestedStatus === "unavailable") {
-    return {
-      field: {
-        status: "unavailable",
-        value: fallback,
-        confidence: clamp01(row.confidence),
-        evidence,
-        conflicts: rawConflicts,
-      },
-      reviewFlags: flags,
-    };
   }
 
   if (requestedStatus === "conflicted") {

@@ -1,4 +1,5 @@
 import {
+  AUTHORITY_CITATION_CONTEXTS,
   AUTHORITY_TREATMENTS,
   CASE_FAMILIES,
   COURT_LEVELS,
@@ -138,50 +139,38 @@ const RELIEF_REQUEST = object({
   status: enumeration(["granted", "refused", "partly_granted", "not_determined", "unknown"]),
 });
 
+export const FACTS_SCHEMA = object({
+  facts: object({
+    summary: field(string()),
+    materialFacts: field(array(MATERIAL_FACT)),
+    undisputedFacts: field(array(string())),
+    disputedFacts: field(array(string())),
+  }),
+});
+
+export const DEFERRED_CHRONOLOGY_SCHEMA = object({
+  chronology: field(array(TIMELINE_EVENT)),
+});
+
+export const DEFERRED_WITNESSES_SCHEMA = object({
+  witnessesAndEvidence: field(array(EVIDENCE_OR_WITNESS)),
+});
+
+export const PROCEDURE_SCHEMA = object({
+  procedure: object({
+    proceduralHistory: field(string()),
+    originatingProceeding: field(string()),
+    lowerCourtDecision: field(string()),
+    groundsOrIssues: field(array(GROUND_OR_ISSUE)),
+    reliefSought: field(array(RELIEF_REQUEST)),
+    submissionsByParty: field(array(object({ party: string(), summary: string() }))),
+  }),
+});
+
 export const FACTS_PROCEDURE_SCHEMA = object({
-  facts: object({
-    summary: field(string()),
-    materialFacts: field(array(MATERIAL_FACT)),
-    chronology: field(array(TIMELINE_EVENT)),
-    witnessesAndEvidence: field(array(EVIDENCE_OR_WITNESS)),
-    undisputedFacts: field(array(string())),
-    disputedFacts: field(array(string())),
-  }),
-  procedure: object({
-    proceduralHistory: field(string()),
-    originatingProceeding: field(string()),
-    lowerCourtDecision: field(string()),
-    groundsOrIssues: field(array(GROUND_OR_ISSUE)),
-    reliefSought: field(array(RELIEF_REQUEST)),
-    submissionsByParty: field(array(object({ party: string(), summary: string() }))),
-  }),
+  facts: (FACTS_SCHEMA as { properties: Record<string, JsonSchema> }).properties.facts,
+  procedure: (PROCEDURE_SCHEMA as { properties: Record<string, JsonSchema> }).properties.procedure,
 });
-
-// Economy profile defers chronology and witness extraction to an on-demand
-// call, so the bulk schema omits them entirely: the model neither reasons
-// about nor generates them.
-export const FACTS_PROCEDURE_LITE_SCHEMA = object({
-  facts: object({
-    summary: field(string()),
-    materialFacts: field(array(MATERIAL_FACT)),
-    undisputedFacts: field(array(string())),
-    disputedFacts: field(array(string())),
-  }),
-  procedure: object({
-    proceduralHistory: field(string()),
-    originatingProceeding: field(string()),
-    lowerCourtDecision: field(string()),
-    groundsOrIssues: field(array(GROUND_OR_ISSUE)),
-    reliefSought: field(array(RELIEF_REQUEST)),
-    submissionsByParty: field(array(object({ party: string(), summary: string() }))),
-  }),
-});
-
-// Single-field schemas for on-demand expansion of deferred fields.
-export const DEFERRED_FIELD_SCHEMAS = {
-  chronology: { name: "nomologies_v2_chronology", schema: object({ chronology: field(array(TIMELINE_EVENT)) }) },
-  witnessesAndEvidence: { name: "nomologies_v2_witnesses", schema: object({ witnessesAndEvidence: field(array(EVIDENCE_OR_WITNESS)) }) },
-} as const;
 
 const LEGAL_ISSUE = object({
   issue: string(),
@@ -246,7 +235,9 @@ const AUTHORITY = object({
   ecli: string(),
   court: string(),
   year: integer(),
+  sourceType: enumeration(["decision", "secondary_literature", "other"]),
   treatment: enumeration(AUTHORITY_TREATMENTS),
+  citationContext: enumeration(AUTHORITY_CITATION_CONTEXTS),
   legalPoint: string(),
   quoted: boolean(),
 });
@@ -269,11 +260,13 @@ const OUTCOME_COMPONENT = object({
 });
 const MONEY_AWARD = object({
   type: enumeration(["damages", "costs", "fine", "compensation", "other"]),
+  stage: enumeration(["first_instance", "appellate", "retrial", "other"]),
   amount: string(),
   currency: string(),
   payer: string(),
   payee: string(),
   vatIncluded: boolean(),
+  vatStatus: enumeration(["included", "plus_vat", "plus_vat_if_applicable", "not_stated"]),
   interest: string(),
 });
 const SENTENCE = object({
@@ -296,7 +289,18 @@ export const OUTCOME_SCHEMA = object({
     monetaryAwards: field(array(MONEY_AWARD)),
     costs: field(array(MONEY_AWARD)),
     remittalInstructions: field(array(string())),
+    withdrawnOrAbandoned: field(array(string())),
   }),
+});
+
+export const WHOLE_JUDGMENT_SCHEMA = object({
+  identity: (IDENTITY_CLASSIFICATION_SCHEMA as { properties: Record<string, JsonSchema> }).properties.identity,
+  classification: (IDENTITY_CLASSIFICATION_SCHEMA as { properties: Record<string, JsonSchema> }).properties.classification,
+  facts: (FACTS_SCHEMA as { properties: Record<string, JsonSchema> }).properties.facts,
+  procedure: (PROCEDURE_SCHEMA as { properties: Record<string, JsonSchema> }).properties.procedure,
+  analysis: (ANALYSIS_SCHEMA as { properties: Record<string, JsonSchema> }).properties.analysis,
+  authorities: (AUTHORITIES_SCHEMA as { properties: Record<string, JsonSchema> }).properties.authorities,
+  outcome: (OUTCOME_SCHEMA as { properties: Record<string, JsonSchema> }).properties.outcome,
 });
 
 export const REVIEW_SCHEMA = object({
@@ -319,10 +323,14 @@ export const REVIEW_SCHEMA = object({
 export const NOMOLOGIES_SCHEMAS = {
   sections: { name: "nomologies_v2_sections", schema: SECTION_MAP_SCHEMA },
   identity: { name: "nomologies_v2_identity", schema: IDENTITY_CLASSIFICATION_SCHEMA },
+  facts: { name: "nomologies_v2_facts", schema: FACTS_SCHEMA },
+  deferredChronology: { name: "nomologies_v2_deferred_chronology", schema: DEFERRED_CHRONOLOGY_SCHEMA },
+  deferredWitnesses: { name: "nomologies_v2_deferred_witnesses", schema: DEFERRED_WITNESSES_SCHEMA },
+  procedure: { name: "nomologies_v2_procedure", schema: PROCEDURE_SCHEMA },
   factsProcedure: { name: "nomologies_v2_facts_procedure", schema: FACTS_PROCEDURE_SCHEMA },
-  factsProcedureLite: { name: "nomologies_v2_facts_procedure_lite", schema: FACTS_PROCEDURE_LITE_SCHEMA },
   analysis: { name: "nomologies_v2_analysis", schema: ANALYSIS_SCHEMA },
   authorities: { name: "nomologies_v2_authorities", schema: AUTHORITIES_SCHEMA },
   outcome: { name: "nomologies_v2_outcome", schema: OUTCOME_SCHEMA },
+  wholeJudgment: { name: "nomologies_v2_whole_judgment", schema: WHOLE_JUDGMENT_SCHEMA },
   review: { name: "nomologies_v2_review", schema: REVIEW_SCHEMA },
 } as const;

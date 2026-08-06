@@ -7,11 +7,16 @@ import {
 import {
   ANALYSIS_SYSTEM_PROMPT,
   AUTHORITIES_SYSTEM_PROMPT,
-  FACTS_PROCEDURE_SYSTEM_PROMPT,
+  FACTS_SYSTEM_PROMPT,
+  DEFERRED_CHRONOLOGY_SYSTEM_PROMPT,
+  DEFERRED_WITNESSES_SYSTEM_PROMPT,
   IDENTITY_SYSTEM_PROMPT,
   OUTCOME_SYSTEM_PROMPT,
+  PROCEDURE_SYSTEM_PROMPT,
 } from "./prompts.ts";
 import { NOMOLOGIES_SCHEMAS } from "./schemas.ts";
+import { reconcileNomologiesQuality } from "./quality.ts";
+import { isBareHoldingResult } from "./quality-core.ts";
 import {
   buildEvidenceContext,
   validateExtractedField,
@@ -26,7 +31,6 @@ import type {
   CaseOutcomeV2,
   CaseProcedureV2,
   EvidenceAnchorV2,
-  ExtractedFieldV2,
   GroundOrIssueV2,
   OutcomeComponentV2,
   JudgmentParagraphV2,
@@ -35,8 +39,10 @@ import type {
   SectionMapV2,
   SectionSpanV2,
   SectionType,
+  ExtractedFieldV2,
+  TimelineEventV2,
+  EvidenceOrWitnessV2,
 } from "./types.ts";
-import { DEFERRED_FIELD_SCHEMAS } from "./schemas.ts";
 
 type JsonRecord = Record<string, unknown>;
 
@@ -59,27 +65,59 @@ export interface SpecialistResultsV2 {
   };
 }
 
+export type SpecialistAgentKindV2 =
+  | "identity"
+  | "facts"
+  | "procedure"
+  | "analysis"
+  | "authorities"
+  | "outcome";
+
+export interface SpecialistAgentRunV2 {
+  kind: SpecialistAgentKindV2;
+  raw: JsonRecord;
+  audit: PipelineStageAuditV2;
+}
+
+export interface SpecialistRepairBriefV2 {
+  previousOutput: JsonRecord;
+  conflicts: Array<{
+    code: string;
+    severity: string;
+    fieldPath: string;
+    message: string;
+  }>;
+}
+
 const IDENTITY_TYPES = new Set<SectionType>([
   "caption", "court_header", "case_metadata", "appearances", "procedural_history",
 ]);
-const FACT_PROCEDURE_TYPES = new Set<SectionType>([
-  "procedural_history", "facts", "witness_evidence", "documentary_evidence",
+const FACT_TYPES = new Set<SectionType>([
+  "facts", "witness_evidence", "documentary_evidence", "findings_of_fact",
+]);
+const PROCEDURE_TYPES = new Set<SectionType>([
+  "caption", "case_metadata", "facts",
+  "procedural_history",
   "appellant_submissions", "respondent_submissions", "applicant_submissions",
   "respondent_public_body_submissions", "prosecution_submissions",
   "defence_submissions", "other_party_submissions", "findings_of_fact",
-  "court_analysis", "holding", "disposition", "remedy",
+  "court_analysis", "holding", "disposition", "remedy", "costs",
 ]);
 const ANALYSIS_TYPES = new Set<SectionType>([
   "facts", "legal_framework", "court_analysis", "findings_of_fact", "legal_findings", "holding",
   "ratio_decidendi", "obiter_dictum", "dissent", "concurrence", "disposition",
 ]);
 const AUTHORITY_TYPES = new Set<SectionType>([
-  "legal_framework", "quoted_legislation", "quoted_authority", "court_analysis",
+  "case_metadata", "facts", "procedural_history", "documentary_evidence",
+  "appellant_submissions", "respondent_submissions", "applicant_submissions",
+  "respondent_public_body_submissions", "prosecution_submissions",
+  "defence_submissions", "other_party_submissions",
+  "legal_framework", "quoted_legislation", "quoted_authority", "adopted_authority", "court_analysis",
   "legal_findings", "holding", "ratio_decidendi", "obiter_dictum", "dissent",
   "concurrence", "disposition", "remedy", "sentence",
 ]);
 const OUTCOME_TYPES = new Set<SectionType>([
-  "holding", "disposition", "remedy", "sentence", "damages", "costs",
+  "court_analysis", "legal_findings", "holding", "disposition", "remedy", "sentence", "damages", "costs",
 ]);
 
 function isRecord(value: unknown): value is JsonRecord {
@@ -155,6 +193,7 @@ function agentPayload(
   sectionMap: SectionMapV2,
   sections: JsonRecord[],
   contract: string,
+  repair?: SpecialistRepairBriefV2,
 ): string {
   return JSON.stringify({
     contract,
@@ -169,6 +208,13 @@ function agentPayload(
     sectionMapVersion: sectionMap.version,
     sectionReviewFlags: sectionMap.reviewFlags,
     sections,
+    ...(repair ? {
+      repair: {
+        instruction: "Correct the identified fields from source evidence and return the complete specialist schema.",
+        previousOutput: repair.previousOutput,
+        conflicts: repair.conflicts,
+      },
+    } : {}),
   });
 }
 
@@ -179,9 +225,11 @@ async function runAgent(
   user: string,
   effort: ReasoningEffort,
   options: { signal?: AbortSignal; model?: string },
-  stageModel?: string,
 ): Promise<{ data: JsonRecord; audit: PipelineStageAuditV2 }> {
   const startedAt = new Date().toISOString();
+  // Each specialist is a separate durable task. No individual model call may
+  // consume the whole Edge Function wall-clock budget.
+  const timeoutMs = 165_000;
   const response = await createStructuredResponseWithRetry({
     stage,
     schemaName: schema.name,
@@ -189,9 +237,9 @@ async function runAgent(
     system,
     user,
     effort,
-    model: options.model || stageModel,
+    model: options.model,
     fallbackModel: nomologiesMiniModel(),
-    timeoutMs: 300_000,
+    timeoutMs,
     signal: options.signal,
   });
   return {
@@ -258,20 +306,10 @@ function validatedIdentity(
   };
 }
 
-// The two on-demand fact fields: skipped during bulk extraction in the
-// economy profile and generated later by extractDeferredFactField.
-export const DEFERRABLE_FACT_FIELDS = ["chronology", "witnessesAndEvidence"] as const;
-export type DeferrableFactField = typeof DEFERRABLE_FACT_FIELDS[number];
-
-function deferredField<T>(fallback: T): ExtractedFieldV2<T> {
-  return { status: "unavailable", value: fallback, confidence: 0, evidence: [], conflicts: [] };
-}
-
 function validatedFactsProcedure(
   raw: JsonRecord,
   context: EvidenceValidationContext,
   flags: Set<string>,
-  deferFactFields: boolean,
 ): { facts: CaseFactsV2; procedure: CaseProcedureV2 } {
   const factsRaw = obj(raw.facts);
   const procedureRaw = obj(raw.procedure);
@@ -280,15 +318,12 @@ function validatedFactsProcedure(
     result.reviewFlags.forEach((flag) => flags.add(flag));
     return result.field;
   };
-  if (deferFactFields) {
-    for (const field of DEFERRABLE_FACT_FIELDS) flags.add(`facts.${field}:deferred_on_demand`);
-  }
   return {
     facts: {
       summary: v(factsRaw.summary, "facts.summary", ""),
       materialFacts: v(factsRaw.materialFacts, "facts.materialFacts", []),
-      chronology: deferFactFields ? deferredField([]) : v(factsRaw.chronology, "facts.chronology", []),
-      witnessesAndEvidence: deferFactFields ? deferredField([]) : v(factsRaw.witnessesAndEvidence, "facts.witnessesAndEvidence", []),
+      chronology: v(factsRaw.chronology, "facts.chronology", []),
+      witnessesAndEvidence: v(factsRaw.witnessesAndEvidence, "facts.witnessesAndEvidence", []),
       undisputedFacts: v(factsRaw.undisputedFacts, "facts.undisputedFacts", [] as string[]),
       disputedFacts: v(factsRaw.disputedFacts, "facts.disputedFacts", [] as string[]),
     },
@@ -371,6 +406,7 @@ function validatedOutcome(
     monetaryAwards: v(outcomeRaw.monetaryAwards, "outcome.monetaryAwards", []),
     costs: v(outcomeRaw.costs, "outcome.costs", []),
     remittalInstructions: v(outcomeRaw.remittalInstructions, "outcome.remittalInstructions", [] as string[]),
+    withdrawnOrAbandoned: v(outcomeRaw.withdrawnOrAbandoned, "outcome.withdrawnOrAbandoned", [] as string[]),
   };
 }
 
@@ -445,75 +481,6 @@ function cumulativeLowerCourtDecision(procedure: CaseProcedureV2): CaseProcedure
   };
 }
 
-// ECLI court codes are an EU-wide public standard, and «(YYYY) N Α.Α.Δ. p»
-// is the official Cyprus law-reports citation. Report-volume pages carry
-// these instead of a formal court caption, so when the model cannot ground
-// the deciding court, derive it deterministically from those verbatim lines.
-const ECLI_RE = /ECLI:CY:(AD|DOD|EDD|AAP):\d{4}:[A-Z]?\d+/i;
-// Official reporter citations: «(YYYY) N Α.Α.Δ. p» (Greek era) and
-// "(YYYY) N C.L.R. p" (English Cyprus Law Reports era).
-const AAD_CITATION_RE = /\(\d{4}\)\s+\d\s+(?:Α\.?Α\.?Δ\.?|C\.?\s?L\.?\s?R\.?)\s+\d+/u;
-
-function groundIdentityFromCitations(
-  identity: CaseIdentityV2,
-  source: JudgmentSourceV2,
-  context: EvidenceValidationContext,
-  flags: Set<string>,
-): void {
-  const head = source.paragraphs.slice(0, 40);
-  const anchorFor = (paragraph: JudgmentParagraphV2, quote: string, field: string): EvidenceAnchorV2 => {
-    const span = context.sectionByParagraphId.get(paragraph.id);
-    return {
-      id: `EV_${field}_citation_derived`,
-      paragraphIds: [paragraph.id],
-      quote,
-      sectionType: span?.sectionType || "case_metadata",
-      speakerRole: span?.speakerRole || "court",
-      supports: [field],
-      exactMatch: true,
-    };
-  };
-
-  const ecliParagraph = head.find((paragraph) => ECLI_RE.test(paragraph.text));
-  const ecliMatch = ecliParagraph?.text.match(ECLI_RE) || null;
-  const citationParagraph = head.find((paragraph) => AAD_CITATION_RE.test(paragraph.text));
-  const citationMatch = citationParagraph?.text.match(AAD_CITATION_RE) || null;
-
-  if (identity.court.status !== "available" && (ecliMatch || citationMatch)) {
-    const paragraph = (ecliMatch ? ecliParagraph : citationParagraph) as JudgmentParagraphV2;
-    const quote = (ecliMatch ? ecliMatch[0] : citationMatch![0]);
-    identity.court = {
-      status: "available",
-      value: "Ανώτατο Δικαστήριο",
-      confidence: 0.97,
-      evidence: [anchorFor(paragraph, quote, "identity.court")],
-      conflicts: [],
-    };
-    clearFieldFlags(flags, ["identity.court"]);
-    flags.add("identity.court:derived_from_official_citation");
-  }
-  if (identity.ecli.status !== "available" && ecliMatch && ecliParagraph) {
-    identity.ecli = {
-      status: "available",
-      value: ecliMatch[0],
-      confidence: 0.99,
-      evidence: [anchorFor(ecliParagraph, ecliMatch[0], "identity.ecli")],
-      conflicts: [],
-    };
-    clearFieldFlags(flags, ["identity.ecli"]);
-  }
-  if (identity.citation.status !== "available" && citationMatch && citationParagraph) {
-    identity.citation = {
-      status: "available",
-      value: citationMatch[0],
-      confidence: 0.98,
-      evidence: [anchorFor(citationParagraph, citationMatch[0], "identity.citation")],
-      conflicts: [],
-    };
-    clearFieldFlags(flags, ["identity.citation"]);
-  }
-}
-
 function reconcileSpecialistFields(input: {
   facts: CaseFactsV2;
   procedure: CaseProcedureV2;
@@ -551,7 +518,13 @@ function reconcileSpecialistFields(input: {
   const grounds = procedure.groundsOrIssues.status === "available" ? procedure.groundsOrIssues.value : [];
   if (grounds.length && explicitAnchors.length) {
     const holdingText = buildHoldingText(grounds);
-    if (holdingText) {
+    // Ground results are a verification fallback, not the lawyer-written
+    // holding.  Preserve a reasoned specialist/whole-judgment synthesis and
+    // replace only an empty or already-bare value.
+    if (
+      holdingText &&
+      (analysis.holding.status !== "available" || isBareHoldingResult(analysis.holding.value))
+    ) {
       analysis.holding = {
         status: "available",
         value: holdingText,
@@ -613,89 +586,244 @@ function reconcileSpecialistFields(input: {
       clearFieldFlags(flags, ["analysis.dominantIssue"]);
     }
   }
+
+  const principleNeedsRepair = analysis.legalPrincipleSummary.status !== "available" ||
+    [...flags].some((flag) => flag.startsWith("analysis.legalPrincipleSummary:"));
+  if (principleNeedsRepair && analysis.ratioDecidendi.status === "available" && analysis.ratioDecidendi.evidence.length) {
+    const principles = analysis.ratioDecidendi.value
+      .map((item) => item.principle.trim())
+      .filter(Boolean);
+    const selected: string[] = [];
+    for (const principle of principles) {
+      const candidate = [...selected, principle].join(" ");
+      if (selected.length && candidate.length > 760) break;
+      selected.push(principle);
+      if (selected.length === 3) break;
+    }
+    if (selected.length) {
+      analysis.legalPrincipleSummary = {
+        status: "available",
+        value: selected.join(" "),
+        confidence: Math.max(0.95, analysis.ratioDecidendi.confidence),
+        evidence: [...analysis.ratioDecidendi.evidence],
+        conflicts: [],
+      };
+      clearFieldFlags(flags, ["analysis.legalPrincipleSummary"]);
+    }
+  }
 }
 
-// On-demand extraction of one deferred fact field. Reuses the stored
-// paragraphs and section map from the record, so the only cost is a single
-// focused model call. The result passes the same evidence validation as
-// bulk extraction.
-export async function extractDeferredFactField(
+function specialistConfig(kind: SpecialistAgentKindV2): {
+  stage: string;
+  schema: { name: string; schema: JsonRecord };
+  system: string;
+  types: ReadonlySet<SectionType>;
+  fallback: "head" | "tail" | "all" | "none";
+  contract: string;
+} {
+  if (kind === "identity") return {
+    stage: "identity-classification", schema: NOMOLOGIES_SCHEMAS.identity,
+    system: IDENTITY_SYSTEM_PROMPT, types: IDENTITY_TYPES, fallback: "head",
+    contract: "nomologies.identity.v2",
+  };
+  if (kind === "facts") return {
+    stage: "material-facts", schema: NOMOLOGIES_SCHEMAS.facts,
+    system: FACTS_SYSTEM_PROMPT, types: FACT_TYPES, fallback: "none",
+    contract: "nomologies.facts.v2",
+  };
+  if (kind === "procedure") return {
+    stage: "procedure-grounds", schema: NOMOLOGIES_SCHEMAS.procedure,
+    system: PROCEDURE_SYSTEM_PROMPT, types: PROCEDURE_TYPES, fallback: "none",
+    contract: "nomologies.procedure.v2",
+  };
+  if (kind === "analysis") return {
+    stage: "judicial-analysis", schema: NOMOLOGIES_SCHEMAS.analysis,
+    system: ANALYSIS_SYSTEM_PROMPT, types: ANALYSIS_TYPES, fallback: "none",
+    contract: "nomologies.analysis.v2",
+  };
+  if (kind === "authorities") return {
+    stage: "legislation-authorities", schema: NOMOLOGIES_SCHEMAS.authorities,
+    system: AUTHORITIES_SYSTEM_PROMPT, types: AUTHORITY_TYPES, fallback: "none",
+    contract: "nomologies.authorities.v2",
+  };
+  return {
+    stage: "outcome-orders", schema: NOMOLOGIES_SCHEMAS.outcome,
+    system: OUTCOME_SYSTEM_PROMPT, types: OUTCOME_TYPES, fallback: "tail",
+    contract: "nomologies.outcome.v2",
+  };
+}
+
+export async function runSpecialistAgent(
+  kind: SpecialistAgentKindV2,
   source: JudgmentSourceV2,
   sectionMap: SectionMapV2,
-  field: DeferrableFactField,
-  options: { signal?: AbortSignal; model?: string } = {},
-): Promise<{ field: ExtractedFieldV2<unknown>; audit: PipelineStageAuditV2; reviewFlags: string[] }> {
-  const context = buildEvidenceContext(source, sectionMap);
-  const schema = DEFERRED_FIELD_SCHEMAS[field];
-  const system = `${FACTS_PROCEDURE_SYSTEM_PROMPT}\n\nTHIS CALL\nExtract ONLY facts.${field}. Every other field is handled elsewhere.`;
+  options: { signal?: AbortSignal; model?: string; repair?: SpecialistRepairBriefV2 } = {},
+): Promise<SpecialistAgentRunV2> {
+  const config = specialistConfig(kind);
   const user = agentPayload(
     source,
     sectionMap,
-    sectionPayload(source, sectionMap, FACT_PROCEDURE_TYPES, "none"),
-    `nomologies.facts-deferred.${field}.v2`,
+    sectionPayload(source, sectionMap, config.types, config.fallback),
+    config.contract,
+    options.repair,
   );
+  const repairSystem = options.repair
+    ? `${config.system}\n\nSECOND-PASS REPAIR\nAn independent verifier identified the supplied conflicts. Re-check each one against the source. Correct only what the source proves, preserve supported content, and return the complete specialist schema. Never repair by guessing.`
+    : config.system;
+  // Elite tiering: legal nuance (facts, procedure, judicial analysis) runs on
+  // the flagship model with medium reasoning; mechanical header/outcome reading
+  // stays flagship at low effort; citation linking may use the mini model in
+  // the economy profile. An explicit model pin overrides everything.
+  const economy = nomologiesProfile() === "economy";
+  const nuanced = kind === "analysis" || kind === "facts" || kind === "procedure";
+  const stageModel = options.model || (kind === "authorities" && economy ? nomologiesMiniModel() : undefined);
   const response = await runAgent(
-    `deferred-${field}`,
-    { name: schema.name, schema: schema.schema as JsonRecord },
-    system,
+    options.repair ? `repair-${config.stage}` : config.stage,
+    config.schema,
+    repairSystem,
     user,
-    "medium",
-    options,
-    options.model || nomologiesMiniModel(),
+    nuanced ? "medium" : "low",
+    { ...options, model: stageModel },
   );
-  const validated = validateExtractedField(obj(response.data)[field], `facts.${field}`, [], context);
-  return { field: validated.field, audit: response.audit, reviewFlags: validated.reviewFlags };
+  return { kind, raw: response.data, audit: response.audit };
 }
 
-export async function runSpecialistAgents(
+export async function runDeferredFieldAgent(
+  kind: "chronology" | "witnessesAndEvidence",
   source: JudgmentSourceV2,
   sectionMap: SectionMapV2,
   options: { signal?: AbortSignal; model?: string } = {},
-): Promise<SpecialistResultsV2> {
+): Promise<ExtractedFieldV2<TimelineEventV2[] | EvidenceOrWitnessV2[]>> {
+  const chronology = kind === "chronology";
+  const schema = chronology ? NOMOLOGIES_SCHEMAS.deferredChronology : NOMOLOGIES_SCHEMAS.deferredWitnesses;
+  const system = chronology ? DEFERRED_CHRONOLOGY_SYSTEM_PROMPT : DEFERRED_WITNESSES_SYSTEM_PROMPT;
+  const user = agentPayload(
+    source,
+    sectionMap,
+    sectionPayload(source, sectionMap, FACT_TYPES, "none"),
+    chronology ? "nomologies.deferred.chronology.v1" : "nomologies.deferred.witnesses.v1",
+  );
+  const response = await runAgent(
+    chronology ? "deferred-chronology" : "deferred-witnesses-evidence",
+    schema,
+    system,
+    user,
+    "low",
+    { ...options, model: options.model || (nomologiesProfile() === "economy" ? nomologiesMiniModel() : undefined) },
+  );
+  const raw = obj(response.data);
   const context = buildEvidenceContext(source, sectionMap);
-  const identityUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, IDENTITY_TYPES, "head"), "nomologies.identity.v2");
-  const factsUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, FACT_PROCEDURE_TYPES, "none"), "nomologies.facts-procedure.v2");
-  const analysisUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, ANALYSIS_TYPES, "none"), "nomologies.analysis.v2");
-  const authoritiesUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, AUTHORITY_TYPES, "none"), "nomologies.authorities.v2");
-  const outcomeUser = agentPayload(source, sectionMap, sectionPayload(source, sectionMap, OUTCOME_TYPES, "none"), "nomologies.outcome.v2");
+  const path = chronology ? "facts.chronology" : "facts.witnessesAndEvidence";
+  const value = chronology ? raw.chronology : raw.witnessesAndEvidence;
+  return validateExtractedField(value, path, [], context).field as ExtractedFieldV2<TimelineEventV2[] | EvidenceOrWitnessV2[]>;
+}
 
-  // Economy profile: the authorities stage runs on the mini model. Identity
-  // and outcome keep the flagship despite being mechanical — their inputs are
-  // the smallest in the pipeline, so the saving was negligible while the 2024
-  // benchmark showed the mini model failing to ground dates and case numbers.
-  // Facts and judicial analysis always keep the flagship: that is where legal
-  // nuance lives. An explicit model pin overrides all of this.
-  const economy = nomologiesProfile() === "economy";
-  const mini = economy ? nomologiesMiniModel() : undefined;
-  const lightEffort: ReasoningEffort = economy ? "low" : "medium";
+// ECLI court codes are an EU-wide public standard, and «(YYYY) N Α.Α.Δ. p» /
+// "(YYYY) N C.L.R. p" are the official Cyprus reporter citations. Law-report
+// pages carry these instead of a formal court caption, so when the model
+// cannot ground the deciding court, derive it deterministically from those
+// verbatim lines.
+const ECLI_RE = /ECLI:CY:(AD|DOD|EDD|AAP):\d{4}:[A-Z]?\d+/i;
+const REPORTER_CITATION_RE = /\(\d{4}\)\s+\d\s+(?:Α\.?Α\.?Δ\.?|C\.?\s?L\.?\s?R\.?)\s+\d+/u;
 
-  const [identityResponse, factsResponse, analysisResponse, authorityResponse, outcomeResponse] = await Promise.all([
-    runAgent("identity-classification", NOMOLOGIES_SCHEMAS.identity, IDENTITY_SYSTEM_PROMPT, identityUser, lightEffort, options),
-    runAgent(
-      "facts-procedure",
-      economy ? NOMOLOGIES_SCHEMAS.factsProcedureLite : NOMOLOGIES_SCHEMAS.factsProcedure,
-      FACTS_PROCEDURE_SYSTEM_PROMPT,
-      factsUser,
-      "medium",
-      options,
-    ),
-    runAgent("judicial-analysis", NOMOLOGIES_SCHEMAS.analysis, ANALYSIS_SYSTEM_PROMPT, analysisUser, "medium", options),
-    runAgent("legislation-authorities", NOMOLOGIES_SCHEMAS.authorities, AUTHORITIES_SYSTEM_PROMPT, authoritiesUser, "medium", options, mini),
-    runAgent("outcome-orders", NOMOLOGIES_SCHEMAS.outcome, OUTCOME_SYSTEM_PROMPT, outcomeUser, lightEffort, options),
-  ]);
+export function groundIdentityFromCitations(
+  identity: CaseIdentityV2,
+  source: JudgmentSourceV2,
+  context: EvidenceValidationContext,
+  flags: Set<string>,
+): void {
+  const head = source.paragraphs.slice(0, 40);
+  const anchorFor = (paragraph: JudgmentParagraphV2, quote: string, field: string): EvidenceAnchorV2 => {
+    const span = context.sectionByParagraphId.get(paragraph.id);
+    return {
+      id: `EV_${field}_citation_derived`,
+      paragraphIds: [paragraph.id],
+      quote,
+      sectionType: span?.sectionType || "case_metadata",
+      speakerRole: span?.speakerRole || "court",
+      supports: [field],
+      exactMatch: true,
+    };
+  };
+  const isAvailable = (field: { status: string }) => field.status === "available";
+  const ecliParagraph = head.find((paragraph) => ECLI_RE.test(paragraph.text));
+  const ecliMatch = ecliParagraph?.text.match(ECLI_RE) || null;
+  const citationParagraph = head.find((paragraph) => REPORTER_CITATION_RE.test(paragraph.text));
+  const citationMatch = citationParagraph?.text.match(REPORTER_CITATION_RE) || null;
 
+  if (!isAvailable(identity.court) && (ecliMatch || citationMatch)) {
+    const paragraph = (ecliMatch ? ecliParagraph : citationParagraph) as JudgmentParagraphV2;
+    const quote = ecliMatch ? ecliMatch[0] : (citationMatch as RegExpMatchArray)[0];
+    identity.court = {
+      status: "available",
+      value: "Ανώτατο Δικαστήριο",
+      confidence: 0.97,
+      evidence: [anchorFor(paragraph, quote, "identity.court")],
+      conflicts: [],
+    };
+    clearFieldFlags(flags, ["identity.court"]);
+    flags.add("identity.court:derived_from_official_citation");
+  }
+  if (!isAvailable(identity.ecli) && ecliMatch && ecliParagraph) {
+    identity.ecli = {
+      status: "available",
+      value: ecliMatch[0],
+      confidence: 0.99,
+      evidence: [anchorFor(ecliParagraph, ecliMatch[0], "identity.ecli")],
+      conflicts: [],
+    };
+    clearFieldFlags(flags, ["identity.ecli"]);
+  }
+  if (!isAvailable(identity.citation) && citationMatch && citationParagraph) {
+    identity.citation = {
+      status: "available",
+      value: citationMatch[0],
+      confidence: 0.98,
+      evidence: [anchorFor(citationParagraph, citationMatch[0], "identity.citation")],
+      conflicts: [],
+    };
+    clearFieldFlags(flags, ["identity.citation"]);
+  }
+}
+
+export function combineSpecialistAgentResults(
+  source: JudgmentSourceV2,
+  sectionMap: SectionMapV2,
+  runs: SpecialistAgentRunV2[],
+): SpecialistResultsV2 {
+  const byKind = new Map<SpecialistAgentKindV2, SpecialistAgentRunV2>(runs.map((run) => [run.kind, run]));
+  const required: SpecialistAgentKindV2[] = ["identity", "facts", "procedure", "analysis", "authorities", "outcome"];
+  for (const kind of required) {
+    if (!byKind.has(kind)) throw new Error(`SPECIALIST_RESULT_MISSING:${kind}`);
+  }
+
+  const raw = (kind: SpecialistAgentKindV2) => byKind.get(kind)!.raw;
+  const context = buildEvidenceContext(source, sectionMap);
   const flags = new Set<string>(sectionMap.reviewFlags);
-  const identity = validatedIdentity(identityResponse.data, context, flags);
-  const factsProcedure = validatedFactsProcedure(factsResponse.data, context, flags, economy);
-  const analysis = validatedAnalysis(analysisResponse.data, context, flags);
-  const authorities = validatedAuthorities(authorityResponse.data, context, flags);
-  const outcome = validatedOutcome(outcomeResponse.data, context, flags);
-
+  const identity = validatedIdentity(raw("identity"), context, flags);
   groundIdentityFromCitations(identity.identity, source, context, flags);
+  const factsProcedure = validatedFactsProcedure({
+    facts: obj(raw("facts").facts),
+    procedure: obj(raw("procedure").procedure),
+  }, context, flags);
+  const analysis = validatedAnalysis(raw("analysis"), context, flags);
+  const authorities = validatedAuthorities(raw("authorities"), context, flags);
+  const outcome = validatedOutcome(raw("outcome"), context, flags);
+
   reconcileSpecialistFields({
     facts: factsProcedure.facts,
     procedure: factsProcedure.procedure,
     analysis,
+    outcome,
+    flags,
+  });
+  reconcileNomologiesQuality({
+    source,
+    context,
+    classification: identity.classification,
+    procedure: factsProcedure.procedure,
+    analysis,
+    authorities,
     outcome,
     flags,
   });
@@ -709,19 +837,23 @@ export async function runSpecialistAgents(
     authorities,
     outcome,
     reviewFlags: [...flags].sort(),
-    audits: [
-      identityResponse.audit,
-      factsResponse.audit,
-      analysisResponse.audit,
-      authorityResponse.audit,
-      outcomeResponse.audit,
-    ],
+    audits: required.map((kind) => byKind.get(kind)!.audit),
     raw: {
-      identity: identityResponse.data,
-      factsProcedure: factsResponse.data,
-      analysis: analysisResponse.data,
-      authorities: authorityResponse.data,
-      outcome: outcomeResponse.data,
+      identity: raw("identity"),
+      factsProcedure: { facts: obj(raw("facts").facts), procedure: obj(raw("procedure").procedure) },
+      analysis: raw("analysis"),
+      authorities: raw("authorities"),
+      outcome: raw("outcome"),
     },
   };
+}
+
+export async function runSpecialistAgents(
+  source: JudgmentSourceV2,
+  sectionMap: SectionMapV2,
+  options: { signal?: AbortSignal; model?: string } = {},
+): Promise<SpecialistResultsV2> {
+  const kinds: SpecialistAgentKindV2[] = ["identity", "facts", "procedure", "analysis", "authorities", "outcome"];
+  const runs = await Promise.all(kinds.map((kind) => runSpecialistAgent(kind, source, sectionMap, options)));
+  return combineSpecialistAgentResults(source, sectionMap, runs);
 }
