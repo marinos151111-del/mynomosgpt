@@ -1,0 +1,27 @@
+name: Production health verification
+
+on:
+  push:
+    branches:
+      - "claude/**"
+    paths:
+      - .github/prod-health-request.json
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check API health and pinned source availability
+        shell: bash
+        run: |
+          set -uo pipefail
+          echo "== nomologies-api /health =="
+          curl -sS -m 30 "https://btfggtdysjgdjgmvqdbt.supabase.co/functions/v1/nomologies-api/health" | head -c 1200 || echo "API_HEALTH_FAILED"
+          echo; echo "== pinned worker source reachable =="
+          curl -sS -o /dev/null -w "%{http_code}\n" -m 30 "https://raw.githubusercontent.com/marinos151111-del/mynomosgpt/b5943dfc094b41539ec65a980aebf3b7e86a989a/supabase/functions/nomologies-worker/index.ts"
+          echo "== pinned api source reachable =="
+          curl -sS -o /dev/null -w "%{http_code}\n" -m 30 "https://raw.githubusercontent.com/marinos151111-del/mynomosgpt/b5943dfc094b41539ec65a980aebf3b7e86a989a/supabase/functions/nomologies-api/index.ts"
