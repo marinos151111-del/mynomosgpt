@@ -1,20 +1,20 @@
 {
-  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=apofaseis/aad/meros_2/2015/rep/2015_2_0766.htm",
-  "sourceTitle": "Ζαρή Ευτυχία ν. Δημοκρατίας (Αρ. 2) (2015) 2 ΑΑΔ 766",
+  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-30-16PolEf.html",
+  "sourceTitle": "Alexander Keith Edward v. Γεώργιου Αλεξάνδρου, από την Πάφο, ως διαχειριστή της περιουσίας της Αναστασίας Κώστα Αλεξάνδρου κ.α., ΠΟΛΙΤΙΚΗ ΕΦΕΣΗ ΑΡ. 30/2016, 12/1/2026",
   "charset": "windows-1253",
-  "htmlCharacters": 88677,
-  "fetchedTextCharacters": 49355,
-  "cleanTextCharacters": 49355,
-  "paragraphCount": 249,
-  "paragraphCharacters": 48702,
+  "htmlCharacters": 41291,
+  "fetchedTextCharacters": 13653,
+  "cleanTextCharacters": 13653,
+  "paragraphCount": 89,
+  "paragraphCharacters": 13217,
   "paragraphLength": {
     "minimum": 2,
-    "median": 180,
-    "p90": 391,
-    "p95": 477,
-    "p99": 633,
-    "maximum": 782
+    "median": 102,
+    "p90": 342,
+    "p95": 410,
+    "p99": 507,
+    "maximum": 826
   },
   "paragraphsAtMaximumSplit": 0,
-  "generatedAt": "2026-08-05T14:34:55.610Z"
+  "generatedAt": "2026-08-06T05:15:33.158Z"
 }
