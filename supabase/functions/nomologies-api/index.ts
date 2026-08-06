@@ -7,7 +7,7 @@ import type { JudgmentParagraphV2, JudgmentSourceV2, SectionMapV2 } from "../../
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") || "";
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
-const GATEWAY_KEY_SHA256 = "88de7c7705f60314aa8b23ae6045258e28991e965d825613bfe9a68baeb7aafa";
+const GATEWAY_KEY_SHA256 = "01292086011cb6217c28fdb63df2a1e83872b6a0a2e26440560f46e6ce4de168";
 const OPENAI_KEY = Deno.env.get("OPENAI_API_KEY") || "";
 const EMBEDDING_MODEL = Deno.env.get("NOMOLOGIES_EMBEDDING_MODEL") || "text-embedding-3-large";
 const CHAT_MODEL = Deno.env.get("NOMOLOGIES_CHAT_MODEL") || "gpt-5.4-mini";
