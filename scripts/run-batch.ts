@@ -56,6 +56,22 @@ async function decodeIndexHtml(indexUrl: string): Promise<string> {
 }
 
 export async function extractJudgmentLinks(indexUrl: string, count: number): Promise<string[]> {
+  // A direct judgment link runs as a one-case batch without index parsing:
+  // open.pl file links and year-folder document pages are always judgment
+  // documents, never indexes.
+  try {
+    const directUrl = new URL(indexUrl);
+    const fileParam = directUrl.searchParams.get("file");
+    const docPath = (fileParam || directUrl.pathname).toLowerCase();
+    const looksLikeJudgment = /\.html?$/.test(docPath) && !docPath.includes("index") &&
+      (fileParam !== null || /\/(?:19|20)\d{2}\//.test(directUrl.pathname));
+    if (looksLikeJudgment && isOfficialCyLawUrl(indexUrl)) {
+      directUrl.searchParams.delete("qstring");
+      return [directUrl.toString()];
+    }
+  } catch {
+    // fall through to index parsing
+  }
   const html = await decodeIndexHtml(indexUrl);
   const links: string[] = [];
   const seen = new Set<string>();
