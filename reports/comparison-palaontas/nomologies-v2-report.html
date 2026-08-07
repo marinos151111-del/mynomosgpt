@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>Nomologies V2 failure</title><style>body{font:16px system-ui;padding:40px;max-width:900px;margin:auto}pre{white-space:pre-wrap;background:#f4eee2;padding:20px}</style><h1>Nomologies V2 test failed</h1><p><b>Source:</b> https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-190-16PolEf.html</p><p><b>Mode:</b> full</p><pre>The facts-procedure stage exceeded its safe execution time.
+
+NomologiesOpenAIError: The facts-procedure stage exceeded its safe execution time.
+    at createStructuredResponse (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/openai-responses.ts:299:13)
+    at async runAgent (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/agents.ts:181:20)
+    at async Promise.all (index 1)
+    at async runSpecialistAgents (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/agents.ts:543:99)
+    at async runNomologiesPipelineV2 (file:///home/runner/work/mynomosgpt/mynomosgpt/src/nomologies-v2/pipeline.ts:412:23)
+    at async file:///home/runner/work/mynomosgpt/mynomosgpt/scripts/run-test.ts:152:18</pre>

@@ -1,0 +1,20 @@
+{
+  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-190-16PolEf.html",
+  "sourceTitle": "ΤΑΚΗΣ ΠΑΛΑΟΝΤΑΣ v. ESFERA HOLDINGS LTD κ.α., Πολιτική Έφεση Αρ.190/2016, 21/1/2026",
+  "charset": "windows-1253",
+  "htmlCharacters": 63344,
+  "fetchedTextCharacters": 13919,
+  "cleanTextCharacters": 13919,
+  "paragraphCount": 95,
+  "paragraphCharacters": 13320,
+  "paragraphLength": {
+    "minimum": 2,
+    "median": 84,
+    "p90": 304,
+    "p95": 375,
+    "p99": 596,
+    "maximum": 736
+  },
+  "paragraphsAtMaximumSplit": 0,
+  "generatedAt": "2026-08-07T08:43:51.534Z"
+}
