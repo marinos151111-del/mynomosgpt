@@ -1,0 +1,95 @@
+name: Isolated Palaontas pipeline comparison
+
+on:
+  push:
+    branches:
+      - "comparison/**"
+    paths:
+      - .github/compare-palaontas-request.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: palaontas-comparison-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout frozen pipeline
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check pipeline
+        run: deno check scripts/run-test.ts
+
+      - name: Confirm repository OpenAI secret
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: test -n "${OPENAI_API_KEY:-}"
+
+      - name: Run full extraction
+        id: extraction
+        continue-on-error: true
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SOURCE_URL: https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-190-16PolEf.html
+          PIPELINE_MODE: full
+          NOMOLOGIES_V2_PROFILE: economy
+          NOMOLOGIES_V2_MINI_MODEL: gpt-5.4-mini
+        run: |
+          set +e
+          started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          deno run             --allow-net=api.openai.com,cylaw.org,www.cylaw.org             --allow-env=OPENAI_API_KEY,NOMOLOGIES_V2_MODEL,NOMOLOGIES_V2_PROFILE,NOMOLOGIES_V2_MINI_MODEL,SOURCE_URL,PIPELINE_MODE             --allow-read             --allow-write=artifacts             scripts/run-test.ts
+          code=$?
+          ended_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          echo "started_at=$started_at" >> "$GITHUB_OUTPUT"
+          echo "ended_at=$ended_at" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Commit isolated report
+        if: always()
+        shell: bash
+        env:
+          EXIT_CODE: ${{ steps.extraction.outputs.exit_code }}
+          STARTED_AT: ${{ steps.extraction.outputs.started_at }}
+          ENDED_AT: ${{ steps.extraction.outputs.ended_at }}
+        run: |
+          set -euo pipefail
+          rm -rf reports/comparison-palaontas
+          mkdir -p reports/comparison-palaontas
+          if [ -d artifacts/nomologies-v2 ]; then
+            cp -R artifacts/nomologies-v2/. reports/comparison-palaontas/
+          fi
+          cat > reports/comparison-palaontas/run.json <<EOF
+          {
+            "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-190-16PolEf.html",
+            "mode": "full",
+            "profile": "economy",
+            "globalModelPin": null,
+            "miniModel": "gpt-5.4-mini",
+            "exitCode": ${EXIT_CODE:-99},
+            "workflowCommit": "${GITHUB_SHA}",
+            "startedAt": "${STARTED_AT:-}",
+            "endedAt": "${ENDED_AT:-}"
+          }
+          EOF
+          git config user.name "MyNomos Comparison Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/comparison-palaontas
+          git diff --cached --quiet && exit 0
+          git commit -m "Record isolated Palaontas comparison"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
