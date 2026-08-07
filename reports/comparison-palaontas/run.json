@@ -1,0 +1,11 @@
+{
+  "sourceUrl": "https://www.cylaw.org/cgi-bin/open.pl?file=/supreme/2026/202601-190-16PolEf.html",
+  "mode": "full",
+  "profile": "economy",
+  "globalModelPin": null,
+  "miniModel": "gpt-5.4-mini",
+  "exitCode": 0,
+  "workflowCommit": "67d5d448c3cf8ed18e8b72033cddfcec4211d14e",
+  "startedAt": "2026-08-07T08:49:40Z",
+  "endedAt": "2026-08-07T08:57:13Z"
+}
