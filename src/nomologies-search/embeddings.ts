@@ -1,5 +1,8 @@
 const EMBEDDINGS_ENDPOINT = "https://api.openai.com/v1/embeddings";
 const DEFAULT_MODEL = "text-embedding-3-large";
+const MAX_EMBEDDING_INPUT_CHARS = 24_000;
+const EMBEDDING_HEAD_CHARS = 16_000;
+const EMBEDDING_TAIL_CHARS = 8_000;
 
 function env(name: string): string {
   try {
@@ -11,6 +14,12 @@ function env(name: string): string {
 
 function asNumber(value: unknown): number {
   return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function embeddingSafeText(value: unknown): string {
+  const text = String(value || "").trim();
+  if (text.length <= MAX_EMBEDDING_INPUT_CHARS) return text;
+  return `${text.slice(0, EMBEDDING_HEAD_CHARS)}\n\n[... indexed legal text truncated for embedding safety ...]\n\n${text.slice(-EMBEDDING_TAIL_CHARS)}`;
 }
 
 export function semanticSearchConfigured(): boolean {
@@ -27,7 +36,7 @@ export async function embedTexts(
 ): Promise<number[][]> {
   const apiKey = env("OPENAI_API_KEY");
   if (!apiKey) throw new Error("OPENAI_API_KEY_NOT_CONFIGURED");
-  const cleaned = texts.map((text) => String(text || "").trim());
+  const cleaned = texts.map(embeddingSafeText);
   if (!cleaned.length) return [];
   const dimensions = options.dimensions || Number(env("NOMOLOGIES_EMBEDDING_DIMENSIONS")) || 1024;
   const output: number[][] = [];
@@ -49,7 +58,8 @@ export async function embedTexts(
       signal: options.signal,
     });
     if (!response.ok) {
-      throw new Error(`OPENAI_EMBEDDINGS_HTTP_${response.status}`);
+      const detail = (await response.text().catch(() => "")).slice(0, 500);
+      throw new Error(`OPENAI_EMBEDDINGS_HTTP_${response.status}:${detail}`);
     }
     const payload = await response.json() as { data?: Array<{ index?: number; embedding?: number[] }> };
     const rows = Array.isArray(payload.data) ? payload.data : [];
@@ -79,4 +89,3 @@ export function cosineSimilarity(left: number[], right: number[]): number {
   if (!leftNorm || !rightNorm) return 0;
   return dot / (Math.sqrt(leftNorm) * Math.sqrt(rightNorm));
 }
-
