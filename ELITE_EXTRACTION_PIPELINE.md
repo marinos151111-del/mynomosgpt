@@ -22,6 +22,28 @@ Only the parser core changes. The bulk workflow, deploy gate and indexer stay.
 
 ## 2. Record contract (what the parser must output)
 
+### 2.0 Canonical section order (as approved in the gold rendering)
+
+The case page renders in EXACTLY this order — the record and the UI must both
+follow it:
+
+1. Case header (name, appeal number, court, date, primary law + articles, badges:
+   outcome, Βαρύτητα, case type, proceeding type)
+2. Κυρίαρχη Νομική Αρχή
+3. Ουσιώδη Πραγματικά Περιστατικά
+4. Διαδικαστική Πορεία
+5. Νομικά Ζητήματα & Κρίση (numbered, each with the court's κρίση)
+6. Διατακτικό, Διατάγματα & Έξοδα (verbatim διατακτικό + structured orders)
+7. Νομοθεσία & Αυθεντίες (legislation first, then case authorities)
+8. Σύνθεση Δικαστηρίου (after the authorities, near the end — incl. Παρέδωσε την απόφαση)
+9. Λόγοι Έφεσης (all grounds with per-ground result)
+10. Στοιχεία Απόφασης & Ευρετηρίαση (jurisdiction, Greek-only keywords)
+11. Single AI action («Ρώτησε το AI») — one action, not separate Πλήρες κείμενο /
+    CyLaw / chat buttons
+
+The internal quality layer (evidence, confidence, review flags) is never rendered
+on the public page.
+
 Field names marked **(existing)** keep the current record's name so nothing already
 rendering breaks. Fields marked **(new)** must be added to the record and the UI.
 
