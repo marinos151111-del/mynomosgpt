@@ -1,0 +1,1 @@
+Apply the reviewed specialist reconciliation patch to the isolated pipeline.

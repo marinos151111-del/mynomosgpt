@@ -1,0 +1,1 @@
+Rerun after normalizing named imports inside the import-type block.
