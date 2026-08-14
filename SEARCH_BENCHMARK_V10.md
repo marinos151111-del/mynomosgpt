@@ -10,6 +10,8 @@
 - V10 corrected both baseline failures:
   - `conditional contract misrepresentation`;
   - `echthriki katochi`.
+- Persistent evaluation run: `729780f9-3720-4ccb-9a10-a98c7a1f7b75`.
+- Smoke metrics: MRR **1.00**; Recall@5 **1.00**; Recall@10 **1.00**; nDCG@10 **1.00**.
 
 ## Safety and filter checks
 
