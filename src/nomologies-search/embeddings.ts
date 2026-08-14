@@ -1,8 +1,10 @@
 const EMBEDDINGS_ENDPOINT = "https://api.openai.com/v1/embeddings";
 const DEFAULT_MODEL = "text-embedding-3-large";
-const MAX_EMBEDDING_INPUT_CHARS = 24_000;
-const EMBEDDING_HEAD_CHARS = 16_000;
-const EMBEDDING_TAIL_CHARS = 8_000;
+// Greek legal text can tokenize much more densely than English. Keep each
+// embedding input comfortably below the provider's 8,192-token ceiling.
+const MAX_EMBEDDING_INPUT_CHARS = 8_000;
+const EMBEDDING_HEAD_CHARS = 5_500;
+const EMBEDDING_TAIL_CHARS = 2_500;
 
 function env(name: string): string {
   try {
