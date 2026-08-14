@@ -1,0 +1,2 @@
+Launch request: 2026-07-31T07:42:00Z
+Purpose: verified Full Extraction browser test after async job lifecycle fix.
