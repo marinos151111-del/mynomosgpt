@@ -41,8 +41,10 @@ follow it:
 11. Single AI action («Ρώτησε το AI») — one action, not separate Πλήρες κείμενο /
     CyLaw / chat buttons
 
-The internal quality layer (evidence, confidence, review flags) is never rendered
-on the public page.
+Public quality display: the card and header show «N/100 τεκμηρίωση» from the
+fixed 0–100 `confidence` (badge hidden when the value is missing or 0 — never
+render "0/100"). Everything else in the quality layer (evidence quotes, review
+flags, readiness details) stays internal to the review desk.
 
 Field names marked **(existing)** keep the current record's name so nothing already
 rendering breaks. Fields marked **(new)** must be added to the record and the UI.
