@@ -1,0 +1,94 @@
+name: Patch Nomologies API to preserve V10 database ranking
+
+on:
+  push:
+    branches:
+      - search/nomologies-v10
+    paths:
+      - .github/workflows/patch-nomologies-api-v10.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: patch-nomologies-api-v10
+  cancel-in-progress: false
+
+jobs:
+  patch-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PROJECT_REF: btfggtdysjgdjgmvqdbt
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: search/nomologies-v10
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Require Supabase deployment credential
+        shell: bash
+        run: |
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ]; then
+            echo "SUPABASE_ACCESS_TOKEN repository secret is not configured. No deployment was attempted." >&2
+            exit 1
+          fi
+
+      - name: Recover the exact deployed function source
+        run: npx --yes supabase@latest functions download nomologies-api --project-ref "$PROJECT_REF" --use-api
+
+      - name: Make V10 database rank authoritative
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("supabase/functions/nomologies-api/index.ts")
+          text = path.read_text(encoding="utf-8")
+          old = "const ranked=cases.sort((left,right)=>Number(right.lexicalPrecisionScore||0)-Number(left.lexicalPrecisionScore||0)||Number(left._hybridRank||0)-Number(right._hybridRank||0)).slice(0,requestedLimit).map(({_hybridRank,...item})=>item);"
+          new = "const ranked=cases.sort((left,right)=>Number(left._hybridRank||0)-Number(right._hybridRank||0)||Number(right.lexicalPrecisionScore||0)-Number(left.lexicalPrecisionScore||0)).slice(0,requestedLimit).map(({_hybridRank,...item})=>item);"
+          if old not in text:
+              raise SystemExit("Expected deployed reranking expression was not found; refusing to deploy an unverified patch.")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
+
+      - name: Restore Deno compiler configuration when download omits it
+        shell: bash
+        run: |
+          if [ ! -f deno.json ]; then
+            cat > deno.json <<'JSON'
+          {
+            "compilerOptions": {
+              "strict": true,
+              "lib": ["deno.ns", "dom", "dom.iterable", "esnext"]
+            }
+          }
+          JSON
+          fi
+
+      - name: Type-check the recovered source
+        run: deno check supabase/functions/nomologies-api/index.ts
+
+      - name: Deploy the patched function
+        run: npx --yes supabase@latest functions deploy nomologies-api --project-ref "$PROJECT_REF" --use-api --no-verify-jwt
+
+      - name: Preserve the deployed source in Git
+        shell: bash
+        run: |
+          git config user.name "mynomosaigpt-release-bot"
+          git config user.email "actions@github.com"
+          git add supabase/functions/nomologies-api src/nomologies-search src/nomologies-v2 deno.json
+          if git diff --cached --quiet; then
+            echo "No source changes to commit."
+          else
+            git commit -m "Preserve deployed Nomologies API with V10 authoritative ranking"
+            git push origin HEAD:search/nomologies-v10
+          fi
