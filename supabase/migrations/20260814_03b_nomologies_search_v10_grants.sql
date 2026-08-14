@@ -1,13 +1,20 @@
 grant usage on schema nomologies to service_role;
-grant all on table nomologies.search_query_events, nomologies.search_rate_limits, nomologies.search_eval_queries, nomologies.search_eval_labels, nomologies.search_eval_runs, nomologies.search_eval_results, nomologies.legal_search_synonyms to service_role;
+grant all on table
+  nomologies.search_query_events,
+  nomologies.search_rate_limits,
+  nomologies.search_eval_queries,
+  nomologies.search_eval_labels,
+  nomologies.search_eval_runs,
+  nomologies.search_eval_results,
+  nomologies.legal_search_synonyms
+to service_role;
 grant usage, select on all sequences in schema nomologies to service_role;
 grant execute on function nomologies.consume_search_rate_limit(text,integer,integer) to service_role;
-grant execute on function nomologies.hybrid_case_search_v10(text,vector,jsonb,integer) to service_role;
 grant execute on function nomologies.legal_lemma_token(text) to service_role;
 grant execute on function nomologies.legal_lemma_text(text) to service_role;
 grant execute on function nomologies.greek_to_latin_search(text) to service_role;
 grant execute on function nomologies.search_or_prefix_tsquery(text) to service_role;
-revoke all on function nomologies.hybrid_case_search_v10(text,vector,jsonb,integer) from public;
+
 revoke all on function nomologies.consume_search_rate_limit(text,integer,integer) from public;
 revoke all on function nomologies.legal_lemma_token(text) from public;
 revoke all on function nomologies.legal_lemma_text(text) from public;
