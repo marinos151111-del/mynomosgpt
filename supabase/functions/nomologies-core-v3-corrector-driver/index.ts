@@ -32,7 +32,7 @@ async function drive(): Promise<void> {
     .order("created_at", { ascending: true });
   if (error) throw new Error(error.message);
   const ids = (data || [])
-    .filter((run: any) => !run.metrics?.correction)
+    .filter((run: any) => !run.metrics?.correctionV2)
     .map((run: any) => String(run.id));
   await Promise.allSettled(ids.map((runId) => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-corrector`, {
     method: "POST",
