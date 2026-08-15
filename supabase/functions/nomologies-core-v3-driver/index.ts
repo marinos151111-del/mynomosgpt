@@ -19,8 +19,7 @@ async function suiteRuns(): Promise<Array<Record<string, any>>> {
   return data || [];
 }
 async function activeCount(): Promise<number> {
-  const runs = (await suiteRuns()).filter((run) => ["queued", "running"].includes(String(run.status)));
-  const ids = runs.map((run) => String(run.id));
+  const ids = (await suiteRuns()).filter((run) => ["queued", "running"].includes(String(run.status))).map((run) => String(run.id));
   if (!ids.length) return 0;
   const result = await db.schema("nomologies").from("core_v3_tasks")
     .select("id", { count: "exact", head: true })
@@ -38,7 +37,7 @@ async function kick(count: number): Promise<void> {
 }
 async function refinePending(): Promise<number> {
   const candidates = (await suiteRuns()).filter((run) =>
-    run.status === "completed" && run.core_status === "review" && !run.metrics?.refinement
+    run.status === "completed" && run.core_status === "review" && !run.metrics?.refinement && !run.metrics?.normalization
   ).slice(0, 2);
   if (!candidates.length) return 0;
   await Promise.allSettled(candidates.map((run) => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-refiner`, {
@@ -47,6 +46,27 @@ async function refinePending(): Promise<number> {
     body: JSON.stringify({ runId: run.id }),
   })));
   return candidates.length;
+}
+async function normalizePending(): Promise<number> {
+  const candidates = (await suiteRuns()).filter((run) =>
+    run.status === "completed" && !run.metrics?.normalization && (run.core_status === "pass" || !!run.metrics?.refinement)
+  ).slice(0, 2);
+  if (!candidates.length) return 0;
+  await Promise.allSettled(candidates.map((run) => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-normalizer`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${SERVICE_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ runId: run.id }),
+  })));
+  return candidates.length;
+}
+async function outstanding(): Promise<boolean> {
+  const runs = await suiteRuns();
+  return !!(await activeCount()) || runs.some((run) =>
+    run.status === "completed" && (
+      (run.core_status === "review" && !run.metrics?.refinement && !run.metrics?.normalization) ||
+      (!run.metrics?.normalization && (run.core_status === "pass" || !!run.metrics?.refinement))
+    )
+  );
 }
 async function drive(): Promise<void> {
   const deadline = Date.now() + 110_000;
@@ -57,11 +77,11 @@ async function drive(): Promise<void> {
       await sleep(2500);
       continue;
     }
-    const refined = await refinePending();
-    if (!refined) return;
-    await sleep(2500);
+    if (await refinePending()) { await sleep(1500); continue; }
+    if (await normalizePending()) { await sleep(1000); continue; }
+    return;
   }
-  if (await activeCount() || (await suiteRuns()).some((run) => run.status === "completed" && run.core_status === "review" && !run.metrics?.refinement)) {
+  if (await outstanding()) {
     await fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-driver-20260815`, {
       method: "POST",
       headers: { "content-type": "application/json" },
