@@ -33,6 +33,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check live cutover functions
+        shell: bash
+        run: |
+          set -euo pipefail
+          deno check supabase/functions/nomologies-core-v3-live-driver/index.ts
+          deno check supabase/functions/nomologies-core-v3-live-publisher/index.ts
+
       - name: Resolve deployment credential
         shell: bash
         run: |
