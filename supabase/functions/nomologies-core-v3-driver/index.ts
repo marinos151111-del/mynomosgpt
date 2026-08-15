@@ -28,6 +28,13 @@ async function activeCount(): Promise<number> {
   if (result.error) throw new Error(result.error.message);
   return result.count || 0;
 }
+async function callFunction(name: string, runIds: string[]): Promise<void> {
+  await Promise.allSettled(runIds.map((runId) => fetch(`${SUPABASE_URL}/functions/v1/${name}`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${SERVICE_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ runId }),
+  })));
+}
 async function kick(count: number): Promise<void> {
   await Promise.allSettled(Array.from({ length: count }, () => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-worker`, {
     method: "POST",
@@ -36,35 +43,36 @@ async function kick(count: number): Promise<void> {
   })));
 }
 async function refinePending(): Promise<number> {
-  const candidates = (await suiteRuns()).filter((run) =>
+  const ids = (await suiteRuns()).filter((run) =>
     run.status === "completed" && run.core_status === "review" && !run.metrics?.refinement && !run.metrics?.normalization
-  ).slice(0, 2);
-  if (!candidates.length) return 0;
-  await Promise.allSettled(candidates.map((run) => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-refiner`, {
-    method: "POST",
-    headers: { authorization: `Bearer ${SERVICE_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ runId: run.id }),
-  })));
-  return candidates.length;
+  ).slice(0, 2).map((run) => String(run.id));
+  if (!ids.length) return 0;
+  await callFunction("nomologies-core-v3-refiner", ids);
+  return ids.length;
 }
 async function normalizePending(): Promise<number> {
-  const candidates = (await suiteRuns()).filter((run) =>
+  const ids = (await suiteRuns()).filter((run) =>
     run.status === "completed" && !run.metrics?.normalization && (run.core_status === "pass" || !!run.metrics?.refinement)
-  ).slice(0, 2);
-  if (!candidates.length) return 0;
-  await Promise.allSettled(candidates.map((run) => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-normalizer`, {
-    method: "POST",
-    headers: { authorization: `Bearer ${SERVICE_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ runId: run.id }),
-  })));
-  return candidates.length;
+  ).slice(0, 2).map((run) => String(run.id));
+  if (!ids.length) return 0;
+  await callFunction("nomologies-core-v3-normalizer", ids);
+  return ids.length;
+}
+async function postNormalizePending(): Promise<number> {
+  const ids = (await suiteRuns()).filter((run) =>
+    run.status === "completed" && !!run.metrics?.normalization && !run.metrics?.postNormalization
+  ).slice(0, 2).map((run) => String(run.id));
+  if (!ids.length) return 0;
+  await callFunction("nomologies-core-v3-postnormalizer", ids);
+  return ids.length;
 }
 async function outstanding(): Promise<boolean> {
   const runs = await suiteRuns();
   return !!(await activeCount()) || runs.some((run) =>
     run.status === "completed" && (
       (run.core_status === "review" && !run.metrics?.refinement && !run.metrics?.normalization) ||
-      (!run.metrics?.normalization && (run.core_status === "pass" || !!run.metrics?.refinement))
+      (!run.metrics?.normalization && (run.core_status === "pass" || !!run.metrics?.refinement)) ||
+      (!!run.metrics?.normalization && !run.metrics?.postNormalization)
     )
   );
 }
@@ -79,6 +87,7 @@ async function drive(): Promise<void> {
     }
     if (await refinePending()) { await sleep(1500); continue; }
     if (await normalizePending()) { await sleep(1000); continue; }
+    if (await postNormalizePending()) { await sleep(1000); continue; }
     return;
   }
   if (await outstanding()) {
