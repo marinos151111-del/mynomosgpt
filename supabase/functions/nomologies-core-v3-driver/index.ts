@@ -66,15 +66,17 @@ async function postNormalizePending(): Promise<number> {
   await callFunction("nomologies-core-v3-postnormalizer", ids);
   return ids.length;
 }
+async function finalizePending(): Promise<number> {
+  const ids = (await suiteRuns()).filter((run) =>
+    run.status === "completed" && !run.metrics?.finalization
+  ).slice(0, 2).map((run) => String(run.id));
+  if (!ids.length) return 0;
+  await callFunction("nomologies-core-v3-finalizer", ids);
+  return ids.length;
+}
 async function outstanding(): Promise<boolean> {
   const runs = await suiteRuns();
-  return !!(await activeCount()) || runs.some((run) =>
-    run.status === "completed" && (
-      (run.core_status === "review" && !run.metrics?.refinement && !run.metrics?.normalization) ||
-      (!run.metrics?.normalization && (run.core_status === "pass" || !!run.metrics?.refinement)) ||
-      (!!run.metrics?.normalization && !run.metrics?.postNormalization)
-    )
-  );
+  return !!(await activeCount()) || runs.some((run) => run.status === "completed" && !run.metrics?.finalization);
 }
 async function drive(): Promise<void> {
   const deadline = Date.now() + 110_000;
@@ -88,6 +90,7 @@ async function drive(): Promise<void> {
     if (await refinePending()) { await sleep(1500); continue; }
     if (await normalizePending()) { await sleep(1000); continue; }
     if (await postNormalizePending()) { await sleep(1000); continue; }
+    if (await finalizePending()) { await sleep(1500); continue; }
     return;
   }
   if (await outstanding()) {
