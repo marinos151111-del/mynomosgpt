@@ -302,7 +302,10 @@ begin
   where id=new.run_id;
 
   update nomologies.cases
-  set pending_run_id=new.run_id,
+  set pending_version_id=null,
+      pending_run_id=new.run_id,
+      pending_readiness_score=null,
+      pending_strict_ready=null,
       pending_created_at=now(),
       human_review_required=true,
       updated_at=now()
