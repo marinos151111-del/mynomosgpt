@@ -1,0 +1,173 @@
+name: Deploy Elite Core V3 live cutover
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/elite-core-v3-20260815
+    paths:
+      - supabase/migrations/20260815150000_elite_core_v3_live_cutover.sql
+      - supabase/functions/nomologies-core-v3-live-driver/**
+      - supabase/functions/nomologies-core-v3-live-publisher/**
+      - .github/workflows/deploy-core-v3-live.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: elite-core-v3-live-production
+  cancel-in-progress: false
+
+env:
+  SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+  PROJECT_REF: btfggtdysjgdjgmvqdbt
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate deployment credential
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${SUPABASE_ACCESS_TOKEN:-}" ]; then
+            echo "SUPABASE_ACCESS_TOKEN repository secret is missing" >&2
+            exit 1
+          fi
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Deploy live publisher first
+        shell: bash
+        run: |
+          set -euo pipefail
+          supabase functions deploy nomologies-core-v3-live-publisher \
+            --project-ref "$PROJECT_REF"
+
+      - name: Deploy rollback-safe live driver
+        shell: bash
+        run: |
+          set -euo pipefail
+          supabase functions deploy nomologies-core-v3-live-driver \
+            --project-ref "$PROJECT_REF" \
+            --no-verify-jwt
+
+      - name: Apply live cutover migration through Supabase Management API
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import pathlib
+          import urllib.error
+          import urllib.request
+
+          project_ref = os.environ["PROJECT_REF"]
+          token = os.environ["SUPABASE_ACCESS_TOKEN"]
+          sql = pathlib.Path("supabase/migrations/20260815150000_elite_core_v3_live_cutover.sql").read_text(encoding="utf-8")
+          request = urllib.request.Request(
+              f"https://api.supabase.com/v1/projects/{project_ref}/database/query",
+              data=json.dumps({"query": sql}).encode("utf-8"),
+              headers={
+                  "Authorization": f"Bearer {token}",
+                  "Content-Type": "application/json",
+              },
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=120) as response:
+                  print(response.read().decode("utf-8"))
+          except urllib.error.HTTPError as error:
+              body = error.read().decode("utf-8", errors="replace")
+              raise SystemExit(f"Migration failed: HTTP {error.code}: {body}")
+          PY
+
+      - name: Verify live database wiring
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import urllib.error
+          import urllib.request
+
+          project_ref = os.environ["PROJECT_REF"]
+          token = os.environ["SUPABASE_ACCESS_TOKEN"]
+          sql = """
+          select jsonb_build_object(
+            'live_links_table',to_regclass('nomologies.core_v3_live_links')::text,
+            'claim_function',to_regprocedure('nomologies.claim_core_v3_live_link(uuid,text,integer)')::text,
+            'redirect_function',to_regprocedure('nomologies.redirect_case_reprocess_to_core_v3()')::text,
+            'trigger_count',(
+              select count(*) from pg_trigger
+              where tgname='redirect_case_reprocess_to_core_v3_trigger' and not tgisinternal
+            ),
+            'enabled',(
+              select enabled from nomologies.system_controls
+              where control_key='elite_core_v3_live_enabled'
+            ),
+            'auto_publish',(
+              select enabled from nomologies.system_controls
+              where control_key='elite_core_v3_auto_publish_enabled'
+            )
+          ) as verification;
+          """
+          request = urllib.request.Request(
+              f"https://api.supabase.com/v1/projects/{project_ref}/database/query",
+              data=json.dumps({"query": sql}).encode("utf-8"),
+              headers={
+                  "Authorization": f"Bearer {token}",
+                  "Content-Type": "application/json",
+              },
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=60) as response:
+                  body = response.read().decode("utf-8")
+          except urllib.error.HTTPError as error:
+              detail = error.read().decode("utf-8", errors="replace")
+              raise SystemExit(f"Verification query failed: HTTP {error.code}: {detail}")
+          print(body)
+          payload = json.loads(body)
+          row = payload[0]["verification"] if isinstance(payload, list) and payload else {}
+          assert row.get("live_links_table") == "nomologies.core_v3_live_links", row
+          assert row.get("claim_function"), row
+          assert row.get("redirect_function"), row
+          assert int(row.get("trigger_count") or 0) == 1, row
+          assert row.get("enabled") is True, row
+          assert row.get("auto_publish") is False, row
+          PY
+
+      - name: Verify function security boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          driver_code=$(curl --silent --show-error --output /tmp/core-v3-driver.json --write-out '%{http_code}' \
+            --request POST \
+            --header 'content-type: application/json' \
+            --data '{"coreRunId":"00000000-0000-0000-0000-000000000000"}' \
+            "https://${PROJECT_REF}.supabase.co/functions/v1/nomologies-core-v3-live-driver")
+          test "$driver_code" = "401"
+          cat /tmp/core-v3-driver.json
+
+          publisher_code=$(curl --silent --show-error --output /tmp/core-v3-publisher.json --write-out '%{http_code}' \
+            --request POST \
+            --header 'content-type: application/json' \
+            --data '{"coreRunId":"00000000-0000-0000-0000-000000000000"}' \
+            "https://${PROJECT_REF}.supabase.co/functions/v1/nomologies-core-v3-live-publisher")
+          test "$publisher_code" = "401"
+          cat /tmp/core-v3-publisher.json
+
+      - name: Deployment summary
+        run: |
+          echo "Elite Core V3 is connected to the existing /cases/:id/reprocess contract."
+          echo "Model: gpt-5.4-mini"
+          echo "Current canonical versions remain protected."
+          echo "New results are pending candidates unless auto-publish is separately enabled."
