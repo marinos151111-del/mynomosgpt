@@ -10,12 +10,22 @@ function waitUntil(promise: Promise<unknown>): void {
   const runtime = (globalThis as any).EdgeRuntime;
   if (runtime?.waitUntil) runtime.waitUntil(promise); else void promise;
 }
-async function activeCount(): Promise<number> {
-  const { data: runs, error } = await db.schema("nomologies").from("core_v3_runs").select("id").eq("benchmark_suite", SUITE).in("status", ["queued", "running"]);
+async function suiteRuns(): Promise<Array<Record<string, any>>> {
+  const { data, error } = await db.schema("nomologies").from("core_v3_runs")
+    .select("id,status,core_status,metrics")
+    .eq("benchmark_suite", SUITE)
+    .order("created_at", { ascending: true });
   if (error) throw new Error(error.message);
-  const ids = (runs || []).map((row: any) => row.id);
+  return data || [];
+}
+async function activeCount(): Promise<number> {
+  const runs = (await suiteRuns()).filter((run) => ["queued", "running"].includes(String(run.status)));
+  const ids = runs.map((run) => String(run.id));
   if (!ids.length) return 0;
-  const result = await db.schema("nomologies").from("core_v3_tasks").select("id", { count: "exact", head: true }).in("run_id", ids).in("status", ["queued", "retry", "running"]);
+  const result = await db.schema("nomologies").from("core_v3_tasks")
+    .select("id", { count: "exact", head: true })
+    .in("run_id", ids)
+    .in("status", ["queued", "retry", "running"]);
   if (result.error) throw new Error(result.error.message);
   return result.count || 0;
 }
@@ -26,19 +36,43 @@ async function kick(count: number): Promise<void> {
     body: "{}",
   })));
 }
+async function refinePending(): Promise<number> {
+  const candidates = (await suiteRuns()).filter((run) =>
+    run.status === "completed" && run.core_status === "review" && !run.metrics?.refinement
+  ).slice(0, 2);
+  if (!candidates.length) return 0;
+  await Promise.allSettled(candidates.map((run) => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-refiner`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${SERVICE_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ runId: run.id }),
+  })));
+  return candidates.length;
+}
 async function drive(): Promise<void> {
   const deadline = Date.now() + 110_000;
   while (Date.now() < deadline) {
     const active = await activeCount();
-    if (!active) return;
-    await kick(Math.min(2, Math.max(1, active)));
+    if (active) {
+      await kick(Math.min(2, Math.max(1, active)));
+      await sleep(2500);
+      continue;
+    }
+    const refined = await refinePending();
+    if (!refined) return;
     await sleep(2500);
   }
-  if (await activeCount()) {
-    await fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-driver-20260815`, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" }).catch(() => undefined);
+  if (await activeCount() || (await suiteRuns()).some((run) => run.status === "completed" && run.core_status === "review" && !run.metrics?.refinement)) {
+    await fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-driver-20260815`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: "{}",
+    }).catch(() => undefined);
   }
 }
 Deno.serve(async () => {
   waitUntil(drive());
-  return new Response(JSON.stringify({ ok: true, suite: SUITE }), { status: 202, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+  return new Response(JSON.stringify({ ok: true, suite: SUITE }), {
+    status: 202,
+    headers: { "content-type": "application/json", "cache-control": "no-store" },
+  });
 });
