@@ -6,6 +6,13 @@ const SERVICE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const SUITE = "elite-core-v3-five-20260815";
 const db = createClient(URL, SERVICE, { auth: { persistSession: false, autoRefreshToken: false } });
 function waitUntil(promise: Promise<unknown>): void { const runtime = (globalThis as any).EdgeRuntime; if (runtime?.waitUntil) runtime.waitUntil(promise); else void promise; }
+async function call(name: string, ids: string[]): Promise<void> {
+  await Promise.allSettled(ids.map((runId) => fetch(`${URL}/functions/v1/${name}`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${SERVICE}`, "content-type": "application/json" },
+    body: JSON.stringify({ runId }),
+  })));
+}
 async function drive(): Promise<void> {
   const { data, error } = await db.schema("nomologies").from("core_v3_runs")
     .select("id,metrics")
@@ -13,12 +20,10 @@ async function drive(): Promise<void> {
     .eq("status", "completed")
     .order("created_at", { ascending: true });
   if (error) throw new Error(error.message);
-  const ids = (data || []).filter((run: any) => run.metrics?.finalization && !run.metrics?.resolution).map((run: any) => String(run.id));
-  await Promise.allSettled(ids.map((runId) => fetch(`${URL}/functions/v1/nomologies-core-v3-resolution`, {
-    method: "POST",
-    headers: { authorization: `Bearer ${SERVICE}`, "content-type": "application/json" },
-    body: JSON.stringify({ runId }),
-  })));
+  const resolutionIds = (data || []).filter((run: any) => run.metrics?.finalization && !run.metrics?.resolution).map((run: any) => String(run.id));
+  if (resolutionIds.length) await call("nomologies-core-v3-resolution", resolutionIds);
+  const calibrationIds = (data || []).filter((run: any) => run.metrics?.resolution && !run.metrics?.outcomeCalibration).map((run: any) => String(run.id));
+  if (calibrationIds.length) await call("nomologies-core-v3-mixed-outcome", calibrationIds);
 }
 Deno.serve(() => {
   waitUntil(drive());
