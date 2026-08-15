@@ -1,0 +1,44 @@
+import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from "jsr:@supabase/supabase-js@2";
+
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL") || "";
+const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+const SUITE = "elite-core-v3-five-20260815";
+const db = createClient(SUPABASE_URL, SERVICE_KEY, { auth: { persistSession: false, autoRefreshToken: false } });
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+function waitUntil(promise: Promise<unknown>): void {
+  const runtime = (globalThis as any).EdgeRuntime;
+  if (runtime?.waitUntil) runtime.waitUntil(promise); else void promise;
+}
+async function activeCount(): Promise<number> {
+  const { data: runs, error } = await db.schema("nomologies").from("core_v3_runs").select("id").eq("benchmark_suite", SUITE).in("status", ["queued", "running"]);
+  if (error) throw new Error(error.message);
+  const ids = (runs || []).map((row: any) => row.id);
+  if (!ids.length) return 0;
+  const result = await db.schema("nomologies").from("core_v3_tasks").select("id", { count: "exact", head: true }).in("run_id", ids).in("status", ["queued", "retry", "running"]);
+  if (result.error) throw new Error(result.error.message);
+  return result.count || 0;
+}
+async function kick(count: number): Promise<void> {
+  await Promise.allSettled(Array.from({ length: count }, () => fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-worker`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${SERVICE_KEY}`, "content-type": "application/json" },
+    body: "{}",
+  })));
+}
+async function drive(): Promise<void> {
+  const deadline = Date.now() + 110_000;
+  while (Date.now() < deadline) {
+    const active = await activeCount();
+    if (!active) return;
+    await kick(Math.min(2, Math.max(1, active)));
+    await sleep(2500);
+  }
+  if (await activeCount()) {
+    await fetch(`${SUPABASE_URL}/functions/v1/nomologies-core-v3-driver-20260815`, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" }).catch(() => undefined);
+  }
+}
+Deno.serve(async () => {
+  waitUntil(drive());
+  return new Response(JSON.stringify({ ok: true, suite: SUITE }), { status: 202, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+});
